@@ -12,7 +12,7 @@
         220806 B  p0/board_full_20260930_0115.md
         219076 B  p0/board_full_20260930_0608.md
 == 密钥/隐私扫描（须为 0）==
-   命中 28 条
+   命中 32 条
       p0/e126_crossref_paging.py  [email]  p0-lane@example.org
       p0/e135_lit_scalar_exponent.py  [email]  p0-lane@example.org
       p0/e135b_lit_broad.py  [email]  p0-lane@example.org
@@ -34,7 +34,7 @@
       p0/e189_out.txt  [email]  none@example.com
       p0/e189_out.txt  [email]  none@example.com
 == 本地绝对路径回显（应尽量 0；含则须改写）==
-   含盘符绝对路径的文件 90 个
+   含盘符绝对路径的文件 26 个
       p0/board_full_20260930_0115.md
       p0/board_full_20260930_0608.md
       p0/board_full_20260930_1062.md

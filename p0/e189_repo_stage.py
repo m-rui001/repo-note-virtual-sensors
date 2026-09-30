@@ -112,7 +112,7 @@ def main():
     abs_hits = []
     # Match both forward-slash and escaped-backslash forms of the workspace root.
     prefix_fwd = os.path.abspath(ROOT).replace('\\', '/') + '/'
-    prefix_bsl_raw = os.path.abspath(ROOT)  # e.g. 
+    prefix_bsl_raw = os.path.abspath(ROOT)  # e.g. E:\pdf\topics\out\rc
     for rel in staged:
         dst = os.path.join(DEST, rel.replace('/', os.sep))
         if not os.path.isfile(dst):
