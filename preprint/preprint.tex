@@ -1,0 +1,88 @@
+% =========================================================================
+% Submission source: task-restricted virtual sensors (merged two-lane note).
+% Build: pdflatex preprint && pdflatex preprint   (no bibtex needed)
+% =========================================================================
+\documentclass[journal]{IEEEtran}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{newtxtext,newtxmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,booktabs,xcolor,array}
+\usepackage{tabularx}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\hyphenation{op-ti-mal-ity}
+
+\begin{document}
+\title{On Task-Restricted Virtual Sensors:\\
+Reproduction, Infeasibility Interval, Non-Factorisation, and the Rate-Side Ladder}
+
+\author{Xiangrui~Meng,~Qwen3.8-Flash,~and~DeepSeek-V4.1-Flash%
+\thanks{X.~Meng is the human prompter and lead author, with the College of
+Mathematics and Sciences, Shanghai Normal University, Shanghai, China
+(ORCID iD 0009-0006-8902-0519). He framed the questions, ran the submissions to
+the solvers, and decided what survives.}%
+\thanks{Qwen3.8-Flash and DeepSeek-V4.1-Flash are large language models listed as
+co-authors. Each drove one independent verification lane and wrote its own
+scripts and solver logs---lane~D in \texttt{p0/}, lane~C in \texttt{.work3/}---and
+each audited the other lane's numbers claim by claim; the disagreements, the
+withdrawn claims, and the account of who was wrong about what are recorded in
+Section~\ref{sec:qual} and in the collaboration protocol released with this
+submission. Every number quoted here is produced by a script that writes its own
+log, mapped in Appendix~\ref{app:repro}. Attribution of individual sections by
+lane is given in the source headers.}%
+\thanks{Solver, benchmark and licence details, and the code and logs behind
+Appendix~\ref{app:repro}, are released under the MIT licence with this
+submission; the repository address is carried on the submission form.}%
+\thanks{This note is a comment on, and reproduction study of, the published
+paper~\cite{refpaper}; it reuses only that paper's public example and its
+published figure data, and it is not a version of it.}}
+
+\maketitle
+
+\begin{abstract}
+Task-restricted remote sensing asks for the cheapest virtual sensor whose
+information matrix lies in a given admissible cone. On the published four-state
+example, the plotted rate--cost frontiers are optima over the \emph{whole} cone,
+including its rank-deficient boundary, to within $0.07$ cost units inside the
+digitisation band, whereas no isotropic-noise family reaches them
+($1.11$--$16.4$ units above). The admissibility wall is a \emph{horizontal
+asymptote} of every frontier rather than a point on it, so the interval
+$(j_c,D_{\min}(V)]$, of length exactly $\Phi_0(V)$, is a complete infeasible
+region; the published theorem therefore must carry
+$\operatorname{supp}(Q)\subseteq\operatorname{range}(F^{\top})$, and the repaired
+statement costs nothing. The wall does not order the frontiers
+($111/120$ random rank-one designs invert the ordering at fixed rate), so it is
+not a design criterion. At a frozen prior the trade-off reduces to one convex
+program on the information form, solved by reverse water-filling on the spectrum
+of a task-weighted Gramian, yielding a closed-form value at the \emph{wall prior}
+and a sensor within $1.4\%$ of the best known designs at ten of eleven anchors.
+The frontier-wide bound that would have fixed the constant of the wall-approach
+law needs a monotonicity that is \emph{false}, and we withdraw it. On the rate
+side, the ladder law
+$\Delta I=\tfrac{1}{2}\mathrm{rank}C\,\log_2(1/x)+b_{\rm pred}+O(x)$ carries a
+computable intercept and slope $2\ln2/r$, verified on two measurable legs across
+five plants and ranks $1$--$4$; the slope is water-filling arithmetic, while its
+domain, the finite-rate inequality, the intercept and the rank structure are
+ours. Limitations and withdrawn claims are listed at the end of the note.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Remote state estimation, sensor scheduling, information form Kalman filter,
+non-convex optimisation, directed information, reverse water-filling.
+\end{IEEEkeywords}
+
+\input{sec_intro}
+\input{sec_setup}
+\input{frag_D_repro_infeasible_nofactor}
+\input{frag_rc_waterfill}
+\input{sec_floor}
+\input{sec_rate}
+\input{sec_qual}
+\input{sec_related}
+\input{sec_appendix}
+\input{sec_bib}
+
+\end{document}

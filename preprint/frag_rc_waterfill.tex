@@ -1,0 +1,297 @@
+% --------------------------------------------------------------------------
+% Lane rc contribution: frontier lower bound, closed-form sensor, switch-off
+% law. Evidence: p0/e75_out.txt (algebra + monotonicity spot check),
+% p0/e76_out.txt ([A] identity, [B] 540 perturbations, [C] bound table,
+% [D] 11-anchor design table), p0/e77_out.txt (switch-on rates),
+% p0/e71_out.txt / p0/e72b_out.txt (the failed SDP leg).
+% Status of each claim is written next to it: proved / conditional / measured.
+% --------------------------------------------------------------------------
+
+\section{A closed-form bound at a frozen prior, and the channel switch-off law}
+\label{sec:waterfill}
+
+Section~\ref{sec:infeasible} measures the approach to the wall and reads its
+exponent off the semi-log axes, \eqref{eq:decay}; the constant $C(V)$ was left
+unspecified because no lower bound for it was available. This section gives one,
+together with the sensor that attains it, and it separates cleanly into what is
+proved and what is only verified.
+
+Fix $V$ with orthonormal basis $Z$, let $X\succ0$ be the stationary prior of an
+admissible design, $G:=Z^{\top}XZ$, and write the injected information as
+$S=ZMZ^{\top}$. Two $r\times r$ quantities carry everything:
+\begin{equation}
+ \begin{gathered}
+ T:=G^{1/2}\big(M^{-1}+G\big)^{-1}G^{1/2}\in[0,I),\\
+ \Gamma:=G^{-1/2}\big(Z^{\top}X\Theta XZ\big)G^{-1/2}\succeq0,
+ \end{gathered}
+\label{eq:TG}
+\end{equation}
+with the convention that $T=0$ when $M$ is singular. Put
+$\Phi(X):=(X^{-1}+ZZ^{\top})^{-1}$ (the posterior of perfect sensing on $V$ given
+prior $X$) and $W_X:=j_c+\operatorname{tr}(\Theta\Phi(X))$.
+
+\begin{proposition}[reduction at frozen prior; proved]
+\label{pr:freeze}
+For every admissible design with stationary prior $X$, rate $I$ and cost $D$,
+with $\gamma_1\ge\cdots\ge\gamma_r$ the eigenvalues of $\Gamma$ and $R:=I-T$,
+\begin{equation}
+ D=W_X+\operatorname{tr}(\Gamma R),\qquad
+ I=-\tfrac12\log_2\det R,
+\label{eq:red}
+\end{equation}
+and $M\mapsto T$ is a bijection of the admissible cone onto $0\preceq T\prec I$.
+Hence, at fixed $X$,
+\begin{equation}
+ D\;\ge\;W_X+\min_{\substack{0\preceq R\preceq I\\ \det R\,\ge\,2^{-2I}}}
+ \operatorname{tr}(\Gamma R)
+ \;=\;W_X+\sum_{\gamma_i>\nu}\nu+\sum_{\gamma_i\le\nu}\gamma_i,
+\label{eq:wf}
+\end{equation}
+where $\nu$ is the unique solution of $\prod_{\gamma_i>\nu}(\nu/\gamma_i)=2^{-2I}$:
+the frozen-prior trade-off is a convex program whose solution is reverse
+water-filling on the spectrum of $\Gamma$.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+The inversion lemma gives $P_m=X-XZ(M^{-1}+G)^{-1}ZX^{\top}$, the determinant
+lemma gives $\det P_m=\det X\det R$, and the inverse map is
+$M=G^{-1/2}T(I-T)^{-1}G^{-1/2}$, so $I$ in \eqref{eq:red} is the rate. For the
+cost, cyclicity gives $\operatorname{tr}\Gamma=\operatorname{tr}(\Theta X-\Theta\Phi(X))$,
+hence $j_c+\operatorname{tr}(\Theta X)=W_X+\operatorname{tr}\Gamma$, and
+\eqref{eq:cost} with $\operatorname{tr}(\Theta P_m)=\operatorname{tr}(\Theta X)-
+\operatorname{tr}(\Gamma T)$ becomes $D=W_X+\operatorname{tr}(\Gamma R)$.
+Minimising a linear function over the convex set
+$\{\log\det R\ge\text{const},\ 0\preceq R\preceq I\}$ gives stationarity
+$\gamma_i-\nu/r_i+\mu_i=0$ with $\mu_i(r_i-1)=0$, i.e.\ $r_i=\min(1,\nu/\gamma_i)$,
+and the complementary slackness condition is the stated equation for $\nu$.
+
+\end{proof}
+
+The name in \eqref{eq:wf} needs one disambiguation, and the nearest neighbour
+deserves to be named exactly. Reverse water-filling is the shape of the
+nonanticipative rate-distortion function of a vector Gauss--Markov source, and its
+existence there as an \emph{optimal} algorithm was proved by Stavrou and Skoglund
+\cite{stavrou2022tac} (conference version \cite{stavrou2018asymptotic}), closing a
+question left open by \cite{tatikonda2004stochastic}; the same shape appears in the
+zero-delay upper bound realised through a Kalman filter with feedback
+\cite{stavrou2017itw}. The two programs are not the same one. There the objective
+is $\tfrac12\sum_i\log(\mu_{\Lambda,i}/\mu_{\Delta,i})$ under a trace constraint on
+the distortion, and the levels $\mu_{\Lambda,i}=\mu_{A^2,i}\mu_{\Delta,i}
++\mu_{\Sigma_W,i}$ move \emph{with} the design variable $\Delta$; here the objective
+$\operatorname{tr}(\Gamma R)$ is linear under a log-det constraint on the rate, and
+the levels $\gamma_i$ are frozen once $X$ is. Their reduction rests on pairwise
+commutativity of $(A,\Delta,\Sigma_W)$, which holds in the three structural cases
+they isolate ($A=\alpha I$, $A$ symmetric with isotropic noise, $A=\Sigma_W$) and is
+what makes Hadamard's inequality tight; our plant satisfies none of the three, so
+their theorem does not price the object of this section, while \eqref{eq:wf} needs
+no commutativity at all because $\Gamma$ is symmetric by construction. There the
+levels are eigenvalues of a covariance the design moves; here they are those of the
+task-weighted Gramian at a frozen prior, the object being partitioned is the LQG
+cost, and the sensor map enters one level up through $M$: \eqref{eq:wf} is a bound
+at fixed $X$, not a source-coding theorem.
+That line also designs the filter as an encoder--channel--decoder triple and bounds
+any estimator's mean-square error by a conditional mutual information
+\cite{stavrou2016estimation}, and the gap it publishes is carried by the
+\emph{quantizer}: dithered scalar quantization of the $r$ active dimensions costs
+$\tfrac r2\log_2(\pi e/6)+1=0.254r+1$ bits per vector, which is a space-filling and
+entropy-coding loss additive in the rate and averaging to zero per dimension under
+lattice quantization as the dimension grows \cite{stavrou2018zerodelay} --- a gap,
+not a slope of the rate-distortion curve.
+
+Two readings of Proposition~\ref{pr:freeze} matter more than the bound itself.
+First, the non-convexity of the sensor problem is not in \eqref{eq:wf}: at a
+frozen prior the admissible set is a box intersected with a log-det
+super-level set and the objective is linear. It is entirely in the requirement
+that $X$ be the prior \emph{of its own sensor}. That is why the convex
+relaxations over $(X,K)$ lose so much and why the loss grows with the
+Lagrangian multiplier: the cheapest summary of that failed leg is
+$\sup_\mu L(\mu)=33.014$ on the $r=3$ plane against the $41.485$ of
+Table~\ref{tab:bound}, and $\sup_\mu L=35.380$ unrestricted against a
+reachable $42.0427$. 
+Second, $r_i=1$ means $T_i=0$: that direction is not sensed at all. Switching a
+channel off is therefore not a numerical curiosity of the search but the
+water-filling solution when $\nu$ exceeds $\gamma_i$, which is what happens at
+small rate budgets; in the source-coding line the same active count forces the
+quantizer dimension to follow it once water-filling kicks in
+\cite{stavrou2018zerodelay}, which is a second reason to report $r$ rather than
+only the cost.
+
+Dropping the design-dependent $W_X$ and $\gamma$ to their values at the wall
+prior $X_w$ (the fixed point of perfect sensing on $V$; $X\succeq X_w$ for every
+reachable $X$ by monotonicity of $\Phi$) turns \eqref{eq:wf} into a
+\emph{candidate} frontier bound. One step there is not merely unproved, it is
+\textbf{false}, and we say so plainly:
+\begin{equation}
+ \begin{gathered}
+ D^{\rm cone}_V(I)\;\ge\;D_{\min}(V)+C(V)\,2^{-2I/r},\\
+ C(V):=r\,\big[\det\Gamma(X_w)\big]^{1/r},
+ \end{gathered}
+\label{eq:cond}
+\end{equation}
+valid wherever $X\mapsto\det\Gamma(X)$ is non-decreasing on the reachable
+priors. This is the constant of \eqref{eq:decay}, now evaluated in closed form.
+\textbf{The monotonicity it needs does not hold}, and the way we first satisfied
+ourselves that it did is a cautionary tale worth one paragraph. A first stress
+test --- $540$ random positive-semidefinite perturbations of $X_w$ at spectral
+scales $10^{-3},1,10^{3}$ on all three planes --- produced no violation; but a
+full-rank Gaussian perturbation of $X$ is dominated by the $\theta_1\,da$ term,
+so the test is \emph{blind} to the terms that matter. A rank-one perturbation
+breaks it in closed form already at $r=1$, $n=2$, where
+$\det\Gamma=\theta_1a+\theta_2b^2/a$: with $X_2=X_1+vv^{\top}$,
+$v=(\varepsilon,-1)$, we have $X_2\succeq X_1$ while $\det\Gamma$ \emph{decreases}
+($4/4$ violations as $\varepsilon$ runs $10^{-1}\to10^{-4}$, with the control
+$b=0$ producing $4/4$ non-violations, so the mechanism is the cross term
+$-2\theta_2b\varepsilon/a$). Restricting to designs that are actually reachable
+in the cone does not rescue it: with $P=A^{-1}(X-W)A^{-\top}$ and the
+reachability test $S=P^{-1}-X^{-1}\succeq0$, there are $115$ counterexamples
+whose $S$ lies in the admissible cone to $2\times10^{-16}$, and along the true
+reachable curve (a rank-one design swept on the red plane) $\det\Gamma$
+decreases strictly with rate at $11/11$ steps ($4.99\times10^{6}\to1.47\times10^{4}$).
+What survives is stated exactly: \emph{at a frozen prior} \eqref{eq:red} is an
+identity and \eqref{eq:wf} is exact; \emph{frontier-wide}, \eqref{eq:cond} is
+an empirical law whose five-point slope fit we report, not a bound. We therefore
+\textbf{withdraw the frontier-wide use} of \eqref{eq:cond} and keep it only at
+$X_w$, where it stays below the measured frontier at all eleven anchors
+(margins $0.5$--$16$ units) but is no longer claimed to hold for every $X$.
+Its arithmetic-geometric-mean step is what makes
+\eqref{eq:cond} weaker than \eqref{eq:wf}: at a frozen prior the exact
+water-filling minimum exceeds the $\mathrm{AM}$--$\mathrm{GM}$ value by
+$+2.79$ ($r=2$, $I=2$), $+3.55$ ($r=3$, $I=2$) and $+6.71$ ($r=4$, $I=2$), and
+the excess vanishes as the rate grows, which is also the equality condition of
+the mean inequality ($R$ isotropic in the eigenbasis of $\Gamma$, no channel
+switched off). 
+
+\begin{table}[h]
+ \centering\caption{The three planes of the published example: wall, closed-form
+ constant, the value of \eqref{eq:cond} at the wall prior at $I=3$ (a value at
+ that prior, not a frontier bound), best known achievable cost, and the
+ difference. Costs in units of $D$.}
+ \label{tab:bound}
+ \begin{tabularx}{\columnwidth}{Xrrrrr}
+ \hline
+ $V$ & $r$ & $C(V)$ & bound \eqref{eq:cond} & best known & gap \\
+ \hline
+ Schur tail $2$ & $2$ & $11.802$ & $47.865$ & $50.6023$ & $2.74$ \\
+ Schur tail $3$ & $3$ & $15.085$ & $41.485$ & $45.4537$ & $3.97$ \\
+ unrestricted & $4$ & $9.521$ & $37.514$ & $42.0427$ & $4.53$ \\
+ \hline
+ \end{tabularx}
+ \\[1pt]{\scriptsize The bound column is \eqref{eq:cond} with the
+ $\mathrm{AM}$--$\mathrm{GM}$ step replaced by the exact water-filling minimum
+ at $X_w$, so it inherits the same conditional status: it is a value at the wall
+ prior, not a frontier bound, because the $\det\Gamma$ monotonicity that
+ \eqref{eq:cond} needs is false (Remark~\ref{rmk:notclaimed}). The plain
+ \eqref{eq:cond} value is $40.375$ on the $r=3$ plane and $34.850$
+ unrestricted. Best known costs are constructive optima
+ (Table~\ref{tab:red}).}
+\end{table}
+
+The practical consequence for the published point of Remark~\ref{rmk:blue} is
+negative and should be stated plainly: the digitised blue value $43.711$ at $I=3$
+is \emph{not} certified infeasible. The certified bound there is $41.485$, which
+is $2.2$ units below it, so the exclusion in Remark~\ref{rmk:blue} remains an
+exclusion \emph{relative to the best achievable cost of that plane}
+($45.4537$), not an absolute one. Closing that $2.2$ needs control of
+$W_X-\operatorname{tr}\Gamma$ jointly in $X$, not a better solver.
+
+\begin{proposition}[switch-off rates; proved at frozen $\Gamma$]
+\label{pr:switch}
+Direction $i$ is sensed if and only if $\gamma_i>\nu$, and the $(k{+}1)$-st
+channel switches on at
+\begin{equation}
+ I^*(k)=\tfrac12\log_2\frac{\prod_{i\le k}\gamma_i}{\gamma_{k+1}^{\,k}},
+ \qquad \gamma_1\ge\cdots\ge\gamma_r.
+\label{eq:istar}
+\end{equation}
+\end{proposition}
+
+\emph{Status.} The thresholding \emph{structure} is prior art and we do not
+claim it: \cite{fox2016a} obtain the spectral threshold and the order
+phase transition on the controller side (their Theorem~1, the active-mode count
+of their Definition~5), and the closed form of the multidimensional
+trade-off cannot be exact at the frontier in general ---
+\cite{stavrou2017revisited} exhibit the two-dimensional counterexample and
+identify the equal-distortion assignment as the defect, which is why
+the first half of this section is stated at a frozen prior. What is ours here
+is \eqref{eq:istar} written in the \emph{sensing} coordinate $\Gamma$ of
+\eqref{eq:TG} together with its test against the measured ranks in
+Table~\ref{tab:switch} --- i.e.\ a reproduction of a known phase-transition
+phenomenon on the sensing side, not a new phase transition.
+
+\begin{table}[h]
+ \centering\caption{Test of \eqref{eq:istar} against the ranks of the designs
+ found by exhaustive and multistart search.}
+ \label{tab:switch}
+ {\scriptsize
+ \begin{tabularx}{\columnwidth}{@{}lllX@{}}
+ \hline
+ $V$ & $\gamma(X_w)$ & switch-on rates $I^*(k)$ & measured rank \\
+ \hline
+ tail $2$ & $85.39,0.41$ & $3.855$ & $1,1,1$ at $I=2,2.5,3$; $2$ at $4,4.9$ \\
+ tail $3$ & $86.97,3.70,0.40$ & $2.277,\ 5.508$ & not recorded \\
+ free & $85.69,5.53,0.43,0.16$ & $1.976,\ 5.665,\ 7.830$ & $1$ at $I=2$; $2$ at $3,4$ \\
+ \hline
+ \end{tabularx}}
+ \\[1pt]{\scriptsize ``Measured rank'' is the rank of the maximiser of the
+ published-plane searches, at the effective-$1\%$ threshold: the unrestricted
+ winners at $I=3,4$ carry a third eigen-direction of weight $<0.1\%$, so the
+ strict count is $3$ and the $1\%$ count is $2$; both are reported in
+ \texttt{p0/e77\_out.txt}. The $r=2$ row is the quantitative form of the
+ empirical finding in Section~\ref{sec:repro} that $\rho^{\star}=0$ for $I\le3$
+ and $\rho^{\star}\le0.1$ beyond: \eqref{eq:istar} puts the transition at
+ $3.855$, between the two measured anchors. The unrestricted row misses at
+ $I=2$ by $0.02$ bits --- \eqref{eq:istar} says the second channel has just
+ become worth opening, the search keeps it shut. }
+\end{table}
+
+\begin{table}[h]
+ \centering\caption{Self-consistent water-filling sensor versus the best cost
+ previously known for each plane and rate. Every entry is an achievable design,
+ so a positive difference means the closed-form sensor is worse.}
+ \label{tab:wfdesign}
+ \begin{tabularx}{\columnwidth}{Xrrl}
+ \hline
+ anchor & closed-form & best known & difference \\
+ \hline
+ $r=2$, $I=2.00$ & $63.2891$ & $62.8975$ & $+0.62\%$ \\
+ $r=2$, $I=2.50$ & $54.7600$ & $54.2924$ & $+0.86\%$ \\
+ $r=2$, $I=3.00$ & $51.0900$ & $50.6023$ & $+0.96\%$ \\
+ $r=2$, $I=4.00$ & $48.3503$ & $47.9396$ & $+0.86\%$ \\
+ $r=2$, $I=4.90$ & $47.2529$ & $47.1006$ & $+0.32\%$ \\
+ $r=3$, $I=2.00$ & $60.3714$ & $59.5611$ & $+1.36\%$ \\
+ $r=3$, $I=3.00$ & $45.6048$ & $45.4537$ & $+0.33\%$ \\
+ $r=3$, $I=4.00$ & $40.8722$ & $40.8072$ & $+0.16\%$ \\
+ free, $I=2.00$ & $60.4626$ & $58.1931$ & $+3.90\%$ \\
+ free, $I=3.00$ & $42.5092$ & $42.0427$ & $+1.11\%$ \\
+ free, $I=4.00$ & $36.7104$ & $36.5386$ & $+0.47\%$ \\
+ \hline
+ \end{tabularx}
+ \\[1pt]{\scriptsize The sensor is $M=G^{-1/2}T(I-T)^{-1}G^{-1/2}$ with $T$
+ water-filled on $\Gamma(X)$, $X$ obtained by iterating prior and sensor to a
+ common fixed point, and the water level bisected to land on the target rate;
+ no cost or rate gradient is ever evaluated. The one anchor at which
+ Proposition~\ref{pr:switch} mis-ranks the design is the one anchor that is
+ more than $1.4\%$ off, which is the only internal consistency check this table
+ offers. }
+\end{table}
+
+\begin{remark}[what is not claimed]
+\label{rmk:notclaimed}
+Nothing here is a global optimality proof. The bound \eqref{eq:cond} is
+conditional on the $\det\Gamma$ monotonicity, and that condition is \emph{false}
+in this project's own cone (a closed-form rank-one counterexample and $115$
+reachable counterexamples): \eqref{eq:cond} is therefore reported as an empirical
+law at the wall prior, not as a frontier bound. The water-filling solution
+\eqref{eq:wf} is exact only at a frozen prior, and self-consistency costs
+$0.16$--$1.36\%$; and the $2.2$-unit shortfall against the published blue point
+is reported rather than argued away. Two further failures belong in this
+category: a branch-and-bound certificate built by boxing the eigenvalues of $G$
+in logarithmic cells was implemented and \emph{violated} its own validity gate
+(it returned $58.57$ where $42.04$ is reachable) because a one-dimensional
+eigen-value ladder does not cover designs whose spectral spread exceeds the cell
+width, so that number certifies nothing; and the multistart search for the
+penalised infimum over physical designs reaches $45.409$ on the $r=3$ plane,
+which is an \emph{upper} bound on that infimum and therefore also certifies
+nothing, however close it comes to the reachable $45.4537$.
+
+\end{remark}

@@ -1,0 +1,95 @@
+% =========================================================================
+% Appendix A: reproduction map (lane C).
+% =========================================================================
+\appendix
+\section{Reproduction map}\label{app:repro}
+
+Every quantitative statement in this note is produced by a script that writes its
+own log; the map below is claim\,$\to$\,script\,$\to$\,log. Lane-C scripts live in
+\texttt{.work3/} and are run as
+\texttt{python -u -X utf8 \emph{script}.py > \emph{script}\_out.txt}; they use
+fixed seeds and each re-checks its own constants against two independent solvers
+before doing anything else ($j_c=31.483342$, agreement of the information-form
+fixed point with a DARE route to $1.6\times10^{-9}$). Lane-D scripts live in
+\texttt{p0/} with the same convention.
+
+\begin{table*}[t]\centering\scriptsize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{5.2cm}>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{5.8cm}@{}}
+\toprule
+claim & script & log / artefact \\
+\midrule
+frontier reproduction over the full cone (\S\ref{sec:repro})
+  & D: \texttt{exp\_authoritative.py}
+  & \texttt{p0/results/exp\_authoritative.log}, \texttt{tab:red} \\
+isotropic family fails by $1.11$--$16.4$ units (\S\ref{sec:repro})
+  & D: \texttt{exp\_phi\_delta.py}
+  & \texttt{p0/results/exp\_phi\_delta.log} \\
+wall is a horizontal asymptote (\S\ref{sec:infeasible})
+  & D: \texttt{e76}, \texttt{e71}, \texttt{e98}
+  & \texttt{p0/e76\_out.txt}, \texttt{eq:decay} \\
+interval length $\Phi_0(V)$; implementations agree to $1.3\times10^{-3}$
+  & C: \texttt{c12\_phicheck.py}, \texttt{c13\_joint.py}
+  & \texttt{.work3/c12,c13\_out.txt}; D: \texttt{exp\_phi\_exact.log} \\
+Theorem~3$'$ hypothesis on $\operatorname{supp}(Q)$
+  & D: \texttt{exp\_thm3\_qhypothesis.py}
+  & \texttt{p0/results/exp\_thm3\_qhypothesis.log} \\
+wall does not order the frontier ($111/120$)
+  & D: \texttt{exp\_delta\_clean.py}
+  & \texttt{tab:nofactor}, \texttt{exp\_delta\_clean.log} \\
+frozen-prior reduction, reverse water-filling (\S\ref{sec:waterfill})
+  & D: \texttt{exp\_trv\_penalty.py}, \texttt{e95}
+  & \texttt{pr:freeze}, \texttt{eq:wf} \\
+channel switch-on rates reproduce rank deficiency
+  & D: \texttt{e96}, \texttt{e96c}
+  & \texttt{tab:switch}, \texttt{tab:wfdesign} \\
+best-known floors \eqref{eq:bestfloor}, rule \eqref{eq:rule} (\S\ref{sec:floor})
+  & C: \texttt{c19\_phifinal.py}, \texttt{c24\_gdescent.py}, \texttt{c90b\_kkt\_strict2.py}
+  & \texttt{.work3/c19,c24,c90b\_out.txt} \\
+four quadrants $(\Delta,\Phi_0)$ (\S\ref{sec:floor})
+  & C: \texttt{c86\_conv\_check.py}, \texttt{c87\_support.py}
+  & \texttt{.work3/c86,c87\_out.txt} \\
+ladder identity \eqref{eq:gap} ($11$ points, $7\times10^{-15}$)
+  & C: \texttt{c16\_plaw.py}, \texttt{c71\_funcform.py}
+  & \texttt{.work3/c16,c71\_out.txt} \\
+two legs $\sigma,\alpha$ and $\hat\gamma$ (\S\ref{sec:rate})
+  & C: \texttt{c76}, \texttt{c77}, \texttt{c78}
+  & \texttt{.work3/c76--c78\_out.txt} \\
+cross-lane exponent agreement (median $2.06\%$)
+  & C: \texttt{c83\_table\_fix.py}; D: \texttt{e137b}
+  & \texttt{.work3/c83\_out.txt}, \texttt{p0/e137b\_out.txt} \\
+window specificity of the device ($40\times$)
+  & C: \texttt{c79\_window\_robust.py}
+  & \texttt{.work3/c79\_out.txt} \\
+rank thresholds $4/3/2/1$ at $D=32.31/34.41/56.66/80$
+  & C: \texttt{c87\_support.py}, \texttt{c46\_sdp.py}
+  & \texttt{.work3/c87\_out.txt} \\
+support is not $\Theta$-diagonal; cone-restriction cost
+  & C: \texttt{c89\_diag\_proper.py}, \texttt{c89b\_cone\_fast.py}
+  & \texttt{.work3/c89,c89b\_out.txt} \\
+KKT reduction and its numerical decision (\S\ref{sec:rate})
+  & C: \texttt{c90b} (criterion pre-registered in the file header)
+  & \texttt{.work3/c90b\_out.txt, .json} \\
+$O(x)$ status of the subleading term
+  & D: \texttt{e159c}
+  & \texttt{p0/e159c\_out.txt} \\
+$2\ln2/r$ is water-filling arithmetic
+  & D: \texttt{e150}
+  & \texttt{p0/e150\_out.txt} \\
+number-by-number QA of this note's own tables
+  & C: \texttt{c67\_qa.py}
+  & \texttt{.work3/c67\_qa.log} ($34/34$ checks pass) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Pre-registration.} The two experiments whose outcome could have been
+chosen after the fact carry their criterion inside the script file, written
+before the run: the KKT strict-case search (\texttt{c90b}) and the
+cone-restriction test (\texttt{c89b}). The first version of the KKT search
+(\texttt{c90}) is kept, with its defect recorded: it sampled
+$\mathrm{Gr}(n,r)$ uniformly and therefore misread infeasible-dense regions as
+``infeasible'', which is a search defect and not a criterion change; the fix
+seeds the descent with floor-optimal subspaces. Where a run's exit status was
+non-zero we say so rather than hiding it: \texttt{c86} and \texttt{c88} needed a
+singular-matrix guard near the floor after their first execution, and their
+numbers quoted here are from the guarded run.

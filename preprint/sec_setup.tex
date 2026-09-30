@@ -1,0 +1,67 @@
+\section{Setup and notation}
+\label{sec:setup}
+
+We keep the reference paper's model, recursions and symbol set, and add only
+what Sections~\ref{sec:repro}--\ref{sec:nofactor} need. The plant is
+$x_{k+1}=Ax_k+Bu_k+w_k$ with virtual-sensor reading $z_k=Fx_k+v_k$
+($w_k,v_k$ i.i.d.\ Gaussian, $W\succ0$), and the reference cost is the average
+stage cost of the LQG pair. Under the certainty-equivalence structure the control
+law is $u_k=-K\hat x_k$ and the cost separates as
+\begin{equation}
+ D(S)\;=\;j_c+\operatorname{tr}(\Theta P_m),\qquad
+ j_c=\operatorname{tr}(WP_c),
+\label{eq:cost}
+\end{equation}
+with $P_c$ the control ARE solution, $\Theta=K^{\top}(R+B^{\top}P_cB)K$ the
+closed-loop weighting, and $P_m$ the posterior error covariance. The
+posterior is propagated in \emph{information form},
+\begin{equation}
+ P_m^{\,+}=\big(\tilde P^{\,-1}+S\big)^{-1},\qquad
+ \tilde P^{\,+}=AP_mA^{\top}+W,
+\label{eq:recursion}
+\end{equation}
+where $S\succeq0$ is the information matrix the virtual sensor injects per step,
+and the rate is
+\begin{equation}
+ I(S)=\tfrac12\log_2\frac{\det(AP_mA^{\top}+W)}{\det P_m}
+\label{eq:rate}
+\end{equation}
+evaluated at a stationary point of \eqref{eq:recursion}. A stationary point
+exists exactly when the pair seen by the recursion is detectable, which is why
+\eqref{eq:recursion} doubles as the feasibility certificate in
+Proposition~\ref{pr:region}.
+
+\emph{Admissibility.} A sensor is task-restricted to $F$ when
+$\mathcal K_F=\{S\succeq0:\operatorname{range}(S)\subseteq
+\operatorname{range}(F^{\top})\}$, and the paper's Corollary~1 parameterises the
+cone as $S=U_FMU_F^{\top}$ with $M\succeq0$ and $U_F$ an orthonormal basis of
+$\operatorname{range}(F^{\top})$. Two consequences are used here: the cone is
+\emph{closed}, so rank-deficient $S$ --- a channel switched off entirely --- are
+admissible, and the constraint is an equality-type reachability condition on a
+subspace, not an inequality on a spectrum.
+
+\emph{Notation.} $V:=\operatorname{range}(S)$, $P_V$ the orthogonal projector
+onto $V$, $r:=\dim V$. We write $D_{\min}(V)$, not a function of $F$, because
+every quantity in Sections~\ref{sec:infeasible}--\ref{sec:nofactor} depends on
+$F$ only through the subspaces $F$ admits; this also avoids the symbol clash
+noted in. Finally, writing $S=vP_V$ for the isotropic
+family, the two evaluation calibres of
+Remark~\ref{rmk:calibre} are
+\[
+ D^{\rm cone}_{V}(I)=\inf_{\substack{\operatorname{range}S\subseteq V\\
+ I(S)\le I}}D(S),\qquad
+ D^{\rm ray}_{V}(I)=\inf_{\substack{S=vP_V\\ I(S)\le I}}D(S),
+\]
+so $D^{\rm ray}\ge D^{\rm cone}$ on the same axis. Both are rate-\emph{budget}
+calibres: $D$ is non-increasing and $I$ non-decreasing in the L\"owner order on
+$S$, so the infimum sits on the boundary $I(S)=I$; reading the constraint as
+$I(S)\ge I$ would return the wall $D_{\min}(V)$ at every $I$, which no number in
+this note is. Every frontier number in this
+note is constructive --- a feasible design, hence an upper bound on
+$D^{\rm cone}_{V}$ --- unless a lower-bound certificate is quoted explicitly, and
+every number is for the published four-state example of
+Section~\ref{sec:repro}. \emph{Notation check.} We reserve $D_{\min}(V)$ for the floor and
+$\Phi_0(V)=D_{\min}(V)-j_c$ for its excess; $\Phi_0^{\star}(r)$ denotes the
+rank-$r$ minimum of the excess (\S\ref{sec:floor}). No other meaning of $\Phi$
+is used in this note except the frozen-prior posterior of
+\S\ref{sec:waterfill}, which always appears with its argument.
