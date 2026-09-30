@@ -1,0 +1,70 @@
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+\p0\exp_cmatrix_intercept.py:68: SyntaxWarning: invalid escape sequence '\d'
+  print('  $F\\tilde P_0F^\\top$ 本征值 %s（全正 ⟺ 可检测，$\det$=%.4f）'
+
+===== F6 坐标 $\{x_1,x_2\}$：rank=2  可检测=True  $\Phi$=18.6282  地板=50.1115  $C\succ0$=True =====
+  $C$ 本征值 [ 0.1518 31.5057]   $\det C$=4.7822   $\det(F\tilde P_0F^\top)$=85.2293
+  预言 $\Gamma^\ast$ 本征值比 207.56   $a$=3.3219  $b_{pred}$=2.9823
+        x        Δ数值最优         Δ渐近式           残差        Δ解析V*          Γ*比
+   0.5000       4.0486       3.9823      +0.0663       4.1558       235.89
+   0.2000       5.3307       5.3042      +0.0265       5.3776       218.31
+   0.1000       6.3175       6.3042      +0.0132       6.3417       212.85
+   0.0500       7.3108       7.3042      +0.0066       7.3231       210.18
+   0.0200       8.6288       8.6261      +0.0026       8.6338       208.61
+\p0\exp_nearfloor_law.py:57: RuntimeWarning: overflow encountered in exp
+  M[np.diag_indices(r)] = np.exp(p[:r])
+\p0\exp_nearfloor_law.py:59: RuntimeWarning: overflow encountered in matmul
+  return sym(M @ M.T)
+\p0\p0_replicate_letter.py:67: RuntimeWarning: invalid value encountered in matmul
+  P = sym(np.linalg.inv(np.linalg.inv(Pt) + F.T @ Gam @ F))
+\p0\p0_replicate_letter.py:74: RuntimeWarning: invalid value encountered in matmul
+  S = F.T @ Gam @ F
+C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\linalg\_linalg.py:2431: RuntimeWarning: invalid value encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+   0.0100       9.6275       9.6261      +0.0013       9.6300       208.10
+\p0\p0_replicate_letter.py:174: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=solver, gp=False)
+
+===== F7 坐标 $\{x_2,x_4\}$：rank=2  可检测=True  $\Phi$=105.6370  地板=137.1203  $C\succ0$=True =====
+  $C$ 本征值 [ 4.5735 14.5659]   $\det C$=66.6165   $\det(F\tilde P_0F^\top)$=218.4414
+  预言 $\Gamma^\ast$ 本征值比 3.18   $a$=3.3219  $b_{pred}$=6.5649
+        x        Δ数值最优         Δ渐近式           残差        Δ解析V*          Γ*比
+   0.5000       7.5700       7.5649      +0.0051       7.5786         3.21
+   0.2000       8.8889       8.8868      +0.0021       8.8923         3.19
+   0.1000       9.8879       9.8868      +0.0010       9.8896         3.19
+   0.0500      10.8874      10.8868      +0.0006      10.8882         3.15
+   0.0200      12.2090      12.2088      +0.0002      12.2093         3.19
+   0.0100      13.2089      13.2088      +0.0001      13.2090         3.20
+
+===== F8 随机正交行对：rank=2  可检测=True  $\Phi$=28.5745  地板=60.0578  $C\succ0$=True =====
+  $C$ 本征值 [  0.4362 119.2087]   $\det C$=51.9944   $\det(F\tilde P_0F^\top)$=53.6294
+  预言 $\Gamma^\ast$ 本征值比 273.31   $a$=3.3219  $b_{pred}$=4.7806
+        x        Δ数值最优         Δ渐近式           残差        Δ解析V*          Γ*比
+   0.5000       5.8263       5.7806      +0.0457       5.8605       275.99
+   0.2000       7.1209       7.1025      +0.0184       7.1352       274.46
+   0.1000       8.1117       8.1025      +0.0092       8.1190       274.64
+   0.0500       9.1074       9.1025      +0.0049       9.1108       285.55
+   0.0200      11.9741      10.4244      +1.5497      10.4277        14.38
+   0.0100      13.1317      11.4244      +1.7073      11.4261        14.42
+
+===== $r=1$ 的可证伪预言 =====
+
+===== F9 单通道 $y=x_1$：rank=1  可检测=True  $\Phi$=30.9810  地板=62.4644  $C\succ0$=True =====
+  $C$ 本征值 [49.7102]   $\det C$=49.7102   $\det(F\tilde P_0F^\top)$=10.8067
+  预言 $\Gamma^\ast$ 本征值比 1.00   $a$=1.6610  $b_{pred}$=2.6566
+        x        Δ数值最优         Δ渐近式           残差        Δ解析V*          Γ*比
+   0.5000       3.1727       3.1566      +0.0161       3.1729         1.00
+   0.2000       3.8240       3.8175      +0.0065       3.8241         1.00
+   0.1000       4.3208       4.3175      +0.0033       4.3208         1.00
+   0.0500       4.8192       4.8175      +0.0016       4.8192         1.00
+   0.0200       5.4791       5.4785      +0.0007       5.4792         1.00
+   0.0100       5.9788       5.9785      +0.0003       5.9788         1.00

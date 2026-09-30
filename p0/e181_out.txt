@@ -1,0 +1,56 @@
+== [S0] 双通道取数（Crossref + OpenAlex；每条都记成功/失败）==
+  TAC-2022  crossref=ok        openalex=ok       
+    CR 标题  : Asymptotic Reverse Waterfilling Algorithm of NRDF for Certain Classes of Vector Gauss–Markov Processes
+    CR 作者  : Photios A. Stavrou; Mikael Skoglund（2 位）
+    CR 出处  : IEEE Transactions on Automatic Control vol=67 iss=6 page=3196-3203 year=2022 cited=10
+    CR 摘要  : 无
+    OA 标题  : Asymptotic Reverse Waterfilling Algorithm of NRDF for Certain Classes of Vector Gauss–Markov Processes
+    OA 作者  : Photios A. Stavrou; Mikael Skoglund（2 位）
+    OA 出处  : IEEE Transactions on Automatic Control year=2021 is_oa=False cited_by=11
+    OA 链接  : oa_url=
+    OA pdf   : （无）
+    OA 摘要  : 有（1015 字）
+    标题两通道一致：True
+  ACC-2012  crossref=ok        openalex=ok       
+    CR 标题  : Sensor data scheduling for linear quadratic Gaussian control with full state feedback
+    CR 作者  : Ling Shi; Ye Yuan; Huanshui Zhang（3 位）
+    CR 出处  : 2012 American Control Conference (ACC) vol= iss= page=2030-2035 year=2012 cited=1
+    CR 摘要  : 无
+    OA 标题  : Sensor data scheduling for linear quadratic Gaussian control with full state feedback
+    OA 作者  : Ling Shi; Ye Yuan; Huanshui Zhang（3 位）
+    OA 出处  :  year=2012 is_oa=False cited_by=7
+    OA 链接  : oa_url=
+    OA pdf   : （无）
+    OA 摘要  : 有（942 字）
+    标题两通道一致：True
+  ACC-2023  crossref=ok        openalex=ok       
+    CR 标题  : Learning Based Optimal Sensor Selection for Linear Quadratic Control with Unknown Sensor Noise Covariance
+    CR 作者  : Jinna Li; Xinru Wang; Xiangyu Meng（3 位）
+    CR 出处  : 2023 American Control Conference (ACC) vol= iss= page=4173-4178 year=2023 cited=3
+    CR 摘要  : 无
+    OA 标题  : Learning Based Optimal Sensor Selection for Linear Quadratic Control with Unknown Sensor Noise Covariance
+    OA 作者  : Jinna Li; Xinru Wang; Xiangyu Meng（3 位）
+    OA 出处  :  year=2023 is_oa=True cited_by=3
+    OA 链接  : oa_url=https://repository.lsu.edu/eecs_pubs/1544
+    OA pdf   : （无）
+    OA 摘要  : 有（1050 字）
+    标题两通道一致：True
+
+  通道成功条数：crossref 3/3，openalex 3/3
+
+== [S1] 摘要全文（OpenAlex 重建的 inverted index，逐条打印，供通读比对）==
+  --- TAC-2022 (10.1109/tac.2021.3099444)：
+      The existence of an optimal reverse-waterfilling algorithm to compute the nonanticipative rate distortion function (NRDF) for time-invariant vector-valued Gauss–Markov processes with a mean-squared-error distortion has been an open question since the pioneering work of Tatikondaet al.on stochastic linear control over a communication channel, in 2004. In this article, we derivestrong structural propertieson the time-invariant multidimensional Gauss–Markov processes that allow for an optimization problem that can be computed optimally via a reverse-waterfilling algorithm. Moreover, we propose an elegant optimal iterative scheme that computes this reverse-waterfilling algorithm. We show that the specific scheme operates much faster than any existing algorithmic approach that solves the same problem optimally and is also scalable. Finally, using our new results, we derive for the first time a nontrivial analytical solution of the asymptotic NRDF using a correlated time-invariant 2-D Gauss–Markov process.
+  --- ACC-2012 (10.1109/acc.2012.6314650)：
+      Networked control systems (NCSs) have attracted much attention in the past decade due to their many advantages and growing number of applications. Different than classic control systems, resources in NCSs, such as network bandwidth and communication energy, are often limited, which degrade the closed-loop system performance and may even cause the system to become unstable. Seeking a desired trade-off between the closed-loop system performance and the limited resources is thus one heated area of research. In this paper, we analyze the trade-off between the sensor-to-controller communication rate and the closed-loop system performance indexed by the conventional LQG control cost. We present and compare several sensor data schedules, and demonstrate that two event-based sensor data schedules provide better trade-off than an optimal offline schedule. Simulation examples are provided to illustrate the theories developed in the paper.
+  --- ACC-2023 (10.23919/acc55779.2023.10156247)：
+      In this article, an optimal sensor selection problem is considered under the framework of linear quadratic control. The objective is to find the best strategy of selecting one sensor among a set of sensors at each time step so that the expected system performance is minimized over multiple time steps. This problem is formulated as a multi-armed bandit problem. Uncertainties are captured through noisy sensor measurements, which account for the performance deterioration caused by unknown sensor noise covariance. In this context, several action-value based reinforcement learning methods are proposed to evaluate the performance of different sensor selection strategies. Moreover, a statistical method is developed to estimate the unknown sensor noise covariance as a byproduct. The almost sure convergence to the true sensor noise covariance is guaranteed as the number of times a sensor being selected goes to infinity. A linear quadratic control example is presented to illustrate the proposed approaches and to demonstrate their effectiveness.
+
+== [S2] 下载开放全文（只有 OA 链接存在才下；下完立刻转文本并打印首行）==
+  TAC-2022  无 OA 链接 ⇒ 不下（不编造全文）
+  ACC-2012  无 OA 链接 ⇒ 不下（不编造全文）
+  ACC-2023  落盘 papers/parts/e181_ACC-2023.html（32776 B，https://repository.lsu.edu/eecs_pubs/1544）
+
+== [S3] 条数与退出（#46）==
+  目标 3 条；crossref 成功 3；openalex 成功 3；摘要可得 3；OA 全文落盘 1
+  本节**不**判"A 的期刊版是 B"（#48：需标题等值或全文定理号互涉）；只出著录＋可读全文。

@@ -1,0 +1,20 @@
+== b vs K anatomy at the matched near-floor rate  (dI = 0.0020 bit, JC = 31.483342) ==
+   b   = s*(D-JC) at s=1e-6      (the quantity my [G1] ranked on)
+   K   = (D-JC)*dI  at I=R_exp+dI (the quantity that orders D at matched rate)
+   a   = K/b                      (the rate-side slope factor I ignored)
+
+ rank  leg       s(min)      D(min)       b(min)     K(min)      a(min)   |  s(max)      D(max)       b(max)     K(max)      a(max)
+ 1      min  6.7529e-05  162253.4506     10.9293    324.4439     29.6856   |  max  1.6736e-03   10735.0830     17.8715     21.4072      1.1978
+       ratios:  b_min/b_max=0.6116   a_min/a_max=24.7826   K_min/K_max=15.1558   D_min/D_max=15.1143
+ 2      min  5.8728e-05  149317.9370      8.7509    298.5729     34.1190   |  max  3.0632e-04   40129.3431     12.2726     80.1957      6.5345
+       ratios:  b_min/b_max=0.7130   a_min/a_max=5.2213   K_min/K_max=3.7231   D_min/D_max=3.7209
+ 3      min  5.0776e-05  155357.3489      7.8743    310.6517     39.4514   |  max  1.8244e-04   56019.9576     10.2070    111.9769     10.9706
+       ratios:  b_min/b_max=0.7715   a_min/a_max=3.5961   K_min/K_max=2.7742   D_min/D_max=2.7733
+
+== frontier-law cross-check:  D - JC  ==  b / s  at the matched s ==
+  rank 1  min:  b/s = 1.618471e+05   D-JC(obs) = 1.622220e+05   rel = -0.2311%
+  rank 1  max:  b/s = 1.067843e+04   D-JC(obs) = 1.070360e+04   rel = -0.2351%
+  rank 2  min:  b/s = 1.490077e+05   D-JC(obs) = 1.492865e+05   rel = -0.1867%
+  rank 2  max:  b/s = 4.006413e+04   D-JC(obs) = 4.009786e+04   rel = -0.0841%
+  rank 3  min:  b/s = 1.550783e+05   D-JC(obs) = 1.553259e+05   rel = -0.1594%
+  rank 3  max:  b/s = 5.594577e+04   D-JC(obs) = 5.598847e+04   rel = -0.0763%

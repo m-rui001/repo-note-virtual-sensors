@@ -1,0 +1,27 @@
+[G] CDC2018  doi=10.1109/cdc.2018.8619725             取到 title=True
+[G] TAC2022  doi=10.1109/tac.2021.3099444             取到 title=True
+[G] ACC2012  doi=10.1109/acc.2012.6314650             取到 title=True
+[G] ACC2023  doi=10.23919/acc55779.2023.10156247      取到 title=True
+[G] 成功 4/4 条
+
+== [T1] CDC-2018 vs TAC-2022 是否同一工作 ==
+  CDC2018  title=Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Distortion Function of Vector-Valued Gauss-Markov Processes with MSE Distortion
+           venue=2018 IEEE Conference on Decision and Control (CDC) vol=- pages=14-20 year=2018 type=proceedings-article
+           authors=Charalambos D. Charalambous, Mikael Skoglund, Photios A. Stavrou, Sergey Loyka, Themistoklis Charalambous
+  TAC2022  title=Asymptotic Reverse Waterfilling Algorithm of NRDF for Certain Classes of Vector Gauss–Markov Processes
+           venue=IEEE Transactions on Automatic Control vol=67 pages=3196-3203 year=2022 type=journal-article
+           authors=Mikael Skoglund, Photios A. Stavrou
+  标题归一化等值=False  作者交集 2 人（CDC 5 / TAC 2）
+  [T1] 判决：词干重叠高、作者全含 $\Rightarrow$ 判"期刊扩展版"，升级须同时保留会议版
+
+== [T2] 两条最近风险条目：摘要级三项筛查 ==
+  ACC2012  title=Sensor data scheduling for linear quadratic Gaussian control with full state feedback
+           venue=2012 American Control Conference (ACC) year=2012
+           [T2] Crossref **无摘要** $\Rightarrow$ 不得写差异句，只许声称著录已取
+  ACC2023  title=Learning Based Optimal Sensor Selection for Linear Quadratic Control with Unknown Sensor Noise Covariance
+           venue=2023 American Control Conference (ACC) year=2023
+           [T2] Crossref **无摘要** $\Rightarrow$ 不得写差异句，只许声称著录已取
+
+== [T3] 可直接落 note.tex 的 bibitem（字段全取自本响应）==
+  \bibitem{stavrou2022tac} P~Stavrou, M~Skoglund, ``Asymptotic Reverse Waterfilling Algorithm of NRDF for Certain Classes of Vector Gauss–Markov Processes'', \emph{IEEE Transactions on Automatic Control}, vol.~67, pp.~3196-3203, 2022, doi:~10.1109/tac.2021.3099444.
+  [T3] 字段齐=True

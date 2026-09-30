@@ -1,0 +1,33 @@
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+F2 地板 46.1231，检验解析点可行性与三条独立路径
+
+       x        J(定点)      J(DARE)       J−地板−x        I(定点)      I(DARE)   solve_cone
+  0.0500     46.17314     46.17314     -2.8e-15      8.96316      8.96316      -0.0001
+  0.0200     46.14314     46.14314     -1.1e-14     10.28112     10.28112      +0.7179
+  0.0100     46.13314     46.13314     -9.1e-15     11.27982     11.27982      +0.8397
+  0.0050     46.12814     46.12814     -4.5e-15     12.27916     12.27916      +0.9801
+\p0\exp_nearfloor_law.py:59: RuntimeWarning: overflow encountered in matmul
+  return sym(M @ M.T)
+C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\linalg\_linalg.py:2431: RuntimeWarning: invalid value encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+  0.0020     46.12514     46.12514      2.4e-15     13.60070     13.60070      +0.9524
+\p0\p0_replicate_letter.py:75: RuntimeWarning: invalid value encountered in log
+  I_dir = 0.5 * np.log(np.linalg.det(Pt) / np.linalg.det(P)) / ln2
+\p0\exp_nearfloor_law.py:57: RuntimeWarning: overflow encountered in exp
+  M[np.diag_indices(r)] = np.exp(p[:r])
+\p0\exp_nearfloor_law.py:59: RuntimeWarning: invalid value encountered in matmul
+  return sym(M @ M.T)
+  0.0010     46.12414     46.12414     -9.4e-15     14.60057     14.60057      +1.0171
+
+精度诊断：把 $\Gamma^\ast$ 走一遍 pack→unpack，看参数化损失多少相对误差
+  $\kappa(\Gamma^\ast)$=1.783e+01，$\|G-G_2\|_F/\|G\|_F$=4.042e-16
+  重建后的 $J$ 比预算超 -2.576e-11（相对 -5.584e-13）；`solve_cone` 的容差是 $J\le D(1+10^{-9})$

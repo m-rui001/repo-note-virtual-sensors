@@ -1,0 +1,10 @@
+\p0\exp_c22_closed.py:15: SyntaxWarning: invalid escape sequence '\P'
+  分子分母都是我已有的闭式量（$c$ 由 E36 的 Stein 解、$\Phi_0$ 由奇异 DARE），**零自由参数**。
+\p0\exp_c22_closed.py:92: SyntaxWarning: invalid escape sequence '\p'
+  print('\n  [B0] 偶性自检（$\varphi=\pm h$ 同 Plant，只换方向符号）')
+\p0\exp_c22_closed.py:53: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  m0 = float(F @ Pt0 @ F.T)
+\p0\exp_c22_closed.py:149: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  return phi, np.log(float(F @ Pt @ F.T * X37.C_of(Plx, F)[0, 0]))
+\p0\exp_c22_closed.py:183: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  return phi, np.log(float(F @ Pt @ F.T * X37.C_of(Plx, F)[0, 0]))

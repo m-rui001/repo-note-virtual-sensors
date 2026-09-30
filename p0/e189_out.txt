@@ -1,0 +1,50 @@
+== 暂存结果 ==
+   目标目录 E:\pdf\topics\out\repo-note-virtual-sensors
+   文件数 651，字节 9.05 MB
+   分目录计数：community.md=1, p0=616, preprint=34
+   最大 8 件：
+        734458 B  community.md
+        591153 B  p0/e97_census_raw.json
+        351560 B  preprint/preprint.pdf
+        351560 B  preprint/jaigp_flat.pdf
+        286276 B  p0/board_full_2169lines_20260929.md
+        241215 B  p0/e126_out.json
+        220806 B  p0/board_full_20260930_0115.md
+        219076 B  p0/board_full_20260930_0608.md
+== 密钥/隐私扫描（须为 0）==
+   命中 28 条
+      p0/e126_crossref_paging.py  [email]  p0-lane@example.org
+      p0/e135_lit_scalar_exponent.py  [email]  p0-lane@example.org
+      p0/e135b_lit_broad.py  [email]  p0-lane@example.org
+      p0/e135c_lit_polite.py  [email]  p0-lane@example.org
+      p0/e149_crossref_dois.py  [email]  research.audit@example.org
+      p0/e154_1603_cite_pack.py  [email]  none@example.com
+      p0/e154b_1603_journal_bibitem.py  [email]  none@example.com
+      p0/e157b_precedent_crossref.py  [email]  none@example.com
+      p0/e161_citation_debts.py  [email]  research@example.org
+      p0/e181_nearest_neighbors.py  [email]  m-rui001@example.com
+      p0/e182_bib_verify.py  [email]  m-rui001@example.com
+      p0/e182b_missing_locators.py  [email]  m-rui001@example.com
+      p0/e189_out.txt  [email]  p0-lane@example.org
+      p0/e189_out.txt  [email]  p0-lane@example.org
+      p0/e189_out.txt  [email]  p0-lane@example.org
+      p0/e189_out.txt  [email]  p0-lane@example.org
+      p0/e189_out.txt  [email]  research.audit@example.org
+      p0/e189_out.txt  [email]  none@example.com
+      p0/e189_out.txt  [email]  none@example.com
+      p0/e189_out.txt  [email]  none@example.com
+== 本地绝对路径回显（应尽量 0；含则须改写）==
+   含盘符绝对路径的文件 90 个
+      p0/board_full_20260930_0115.md
+      p0/board_full_20260930_0608.md
+      p0/board_full_20260930_1062.md
+      p0/board_full_20260930_1133.md
+      p0/board_full_20260930_2310.md
+      p0/board_full_2166lines_20260929.md
+      p0/board_full_2169lines_20260929.md
+      p0/board_full_2193lines_20260929.md
+      p0/board_full_2272lines_20260929.md
+      p0/board_full_2355lines_20260929b.md
+      p0/community_live_404lines_20260930_pre53.md
+      p0/community_live_503lines_20260930_pre54.md
+   说明：跨车道板 community.md 已纳入；.work3/ 脚本未纳入（对方车道代码不在本仓库）。

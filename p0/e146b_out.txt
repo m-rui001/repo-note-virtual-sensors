@@ -1,0 +1,22 @@
+== [F1] Atom 元数据（作者顺序 / comment / journal_ref / primary_category）==
+  1603.04172   tries=1  primary=['cs.IT']  updated=['2017-02-10T17:27:01Z']
+      标题：Optimal Estimation via Nonanticipative Rate Distortion Function and Applications to Time-Varying Gauss-Markov Processes
+      作者：Photios A. Stavrou; Themistoklis Charalambous; Charalambos D. Charalambous; Sergey Loyka
+      comment：35 pages, 6 figures, submitted for publication in SIAM Journal on Control and Optimization (SICON)
+  1810.00298   tries=1  primary=['cs.IT']  updated=['2018-09-30T02:36:41Z']
+      标题：Zero-Delay Rate Distortion via Filtering for Vector-Valued Gaussian Sources
+      作者：Photios A. Stavrou; Jan Ostergaard; Charalambos D. Charalambous
+      comment：32 pages, 9 figures, published in IEEE Journal of Selected Topics in Signal Processing
+      arxiv:doi：10.1109/JSTSP.2018.2855046
+  1912.07640   tries=1  primary=['cs.IT']  updated=['2021-10-20T14:11:00Z']
+      标题：Indirect NRDF for Partially Observable Gauss-Markov Processes with MSE Distortion: Complete Characterizations and Optimal Solutions
+      作者：Photios A. Stavrou; Mikael Skoglund
+      comment：17 double column pages, 4 figures, 1 Table
+
+== [F2]+[F3] PDF 全文下载验收 ==
+  pypdf 可用：True
+Traceback (most recent call last):
+  File "\p0\e146_fetch_stavrou3.py", line 103, in <module>
+    open(path, 'wb').write(body)
+    ~~~~^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'papers/pdf/1603.04172.pdf'

@@ -1,0 +1,37 @@
+\p0\e89_unstable_cheap_axis.py:92: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=cp.SCS, gp=False, eps=eps, max_iters=it)
+== E89：把'便宜'与'稳定'拆开——lambda_min(Theta) 落在不稳定方向时的首阈值 ==
+
+--- C1 对照 s=0.00 gap=2.16 Q=(0.2,1,1) ---  j_c=3.8514  lam(Theta)=[0.189 0.598 1.466]  lambda_min 轴的不稳定份额 s=0.0000  [CONTROL(s<0.2)]
+    首阈值 $D_c=4.6758$（rank 3->2，$D$ 减小时）rel=8.02e-04   该处 $I=2.2667$ bit，稳定化下界 $\sum\log_2|\lambda_u|=0.4033$ bit
+    落零方向：命中 Theta 第 1 轴（升序）重叠^2=1.0000  全重叠=[1.000e+00 8.456e-06 6.336e-06]
+    sigma/||.||：Theta 2.34e-03  Pc 1.27e-03  W 3.14e-02   I=2.2667
+
+--- C2 对照 s=0.00 gap=2.93 Q=(0.2,5,1) ---  j_c=8.2017  lam(Theta)=[0.189 0.743 6.72 ]  lambda_min 轴的不稳定份额 s=0.0000  [CONTROL(s<0.2)]
+    首阈值 $D_c=9.0944$（rank 3->2，$D$ 减小时）rel=2.61e-04   该处 $I=3.1982$ bit，稳定化下界 $\sum\log_2|\lambda_u|=0.4033$ bit
+    落零方向：命中 Theta 第 1 轴（升序）重叠^2=1.0000  全重叠=[1.000e+00 5.227e-06 3.980e-07]
+    sigma/||.||：Theta 6.41e-04  Pc 1.57e-03  W 3.15e-02   I=3.1982
+
+--- T1 便宜轴全不稳定 s=1.00 gap=1.23 Q=(0.2,1,5) ---  j_c=7.9429  lam(Theta)=[0.598 1.335 1.466]  lambda_min 轴的不稳定份额 s=1.0000  [TEST(s>0.5)]
+    首阈值 $D_c=12.0408$（rank 3->2，$D$ 减小时）rel=9.46e-04   该处 $I=1.1477$ bit，稳定化下界 $\sum\log_2|\lambda_u|=0.4033$ bit
+    落零方向：命中 Theta 第 2 轴（升序）重叠^2=0.9997  全重叠=[2.154e-04 9.997e-01 8.295e-05]
+    sigma/||.||：Theta 7.42e-03  Pc 1.18e-02  W 3.10e-02   I=1.1477
+    >>> 预注册判决 (F) 改贴别的轴 => 降级为'便宜 and 稳定'合取
+
+--- T2 便宜轴全不稳定 s=1.00 gap=1.45 Q=(0.2,1,20) ---  j_c=22.9771  lam(Theta)=[0.598 1.466 5.849]  lambda_min 轴的不稳定份额 s=1.0000  [TEST(s>0.5)]
+    首阈值 $D_c=36.6101$（rank 3->2，$D$ 减小时）rel=1.03e-03   该处 $I=0.7623$ bit，稳定化下界 $\sum\log_2|\lambda_u|=0.4033$ bit
+    落零方向：命中 Theta 第 3 轴（升序）重叠^2=0.9979  全重叠=[1.726e-03 4.005e-04 9.979e-01]
+    sigma/||.||：Theta 4.02e-02  Pc 4.24e-02  W 3.02e-02   I=0.7623
+    >>> 预注册判决 (F) 改贴别的轴 => 降级为'便宜 and 稳定'合取
+
+--- T3 便宜轴全不稳定 s=1.00 gap=2.34 Q=(1,5,20) ---  j_c=28.3140  lam(Theta)=[1.751 5.849 6.834]  lambda_min 轴的不稳定份额 s=1.0000  [TEST(s>0.5)]
+    首阈值 $D_c=45.7771$（rank 3->2，$D$ 减小时）rel=2.81e-04   该处 $I=1.1075$ bit，稳定化下界 $\sum\log_2|\lambda_u|=0.4033$ bit
+    落零方向：命中 Theta 第 2 轴（升序）重叠^2=0.9993  全重叠=[6.259e-04 9.993e-01 8.736e-05]
+    sigma/||.||：Theta 1.51e-02  Pc 2.02e-02  W 3.09e-02   I=1.1075
+    >>> 预注册判决 (F) 改贴别的轴 => 降级为'便宜 and 稳定'合取
+
+--- T4 便宜轴全不稳定 s=1.00 gap=6.87 Q=(0.2,5,20) ---  j_c=27.3273  lam(Theta)=[0.743 5.849 6.72 ]  lambda_min 轴的不稳定份额 s=1.0000  [TEST(s>0.5)]
+    首阈值 $D_c=41.1537$（rank 3->2，$D$ 减小时）rel=1.37e-04   该处 $I=1.1948$ bit，稳定化下界 $\sum\log_2|\lambda_u|=0.4033$ bit
+    落零方向：命中 Theta 第 1 轴（升序）重叠^2=0.9805  全重叠=[0.98  0.002 0.018]
+    sigma/||.||：Theta 1.22e-01  Pc 1.23e-01  W 1.10e-02   I=1.1948
+    >>> 预注册判决 (T) 便宜轴虽不稳定仍被丢弃

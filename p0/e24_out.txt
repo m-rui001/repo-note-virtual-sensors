@@ -1,0 +1,32 @@
+\p0\exp_uncon_asymptote.py:6: SyntaxWarning: invalid escape sequence '\d'
+  即**无约束**问题的 DI(D) 在 $D\downarrow D_{\min}^{unc}=\mathrm{tr}(WP_c)$ 处发散，作者已明说（垂直渐近线）。
+\p0\p0_replicate_letter.py:174: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=solver, gp=False)
+无约束地板 tr(WP_c)=31.48334   预言斜率 (n/2)log2(10)=6.6439 bit/十倍程 (n=4)
+
+         x     DI_SDP     DI_iso       局部指数
+        10     3.0672     6.2255          —
+         5     4.0162     7.6560     -0.389
+         2     5.6102     9.7570     -0.365
+         1     7.0962    11.4870     -0.339
+       0.3    10.1890    14.7101     -0.300
+       0.1    13.2229    17.7924     -0.237
+      0.03    16.6438    21.2333     -0.191
+      0.01    19.7979    24.3936     -0.158
+     0.003    23.2663    27.8641     -0.134
+     0.001    26.5270    31.0330     -0.119
+
+与 1510.04214 §V 已发表锚点同台对照（同一条无约束曲线）：
+       D      原文 DI      我的 DI          差
+      33      6.133     6.1727     +0.040
+      40      3.266     3.2719     +0.006
+      80      1.602     1.6031     +0.001
+
+窗口 x∈[1e-03,1]  7 点：DI = +6.5010·log₁₀(1/x) +6.8624，最大残差 0.234 bit；预言系数 6.6439，误差 -2.2%
+  同窗口幂律指数（log₂DI 对 log₁₀(1/x)）= +0.6198（→0 即对数律）
+
+窗口 x∈[1e-02,1]  5 点：DI = +6.3705·log₁₀(1/x) +6.9611，最大残差 0.135 bit；预言系数 6.6439，误差 -4.1%
+  同窗口幂律指数（log₂DI 对 log₁₀(1/x)）= +0.7344（→0 即对数律）
+
+窗口 x∈[3e-02,1]  4 点：DI = +6.2774·log₁₀(1/x) +7.0081，最大残差 0.101 bit；预言系数 6.6439，误差 -5.5%
+  同窗口幂律指数（log₂DI 对 log₁₀(1/x)）= +0.8059（→0 即对数律）

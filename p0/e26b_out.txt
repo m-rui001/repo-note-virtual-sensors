@@ -1,0 +1,51 @@
+\p0\exp_fig1_overlay.py:14: SyntaxWarning: invalid escape sequence '\l'
+  $I_{red}(D)=\tfrac{r}{2}\log_2\tfrac{1}{D-f}+b$，$r=2$
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+红曲线像素点 1534 个，D∈[46.988, 89.834]，I∈[1.543, 4.921]
+品红(r=4 满秩)与黑(无约束)在 D=40 的读出：3.2496 vs 1.6589（应重合，Prop 3）
+
+===== 本仓库锥上真最优 vs 原文 Fig.1 红曲线 =====
+       D       图上I       我的I        差 |       C的Δ       我的Δ
+\p0\p0_replicate_letter.py:174: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=solver, gp=False)
+   80.50    1.6301    1.6291  -0.0011 |    1.6341    0.0309
+   70.50    1.7886    1.7882  -0.0004 |    1.7957    0.0668
+   65.50    1.9140    1.9138  -0.0002 |    1.9245    0.1035
+   60.50    2.0981    2.0978  -0.0003 |    2.1235    0.1683
+   55.50    2.3980    2.3957  -0.0023 |    2.4104    0.2973
+   52.50    2.7001    2.6954  -0.0047 |    2.7162    0.4660
+   50.50    3.0334    3.0212  -0.0123 |    3.0466    0.6895
+   49.50    3.2968    3.2731  -0.0237 |    3.2951    0.8848
+   48.50    3.7099    3.6670  -0.0429 |    3.6709    1.2178
+   48.00    3.9851    3.9524  -0.0326 |         —    1.4710
+   47.50    4.4668    4.3421  -0.1247 |    4.3648    1.8272
+   47.00    4.9009    4.9338  +0.0329 |         —    2.3839
+重叠 12 点：平均偏差 -0.0177 bit，最大 |偏差| 0.1247 bit（标定精度 0.003 bit）
+我的曲线穿过图顶 I=5 处 D ≈ nan；图上红线左端 D = 46.988
+
+===== 地板被 Fig.1 红曲线钉住的程度（斜率换算，不做外推拟合）=====
+近地板端 D<48.5                  局部斜率 |dI/dD| ∈ [0.571, 1.183] bit/unit
+最大速率偏差 0.1247 bit ÷ 最陡斜率 0.571 ⟹ 地板偏差不超过 ±0.218（Φ 的 1.49%）
+注意：图窗 $x=D-46.1231\in[0.88,13.9]$ 全在交叉段（渐近区要 $x\lesssim0.05$），
+所以**不能**用图反拟合对数律。实测：钉 $a=3.3219$ 拟合 → $f=43.99$；钉 $f=46.1231$ → $a=1.68$。
+这两个数都不反驳 Prop E，只说明窗口离渐近区还差两个数量级。
+
+===== 本仓库 F3 锥上真最优 vs 原文 Fig.1 蓝曲线（第二个地板，Φ=5.1199）=====
+       D       图上I       我的I        差        我的Δ
+Traceback (most recent call last):
+  File "\p0\exp_fig1_overlay.py", line 148, in <module>
+    starts = ([pack(np.exp(lg) * np.eye(3))] if lg is not None else [])
+               ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\p0\exp_nearfloor_law.py", line 55, in pack
+    L = np.linalg.cholesky(G + 1e-12 * np.eye(2))
+                           ~~^~~~~~~~~~~~~~~~~~~
+ValueError: operands could not be broadcast together with shapes (3,3) (2,2) 

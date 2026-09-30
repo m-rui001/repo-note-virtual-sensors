@@ -1,0 +1,75 @@
+== per-paper full-text keyword census (page:count) ==
+
+  1603.04172 pages=35 chars=78011
+     0.254                         0
+     lattice                       0
+     reverse water                 2 hits  pages [19, 21]
+     water-fill                    0
+     waterfill                     2 hits  pages [19, 21]
+     eigen                         5 hits  pages [1, 2, 15, 16, 19]
+     closed-form                   0
+     closed form                   3 hits  pages [4, 13, 16]
+     Gramian                       0
+     conditional mutual information  3 hits  pages [1, 8, 16]
+     sensor                        4 hits  pages [3, 4]
+     estimation error              3 hits  pages [5, 12, 34]
+     zero-delay                    3 hits  pages [2, 22]
+     nonanticipative              13 hits  pages [1, 2, 4, 9, 23, 35]
+
+  1810.00298 pages=32 chars=78800
+     0.254                         3 hits  pages [1, 4]
+     lattice                      13 hits  pages [1, 4, 17, 21, 22, 24, 25, 26, 31]
+     reverse water                 0
+     water-fill                    0
+     waterfill                     0
+     eigen                         8 hits  pages [5, 10, 22, 23, 24, 25, 27, 28]
+     closed-form                   0
+     closed form                   1 hits  pages [16]
+     Gramian                       0
+     conditional mutual information  0
+     sensor                        2 hits  pages [1, 12]
+     estimation error              2 hits  pages [4, 17]
+     zero-delay                   43 hits  pages [1, 2, 3, 4, 5, 6, 10, 17, 20, 22, 26, 30]
+     nonanticipative               5 hits  pages [1, 2, 31]
+
+  1912.07640 pages=17 chars=85962
+     0.254                         0
+     lattice                       0
+     reverse water                 1 hits  pages [9]
+     water-fill                    0
+     waterfill                     0
+     eigen                         4 hits  pages [3, 8, 13]
+     closed-form                   6 hits  pages [1, 9, 13, 14]
+     closed form                  16 hits  pages [1, 2, 3, 10, 11, 13, 14, 15]
+     Gramian                       0
+     conditional mutual information  1 hits  pages [8]
+     sensor                        0
+     estimation error              0
+     zero-delay                    4 hits  pages [1, 16, 17]
+     nonanticipative               7 hits  pages [1, 16, 17]
+
+== exact context of the 0.254 figure (which paper carries it, in what sentence) ==
+  [1810.00298] ...s an upper bound to the operational zero-delay vector-valued Gaussian RDF. When we use scalar quantization, then for r active dimensions of the vector Gauss-Markov source the gap between the obtained lower and theoretical upper bounds is less than or equal to 0.254r + 1 bits/vector. However, we further show that it is possible when we use vector quantization, and assume inﬁnite dimensional Gauss-Markov sources to make the previous gap to be negligible, i.e., Gaussian NRDF approximates the operational zero-delay Gaussian...
+  [1810.00298] ...operational rates to the zero-delay Gaussian RDF is not demonstrated in the recent works of [1], [2]. Our coding results demonstrate that when we use scalar quantization, the gap between the obtained lower and theoretical upper bounds is less than or equal to 0.254r + 1 bits/vector where r denotes the number of active dimensions of the vector-valued Gauss-Markov source. Moreover, at high rates our simulation experiments demonstrate that the gap between the lower bound and the operational rates mitigates to approximately...
+  [1810.00298] ... + 1 bits/vector where r denotes the number of active dimensions of the vector-valued Gauss-Markov source. Moreover, at high rates our simulation experiments demonstrate that the gap between the lower bound and the operational rates mitigates to approximately 0.254r bits/vector. For vector quantization, we show that in the limit of asymptotically large vector dimensions, it is possible for the causal and zero-delay RDF to coincide with the Gaussian NRDF. It should be noted that our realization scheme can be paralleled t...
+
+== abstract-level claim check: does each paper make the sensing matrix a decision variable? ==
+  1603.04172   optimal filter     0
+  1603.04172   design of the filter 0
+  1603.04172   filter matrix      0
+  1603.04172   optimiz            10
+  1603.04172   sensor             4
+  1603.04172   measur             5
+  1810.00298   optimal filter     0
+  1810.00298   design of the filter 0
+  1810.00298   filter matrix      0
+  1810.00298   optimiz            6
+  1810.00298   sensor             2
+  1810.00298   measur             7
+  1912.07640   optimal filter     1
+  1912.07640   design of the filter 0
+  1912.07640   filter matrix      0
+  1912.07640   optimiz            25
+  1912.07640   sensor             0
+  1912.07640   measur             12
+EXIT=0

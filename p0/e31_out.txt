@@ -1,0 +1,19 @@
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+F                        r     b(二阶) tr(M0⁻¹C⁻¹)      κ_预言       κ_实测     I'_unc      b_锚定差
+\p0\p0_replicate_letter.py:174: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=solver, gp=False)
+F2 尾部2(封闭, r=2)          2   -0.8145     0.7972   0.07061    0.20722   -0.07686   -0.00004
+F3 尾部3(不封闭, r=3)         3   -2.6488     2.7223   0.30896    0.62913   -0.29129   -0.00018
+F6 坐标{x1,x2}             2   -0.6751     0.4213  -0.03536    0.13287   -0.05616   -0.00003
+F7 坐标{x2,x4}             2   -0.0478     0.0373  -0.00187    0.01030   -0.00191   -0.00000
+F8 随机正交行对                2   -0.2046     0.1405   0.00570    0.09290   -0.02884    0.00003
+F9 单通道 y=x1              1   -0.0008     0.0019   0.02531    0.03261   -0.02452   -0.00000

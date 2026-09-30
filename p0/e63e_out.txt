@@ -1,0 +1,15 @@
+== E63e：锥闭包口径（秩亏允许）复刻 Fig.1 ==
+
+[A] 自检：同一天花板下的嵌套性。射线口径 = 起点 N=I 的那一列（Powell 第一步就该 <= 它）
+  red      r=2 射线(闭包写法) I=2.00 -> D=   46.320
+Traceback (most recent call last):
+  File "\p0\exp_fig1_closure.py", line 109, in <module>
+    a = IJ_S(Z @ (10.0 ** m * M) @ Z.T)
+  File "\p0\exp_fig1_closure.py", line 49, in IJ_S
+    P = sym(Pt - Pt @ G @ np.linalg.solve(G @ Pt @ G + In_, G @ Pt))
+                          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\linalg\_linalg.py", line 471, in solve
+    r = gufunc(a, b, signature=signature)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\linalg\_linalg.py", line 163, in _raise_linalgerror_singular
+    raise LinAlgError("Singular matrix")
+numpy.linalg.LinAlgError: Singular matrix

@@ -1,0 +1,73 @@
+\p0\e138_lit_semanticscholar.py:144: SyntaxWarning: invalid escape sequence '\w'
+  print('  [COLLIDE]��a$\wedge$b ͬʱΪ�ǣ�= %d \u21d2 %s'
+== [S1][S2] Semantic Scholar 逐条（只用返回字段，不拼 URL）==
+  [OA]   10.1109/cdc.2018.8619725                 2018  cit=3  Asymptotic Reverse-Waterfilling Characterization of Nonant
+        OA url（原样）: https://research.aalto.fi/files/33354442/ELEC_Stavrou_etal_Asymtotic_Reverse_Waterfilling_CDC2018.pdf
+        摘要：We analyze the asymptotic nonanticipative rate distortion function (NRDF) of vector-valued Gauss-Markov processes subject to a mean-squared error (MSE) distortion function. We derive a parametric characterization in terms of a reverse-waterfilling algorithm, that requires the solution of a matrix Riccati algebraic equation (RAE). Further, we develop an algorithm reminiscent of the classical revers
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/ciss.2016.7460485                RETRY-EXHAUSTED
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/itw.2017.8277966                 RETRY-EXHAUSTED
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/tit.2017.2694015                 RETRY-EXHAUSTED
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/tit.2026.3714460                 RETRY-EXHAUSTED
+    !! HTTPError 429 ⇒ 退避 10s
+  [OA]   10.1109/isit.2014.6874973                2014  cit=1  Vector Gaussian rate-distortion with variable side informa
+        OA url（原样）: https://arxiv.org/pdf/1612.03455
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/ssp.2005.1628751                 RETRY-EXHAUSTED
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/isit63088.2025.11195430          RETRY-EXHAUSTED
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/icip.1995.529053                 RETRY-EXHAUSTED
+  [U]    10.1109/icip.1997.638663                 1997  cit=11  Motion vector quantization in a rate-distortion framework
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/icip.2001.958522                 RETRY-EXHAUSTED
+  [OA]   10.1109/icip.1998.727409                 1998  cit=8  Rate-distortion based video coding with adaptive mean-remo
+        OA url（原样）: http://ul.qucosa.de/id/qucosa%3A32916
+  [U]    10.1109/icassp.2000.859200               2000  cit=3  Rate-distortion adaptive vector quantization for wavelet i
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+  [U]    10.1109/ijcnn.2001.938831                2001  cit=2  Rate distortion in image coding from embedded optimization
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1049/el.2011.1734                     RETRY-EXHAUSTED
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1007/978-3-642-55753-8_42             RETRY-EXHAUSTED
+
+== [S2 续] 有 ArXiv id 但 S2 没给摘要的，去 arXiv abs 补摘要 ==
+
+== [S3] 三问卡（a 控制代价闭式？ b 指数随秩/维数？ c 传感矩阵为决策变量？）==
+  10.1109/cdc.2018.8619725                 a=否  b=否  c=否    
+      Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Distort
+  10.1109/icassp.2000.859200               无摘要 ⇒ 维持 [U]，三问不判（**不许当已排除**）
+  10.1109/icip.1997.638663                 无摘要 ⇒ 维持 [U]，三问不判（**不许当已排除**）
+  10.1109/icip.1998.727409                 无摘要 ⇒ 维持 [U]，三问不判（**不许当已排除**）
+  10.1109/ijcnn.2001.938831                无摘要 ⇒ 维持 [U]，三问不判（**不许当已排除**）
+  10.1109/isit.2014.6874973                无摘要 ⇒ 维持 [U]，三问不判（**不许当已排除**）
+
+== [S2][S4] 汇总 ==
+  查询 16 条：S2 命中 6；有 OA url 3；有 ArXiv id 0；拿到摘要 1；仍 [U] 5
+  [COLLIDE]（a$\wedge$b 同时为是）= 0 ⇒ 0 ⇒ §86-E 的覆盖面陈述可维持（未读者仍点名）
+  未读的必须点名：10.1109/icassp.2000.859200, 10.1109/icip.1997.638663, 10.1109/icip.1998.727409, 10.1109/ijcnn.2001.938831, 10.1109/isit.2014.6874973
+EXIT=0

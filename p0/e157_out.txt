@@ -1,0 +1,23 @@
+== [Q0] 我方正文里的"无先例/无人处理"级句子 ==
+--- p0/note/note.tex：0 处
+--- p0/note/frag_rc_waterfill.tex：0 处
+--- p0/note/frag_D_repro_infeasible_nofactor.tex：0 处
+
+== [Q1] ITW-2017 = arXiv 1701.06368（arXiv 通道，绕开 429）==
+[Q1-FAIL] HTTPError：HTTP Error 429: Unknown Error
+
+== [Q2] 五组检索（arXiv 通道；判据见文件头）==
+-- all:"reverse waterfilling" AND all:sensor
+   [FAIL] HTTPError：HTTP Error 429: Unknown Error
+-- all:"rate-distortion" AND all:"sensor design"
+   [FAIL] HTTPError：HTTP Error 429: Unknown Error
+-- all:"linear quadratic" AND all:"rate distortion" AND all:"limited sensing"
+   [FAIL] HTTPError：HTTP Error 429: Unknown Error
+-- abs:"water-filling" AND abs:"measurement matrix"  命中 0 条
+-- all:"task-oriented sensing" AND all:"water filling"
+   [FAIL] TimeoutError：The read operation timed out
+
+== [Q-判决行]（判据：三项同现 => "无先例"作废；否则只许写"关键词层面未见"）==
+[Q2] 累计列出 0 条（含跨查询重复）；三项同现条目 0 条
+[结论] 未见三项同现 $-$ $-$ "无先例"只能写成 **"关键词检索未见同现"**，不许写"无人处理"。
+[遗留] 关键词筛查不等于通读；撞车风险最高的仍是 (a) 单问那一类（sensor/observation 设计），因为 (b)(c) 两族词在本领域摘要里出现率本就低。

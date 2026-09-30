@@ -1,0 +1,83 @@
+\p0\exp_merge_cond.py:54: SyntaxWarning: invalid escape sequence '\D'
+  """ɾ $F$ �� $i$ �С����ɼ�ⷵ�� `(None, |��|)`������� $\Delta P$ �ͳ߶��޹صĺϲ�ָ��
+\p0\exp_merge_cond.py:68: SyntaxWarning: invalid escape sequence '\s'
+  print('\n[1] $W\succ0$ ������E40 �� $\\theta$ ɨ�裩Ϊʲô�����ܺϲ�����㿴 $\\operatorname{tr}(\Delta P)$ ���½�')
+\p0\exp_merge_cond.py:83: SyntaxWarning: invalid escape sequence '\D'
+  print('   19 ���Ƕ��� $\\operatorname{tr}(\Delta P)$ ��С %.4e��$\\mathrm{gap}$ ��С %.4e��'
+\p0\exp_merge_cond.py:88: SyntaxWarning: invalid escape sequence '\k'
+  print('\n[2] ����һ�ļ�֤���� $\ker W$ Ų������ͨ�����������Ķ�����')
+\p0\exp_merge_cond.py:101: SyntaxWarning: invalid escape sequence '\D'
+  outs.append('ɾ%d: gap=%.3e tr=%.3e $\\eta$=%.2e $\\lambda_{\\max}(\Delta P)$=%.2e'
+\p0\exp_merge_cond.py:105: SyntaxWarning: invalid escape sequence '\k'
+  print('\n[3] �ṹ������$\ker W$ ȡ��λ�����ϵķ��� $u$��$W=\Sigma_u=R\,\mathrm{diag}(1,10^{-3},10^{-6},0)R^\top$��$Ru=0$��')
+\p0\exp_merge_cond.py:106: SyntaxWarning: invalid escape sequence '\D'
+  print('    ����һҪ�� $\Delta P=0$�����ƶ�Ҫ�� $\operatorname{ran}\Delta P\subseteq\ker\Theta$�������� $\Theta$ �ĺ���û�ж���')
+\p0\exp_merge_cond.py:109: SyntaxWarning: invalid escape sequence '\k'
+  print('    ê�� $\ker\Theta$ ά�� = %d  $\\Rightarrow$ ���ƶ��ڱ�����%s'
+\p0\exp_merge_cond.py:128: SyntaxWarning: invalid escape sequence '\k'
+  print('    %d �Σ�$W$ �� 3����� $\ker W$������С�ĺϲ�ָ�� $\\eta=\\operatorname{tr}(\Delta P)/\operatorname{tr}(P_0(F_{-i}))$��'
+\p0\exp_merge_cond.py:132: SyntaxWarning: invalid escape sequence '\s'
+  print('    ����һ�� $W\succ0$ �� $W$ �� 3 �����඼û���� $\Rightarrow$ �����ֲ���Ϻϲ���Ҫ��ǿ���˻�')
+\p0\exp_merge_cond.py:134: SyntaxWarning: invalid escape sequence '\o'
+  print('\n[4] ���ƶ�Ҫһ�� $\operatorname{rank}\Theta<n$ ��ֲ�PL3 $r=2$��PL4 ������ $r=3$')
+\p0\exp_merge_cond.py:141: SyntaxWarning: invalid escape sequence '\d'
+  print('  %s  $\dim\ker\Theta$=%d  rank W=%d' % (nm.replace('$', ''), dimK, np.linalg.matrix_rank(Pl.W)))
+\p0\exp_merge_cond.py:145: SyntaxWarning: invalid escape sequence '\l'
+  print('     ɾ%d ���ɼ�⣨$|\lambda|=%.3f$��' % (i, _lam))
+\p0\exp_merge_cond.py:152: SyntaxWarning: invalid escape sequence '\|'
+  '  ���ڿ� $\|U_k^\top\Delta P\,U_k\|=$%.3e  й© $\|U_k^\top\Delta P\|=$%.3e'
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+== E41 ==  算例：T-F2 尾部2（锚点）  n=4 r=2  $\lambda(\Theta)=[0.031,16.28]$  rank=4
+
+[1] $W\succ0$ 的网格（E40 的 $\theta$ 扫描）为什么不可能合并：逐点看 $\operatorname{tr}(\Delta P)$ 的下界
+   19 个角度上 $\operatorname{tr}(\Delta P)$ 最小 7.4076e-02，$\mathrm{gap}$ 最小 8.9844e-02，$\lambda_{\min}(\Delta P)$ 最小 -2.9470e-16
+   全部 $>0$：与 $\lambda_{\min}(\Theta)=0.031>0$ 合起来 $\Rightarrow$ 这个网格上两条机制都关闭
+
+[2] 机制一的见证：把 $\ker W$ 挪到被砍通道真正不读的东西上
+\p0\exp_merge_cond.py:99: ComplexWarning: Casting complex values to real discards the imaginary part
+  outs.append('ɾ%d: ���ɼ��(|��|=%.3f)' % (i, _lam))
+   满秩（对照）              rank W=4   删0: 不可检测(|λ|=-1.712)  |  删1: gap=4.083e+01 tr=1.208e+01 $\eta$=1.00e+00 $\lambda_{\max}(\Delta P)$=1.21e+01
+   $W$ 秩 3：零在 $e_3$    rank W=3   删0: 不可检测(|λ|=-1.712)  |  删1: gap=4.083e+01 tr=1.208e+01 $\eta$=1.00e+00 $\lambda_{\max}(\Delta P)$=1.21e+01
+   $W$ 秩 3：零在 $e_2$    rank W=3   删0: 不可检测(|λ|=-1.712)  |  删1: gap=4.083e+01 tr=1.208e+01 $\eta$=1.00e+00 $\lambda_{\max}(\Delta P)$=1.21e+01
+   $W$ 秩 2             rank W=2   删0: 不可检测(|λ|=-1.712)  |  删1: gap=4.083e+01 tr=1.208e+01 $\eta$=1.00e+00 $\lambda_{\max}(\Delta P)$=1.21e+01
+Traceback (most recent call last):
+  File "\p0\exp_merge_cond.py", line 97, in <module>
+    res, _lam = dP_of(Pl, F2, i)
+                ~~~~~^^^^^^^^^^^
+  File "\p0\exp_merge_cond.py", line 60, in dP_of
+    phi0F, P0F, _r, _k = floor_pair(Pl, F)
+                         ~~~~~~~~~~^^^^^^^
+  File "\p0\exp_ticket.py", line 42, in floor_pair
+    Pt0 = sym(solve_discrete_are(Pl.A.T, F.T, Pl.W, np.zeros((r, r))))
+              ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\linalg\_solvers.py", line 683, in solve_discrete_are
+    return _solve_discrete_are(a, b, q, r, e, s, balanced)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\_lib\_util.py", line 1233, in wrapper
+    return f(*arrays, *other_args, **kwargs)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\linalg\_solvers.py", line 734, in _solve_discrete_are
+    _, _, _, _, _, u = ordqz(H, J, sort='iuc',
+                       ~~~~~^^^^^^^^^^^^^^^^^^
+                             overwrite_a=True,
+                             ^^^^^^^^^^^^^^^^^
+                             overwrite_b=True,
+                             ^^^^^^^^^^^^^^^^^
+                             check_finite=False,
+                             ^^^^^^^^^^^^^^^^^^^
+                             output=out_str)
+                             ^^^^^^^^^^^^^^^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\_lib\_util.py", line 1233, in wrapper
+    return f(*arrays, *other_args, **kwargs)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\linalg\_decomp_qz.py", line 446, in ordqz
+    raise ValueError("Reordering of (A, B) failed because the transformed"
+    ...<3 lines>...
+                     "reordered.")
+ValueError: Reordering of (A, B) failed because the transformed matrix pair (A, B) would be too far from generalized Schur form; the problem is very ill-conditioned. (A, B) may have been partially reordered.

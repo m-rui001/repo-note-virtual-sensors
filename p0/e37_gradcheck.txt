@@ -1,0 +1,136 @@
+\p0\exp_ladder.py:36: SyntaxWarning: invalid escape sequence '\m'
+  """先验路线：$\tilde P=\mathrm{ARE}(A^\top,F^\top,W,V)$（scipy）+ 定点抛光，后验走 Woodbury。
+\p0\exp_ladder.py:58: SyntaxWarning: invalid escape sequence '\P'
+  """信息型迭代（只用于交叉检验和 E36 的 $C$）：$\Pi=(A\Pi^{-1}A^\top+W)^{-1}+F^\top V^{-1}F$，
+\p0\exp_ladder.py:82: SyntaxWarning: invalid escape sequence '\T'
+  """$\\Phi_0=\\operatorname{tr}(\Theta P_0)$，$P_0$ 为 $V\\to0$ 极限后验；三方对照。"""
+\p0\exp_ladder.py:98: SyntaxWarning: invalid escape sequence '\s'
+  """奇异 DARE 解的定点抛光：scipy 在 $R=0$ 时给残差 $\sim10^{-9}$ 的解，对 $\Phi_0$ 是致命的
+\p0\exp_ladder.py:195: SyntaxWarning: invalid escape sequence '\{'
+  """在对称基 $\{E_{ii},\,E_{ij}+E_{ji}\}$ 上给出 $(\mathrm dI,\mathrm dx)$，用于水线填充 KKT。"""
+\p0\exp_ladder.py:295: SyntaxWarning: invalid escape sequence '\m'
+  print('    %-8s $|A|=%d$  $\mathrm{gap}=%+.4e  预 %.1f   %s'
+\p0\exp_ladder.py:344: SyntaxWarning: invalid escape sequence '\m'
+  print('  逐段斜率 $\mathrm dI/\mathrm d\log_2(1/x)$：' +
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+
+=== T-F2 尾部2（锚点） lam(C)= [25.9171  1.4536]
+ t=1e-05  dev=5.0e-10
+    i=0: dI -1.8695e+06 vs fd -1.8695e+06 | dx 2.6038e+01 vs fd 2.5917e+01
+    i=1: dI -1.0485e+05 vs fd -1.0485e+05 | dx 1.4540e+00 vs fd 1.4536e+00
+ t=1e-07  dev=4.5e-08
+    i=0: dI -1.8695e+08 vs fd -1.8695e+08 | dx -1.1004e+02 vs fd 2.5984e+01
+    i=1: dI -1.0485e+07 vs fd -1.0485e+07 | dx -1.2071e+01 vs fd 1.4528e+00
+ t=1e-09  dev=2.7e-06
+    i=0: dI -1.8694e+10 vs fd -1.8695e+10 | dx 9.3267e+06 vs fd 2.8083e+01
+    i=1: dI -1.0485e+09 vs fd -1.0485e+09 | dx 4.5513e+04 vs fd 1.4201e+00
+
+=== PL1 $r=1$ 坐标（复对只需一通道） lam(C)= [16.3266]
+ t=1e-05  dev=2.1e-16
+    i=0: dI -1.1777e+06 vs fd -1.1777e+06 | dx 1.6327e+01 vs fd 1.6327e+01
+ t=1e-07  dev=1.1e-16
+    i=0: dI -1.1777e+08 vs fd -1.1777e+08 | dx 1.6327e+01 vs fd 1.6328e+01
+ t=1e-09  dev=1.7e-16
+    i=0: dI -1.1777e+10 vs fd -1.1777e+10 | dx 1.6327e+01 vs fd 1.6821e+01
+
+=== PL1 $r=2$ 坐标 lam(C)= [7.1253 0.0997]
+ t=1e-05  dev=2.3e-16
+    i=0: dI -5.1398e+05 vs fd -5.1398e+05 | dx 7.1253e+00 vs fd 7.1253e+00
+    i=1: dI -7.1898e+03 vs fd -7.1898e+03 | dx 9.9673e-02 vs fd 9.9673e-02
+ t=1e-07  dev=1.4e-16
+    i=0: dI -5.1399e+07 vs fd -5.1399e+07 | dx 7.1253e+00 vs fd 7.1234e+00
+    i=1: dI -7.1907e+05 vs fd -7.1907e+05 | dx 9.9684e-02 vs fd 9.9660e-02
+ t=1e-09  dev=2.3e-16
+    i=0: dI -5.1399e+09 vs fd -5.1399e+09 | dx 7.1253e+00 vs fd 7.2010e+00
+    i=1: dI -7.1907e+07 vs fd -7.1907e+07 | dx 9.9684e-02 vs fd 9.8069e-02
+
+=== PL1 $r=2$ 随机正交 lam(C)= [6.9127 1.5603]
+ t=1e-05  dev=2.8e-11
+    i=0: dI -4.9864e+05 vs fd -4.9864e+05 | dx 6.9138e+00 vs fd 6.9127e+00
+    i=1: dI -1.1255e+05 vs fd -1.1255e+05 | dx 1.5603e+00 vs fd 1.5602e+00
+ t=1e-07  dev=9.9e-09
+    i=0: dI -4.9864e+07 vs fd -4.9864e+07 | dx 3.9848e+01 vs fd 6.9133e+00
+    i=1: dI -1.1255e+07 vs fd -1.1255e+07 | dx 1.2811e+00 vs fd 1.5604e+00
+ t=1e-09  dev=1.8e-07
+    i=0: dI -4.9865e+09 vs fd -4.9864e+09 | dx -1.6626e+05 vs fd 6.8765e+00
+    i=1: dI -1.1255e+09 vs fd -1.1255e+09 | dx 6.2324e+03 vs fd 1.6075e+00
+
+=== PL2 $r=3$ 坐标 lam(C)= [12.7951  1.4544  0.1383]
+ t=1e-05  dev=3.7e-16
+    i=0: dI -9.2297e+05 vs fd -9.2297e+05 | dx 1.2795e+01 vs fd 1.2795e+01
+    i=1: dI -1.0491e+05 vs fd -1.0491e+05 | dx 1.4544e+00 vs fd 1.4544e+00
+    i=2: dI -9.9768e+03 vs fd -9.9768e+03 | dx 1.3830e-01 vs fd 1.3830e-01
+ t=1e-07  dev=3.8e-16
+    i=0: dI -9.2297e+07 vs fd -9.2297e+07 | dx 1.2795e+01 vs fd 1.2798e+01
+    i=1: dI -1.0491e+07 vs fd -1.0491e+07 | dx 1.4544e+00 vs fd 1.4544e+00
+    i=2: dI -9.9775e+05 vs fd -9.9775e+05 | dx 1.3832e-01 vs fd 1.3831e-01
+ t=1e-09  dev=3.0e-16
+    i=0: dI -9.2297e+09 vs fd -9.2297e+09 | dx 1.2795e+01 vs fd 1.2501e+01
+    i=1: dI -1.0491e+09 vs fd -1.0491e+09 | dx 1.4544e+00 vs fd 1.4799e+00
+    i=2: dI -9.9775e+07 vs fd -9.9775e+07 | dx 1.3832e-01 vs fd 1.4143e-01
+
+=== PL2 $r=3$ 随机正交 lam(C)= [21.9751  2.3154  0.3304]
+ t=1e-05  dev=7.1e-11
+    i=0: dI -1.5852e+06 vs fd -1.5852e+06 | dx 2.1974e+01 vs fd 2.1975e+01
+    i=1: dI -1.6702e+05 vs fd -1.6702e+05 | dx 2.3154e+00 vs fd 2.3154e+00
+    i=2: dI -2.3832e+04 vs fd -2.3832e+04 | dx 3.3037e-01 vs fd 3.3037e-01
+ t=1e-07  dev=1.3e-08
+    i=0: dI -1.5852e+08 vs fd -1.5852e+08 | dx 2.9550e+00 vs fd 2.1982e+01
+    i=1: dI -1.6702e+07 vs fd -1.6702e+07 | dx 2.2558e+00 vs fd 2.3155e+00
+    i=2: dI -2.3832e+06 vs fd -2.3832e+06 | dx 3.3519e-01 vs fd 3.3044e-01
+ t=1e-09  dev=2.1e-07
+    i=0: dI -1.5852e+10 vs fd -1.5852e+10 | dx 4.0994e+04 vs fd 2.2153e+01
+    i=1: dI -1.6702e+09 vs fd -1.6702e+09 | dx -3.2698e+02 vs fd 2.3135e+00
+    i=2: dI -2.3832e+08 vs fd -2.3832e+08 | dx -6.4648e+01 vs fd 3.2425e-01
+
+=== PL3 $r=1$ 观测 $x_1$（临界 Jordan） lam(C)= [10.5676]
+ t=1e-05  dev=1.6e-16
+    i=0: dI -7.6229e+05 vs fd -7.6229e+05 | dx 1.0568e+01 vs fd 1.0568e+01
+ t=1e-07  dev=1.2e-16
+    i=0: dI -7.6229e+07 vs fd -7.6229e+07 | dx 1.0568e+01 vs fd 1.0565e+01
+ t=1e-09  dev=1.4e-16
+    i=0: dI -7.6229e+09 vs fd -7.6229e+09 | dx 1.0568e+01 vs fd 9.7614e+00
+
+=== PL3 $r=2$ lam(C)= [9.8895 0.    ]
+ t=1e-05  dev=2.0e-11
+    i=0: dI -7.1338e+05 vs fd -7.1338e+05 | dx 9.8893e+00 vs fd 9.8891e+00
+    i=1: dI -2.0249e-02 vs fd -2.0249e-02 | dx 2.4835e-07 vs fd 2.4835e-07
+ t=1e-07  dev=1.7e-12
+    i=0: dI -7.1338e+07 vs fd -7.1338e+07 | dx 9.8915e+00 vs fd 9.8914e+00
+    i=1: dI -8.0145e+00 vs fd -8.0145e+00 | dx 1.1082e-06 vs fd 1.1083e-06
+ t=1e-09  dev=4.0e-14
+    i=0: dI -7.1338e+09 vs fd -7.1338e+09 | dx 9.8880e+00 vs fd 1.0079e+01
+    i=1: dI -8.4650e+02 vs fd -8.4650e+02 | dx 1.1747e-06 vs fd 1.2009e-06
+Traceback (most recent call last):
+  File "\p0\e37_gradcheck.py", line 11, in <module>
+    C = X37.C_of(pl, F)
+  File "\p0\exp_ladder.py", line 113, in C_of
+    seq = X36.C_seq(Pl, F, TS_C)
+  File "\p0\exp_C_exact.py", line 91, in C_seq
+    J, P, Bm = dP_op(Pl, F, t * np.eye(F.shape[0]), diag)
+               ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "\p0\exp_C_exact.py", line 57, in dP_op
+    Pi, P, dev = post_Pi(Pl, F, V)
+                 ~~~~~~~^^^^^^^^^^
+  File "\p0\exp_C_exact.py", line 42, in post_Pi
+    Pi = np.linalg.inv(Pl.Pt(F, V))         # 用 DARE 解起步
+                       ~~~~~^^^^^^
+  File "\p0\exp_plants_oos.py", line 57, in Pt
+    return sym(solve_discrete_are(self.A.T, F.T, self.W, sym(V)))
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\linalg\_solvers.py", line 683, in solve_discrete_are
+    return _solve_discrete_are(a, b, q, r, e, s, balanced)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\_lib\_util.py", line 1233, in wrapper
+    return f(*arrays, *other_args, **kwargs)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\linalg\_solvers.py", line 750, in _solve_discrete_are
+    raise LinAlgError('Failed to find a finite solution.')
+numpy.linalg.LinAlgError: Failed to find a finite solution.

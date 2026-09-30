@@ -1,0 +1,37 @@
+== (1) 无约束精确 converse：给定代价 D 所需的最小率（bit/sample）==
+   注：D 必须 > 地板 JC=31.4833，否则 DI=+inf（原文 §V 的垂直渐近线）
+   D=  42.0402  DI_free= 3.00000 bit   rank(0.1%)=2   status=optimal
+   D=  43.0000  DI_free= 2.89411 bit   rank(0.1%)=2   status=optimal
+   D=  43.7110  DI_free= 2.82264 bit   rank(0.1%)=2   status=optimal
+\p0\e96e_free_converse_certificate.py:45: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=solver)
+   D=  43.8000  DI_free= 2.81407 bit   rank(0.1%)=2   status=optimal_inaccurate
+   D=  45.4537  DI_free= 2.66783 bit   rank(0.1%)=2   status=optimal
+   D=  50.6023  DI_free= 2.32610 bit   rank(0.1%)=2   status=optimal_inaccurate
+ [Z1] 单调性 通过   [Z2] 全部 status=optimal: False
+
+== (2) 无约束精确 converse：给定率 I 所需的最小代价（对任何受限族都是下界）==
+   I= 1.0 bit   D*_free=      nan   no bracket
+   I= 1.5 bit   D*_free=  93.2115   optimal 核验 DI=1.50000 区间[31.533,200.00]
+   I= 2.0 bit   D*_free=  58.1826   optimal 核验 DI=2.00000 区间[31.533,200.00]
+   I= 2.5 bit   D*_free=  47.7208   optimal 核验 DI=2.50000 区间[31.533,200.00]
+   I= 3.0 bit   D*_free=  42.0402   optimal 核验 DI=3.00000 区间[31.533,200.00]
+   I= 3.5 bit   D*_free=  38.6589   optimal 核验 DI=3.50000 区间[31.533,200.00]
+   I= 4.0 bit   D*_free=  36.5377   optimal_inaccurate 核验 DI=4.00000 区间[31.533,200.00]
+ [Z3] 与 E96c 的 42.0402 差 -0.00002   [Z2] 有效行 6/7
+
+== (3) 受限族构造值 vs 无约束精确下界（Remark 2 的诚实口径）==
+   无约束（本车道构造 E71/E74）               D= 42.0427 @I=3.0  |  无约束在同一 D 只需 2.9997 bit => 该族在该 D 的**率溢价** +0.0003 bit
+   tail-3 平面（Powell 上界）             D= 45.4537 @I=3.0  |  无约束在同一 D 只需 2.6678 bit => 该族在该 D 的**率溢价** +0.3322 bit
+   tail-2 平面（Powell 上界）             D= 50.6023 @I=3.0  |  无约束在同一 D 只需 2.3261 bit => 该族在该 D 的**率溢价** +0.6739 bit
+   原文蓝线数字化（Remark 2 争议点）            D= 43.7110 @I=3.0  |  无约束在同一 D 只需 2.8226 bit => 该族在该 D 的**率溢价** +0.1774 bit
+   无约束（本车道构造 E71/E74）              ：代价下界 D*_free(3 bit)=42.0402 ⇒ 高出精确 converse +0.0025
+   tail-3 平面（Powell 上界）            ：代价下界 D*_free(3 bit)=42.0402 ⇒ 高出精确 converse +3.4135
+   tail-2 平面（Powell 上界）            ：代价下界 D*_free(3 bit)=42.0402 ⇒ 高出精确 converse +8.5621
+   原文蓝线数字化（Remark 2 争议点）           ：代价下界 D*_free(3 bit)=42.0402 ⇒ 高出精确 converse +1.6708
+ [Z4] 蓝线判决：DI_free(43.711) = 2.82264 bit —— 蓝线不被排除；Remark 2 只能写成区间陈述
+
+== (4) 与原文发表锚点的对账（工具链验收用例，必须在偏差内）==
+   D=  33.0  原文 6.133  本脚本 6.1727  差 +0.0397
+   D=  40.0  原文 3.266  本脚本 3.2719  差 +0.0059
+   D=  80.0  原文 1.602  本脚本 1.6031  差 +0.0011

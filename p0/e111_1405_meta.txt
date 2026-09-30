@@ -1,0 +1,6 @@
+TITLE : arXiv Query: search_query=&amp;id_list=1405.5932&amp;start=0&amp;max_results=10
+TITLE : Minimum data rate for stabilization of linear systems with parametric uncertainties
+SUMMARY : We study a stabilization problem of linear uncertain systems with parametric uncertainties via feedback control over data-rate-constrained channels. The objective is to find the limitation on the amount of information that must be conveyed through the channels for achieving stabilization and in particular how the plant uncertainties affect it. We derive a necessary condition and a sufficient condition for stabilizing the closed-loop system. These conditions provide limitations in the form of bounds on data rate and magnitude of uncertainty on plant parameters. The bounds are characterized by the product of the poles of the nominal plant and are less conservative than those known in the literature. In the course of deriving these results, a new class of nonuniform quantizers is found to be effective in reducing the required data rate. For scalar plants, these quantizers are shown to minim
+NAME : Kunihisa Okano
+NAME : Hideaki Ishii
+PUBLISHED : 2014-05-22T23:48:04Z

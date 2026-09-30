@@ -1,0 +1,104 @@
+== [T0] 解析 sec_bib.tex ==
+  条目 24；DOI 9 个；arXiv 编号 15 个；无任何定位符 1 条 ['nair2004stabilizability']
+  标题抽取成功 24／24（无 ``... 引对的条目列在下面）
+
+== [T1] DOI 逐条 Crossref 解析（返回标题／出处／卷期页年，并回填条目原文核对）==
+  refpaper                 10.1109/LCSYS.2026.3710208
+      CR 标题：Minimum Directed Information in LQG Control Under Task-Restricted Sensing
+      标题等值：True   我的标题：Minimum directed information in LQG control under task-restricted sensing,
+      CR 出处：IEEE Control Systems Letters [type=journal-article] vol=10 iss=- page=1621-1626 year=2026
+      条目原文含该年：True；含该页码区间：True
+  tanaka2015joint          10.1109/CDC.2015.7402920
+      CR 标题：SDP-based joint sensor and controller design for information-regularized optimal LQG control
+      标题等值：True   我的标题：SDP-based joint sensor and controller design for information-regularized optimal LQG control,
+      CR 出处：2015 54th IEEE Conference on Decision and Control (CDC) [type=proceedings-article] vol=- iss=- page=4486-4491 year=2015
+      条目原文含该年：True；含该页码区间：True
+  kostina2019rate          10.1109/TAC.2019.2912256
+      CR 标题：Rate-Cost Tradeoffs in Control
+      标题等值：True   我的标题：Rate-cost tradeoffs in control,
+      CR 出处：IEEE Transactions on Automatic Control [type=journal-article] vol=64 iss=11 page=4525-4540 year=2019
+      条目原文含该年：True；含该页码区间：True
+  tatikonda2004stochastic  10.1109/TAC.2004.834430
+      CR 标题：Stochastic Linear Control Over a Communication Channel
+      标题等值：True   我的标题：Stochastic linear control over a communication channel,
+      CR 出处：IEEE Transactions on Automatic Control [type=journal-article] vol=49 iss=9 page=1549-1561 year=2004
+      条目原文含该年：True；含该页码区间：True
+  sahai2006anytime         10.1109/TIT.2006.878169
+      CR 标题：The Necessity and Sufficiency of Anytime Capacity for Stabilization of a Linear System Over a Noisy Communication Link—Part I: Scalar Systems
+      标题等值：True   我的标题：The necessity and sufficiency of anytime capacity for stabilization of a linear system over a noisy communication link --- Part I: Scalar systems,
+      CR 出处：IEEE Transactions on Information Theory [type=journal-article] vol=52 iss=8 page=3369-3395 year=2006
+      条目原文含该年：True；含该页码区间：True
+  stavrou2018asymptotic    10.1109/CDC.2018.8619725
+      CR 标题：Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Distortion Function of Vector-Valued Gauss-Markov Processes with MSE Distortion
+      标题等值：True   我的标题：Asymptotic reverse-waterfilling characterization of nonanticipative rate distortion function of vector-valued Gauss-Markov processes with MSE distortion,
+      CR 出处：2018 IEEE Conference on Decision and Control (CDC) [type=proceedings-article] vol=- iss=- page=14-20 year=2018
+      条目原文含该年：True；含该页码区间：True
+  stavrou2017itw           10.1109/ITW.2017.8277966
+      CR 标题：An upper bound to zero-delay rate distortion via Kalman filtering for vector Gaussian sources
+      标题等值：True   我的标题：An upper bound to zero-delay rate distortion via Kalman filtering for vector Gaussian sources,
+      CR 出处：2017 IEEE Information Theory Workshop (ITW) [type=proceedings-article] vol=- iss=- page=534-538 year=2017
+      条目原文含该年：True；含该页码区间：True
+  stavrou2016estimation    10.1137/17m1116349
+      CR 标题：Optimal Estimation via Nonanticipative Rate Distortion Function and Applications to Time-Varying Gauss--Markov Processes
+      标题等值：True   我的标题：Optimal estimation via nonanticipative rate distortion function and applications to time-varying Gauss-Markov processes,
+      CR 出处：SIAM Journal on Control and Optimization [type=journal-article] vol=56 iss=5 page=3731-3765 year=2018
+      条目原文含该年：True；含该页码区间：True
+  stavrou2018zerodelay     10.1109/JSTSP.2018.2855046
+      CR 标题：Zero-Delay Rate Distortion via Filtering for Vector-Valued Gaussian Sources
+      标题等值：True   我的标题：Zero-delay rate distortion via filtering for vector-valued Gaussian sources,
+      CR 出处：IEEE Journal of Selected Topics in Signal Processing [type=journal-article] vol=12 iss=5 page=841-856 year=2018
+      条目原文含该年：True；含该页码区间：True
+  DOI 可解析 9／9
+
+== [T2] arXiv 编号批量解析（一次 id_list；返回条数必须对上，未返回的显式列）==
+  请求 15 个编号，返回 15 条记录
+  tanaka2018di             arXiv:1510.04214 年=2015 标题等值=True
+      arXiv 标题：LQG Control with Minimum Directed Information: Semidefinite Programming Approach
+  tanaka2016prefix         arXiv:1604.01227 年=2016 标题等值=True
+      arXiv 标题：Rate of Prefix-free Codes in LQG Control Systems
+  fox2016a                 arXiv:1606.01946 年=2016 标题等值=True
+      arXiv 标题：Minimum-Information LQG Control - Part I: Memoryless Controllers
+  fox2016b                 arXiv:1606.01947 年=2016 标题等值=True
+      arXiv 标题：Minimum-Information LQG Control - Part II: Retentive Controllers
+  cuvelier2021side         arXiv:2101.09329 年=2021 标题等值=True
+      arXiv 标题：Rate of Prefix-free Codes in LQG Control Systems with Side Information
+  sabag2021reducing        arXiv:2109.12246 年=2021 标题等值=True
+      arXiv 标题：Reducing the LQG Cost with Minimal Communication
+  tzoumas2020co            arXiv:1802.08376 年=2018 标题等值=True
+      arXiv 标题：LQG Control and Sensing Co-Design
+  tanaka2017srd            arXiv:1411.7632 年=2014 标题等值=True
+      arXiv 标题：Semidefinite Programming Approach to Gaussian Sequential Rate-Distortion Trade-offs
+  stavrou2017revisited     arXiv:1711.09853 年=2017 标题等值=True
+      arXiv 标题：The Time-Invariant Multidimensional Gaussian Sequential Rate-Distortion Problem Revisited
+  li2026lower              arXiv:2607.04172 年=2026 标题等值=True
+      arXiv 标题：Lower Bound of Networked Control with Multiple Sensors and One Controller And The Application to Tracking Gaussian-Markov Source
+  li2026sensing            arXiv:2606.31396 年=2026 标题等值=True
+      arXiv 标题：How Much Sensing Information Is Needed to Control an Unstable Linear System?
+  atay2026rate             arXiv:2604.20369 年=2026 标题等值=True
+      arXiv 标题：Rate-Cost Tradeoffs in Nonlinear Control
+  pacelli2026limits        arXiv:2603.18454 年=2026 标题等值=True
+      arXiv 标题：Fundamental Limits for Sensor-Based Control via the Gibbs Variational Principle
+  stavrou2018zerodelay     arXiv:1810.00298 年=2018 标题等值=True
+      arXiv 标题：Zero-Delay Rate Distortion via Filtering for Vector-Valued Gaussian Sources
+  stavrou2019indirect      arXiv:1912.07640 年=2019 标题等值=True
+      arXiv 标题：Indirect NRDF for Partially Observable Gauss-Markov Processes with MSE Distortion: Complete Characterizations and Optimal Solutions
+  arXiv 可解析 15／15；**不可解析 0**
+
+== [T3] 会议／workshop 条目的"期刊升版"探测（Crossref query.bibliographic；只报标题等值项）==
+  --- tanaka2015joint（会议条目，标题：SDP-based joint sensor and controller design for information-regulariz）
+      无标题等值的异出处记录 ⇒ 本条不提级（**不等于**不存在；只说本次没查到）
+  --- fox2016a（会议条目，标题：Minimum-information LQG control --- Part I: Memoryless controllers,）
+      同名异出处：2016 IEEE 55th Conference on Decision and Control (CDC) 2016 vol=- pp=5610-5616 doi=10.1109/cdc.2016.7799131
+  --- fox2016b（会议条目，标题：Minimum-information LQG control --- Part II: Retentive controllers,）
+      同名异出处：2016 IEEE 55th Conference on Decision and Control (CDC) 2016 vol=- pp=5603-5609 doi=10.1109/cdc.2016.7799130
+  --- cuvelier2021side（会议条目，标题：Rate of prefix-free codes in LQG control systems with side information）
+      同名异出处：2021 55th Annual Conference on Information Sciences and Systems (CISS) 2021 vol=- pp=1-6 doi=10.1109/ciss50987.2021.9400217
+  --- stavrou2018asymptotic（会议条目，标题：Asymptotic reverse-waterfilling characterization of nonanticipative ra）
+      无标题等值的异出处记录 ⇒ 本条不提级（**不等于**不存在；只说本次没查到）
+  --- stavrou2017itw（会议条目，标题：An upper bound to zero-delay rate distortion via Kalman filtering for ）
+      无标题等值的异出处记录 ⇒ 本条不提级（**不等于**不存在；只说本次没查到）
+  探测到候选升版 3 条
+
+== [T4] 判决（只书目层；每条都带条数，#46）==
+  条目 24；DOI 解析 9／9；arXiv 解析 15／15；编号不可解析 0 个；无定位符 1 条；标题不等值 0 条；候选升版 3 条
+  本节**只**核对著录元数据；三篇最近邻（e181）无开放全文 ⇒ 不得写"读过其证明"。

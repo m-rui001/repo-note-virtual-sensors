@@ -1,0 +1,7 @@
+start occurrences = 1
+end occurrences   = 1
+old span lines = 154, new block lines = 77
+control chars inside old span = 0
+md5 before = 857ff053d038b45762ddcb55f01a5283
+lines before = 1272  lines after = 1195
+md5 after  = 83008db9e744c0fcc0092edc77b89937

@@ -1,0 +1,35 @@
+== [Z2] Crossref works/{DOI} ==
+  10.1109/cdc.2018.8619725             Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Disto
+     作者 5 人: PhotiosA. Stavrou; Themistoklis Charalambous; CharalambosD. Charalambous; Sergey Loyka; Mikael Skoglund
+     venue=2018 IEEE Conference on Decision and Control (CDC)  年=2018  页=14-20  出版者=IEEE
+     event=2018 IEEE Conference on Decision and Control (CDC)  DOI=10.1109/cdc.2018.8619725
+  10.1109/itw.2017.8277966             An upper bound to zero-delay rate distortion via Kalman filtering for vector G
+     作者 4 人: PhotiosA. Stavrou; Jan Ostergaard; CharalambosD. Charalambous; Milan Derpich
+     venue=2017 IEEE Information Theory Workshop (ITW)  年=2017  页=534-538  出版者=IEEE
+     event=2017 IEEE Information Theory Workshop (ITW)  DOI=10.1109/itw.2017.8277966
+  10.1109/isit.2014.6874973            Vector Gaussian rate-distortion with variable side information
+     作者 2 人: Sinem Unal; AaronB. Wagner
+     venue=2014 IEEE International Symposium on Information The  年=2014  页=951-955  出版者=IEEE
+     event=2014 IEEE International Symposium on Information Theory (ISIT)  DOI=10.1109/isit.2014.6874973
+  10.1109/tit.2017.2694015             Vector Gaussian Rate-Distortion With Variable Side Information
+     作者 2 人: Sinem Unal; AaronB. Wagner
+     venue=IEEE Transactions on Information Theory  年=2017  页=5162-5178  出版者=Institute of Electrical and Electronics Engineers (IEEE)
+     event=—  DOI=10.1109/tit.2017.2694015
+
+== [Z2] arXid id_list 取作者（预印本侧，用于交叉核对署名顺序）==
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+  !! 1701.06368   TimeoutError The read operation timed out
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 25s
+  !! 1612.03455   HTTPError 429
+    !! HTTPError 429 ⇒ 退避 10s
+  !! 1802.08376   TimeoutError The read operation timed out
+
+== [Z3] 著录完整性判决 ==
+  10.1109/cdc.2018.8619725             标题√作者√DOI√ = True ⇒ 可写
+  10.1109/itw.2017.8277966             标题√作者√DOI√ = True ⇒ 可写
+  可写条数 = 2 / 2
+  arXiv 侧作者与 Crossref 侧是否一致：
+EXIT=0

@@ -1,0 +1,69 @@
+\p0\exp_nearfloor_law.py:6: SyntaxWarning: invalid escape sequence '\m'
+  E22 的机制（本脚本要独立复验并推广）：$\min_{\mathcal K_F}J=$ 地板只在 $\Gamma\to\infty$ 的极限里达到
+\p0\exp_nearfloor_law.py:89: SyntaxWarning: invalid escape sequence '\g'
+  """二分求各向同性 $\gamma$ 使 $J(\gamma I_r)=D$；给出一个保证可行的起点。"""
+\p0\p0_replicate_letter.py:174: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=solver, gp=False)
+\p0\exp_nearfloor_law.py:50: RuntimeWarning: overflow encountered in exp
+  L = np.array([[np.exp(p[0]), 0.0], [p[2], np.exp(p[1])]])
+\p0\exp_nearfloor_law.py:51: RuntimeWarning: invalid value encountered in matmul
+  return sym(L @ L.T)
+\p0\exp_nearfloor_law.py:51: RuntimeWarning: overflow encountered in matmul
+  return sym(L @ L.T)
+\p0\p0_replicate_letter.py:75: RuntimeWarning: invalid value encountered in log
+  I_dir = 0.5 * np.log(np.linalg.det(Pt) / np.linalg.det(P)) / ln2
+\p0\p0_replicate_letter.py:75: RuntimeWarning: overflow encountered in scalar divide
+  I_dir = 0.5 * np.log(np.linalg.det(Pt) / np.linalg.det(P)) / ln2
+\p0\p0_replicate_letter.py:75: RuntimeWarning: divide by zero encountered in scalar divide
+  I_dir = 0.5 * np.log(np.linalg.det(Pt) / np.linalg.det(P)) / ln2
+C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\linalg\_linalg.py:2431: RuntimeWarning: invalid value encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+D_min^unc=31.4833  |λ|=[1.7124 0.7543 0.7543 1.3127]  sdim=2
+[F2 尾部2(封闭, r=2)] 地板=46.12314  Φ=14.63979  定点残差=3.6e-15
+[F3 尾部3(不封闭, r=3)] 地板=36.60320  Φ=5.11986  定点残差=6.7e-16
+
+===== (A) 各向同性分支 Γ=γI_r：对数律系数是否只依赖 r =====
+
+[F2 尾部2(封闭, r=2)] x 单调段到 γ=inf（其后掉头=双精度底），拟合窗口 33 点 x∈[1.0e-04,3.0e-01] = 3.47 个十倍程
+  各向同性 r=2               对数律拟合 Δ = a·log₁₀(1/x)+b：a=+3.3147 (预言 +3.3219)  b=+3.1988  最大残差=0.023  点=33
+                         同窗口幂律拟合 log₂Δ 对 log₁₀(1/x) 斜率=+0.4795（≈0 即对数律成立，≈p 即幂律）
+
+[F3 尾部3(不封闭, r=3)] x 单调段到 γ=inf（其后掉头=双精度底），拟合窗口 34 点 x∈[7.4e-05,2.8e-01] = 3.58 个十倍程
+  各向同性 r=3               对数律拟合 Δ = a·log₁₀(1/x)+b：a=+4.9609 (预言 +4.9829)  b=+5.4208  最大残差=0.074  点=34
+                         同窗口幂律拟合 log₂Δ 对 log₁₀(1/x) 斜率=+0.4472（≈0 即对数律成立，≈p 即幂律）
+
+===== (B) F2 真最优（Γ 自由）：最优分支与各向同性分支同斜率、只差常数截距？ =====
+  质检：各向同性点在锥上必然可行 ⟹ Δ_opt ≤ Δ_iso 是硬上界。违反即未收敛，剔除后再拟合。
+x=        2  Δ_opt=   1.4012  Δ_iso=   2.4426  差=+1.0414  I_opt=   3.8746  J=48.12314  eig(Γ)=[2.592e+01 3.609e-01] 比=   71.83  
+x=      1.4  Δ_opt=   1.8074  Δ_iso=   2.8802  差=+1.0728  I_opt=   4.3208  J=47.52314  eig(Γ)=[3.714e+01 9.419e-01] 比=   39.43  
+x=      0.8  Δ_opt=   2.5015  Δ_iso=   3.6082  差=+1.1067  I_opt=   5.0569  J=46.92314  eig(Γ)=[6.503e+01 2.455e+00] 比=   26.49  
+x=    0.377  Δ_opt=   3.5038  Δ_iso=   4.6362  差=+1.1324  I_opt=   6.0901  J=46.50014  eig(Γ)=[1.378e+02 6.499e+00] 比=   21.21  
+x=      0.2  Δ_opt=   4.3827  Δ_iso=   5.5264  差=+1.1437  I_opt=   6.9823  J=46.32314  eig(Γ)=[2.596e+02 1.331e+01] 比=   19.51  
+x=      0.1  Δ_opt=   5.3623  Δ_iso=   6.5125  差=+1.1502  I_opt=   7.9695  J=46.22314  eig(Γ)=[5.187e+02 2.784e+01] 比=   18.63  
+x=     0.05  Δ_opt=   6.3521  Δ_iso=   7.5056  差=+1.1535  I_opt=   8.9631  J=46.17314  eig(Γ)=[1.037e+03 5.692e+01] 比=   18.22  
+x=     0.03  Δ_opt=   7.0850  Δ_iso=   8.2398  差=+1.1548  I_opt=   9.6975  J=46.15314  eig(Γ)=[1.711e+03 9.663e+01] 比=   17.71  
+x=     0.02  Δ_opt=   8.3036  Δ_iso=   8.8233  差=+0.5198  I_opt=  10.9169  J=46.14314  eig(Γ)=[1.482e+03 6.130e+02] 比=    2.42  
+x=     0.01  Δ_opt=   9.4923  Δ_iso=   9.8219  差=+0.3297  I_opt=  12.1063  J=46.13314  eig(Γ)=[3.019e+03 1.569e+03] 比=    1.92  
+x=    0.005  Δ_opt=  10.5677  Δ_iso=  10.8212  差=+0.2535  I_opt=  13.1821  J=46.12814  eig(Γ)=[5.914e+03 3.563e+03] 比=    1.66  
+x=    0.003  Δ_opt=  11.3637  Δ_iso=  11.5579  差=+0.1942  I_opt=  13.9783  J=46.12614  eig(Γ)=[9.308e+03 6.830e+03] 比=    1.36  
+x=    0.002  Δ_opt=  11.9701  Δ_iso=  12.1428  差=+0.1726  I_opt=  14.5848  J=46.12514  eig(Γ)=[1.540e+04 9.573e+03] 比=    1.61  
+x=    0.001  求解失败（无可信可行点）
+
+  通过质检的 13 点（x 从 2 到 0.002）：
+  eig(Γ) 之比：71.8 39.4 26.5 21.2 19.5 18.6 18.2 17.7 2.4 1.9 1.7 1.4 1.6
+  比值可信段（>35.9）取 2/13 点参与拟合
+  真最优 F2 r=2             对数律拟合 Δ = a·log₁₀(1/x)+b：a=+2.6225 (预言 +3.3219)  b=+2.1906  最大残差=0.000  点=2
+                         同窗口幂律拟合 log₂Δ 对 log₁₀(1/x) 斜率=+2.3711（≈0 即对数律成立，≈p 即幂律）
+  逐段局部指数 + 对数律不变量 Δ̄·|指数| →> (r/2)log₂e = 1.4427（幂律则该值恒 = p）：
+         x 段          Δ 段       局部指数        Δ̄·|指数|
+    2→   1.4  1.401→ 1.807     -0.714          1.145

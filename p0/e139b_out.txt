@@ -1,0 +1,7 @@
+10.1109/cdc.2018.8619725
+  完整标题: Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Distortion Function of Vector-Valued Gauss-Markov Processes with MSE Distortion
+  页 14-20 / 年 2018 / venue 2018 IEEE Conference on Decision and Control (CDC)
+10.1109/itw.2017.8277966
+  完整标题: An upper bound to zero-delay rate distortion via Kalman filtering for vector Gaussian sources
+  页 534-538 / 年 2017 / venue 2017 IEEE Information Theory Workshop (ITW)
+EXIT=0

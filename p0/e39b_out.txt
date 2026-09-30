@@ -1,0 +1,127 @@
+\p0\exp_fig1_ladder2.py:79: SyntaxWarning: invalid escape sequence '\p'
+  print('    %-30s �� %3d  б�� %+.4f $\pm$ %.4f   �ؾ� %+.3f  �в� $\sigma$=%.4f bit  $u$ ��� %.3f'
+\p0\exp_fig1_ladder2.py:113: SyntaxWarning: invalid escape sequence '\m'
+  print('  б�� $\mathrm d\Delta/\mathrm d\log_2(1/x)$��δ�ж��У��յ�ǰ�� $\{0,1\}$ ���Ԥ�� $\approx0.85$����')
+\p0\exp_fig1_ladder2.py:118: SyntaxWarning: invalid escape sequence '\m'
+  print('  �ҵ� $I_{unc}$ ���� %d �㣬����ذ崦 $I_{unc}(47.0)=%.4f$��$\mathrm d I_{unc}/\mathrm dD=%.4f$ bit/��λ'
+\p0\exp_fig1_ladder2.py:122: SyntaxWarning: invalid escape sequence '\m'
+  slope_fit(D, DEL, (D >= capd) & (D < FLOOR + g1), FLOOR, '�յ�ǰ $x<\mathrm{gap}$��ȥñ��')
+\p0\exp_fig1_ladder2.py:123: SyntaxWarning: invalid escape sequence '\i'
+  slope_fit(D, DEL, (D >= FLOOR + g1) & (D < FLOOR + 1.7), FLOOR, '�յ�� $x\in[1.08,1.7]$')
+\p0\exp_fig1_ladder2.py:124: SyntaxWarning: invalid escape sequence '\i'
+  slope_fit(D, DEL, (D >= FLOOR + 1.7) & (D < FLOOR + 3.0), FLOOR, '$x\in[1.7,3]$��$\{0\}$ �壩')
+\p0\exp_fig1_ladder2.py:125: SyntaxWarning: invalid escape sequence '\i'
+  slope_fit(D, DEL, (D >= FLOOR + 3.0) & (D < 60.0), FLOOR, '$x\in[3,14]$')
+\p0\exp_fig1_ladder2.py:128: SyntaxWarning: invalid escape sequence '\G'
+  print('\n===== [5] ���л��� $\Gamma^\ast$ ���ȣ�ԭ�� F2 ���߻�����������ͨ��ֵ���٣� =====')
+\p0\exp_fig1_ladder2.py:161: SyntaxWarning: invalid escape sequence '\G'
+  print('\n  ��ֵ׶���� $\Gamma^\ast$ �� $C$ �������µ��ף���ֵ�� = ��ͨ��ʵ�ʹرգ���')
+\p0\exp_fig1_ladder2.py:163: SyntaxWarning: invalid escape sequence '\l'
+  ('D', 'x', 'I_cone', 'E(min)', '$\lambda(V)$ ������', '��ֵ', '׶����-��', '������'))
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+  地板 $D_{\min}=46.123137$  $\mathrm{rank}C=2$  $\lambda(C)=[25.9171  1.4536]$  $\mathrm{gap}_{\{0\}}=1.084392$  $\mathrm{gap}_{\{1\}}=74.2824$
+
+===== [4] 红曲线逐列读（图例框 (np.int64(111), np.int64(404), np.int64(1145), np.int64(1902))，图框 (np.int64(52), np.int64(1238), np.int64(121), np.int64(1924))） =====
+  列数 1563，其中被图例框/图框切断 0 列
+  红线最左可见 $D=46.9884$，顶端 $I=4.9292$；前 12 列：46.988/4.921/n4/ok  47.016/4.907/n12/ok  47.044/4.894/n20/ok  47.072/4.882/n29/ok  47.099/4.862/n33/ok  47.127/4.835/n33/ok  47.155/4.806/n34/ok  47.182/4.779/n34/ok  47.210/4.752/n34/ok  47.238/4.725/n34/ok  47.266/4.696/n33/ok  47.293/4.669/n33/ok
+  预言拐点 $D=47.2075$（$x=1.0844$），它左边共 8 列，其中可用 8 列。
+  斜率 $\mathrm d\Delta/\mathrm d\log_2(1/x)$（未切断列；拐点前段 $\{0,1\}$ 族的预言 $pprox0.85$）：
+\p0\p0_replicate_letter.py:174: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=solver, gp=False)
+  我的 $I_{unc}$ 网格 91 点，最近地板处 $I_{unc}(47.0)=2.5499$，$\mathrm d I_{unc}/\mathrm dD=-0.0713$ bit/单位
+    线端帽 3 列（不参与回归）                 可用列 3，太少
+    拐点前 $x<\mathrm{gap}$（去帽）       列   5  斜率 +0.6055 $\pm$ 0.0273   截距 +2.295  残差 $\sigma$=0.0034 bit  $u$ 跨度 0.160
+    拐点后 $x\in[1.08,1.7]$           列  23  斜率 +0.8686 $\pm$ 0.0117   截距 +2.342  残差 $\sigma$=0.0108 bit  $u$ 跨度 0.643
+    $x\in[1.7,3]$（$\{0\}$ 族）       列  55  斜率 +0.6974 $\pm$ 0.0204   截距 +2.122  残差 $\sigma$=0.0368 bit  $u$ 跨度 0.785
+    $x\in[3,14]$                   列 401  斜率 +0.3445 $\pm$ 0.0030   截距 +1.430  残差 $\sigma$=0.0367 bit  $u$ 跨度 2.209
+
+===== [5] 族切换与 $\Gamma^st$ 的秩：原文 F2 曲线画的区间里弱通道值多少？ =====
+\p0\exp_fig1_ladder.py:43: SyntaxWarning: invalid escape sequence '\m'
+  print('    �� %-6s $|A|=%d$  $\mathrm{gap}=%+.6f$  $\Phi_0(A)=%.8f$  $w=%s$'
+\p0\exp_fig1_ladder.py:49: SyntaxWarning: invalid escape sequence '\m'
+  """��������һά���֣��� $t$ ʹ $x(t)=\mathrm{gap}+x_A$�����ظ� feasible ����� $I$��"""
+\p0\exp_fig1_ladder.py:103: SyntaxWarning: invalid escape sequence '\l'
+  """���ڳ������� + ���Բ�ֵ�����ذ������ 0.02�������Զ��Ŵ֣���ֵ��� $\ll$ ������������"""
+\p0\exp_fig1_ladder.py:126: SyntaxWarning: invalid escape sequence '\l'
+  print('  ������ $-$ �ҵ� SDP��%d �񣬾�ֵ %+.4f����׼�� %.4f����� $|$%.4f$��$\le$ ��������߿�����ͨ����'
+\p0\exp_fig1_ladder.py:134: SyntaxWarning: invalid escape sequence '\m'
+  print('\n===== [3] �������Ͻ� $E(D)=\min_A I_A$ ����ֵ׶���ŶԱ�������Ԥ����ɽ��� =====')
+\p0\exp_fig1_ladder.py:157: SyntaxWarning: invalid escape sequence '\D'
+  print('\n===== [2] $\Delta(D)=I_{TRV}-I_{unc}$ �� $\log_2(1/x)$ �ľֲ�б�� =====')
+\p0\exp_fig1_ladder.py:158: SyntaxWarning: invalid escape sequence '\{'
+  print('  Ԥ�ԣ�$x<\\mathrm{gap}_{\{0\}}=%.4f$ ֻ��ȫ֧������� $\Rightarrow$ б�� $=%.1f$��'
+\p0\exp_fig1_ladder.py:159: SyntaxWarning: invalid escape sequence '\{'
+  '�յ����� $\{0\}$ �壨б�� $0.5$���볡������Ӧ�����ۡ�'
+\p0\exp_fig1_ladder.py:175: SyntaxWarning: invalid escape sequence '\m'
+  print('  Ԥ��б�� $\mathrm d\Delta/\mathrm du$��$u=\log_2(1/x)$��$x=D-D_{\min}$����')
+\p0\exp_fig1_ladder.py:180: SyntaxWarning: invalid escape sequence '\i'
+  for tag, lo_, hi_ in (('�յ�ǰ $x\in[0.86,1.084]$', red[:, 0].min(), FLOOR + 1.0844),
+\p0\exp_fig1_ladder.py:181: SyntaxWarning: invalid escape sequence '\i'
+  ('�յ�� $x\in[1.084,1.6]$', FLOOR + 1.0844, FLOOR + 1.6),
+\p0\exp_fig1_ladder.py:182: SyntaxWarning: invalid escape sequence '\i'
+  ('$x\in[1.6,3]$', FLOOR + 1.6, FLOOR + 3.0),
+\p0\exp_fig1_ladder.py:183: SyntaxWarning: invalid escape sequence '\i'
+  ('$x\in[3,13.7]$��ͼ�����ࣩ', FLOOR + 3.0, 59.9)):
+\p0\exp_fig1_ladder.py:195: SyntaxWarning: invalid escape sequence '\p'
+  print('    %-28s ���� %4d  б�� %+.4f $\pm$ %.4f bit/dec  �ؾ� %+.3f  �в� $\sigma$=%.4f bit'
+     1.120    47.2431     4.6423     6.2763        0+1    +1.6341
+     1.180    47.3031     4.5768     5.5646        0+1    +0.9878
+     1.240    47.3631     4.5150     5.2139        0+1    +0.6989
+     1.300    47.4231     4.4566     4.9794        0+1    +0.5228
+     1.360    47.4831     4.4012     4.8030        0+1    +0.4017
+     1.420    47.5431     4.3487     4.6616        0+1    +0.3129
+     1.480    47.6031     4.2987     4.5437        0+1    +0.2450
+     1.540    47.6631     4.2510     4.4425        0+1    +0.1915
+     1.600    47.7231     4.2055     4.3540        0+1    +0.1484
+     1.660    47.7831     4.1620     4.2753        0+1    +0.1132
+     1.700    47.8231     4.1341     4.2273        0+1    +0.0932
+     1.950    48.0731     3.9755     3.9844        0+1    +0.0088
+     2.200    48.3231     3.8400     3.8043          0    +0.0357
+     2.450    48.5731     3.7222     3.6614          0    +0.0608
+     2.700    48.8231     3.6184     3.5431          0    +0.0753
+     2.950    49.0731     3.5260     3.4423          0    +0.0838
+     3.200    49.3231     3.4430     3.3545          0    +0.0884
+     3.450    49.5731     3.3677     3.2769          0    +0.0908
+     3.700    49.8231     3.2990     3.2074          0    +0.0916
+     3.950    50.0731     3.2360     3.1445          0    +0.0914
+     4.200    50.3231     3.1778     3.0872          0    +0.0906
+     4.450    50.5731     3.1239     3.0345          0    +0.0894
+     4.700    50.8231     3.0737     2.9858          0    +0.0879
+     4.950    51.0731     3.0268     2.9405          0    +0.0863
+     5.200    51.3231     2.9828     2.8983          0    +0.0845
+     5.450    51.5731     2.9414     2.8588          0    +0.0827
+     5.700    51.8231     2.9024     2.8216          0    +0.0809
+     5.950    52.0731     2.8656     2.7865          0    +0.0790
+  切换点（$E$ 口径）$x^*pprox2.20$ → $D^*pprox48.32$
+
+  数值锥最优 $\Gamma^st$ 在 $C$ 本征基下的谱（比值大 = 弱通道实质关闭）：
+         D        x     I_cone     E(min) $\lambda(V)$ 两方向           比值        锥最优-红        红像素
+   47.0000   0.8769     4.9338     4.9558  [    0.467,   0.0169] r=   27.7    +0.0198     4.9140
+   47.2075   1.0844     4.6523     4.6831  [    0.657,   0.0208] r=   31.5    -0.1133     4.7656
+   47.5000   1.3769     4.3421     4.3862  [     1.03,   0.0265] r=   38.7    -0.1250     4.4671
+   47.8000   1.6769     4.0923     4.1501  [     1.62,   0.0323] r=   50.1    -0.0746     4.1669
+   48.1231   2.0000     3.8746     3.9445  [     2.77,   0.0386] r=   71.8    -0.0519     3.9265
+   48.5000   2.3769     3.6670     3.7002  [     6.42,    0.046] r=  139.7    -0.0429     3.7099
+   49.5000   3.3769     3.2732     3.2987  [ 1.99e+03,   0.0737] r=27018.1    -0.0236     3.2968
+   51.0000   4.8769     2.9235     2.9534  [ 6.14e+03,    0.126] r=48784.9    -0.0048     2.9283
+   55.0000   8.8769     2.4365     2.4818  [ 7.57e+04,    0.282] r=268746.4    -0.0019     2.4384
+\p0\exp_nearfloor_law.py:57: RuntimeWarning: overflow encountered in exp
+  M[np.diag_indices(r)] = np.exp(p[:r])
+\p0\exp_nearfloor_law.py:59: RuntimeWarning: invalid value encountered in matmul
+  return sym(M @ M.T)
+\p0\exp_nearfloor_law.py:59: RuntimeWarning: overflow encountered in matmul
+  return sym(M @ M.T)
+C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\linalg\_linalg.py:2431: RuntimeWarning: invalid value encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+\p0\p0_replicate_letter.py:75: RuntimeWarning: invalid value encountered in log
+  I_dir = 0.5 * np.log(np.linalg.det(Pt) / np.linalg.det(P)) / ln2
+   60.0000  13.8769     2.1211     2.1833  [ 1.29e+04,    0.507] r=25493.9    +0.0014     2.1197

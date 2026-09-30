@@ -1,0 +1,40 @@
+== [X1] 10.1109/JSTSP.2018.2855046  tries=1  HTTP=200
+  标题：Zero-Delay Rate Distortion via Filtering for Vector-Valued Gaussian Sources
+  容器：IEEE Journal of Selected Topics in Signal Processing
+  事件：{}
+  volume=12  issue=5  page=841-856
+  published-print：[[2018, 10]]
+  issued：[[2018, 10]]
+  created：[[2018, 7, 11]]
+  ISSN=['1932-4553', '1941-0484']
+  作者序：Photios A. Stavrou; Jan Ostergaard; Charalambos D. Charalambous
+  摘要：(Crossref 未提供摘要)
+  引用数=41  被引列表条数=48
+  ⇒ 分支 [B1] 元数据可得
+== [X2] 10.1109/ciss.2016.7460485  tries=1  HTTP=200
+  标题：Vector Gaussian multi-decoder rate-distortion: Trace constraints
+  容器：2016 Annual Conference on Information Science and Systems (CISS)
+  事件：{"name": "2016 Annual Conference on Information Science and Systems (CISS)", "start": {"date-parts": [[2016, 3, 16]]}, "location": "Princeton, NJ, USA", "end": {"date-parts": [[2016, 3, 18]]}}
+  volume=None  issue=None  page=105-110
+  published-print：[[2016, 3]]
+  issued：[[2016, 3]]
+  created：[[2016, 4, 28]]
+  ISSN=None
+  作者序：Sinem Unal; Aaron B. Wagner
+  摘要：(Crossref 未提供摘要)
+  引用数=4  被引列表条数=7
+  ⇒ 分支 [B1] 元数据可得
+== [X3] 10.1109/ssp.2005.1628751  tries=1  HTTP=200
+  标题：Rate distortion of stationary and nonstationary vector gauaaian sources
+  容器：IEEE/SP 13th Workshop on Statistical Signal Processing, 2005
+  事件：{"name": "2005 Microwave Electronics: Measurements, Identification, Applications", "start": {"date-parts": [[2005, 7, 17]]}, "location": "Bordeaux, France", "end": {"date-parts": [[2005, 7, 20]]}}
+  volume=None  issue=None  page=1054-1059
+  published-print：[[2005]]
+  issued：[[2005]]
+  created：[[2006, 5, 25]]
+  ISSN=None
+  作者序：V. Kafedziski
+  摘要：(Crossref 未提供摘要)
+  引用数=6  被引列表条数=21
+  ⇒ 分支 [B1] 元数据可得
+EXIT=0

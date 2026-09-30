@@ -1,0 +1,119 @@
+\p0\exp_plants_oos.py:72: SyntaxWarning: invalid escape sequence '\l'
+  """Tanaka 式(18) max-det SDP；返回 recovered $P$ 上的真实率 $\tfrac12\log\det(\tilde P/P)$。"""
+\p0\exp_plants_oos.py:135: SyntaxWarning: invalid escape sequence '\o'
+  print('  $\\delta$=%.1e  $b=q(B)$=%.5f  $\operatorname{tr}(M_0^{-1}C^{-1})$=%.5f  '
+\p0\exp_plants_oos.py:136: SyntaxWarning: invalid escape sequence '\o'
+  '$\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=%.5f' % (dlt, b, trm, trD))
+\p0\exp_plants_oos.py:141: SyntaxWarning: invalid escape sequence '\l'
+  print('  截距：$B_{测}$=%.5f   $\tfrac r2\log_2 r+\tfrac12\log_2(\det C\det M_0)$=%.5f   '
+\p0\exp_plants_oos.py:147: SyntaxWarning: invalid escape sequence '\k'
+  print('  曲率：$\kappa\'_{测}$=%.5f  $\kappa\'_{预}$=%.5f  比值=%.4f   $|I\'_{unc}|$=%.5f  '
+\p0\exp_plants_oos.py:148: SyntaxWarning: invalid escape sequence '\k'
+  '$\kappa_{总预}$=%.5f  $\zeta$=%.2e'
+\p0\exp_plants_oos.py:161: SyntaxWarning: invalid escape sequence '\P'
+  print('\n===== %s  n=%d r=%d  地板=%.6f  $\Phi$=%.4f  Nair–Evans=%.4f  '
+\p0\exp_plants_oos.py:162: SyntaxWarning: invalid escape sequence '\o'
+  '$\operatorname{rank}\Theta$=%d  %s' % (name, Pl.nn, r, fl, phi0, su,
+\p0\exp_plants_oos.py:164: SyntaxWarning: invalid escape sequence '\l'
+  print('  可检测=%s  $|\lambda(A)|$=%s  $C$ 本征值=%s'
+\p0\exp_plants_oos.py:168: SyntaxWarning: invalid escape sequence '\l'
+  print('  ↑ PBH 在 $\lambda=%s$ 失败：按原文 Thm.2，$\mathcal K_F$ 上的下确界不该在这里取到' % lam)
+\p0\exp_plants_oos.py:170: SyntaxWarning: invalid escape sequence '\e'
+  print('  $C\equiv0$：代价对该传感器的全部噪声不敏感 → 垂直渐近线不存在')
+\p0\exp_plants_oos.py:175: SyntaxWarning: invalid escape sequence '\o'
+  print('  **$C$ 降秩** $\operatorname{rank}C=%d<r=%d$：预言斜率 $(\operatorname{rank}C)/2=%.1f$，'
+\p0\exp_plants_oos.py:212: SyntaxWarning: invalid escape sequence '\d'
+  '$\delta$ 应从 $8\times10^{-6}$ 掉到 $10^{-9}$')
+\p0\exp_plants_oos.py:81: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=cp.CLARABEL, gp=False)
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+锚点自检：Tanaka 植物 + Schur 尾部 2 —— 地板应回到 46.123137，$b$ 回到 $-0.840$，$\delta$ 应从 $8	imes10^{-6}$ 掉到 $10^{-9}$
+
+===== T-F2 尾部2（锚点）  n=4 r=2  地板=46.123137  $\Phi$=14.6398  Nair–Evans=1.1685  $\operatorname{rank}\Theta$=4  
+  可检测=True  $|\lambda(A)|$=[1.7124 1.3127 0.7543 0.7543]  $C$ 本征值=[ 1.4535349 25.9170755]
+  $\delta$=2.9e-05  $b=q(B)$=-0.84013  $\operatorname{tr}(M_0^{-1}C^{-1})$=0.79720  $\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=0.40319
+  斜率：自由拟合 1.000003  vs  $r/2$=1.000000   差 +2.8e-06
+  截距：$B_{测}$=4.63462   $	frac r2\log_2 r+	frac12\log_2(\det C\det M_0)$=4.63464   $I_{unc}($地板$)$=2.61481   $B_{测}-b_{pred}-I_{unc}$=-0.00001
+  曲率：$\kappa'_{测}$=0.12974  $\kappa'_{预}$=0.12994  比值=1.0015   $|I'_{unc}|$=0.07686  $\kappa_{总预}$=0.20680  $\zeta$=3.29e-02
+
+===== PL1 $r=1$ 坐标（复对只需一通道）  n=3 r=1  地板=59.145357  $\Phi$=33.8947  Nair–Evans=0.4776  $\operatorname{rank}\Theta$=2  
+  可检测=True  $|\lambda(A)|$=[1.18 1.18 0.42]  $C$ 本征值=[16.3265793]
+  $\delta$=5.6e-07  $b=q(B)$=-0.03175  $\operatorname{tr}(M_0^{-1}C^{-1})$=0.01710  $\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=0.04643
+  斜率：自由拟合 0.500000  vs  $r/2$=0.500000   差 -9.3e-09
+  截距：$B_{测}$=2.93506   $	frac r2\log_2 r+	frac12\log_2(\det C\det M_0)$=2.93506   $I_{unc}($地板$)$=0.72367   $B_{测}-b_{pred}-I_{unc}$=+0.00000
+  曲率：$\kappa'_{测}$=0.02290  $\kappa'_{预}$=0.02292  比值=1.0008   $|I'_{unc}|$=0.00599  $\kappa_{总预}$=0.02891  $\zeta$=-3.73e-04
+
+===== PL1 $r=2$ 坐标  n=3 r=2  地板=25.288601  $\Phi$=0.0379  Nair–Evans=0.4776  $\operatorname{rank}\Theta$=2  
+  可检测=True  $|\lambda(A)|$=[1.18 1.18 0.42]  $C$ 本征值=[0.0996795 7.1253437]
+  $\delta$=4.2e-05  $b=q(B)$=-5.38403  $\operatorname{tr}(M_0^{-1}C^{-1})$=5.75647  $\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=6.44113
+  斜率：自由拟合 0.999606  vs  $r/2$=1.000000   差 -3.9e-04
+  截距：$B_{测}$=1.62785   $	frac r2\log_2 r+	frac12\log_2(\det C\det M_0)$=1.62311   $I_{unc}($地板$)$=6.48259   $B_{测}-b_{pred}-I_{unc}$=+0.00474
+  曲率：$\kappa'_{测}$=2.43131  $\kappa'_{预}$=2.45748  比值=1.0108   $|I'_{unc}|$=36.20271  $\kappa_{总预}$=38.66019  $\zeta$=-4.86e+00
+
+===== PL1 $r=2$ 随机正交  n=3 r=2  地板=41.350755  $\Phi$=16.1001  Nair–Evans=0.4776  $\operatorname{rank}\Theta$=2  
+  可检测=True  $|\lambda(A)|$=[1.18 1.18 0.42]  $C$ 本征值=[1.5602586 6.912683 ]
+  $\delta$=2.0e-06  $b=q(B)$=-0.23520  $\operatorname{tr}(M_0^{-1}C^{-1})$=0.34165  $\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=0.45611
+  斜率：自由拟合 0.999998  vs  $r/2$=1.000000   差 -2.0e-06
+  截距：$B_{测}$=3.82807   $	frac r2\log_2 r+	frac12\log_2(\det C\det M_0)$=3.82804   $I_{unc}($地板$)$=0.91700   $B_{测}-b_{pred}-I_{unc}$=+0.00003
+  曲率：$\kappa'_{测}$=0.20286  $\kappa'_{预}$=0.20290  比值=1.0002   $|I'_{unc}|$=0.01993  $\kappa_{总预}$=0.22283  $\zeta$=-2.30e-02
+
+===== PL2 $r=3$ 坐标  n=5 r=3  地板=54.608252  $\Phi$=0.5207  Nair–Evans=0.9706  $\operatorname{rank}\Theta$=2  
+  可检测=True  $|\lambda(A)|$=[1.31   1.2231 1.2231 0.61   0.33  ]  $C$ 本征值=[ 0.1383093  1.4544201 12.7950587]
+  $\delta$=6.9e-05  $b=q(B)$=-6.90566  $\operatorname{tr}(M_0^{-1}C^{-1})$=2.75644  $\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=5.40030
+  斜率：自由拟合 1.500128  vs  $r/2$=1.500000   差 +1.3e-04
+  截距：$B_{测}$=5.03933   $	frac r2\log_2 r+	frac12\log_2(\det C\det M_0)$=5.04073   $I_{unc}($地板$)$=6.09874   $B_{测}-b_{pred}-I_{unc}$=-0.00141
+  曲率：$\kappa'_{测}$=0.29698  $\kappa'_{预}$=0.30082  比值=1.0129   $|I'_{unc}|$=2.65009  $\kappa_{总预}$=2.95091  $\zeta$=7.03e-01
+
+===== PL2 $r=3$ 随机正交  n=5 r=3  地板=59.729748  $\Phi$=5.6422  Nair–Evans=0.9706  $\operatorname{rank}\Theta$=2  
+  可检测=True  $|\lambda(A)|$=[1.31   1.2231 1.2231 0.61   0.33  ]  $C$ 本征值=[ 0.330346   2.3153419 21.9750636]
+  $\delta$=1.3e-04  $b=q(B)$=-1.68670  $\operatorname{tr}(M_0^{-1}C^{-1})$=0.73416  $\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=1.46606
+  斜率：自由拟合 1.500007  vs  $r/2$=1.500000   差 +7.2e-06
+  截距：$B_{测}$=6.60552   $	frac r2\log_2 r+	frac12\log_2(\det C\det M_0)$=6.60551   $I_{unc}($地板$)$=3.12680   $B_{测}-b_{pred}-I_{unc}$=+0.00001
+  曲率：$\kappa'_{测}$=0.12318  $\kappa'_{预}$=0.12348  比值=1.0024   $|I'_{unc}|$=0.18439  $\kappa_{总预}$=0.30787  $\zeta$=3.73e-02
+
+===== PL3 $r=1$ 观测 $x_1$（临界 Jordan）  n=3 r=1  地板=61.238945  $\Phi$=41.0779  Nair–Evans=0.0000  $\operatorname{rank}\Theta$=1  
+  可检测=True  $|\lambda(A)|$=[1.  1.  0.5]  $C$ 本征值=[10.5676185]
+  $\delta$=3.8e-07  $b=q(B)$=-0.03253  $\operatorname{tr}(M_0^{-1}C^{-1})$=0.01435  $\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=0.04228
+  斜率：自由拟合 0.500000  vs  $r/2$=0.500000   差 -6.4e-09
+  截距：$B_{测}$=3.06121   $	frac r2\log_2 r+	frac12\log_2(\det C\det M_0)$=3.06120   $I_{unc}($地板$)$=0.55620   $B_{测}-b_{pred}-I_{unc}$=+0.00000
+  曲率：$\kappa'_{测}$=0.01738  $\kappa'_{预}$=0.01738  比值=1.0004   $|I'_{unc}|$=0.00604  $\kappa_{总预}$=0.02343  $\zeta$=-2.68e-04
+
+===== PL3 $r=2$  n=3 r=2  地板=20.163577  $\Phi$=0.0026  Nair–Evans=0.0000  $\operatorname{rank}\Theta$=1  
+  可检测=True  $|\lambda(A)|$=[1.  1.  0.5]  $C$ 本征值=[-0.0000032  9.8895361]
+  **$C$ 降秩** $\operatorname{rank}C=1<r=2$：预言斜率 $(\operatorname{rank}C)/2=0.5$，而非 $r/2=1.0$；收缩到支集重跑
+
+===== PL3 $r=2$｜支集  n=3 r=1  地板=20.163586  $\Phi$=0.0026  Nair–Evans=0.0000  $\operatorname{rank}\Theta$=1  （收缩后）
+  可检测=True  $|\lambda(A)|$=[1.  1.  0.5]  $C$ 本征值=[9.8882111]
+  $\delta$=4.1e-07  $b=q(B)$=-0.03853  $\operatorname{tr}(M_0^{-1}C^{-1})$=0.03879  $\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=0.06930
+  斜率：自由拟合 0.500000  vs  $r/2$=0.500000   差 -4.7e-08
+  截距：$B_{测}$=2.34403   $	frac r2\log_2 r+	frac12\log_2(\det C\det M_0)$=2.34403   $I_{unc}($地板$)$=6.64350   $B_{测}-b_{pred}-I_{unc}$=+0.00000
+  曲率：$\kappa'_{测}$=0.05017  $\kappa'_{预}$=0.05018  比值=1.0002   $|I'_{unc}|$=283.11143  $\kappa_{总预}$=283.16161  $\zeta$=-2.13e-03
+
+===== PL3 $r=1$ 观测 $x_2$（应不可检测）  失败：LinAlgError('Failed to find a finite solution.')
+
+===== PL4 单输入 $r=2$  n=3 r=2  地板=12.189007  $\Phi$=0.0853  Nair–Evans=0.1375  $\operatorname{rank}\Theta$=1  
+  可检测=True  $|\lambda(A)|$=[1.1    0.9116 0.6116]  $C$ 本征值=[0.0000235 3.7681385]
+  $\delta$=-6.3e-01  $b=q(B)$=-628.22082  $\operatorname{tr}(M_0^{-1}C^{-1})$=13309.84533  $\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=8508.75062
+  斜率：自由拟合 0.663151  vs  $r/2$=1.000000   差 -3.4e-01
+  截距：$B_{测}$=-0.36485   $	frac r2\log_2 r+	frac12\log_2(\det C\det M_0)$=-4.85975   $I_{unc}($地板$)$=2.96412   $B_{测}-b_{pred}-I_{unc}$=+4.49490
+  曲率：$\kappa'_{测}$=331.80766  $\kappa'_{预}$=7642.81228  比值=23.0339   $|I'_{unc}|$=8.30661  $\kappa_{总预}$=7651.11888  $\zeta$=-8.84e+03
+
+===== PL4 单输入 $r=3$  n=3 r=3  地板=12.103719  $\Phi$=0.0000  Nair–Evans=0.1375  $\operatorname{rank}\Theta$=1  
+  可检测=True  $|\lambda(A)|$=[1.1    0.9116 0.6116]  $C$ 本征值=[-0.000005 -0.000005  3.825159]
+  **$C$ 降秩** $\operatorname{rank}C=1<r=3$：预言斜率 $(\operatorname{rank}C)/2=0.5$，而非 $r/2=1.5$；收缩到支集重跑
+
+===== PL4 单输入 $r=3$｜支集  n=3 r=1  地板=12.103719  $\Phi$=0.0000  Nair–Evans=0.1375  $\operatorname{rank}\Theta$=1  （收缩后）
+  可检测=True  $|\lambda(A)|$=[1.1    0.9116 0.6116]  $C$ 本征值=[3.8251608]
+  $\delta$=8.2e-07  $b=q(B)$=-0.19596  $\operatorname{tr}(M_0^{-1}C^{-1})$=0.19602  $\operatorname{tr}(M_0^{-1}D_{\mathbb M})$=0.28615
+  斜率：自由拟合 0.499999  vs  $r/2$=0.500000   差 -5.1e-07
+
+===== PL4 单输入 $r=3$  失败：SolverError("Solver 'CLARABEL' failed. Try another solver, or solve with verbose=True for more information.")

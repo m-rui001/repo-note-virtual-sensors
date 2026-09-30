@@ -1,0 +1,32 @@
+== [口径自纠] e169 的"两根差 5.27"源于我把迭代映射的转置写反（$A^{\mathsf T}XA$ 应为 $AXA^{\mathsf T}$）$-\ -$ 本轮改正后重判；$D(\lg)$ 单调（e169 [i]）与 e167 的角度位移（未归一化向量被 clip 成 $0^\circ$）也一并登记 ==
+== 锚点：$J_C=31.483342$；$\rho(A)=1.7124$；$A$ 的 $|\lambda|$ 降序 [1.7124 1.3127 0.7543 0.7543]；不稳定（$|\lambda|\ge1$）个数 2 ==
+
+== [D0/D1/D2] 逐方向：可检测性、两根的 stabilizing 半径、Loewner 序（$\lg=0$ 与 $\lg=2$）==
+      $\Theta$ 轴1  $r=1$ $\lg=+0.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.6565$（scipy 约定 $\rho=0.6974$）；迭代根 $\rho(A-LC)=0.6565$（40 步收敛 True）；两根最大相对差 3.81e-15；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-1.038e-13$
+      $\Theta$ 轴1  $r=1$ $\lg=+2.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.5815$（scipy 约定 $\rho=1.1577$）；迭代根 $\rho(A-LC)=0.5815$（31 步收敛 True）；两根最大相对差 3.49e-15；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-7.736e-14$
+      $\Theta$ 轴2  $r=1$ $\lg=+0.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.7105$（scipy 约定 $\rho=1.4075$）；迭代根 $\rho(A-LC)=0.7105$（52 步收敛 True）；两根最大相对差 1.07e-14；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-1.014e-12$
+      $\Theta$ 轴2  $r=1$ $\lg=+2.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.6992$（scipy 约定 $\rho=1.3961$）；迭代根 $\rho(A-LC)=0.6992$（47 步收敛 True）；两根最大相对差 2.50e-14；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-1.451e-12$
+      $\Theta$ 轴3  $r=1$ $\lg=+0.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.5243$（scipy 约定 $\rho=1.2060$）；迭代根 $\rho(A-LC)=0.5243$（30 步收敛 True）；两根最大相对差 5.29e-15；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-1.116e-13$
+      $\Theta$ 轴3  $r=1$ $\lg=+2.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.4630$（scipy 约定 $\rho=1.3066$）；迭代根 $\rho(A-LC)=0.4630$（25 步收敛 True）；两根最大相对差 1.53e-14；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-3.576e-14$
+      $\Theta$ 轴4  $r=1$ $\lg=+0.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.7066$（scipy 约定 $\rho=2.4512$）；迭代根 $\rho(A-LC)=0.7066$（55 步收敛 True）；两根最大相对差 2.02e-14；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-4.253e-12$
+      $\Theta$ 轴4  $r=1$ $\lg=+2.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.7031$（scipy 约定 $\rho=2.4586$）；迭代根 $\rho(A-LC)=0.7031$（53 步收敛 True）；两根最大相对差 4.63e-14；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-3.617e-13$
+      rand1        $r=1$ $\lg=+0.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.7972$（scipy 约定 $\rho=2.8148$）；迭代根 $\rho(A-LC)=0.7972$（349 步收敛 True）；两根最大相对差 2.55e-13；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-1.012e-10$
+      rand1        $r=1$ $\lg=+2.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.8063$（scipy 约定 $\rho=2.7642$）；迭代根 $\rho(A-LC)=0.8063$（141 步收敛 True）；两根最大相对差 1.18e-13；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-4.821e-13$
+      rand2        $r=1$ $\lg=+0.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.5778$（scipy 约定 $\rho=1.8446$）；迭代根 $\rho(A-LC)=0.5778$（33 步收敛 True）；两根最大相对差 1.21e-15；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-9.649e-14$
+      rand2        $r=1$ $\lg=+2.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.5601$（scipy 约定 $\rho=1.6047$）；迭代根 $\rho(A-LC)=0.5601$（31 步收敛 True）；两根最大相对差 6.52e-15；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-2.455e-13$
+      $\Theta$ 前2列(秩2) $r=2$ $\lg=+0.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.6084$（scipy 约定 $\rho=0.8480$）；迭代根 $\rho(A-LC)=0.6084$（33 步收敛 True）；两根最大相对差 3.87e-15；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-7.677e-14$
+      $\Theta$ 前2列(秩2) $r=2$ $\lg=+2.0$：PBH 可检测 True；scipy 根 $\rho(A-LC)=0.4183$（scipy 约定 $\rho=0.9884$）；迭代根 $\rho(A-LC)=0.4183$（18 步收敛 True）；两根最大相对差 2.60e-15；$\lambda_{\min}(X_{\rm it}-X_{\rm sc})=-2.217e-14$
+  [D1$^\prime$] 改正映射后，scipy 根与时间迭代根的最大相对差 $=\,$2.55e-13（14 个组合）
+
+== [D3] 两条 $D(\lg)$ 曲线：scipy 根 vs 迭代根（$\Theta$ 首轴、$\Theta$ 前2列）==
+      $\Theta$ 轴1    $D_{\rm tgt}=80.00$：scipy 根 $\min D=43.7058$，穿点 1 个，上升段 0，非有限 0 $\\Rightarrow$ 迭代根 $\min D=43.7058$，穿点 1 个，上升段 0，非有限 0
+      $\Theta$ 轴1    $D_{\rm tgt}=56.66$：scipy 根 $\min D=43.7058$，穿点 1 个，上升段 0，非有限 0 $\\Rightarrow$ 迭代根 $\min D=43.7058$，穿点 1 个，上升段 0，非有限 0
+      $\Theta$ 前2列(秩2) $D_{\rm tgt}=80.00$：scipy 根 $\min D=32.2752$，穿点 1 个，上升段 0，非有限 0 $\\Rightarrow$ 迭代根 $\min D=32.2752$，穿点 1 个，上升段 0，非有限 0
+      $\Theta$ 前2列(秩2) $D_{\rm tgt}=56.66$：scipy 根 $\min D=32.2752$，穿点 1 个，上升段 0，非有限 0 $\\Rightarrow$ 迭代根 $\min D=32.2752$，穿点 1 个，上升段 0，非有限 0
+
+== [D1$^\prime$/D4/D5] 判决（自带读数条数：#46）==
+  检查 14 个（方向,$\lg$）组合 $-\ -$ 其中 PBH 不可检测 0 个；scipy 根 $\rho(A-LC)<1$ 14 个；迭代根同 14 个；两根最大相对差 2.55e-13
+  **[D1$^\prime$] 判：两法同根（最大相对差 2.55e-13 $\le10^{-6}$）$-\ -$ e169 的"两根差 5.27"是我方迭代映射的转置写反，该结论撤回**（不改任何已落的 $\Delta$/地板数，因为它们全走同一 `solve_discrete_are`）。
+  [D4] 判：全部 14 个组合都可检测 $\\Rightarrow$ stabilizing 根存在且唯一，我的分支就是它。
+
+用时 69 s | 异常 无

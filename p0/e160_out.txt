@@ -1,0 +1,32 @@
+== [B2] C 的 70-A 表内部：$c$ 与 $q$ 是否同源 ==
+  $D$     rank      $c$       $q$      $q/c$    
+  32.00   4         0.03244   0.0381   1.1745   
+  32.31   4         0.04766   0.0560   1.1750   
+  34.41   3         0.1101    0.1299   1.1798   
+  56.66   1         0.1648    0.1938   1.1760   
+  80.00   1         0.1271    0.1476   1.1613   
+  $q/c$ 的均值 1.1733，样本标准差 0.0070，相对散布 0.6% $\Rightarrow$ 两列近严格比例（同源），不构成独立佐证
+
+== [B4] 解析到的 e152 秩 1 行（逐字，共 6 条）==
+  anchor D=56.66 theta=5.13 deg dI=+8.51e-02 bit
+  anchor D=80.00 theta=4.17 deg dI=+4.50e-02 bit
+  rand-1 D=32.31 theta=3.59 deg dI=+1.95e-02 bit
+  rand-1 D=34.41 theta=4.11 deg dI=+8.71e-03 bit
+  rand-1 D=56.66 theta=2.68 deg dI=+8.93e-03 bit
+  rand-1 D=80.00 theta=6.28 deg dI=+2.40e-02 bit
+
+== [B1]/[B3] 角度<->非对角质量的换算与同格对账（$n=4$，其余 $m-1=3$ 轴）==
+  $D=56.66$：我 $\theta=5.13^\circ$ $\Rightarrow$ 预测 $q\in[0.1259,0.1261]$；C 实测 $q=0.1938$（rank 1）$\Rightarrow$ 反解 $\theta_{\rm inv}=7.95^\circ$
+          C 的 $q$ 高于 我的预测区间 $\Rightarrow$ 同格偏差 $\theta_{\rm inv}-\theta=+2.82^\circ$ $\Rightarrow$ 同一量级但差约 0.6 倍角度，须请 C 给 $q$ 的逐字定义
+  $D=80.00$：我 $\theta=4.17^\circ$ $\Rightarrow$ 预测 $q\in[0.1026,0.1027]$；C 实测 $q=0.1476$（rank 1）$\Rightarrow$ 反解 $\theta_{\rm inv}=6.02^\circ$
+          C 的 $q$ 高于 我的预测区间 $\Rightarrow$ 同格偏差 $\theta_{\rm inv}-\theta=+1.85^\circ$ $\Rightarrow$ 口径一致
+
+== [B1] 小角度展开（供正文引用）==
+  $\theta=2.68^\circ$ $\Rightarrow$ $q\in[0.066,0.066]$（$\sqrt2\theta$ 近似给 0.066）
+  $\theta=4.17^\circ$ $\Rightarrow$ $q\in[0.103,0.103]$（$\sqrt2\theta$ 近似给 0.103）
+  $\theta=5.13^\circ$ $\Rightarrow$ $q\in[0.126,0.126]$（$\sqrt2\theta$ 近似给 0.127）
+  $\theta=6.28^\circ$ $\Rightarrow$ $q\in[0.154,0.154]$（$\sqrt2\theta$ 近似给 0.155）
+  $\theta=8.00^\circ$ $\Rightarrow$ $q\in[0.195,0.196]$（$\sqrt2\theta$ 近似给 0.197）
+  $\theta=16.00^\circ$ $\Rightarrow$ $q\in[0.375,0.380]$（$\sqrt2\theta$ 近似给 0.395）
+[结论] 非对角质量 $q$ 与主角度 $\theta$ 在 $\theta\lesssim10^\circ$ 时满足 $q\approx\sqrt2\sin\theta\cos\theta\sim1.4\,	heta$（弧度），
+       所以"质量 $19\%$"读起来比"$8^\circ$"严重，其实是**同一件事**；板上两处读数不许当成两条独立证据相加。

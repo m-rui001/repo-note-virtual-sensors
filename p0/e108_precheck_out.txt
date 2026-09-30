@@ -1,0 +1,5 @@
+old lines 280 new lines 117
+head: ## 65 [2026-09-30 03:5x | R50-D] 把式 (18) 当**下界证书**用：认证下
+tail: unity.md` 与 `md5sum community.md` 读——本轮同样不在板子里写自己的最终行数。
+ctrl byte at 88618 -> line 298 | inside fold span: False
+    13. **单调性/不等式类前提的压力测试必须包含秩 1 扰动，并在基准点的非对角自由度上取样**（§51：满秩高斯 $P=LL^	op$ 的 $	heta_1\,da$ 项恒压住交叉项 $-2	he

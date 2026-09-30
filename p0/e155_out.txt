@@ -1,0 +1,16 @@
+== [V1] stavrou2016estimation 的 bibitem 现状 ==
+\bibitem{stavrou2016estimation}
+P.~A.~Stavrou, T.~Charalambous, C.~D.~Charalambous, and S.~Loyka, ``Optimal
+estimation via nonanticipative rate distortion function and applications to
+time-varying Gauss-Markov processes,'' SIAM J. Control Optim., vol.~56,
+pp.~3731--3765, 2018, doi:10.1137/17m1116349.
+[V1] 缺项=无 ；仍写 arXiv 口径？ False
+
+== [V2] 新增限定句 ==
+pricing no control action; the threshold it derives is a per-component on/off rule indexed by time and by the eigendirections of the estimator's own error covariance, so the sensor remains an implementation of a chosen test channel rather than a design variable priced against a control cost. That floor is not the asymptote studied here, but a published converse returns it: \cite{li2026sensing} bou
+[V2] 含 "eigendirections"？ True ；含 "fully observed"？ True
+
+== [V3] 编译（pdflatex 两遍）==
+错误行数 = 0
+产出      = Output written on note.pdf (7 pages, 351076 bytes)
+[V3] 0 错误且页数 <=7 ？ True（页 7，字节 351076）

@@ -1,0 +1,36 @@
+chars 61463
+>>> Theorem 1. | Theorem 1. SSASP is equivalent to minimize π,γ,N,M P ,Θ N X k=1 πk + γk (9a) subject to A⊤P + P A + C⊤Θ⊤B⊤+ BΘC ≺0 (9b) Ψ1(N, Θ) ≤L1∆1(Γ, Π) (9c) Ψ2(M, Ω(P )) ≤L2∆2(Π) (9d) Ψ3(Ξ(P )) ≤L3∆3(Π) (9e) P ≻0, Φ π γ ≤φ, π ∈{0, 1}N, γ ∈{0, 1}N, (9f) where (9c),(9d),(9e) are linear constraints in which each function is speciﬁed as Ψ1(N
+>>> Theorem 1. | Theorem 1. 6.1. Deﬁnitions and Preliminaries In what follows, we provide some needed deﬁnitions. Deﬁnition 2. Let Sπ and Sγ be two N-tuples represent- ing the selection of SA, i.e., Sπ ≜(π1, . . . , πN) and Sγ ≜ (γ1, . . . , γN). Then, the selection of SA can be deﬁned as S ≜(Sπ, Sγ) such that {Π, Γ} = G(S), Π = Gπ(S), and Γ = G
+>>> Theorem 2. | Theorem 2. Algorithm 1 yields an optimal solution of SSASP. Remark 4. S∗from Algorithm 1 might not be unique. This is the case since there could be multiple binary com- binations of SA yielding the same number of activated SA and hence the same objective function value PN k=1 πk +γk. 7. Heuristics to Solve SSASP The binary searc
+>>> Theorem 2. | Theorem 2.3.1] P BΠ = BB†P BΠ ⇔P BΠ = B(B⊤B)−1B⊤P BΠ ⇔O = (I −B(B⊤B)−1B⊤)P BΠ. (C.5) By using the deﬁnition of Ξ(P ) as in (11b), yields Ξ(P )Π = O. Let Ξ(P )ijΠj be the (i, j) element of Ξ(P )Π. Then, this constraint is equivalent to Ξ(P )ijΠj = 0 ⇔ ( Ξ(P )ij = 0, if πj = 1 Ξ(P )ij ∈R, if πj = 0, for i = 1, . . . , nx and j = 1
+>>> Proposition 2. | Proposition 2. This entails that the closed-loop eigenvalues are in the left- half plane and close to the jω-axis. If it is desired to move the closed-loop eigenvalues further away from the jω-axis, the matrix inequality (8b) can be upper bounded by −ǫI where ǫ ∈R+. Larger values for ǫ will result in closed-loop 10-3 10-2 10-1 1
+>>> Proposition 3. | Proposition 3. Let P , M, N, Π∗, and Γ∗be the so- lution of SSASP with appropriate dimensions. Also, let ˆ B ∈Rnx×m, ˆC ∈Rr×nx, ˆ M ∈Rm×m, and ˆ N ∈Rm×r, where m ≤nu and r ≤ny, be the matrices (or sub- matrices) representing the nonzero components of BΠ∗, Γ∗C, Π∗M, and Π∗NΓ∗that correspond to activated SA. Then, the closed loop 
+>>> Proposition 3. | Proposition 3. SSASP (8) is nonconvex due to the presence of MI-NMI in the form of ΠNΓ and mixed- integer BMI in (8c). Therefore, it cannot be solved by any general-purpose mixed-integer convex programming 4 solver. To that end, we present three approaches that solve or approximate (8). The ﬁrst approach—presented in the next s
+>>> Lemma 1. | Lemma 1. However, if (8) returns M that is invert- ible, then the SSASP is solved with SOF gain F to be computed as M −1N. Otherwise, F can be computed as ˆ M −1 ˆ N where ˆ M and ˆ N are the submatrices of M and N that correspond to activated SA. Proposition 3 ensures the SOF stabilizbilty with minimal SA after solving SSASP. L
+>>> Lemma 1. | Lemma 1. Let M ∈Rm×m and P ∈Snx be the solution of BM = P B where B ∈Rnx×m and m ≤nu. If P ≻0 and Rank(B) = m, then M is invertible. Proposition 3. Let P , M, N, Π∗, and Γ∗be the so- lution of SSASP with appropriate dimensions. Also, let ˆ B ∈Rnx×m, ˆC ∈Rr×nx, ˆ M ∈Rm×m, and ˆ N ∈Rm×r, where m ≤nu and r ≤ny, be the matrices (or 
+>>> Remark 1. | Remark 1. The solution of SSASP guarantees that the dynamic network is stabilized using the minimal number of SA, as the closed loop stability is ensured by the suﬃcient condition for the existence of SOFC given in Proposition 2. This entails that the closed-loop eigenvalues are in the left- half plane and close to the jω-axis. 
+>>> Remark 2. | Remark 2. It is important to mention that our focus here is to ﬁnd a SOF control gain that stabilizes dynamical sys- tem (6) with minimum number of SA. With that in mind, performance metrics such as robustness and energy cost functions are not considered in SSASP. After solving (8), the selected SA are obtained and rep- resented
+>>> Remark 3. | Remark 3. Although (9) is equivalent to SSASP, the quality of the solution that comes out of (9) is very de- pendent on the choice of L1,2,3. This observation is cor- roborated by numerical test results discussed in Section 9. The proof of Theorem 1 is given in Appendix C. This theorem allows the SSASP to be solved as a MI-SDP, 
+>>> Remark 4. | Remark 4. S∗from Algorithm 1 might not be unique. This is the case since there could be multiple binary com- binations of SA yielding the same number of activated SA and hence the same objective function value PN k=1 πk +γk. 7. Heuristics to Solve SSASP The binary search algorithm in the previous section requires the constructio
+>>> Remark 1. | Remark 1.The number of iterations for the MI-SDP corresponds to the BnB solver in YALMIP. Scenario Max(Re(Λ(A + BΠ∗F Γ∗C))) ∆t(s) Iterations P k πk + γk γ∗and π∗ MI-SDP-1 −4.78 × 10−3 24.2 187 3 γ∗= {0, 0, 0, 0, 0, 0, 1, 0, 0, 0} π∗= {0, 0, 0, 0, 0, 1, 0, 0, 0, 1} MI-SDP-2 −6.71 × 10−3 13.3 82 5 γ∗= {1, 1, 0, 0, 0, 0, 0, 0, 0, 0
+
+=== 关键词命中 ===
+SDP 43
+semidefinite 0
+convex 20
+relax 2
+guarantee 2
+approximation ratio 0
+submodul 0
+complexity 10
+NP- 2
+duality 0
+Lyapunov 0
+reachab 0
+controllab 0
+observab 0
+directed information 0
+rate 15
+
+=== 摘要全文 ===
+Abstract The problem of placing or selecting sensors and control nodes plays a pivotal role in the operation of dynamic networks. This paper proposes optimal algorithms and heuristics to solve the simultaneous sensor and actuator selection problem in linear dynamic networks. In particular, a suﬃciency condition of static output feedback stabilizability is used to obtain the minimal set of sensors and control nodes needed to stabilize an unstable network. We show the joint sensor/actuator selection and output feedback control can be written as a mixed-integer nonconvex problem. To solve this nonconvex combinatorial problem, three methods based on (1) mixed-integer nonlinear programming, (2) binary search algorithms, and (3) simple heuristics are proposed. The ﬁrst method yields optimal solutions to the selection problem—given that some constants are appropriately selected. The second method requires a database of binary sensor/actuator combinations, returns optimal solutions, and necessitates no tuning parameters. The third approach is a heuristic that yields suboptimal solutions but is computationally attractive. The theoretical properties of these methods are discussed and numerical tests on dynamic networks showcase the trade-oﬀbetween optimality and computational time. Keywords: Sensor and control nodes selection, static output feedback control, mixed-integer nonlinear programming, combinatorial heuristics 1. Introduction Consider an unstable dynamic network of N intercon-

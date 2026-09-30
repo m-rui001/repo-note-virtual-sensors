@@ -1,0 +1,28 @@
+== 抽取文本规模：16090 字符（tex 17794）；渲染 ok ==
+
+== [E1] 抽取一致性（正文句 67 条，取句尾 5 个实词做有序窗口回查）==
+  未命中 3 / 67 条 $\Rightarrow$ **有丢失，逐条列出**
+    MISS: currently open problem quote what   <<< rictive or not is currently an open problem.'' quote what we do.
+    MISS: corrections sec constant with cost   <<< t comes from (and two corrections)sec:constant ; with ; ; cost .
+    MISS: wrong sec noclaim not claim   <<< we do not claim (and what we got wrong)sec:noclaim do not claim.
+
+== [E2] 数字可见性（正文里 $\ge3$ 位或带小数的读数；数学内容**保留**，图参数不计）==
+  唯一读数 41 个，抽取文本可见 41 个 $\Rightarrow$ 不可见 无
+
+== [E3] 句子/结构完整性 ==
+  (a) 单行 $ 奇数（跨行数学环境不算错，只列出来核）：无
+  (b) 花括号：$\{$=171 $\}$=171 $\Rightarrow$ 配平
+  (c) 环境配平：\begin 19 个 / \end 19 个；不配平的环境 无
+  (d) 圆括号净差 0 $\Rightarrow$ 配平
+  (e) 以虚词收尾（=截断嫌疑）0 条：无
+  (f) 悬挂连字符/破折号过多 0 条：无
+  (g) 占位/坏引用：TODO=0, "?" 未解析=0, "$??$"(ref 失败)=0, "Figure~\ref" 悬空=0
+
+== [E4] 编译门（本车道复现）==
+  ! 错误 0 条；Overfull hbox 2 条；Output：Output written on note_clean.pdf (6 pages, 289913 bytes).
+    超出 13.6 pt：行首词 [][]
+    超出 71.4 pt：行首词 [][]
+
+== 判决（#46：判决行自带产生它的读数条数）==
+  [E1] 不通过（64/67 句命中）  [E2] 通过（0 个读数不可见）  [E3] 通过  [E4] 通过（0 error，6 页）
+  总体：**有未闭合项，逐条见上**

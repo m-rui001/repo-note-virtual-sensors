@@ -1,0 +1,62 @@
+[W0] 渲染 prose token 数  default(栏序)=9993  layout(按行)=10025
+[W0] their theorem does not price the object of this section  default=OK   layout=MISS
+[W0] needs no commutativity at all                            default=OK   layout=MISS
+[W0] no determinant appears                                   default=OK   layout=MISS
+[W0] a different statement from the design-dependent monotoni default=OK   layout=MISS
+[W0] satisfies none of the three                              default=OK   layout=OK  
+[W0] neither corroborates nor contradicts it                  default=OK   layout=OK  
+[W0] closing a question left open by                          default=OK   layout=OK  
+[W0] which holds in the three structural cases                default=OK   layout=OK  
+[W0] what makes hadamard's inequality tight                   default=OK   layout=OK  
+[W0] move with the design                                     default=OK   layout=OK  
+[W0] is entirely in the requirement that                      default=OK   layout=MISS
+[W0] the sensor map enters one level up through               default=OK   layout=MISS
+[W0] asymptotic reverse waterfilling algorithm of             default=OK   layout=MISS
+[W0] optimal sensor selection of linear                       default=OK   layout=MISS
+[W0] sensor data scheduling for linear                        default=OK   layout=OK  
+[W0b] 抽查短语逐字可溯  prose=12  bib=3  不合格=none
+[W1] frag_rc_waterfill.tex      段=15 句=81  句级最低=0.686  低于门限(0.95)的句=4  段级最低=0.898
+[W1]   句@段16  对齐=0.686 (35 tok) 未对齐=and multistart for the penalised infim | 句首=and the multistart search for the penalised
+[W1]   句@段9   对齐=0.875 ( 8 tok) 未对齐=arithmeticgeometricmean                | 句首=its arithmeticgeometricmean step is what mak
+[W1]   句@段11  对齐=0.938 (16 tok) 未对齐=remark                                 | 句首=the practical consequence for the published 
+[W1]   句@段7   对齐=0.947 (19 tok) 未对齐=logdet                                 | 句首=here the objective is linear under a
+[W1]   句@段7   对齐=0.968 (31 tok) 未对齐=estimators                             | 句首=that line also designs the filter as
+[W1]   句@段7   对齐=0.977 (44 tok) 未对齐=ratedistortion                         | 句首=dithered scalar quantization of the active d
+[W1]   段16  对齐=0.898 (167 token) | 段首=what is not claimed nothing here is a
+[W1]   段11  对齐=0.985 (67 token) | 段首=the practical consequence for the published point of
+[W1]   段7   对齐=0.990 (294 token) | 段首=the name in needs one disambiguation and the
+[W1]   段13  对齐=0.991 (116 token) | 段首=status the thresholding structure is prior art and
+[W1]   >>> 段7 句子未对齐(19 tok, 0.947): logdet || 句首=here the objective is linear under a
+[W1]   >>> 段9 句子未对齐(8 tok, 0.875): arithmeticgeometricmean || 句首=its arithmeticgeometricmean step is what makes weaker
+[W1]   >>> 段11 句子未对齐(16 tok, 0.938): remark || 句首=the practical consequence for the published point
+[W1]   >>> 段16 句子未对齐(35 tok, 0.686): and multistart for the penalised infimum || 句首=and the multistart search for the penalised
+[W1] sec_related.tex            段=3 句=45  句级最低=0.929  低于门限(0.95)的句=1  段级最低=0.993
+[W1]   句@段3   对齐=0.929 (14 tok) 未对齐=waterfilling                           | 句首=the closedform dynamic reverse waterfilling 
+[W1]   句@段1   对齐=0.957 (23 tok) 未对齐=closedform                             | 句首=that one is false a closedform rankone
+[W1]   句@段2   对齐=0.970 (33 tok) 未对齐=phasetransition                        | 句首=our rank loss is on the sensing
+[W1]   句@段3   对齐=0.971 (34 tok) 未对齐=rankdeficient                          | 句首=bound for arbitrary observation laws includi
+[W1]   句@段2   对齐=0.971 (35 tok) 未对齐=combinatorialnphard                    | 句首=pays for sensors rather than for bits
+[W1]   句@段1   对齐=1.000 ( 8 tok) 未对齐=                                       | 句首=the joint design paper removes the fixed
+[W1]   段2   对齐=0.993 (307 token) | 段首=where the restriction sits lets the decoder hold
+[W1]   段3   对齐=0.996 (454 token) | 段首=rate side the stabilizing constant that appears in
+[W1]   段1   对齐=0.996 (235 token) | 段首=the computational line the paper we comment on
+[W1]   >>> 段3 句子未对齐(14 tok, 0.929): waterfilling || 句首=the closedform dynamic reverse waterfilling of for
+[W1c] 句子=132  字母级缺口句=0  跨块跳转=3  (字母串原样连续: 栏序=100 / 按行=32, 差值即双栏同行拼接造成的抽取假象)
+[W1e] 阴性对照: 从渲染文本中删去该句中段 12 个字母 -> gaps_of 报缺失=True (若为 False 则本门限形同虚设); 报出的缺口=['auseno']
+[W1e] 阳性对照: 同一句对未改动的渲染 -> 无缺口 True ; 对照有效
+[W1b] caption  1 (170 字母) 字母缺口=0 跨块跳转=0
+[W1b] caption  2 ( 69 字母) 字母缺口=0 跨块跳转=0
+[W1b] caption  3 (165 字母) 字母缺口=0 跨块跳转=0
+[W2] aux 里有编号的 label=44  正文引用 label=36  引用但 aux 无编号=none
+[W2] eq:cost   -> aux 记录 (1)  被引用  4 次
+[W2] eq:decay  -> aux 记录 (5)  被引用  7 次
+[W2] eq:TG     -> aux 记录 (6)  被引用  2 次
+[W2] eq:red    -> aux 记录 (7)  被引用  4 次
+[W2] eq:wf     -> aux 记录 (8)  被引用 16 次
+[W2] eq:cond   -> aux 记录 (9)  被引用 22 次
+[W3] bibitem=28  被引用=28  从未被引用=none
+[W3] 两个编辑文件的 \cite key 全部可解析: True  缺失=[]
+[W3b] bibitem 条目=28  字母级缺口条目=0
+[W1] 参考: token 级对齐低于门限的句=5（NO-ANCHOR 按 1000 计）。这些缺口是 Remark/Proposition 被拆成 "re mark"、连字符断行把 "arithmetic-geometric" 切成两段、\ref 数字插入所致，逐句由 [W1c] 的字母级检查解释掉，不是丢句。   [W1b] caption=3 字母缺口=0   [W1c] 句子字母缺口=0   [W3b] 书目缺口=0
+[W4] 通过：132 个 prose 句子的每个字母都在 12 页渲染文本里按序出现（run 级覆盖：允许渲染端插入 \ref 编号、允许浮动体把句子拆到别的块，共 3 次跨块跳转；不允许丢字母）；caption 3/3 完整；书目 28 条完整；eq:wf/eq:cond 编号由 aux 确认为 (8)/(9)；\cite key 全部可解析、无孤儿条目；[W1e] 的阴性对照证明该门限不是空转。
+[done] p0/e185_out.txt 行数=61

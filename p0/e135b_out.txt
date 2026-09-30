@@ -1,0 +1,64 @@
+== [P1][P3] arXiv 13 组（全字段）==
+  all:"rate distortion" AND all:"control cost"               取回   1
+  all:"data rate" AND all:"LQG"                              取回   3
+    !! 取不到 https://export.arxiv.org/api/query?search_query=all%3A%22communication+rate%22+A: HTTPError HTTP Error 429: Unknown Error
+  all:"communication rate" AND all:"estimation error"        取回   0
+    !! 取不到 https://export.arxiv.org/api/query?search_query=all%3A%22sensor+selection%22+AND: HTTPError HTTP Error 429: Unknown Error
+    !! 取不到 https://export.arxiv.org/api/query?search_query=all%3A%22sensor+selection%22+AND: HTTPError HTTP Error 429: Unknown Error
+    !! 取不到 https://export.arxiv.org/api/query?search_query=all%3A%22sensor+selection%22+AND: HTTPError HTTP Error 429: Unknown Error
+  all:"sensor selection" AND all:"information rate"          取回   0
+  all:"measurement rank" AND all:"control cost"              取回   0
+  all:"Kalman filtering" AND all:"bandwidth constraint"      取回   0
+  all:"remote state estimation" AND all:"rate distortion"    取回   0
+  all:"minimal data rate" AND all:"stabilization"            取回   1
+  all:"directed information" AND all:"linear quadratic"      取回  12
+  all:"cost of communication" AND all:"linear systems"       取回   2
+  all:"dimension" AND all:"rate-distortion" AND all:"control 取回   7
+  all:"sensor scheduling" AND all:"estimation" AND all:"rate 取回   6
+  all:"Gaussian source" AND all:"remote estimation" AND all: 取回   0
+
+== [P4] 去重后 29 条有摘要记录，其中 [A-CH]（两腿同时命中）= 4 条，按命中查询组数排序 ==
+ 1. 1810.00298 (2018) 命中 1 组  S=['vector'] L=['rate distortion', 'characterization']
+    Zero-Delay Rate Distortion via Filtering for Vector-Valued Gaussian Sources
+    We deal with zero-delay source coding of a vector-valued Gauss-Markov source subject to a mean-squared error (MSE) fidelity criterion characterized by the operational zero-delay vector-valued Gaussian rate distortion function (RDF). We address this problem by 
+ 2. 2108.05240 (2021) 命中 1 组  S=['vector'] L=['rate distortion']
+    Signaling Games in Multiple Dimensions: Geometric Properties of Equilibrium Solutions
+    Signaling game problems investigate communication scenarios where encoder(s) and decoder(s) have misaligned objectives due to the fact that they either employ different cost functions or have inconsistent priors. This problem has been studied in the literature
+ 3. 2406.04047 (2024) 命中 1 组  S=['subspace'] L=['rate distortion', 'exact']
+    Slicing Mutual Information Generalization Bounds for Neural Networks
+    The ability of machine learning (ML) algorithms to generalize well to unseen data has been studied through the lens of information theory, by bounding the generalization error with the input-output mutual information (MI), i.e., the MI between the training dat
+ 4. 2607.04172 (2026) 命中 1 组  S=['multiple sensor'] L=['rate distortion']
+    Lower Bound of Networked Control with Multiple Sensors and One Controller And The Application to Tracking Gaussian-Markov Source
+    This paper investigates the causal rate-distortion function for networked control systems with multiple encoders and a single decoder, a longstanding open problem in information and control theory. While previous work has explored the causal rate-distortion fu
+
+== [P2] Crossref：标题级候选（无摘要 ⇒ 只登记，不判决）==
+  sensor+selection+control+cost+rate         total=   4,763,718 取 60  标题级两腿命中=0
+  measurement+rank+kalman+rate+distortion    total=   1,593,563 取 60  标题级两腿命中=1
+  data+rate+LQG+cost+tradeoff                total=   4,034,182 取 60  标题级两腿命中=0
+  communication+rate+control+closed+form     total=   5,077,662 取 60  标题级两腿命中=0
+  remote+estimation+rate+distortion+vector   total=   1,911,711 取 60  标题级两腿命中=16
+
+  [T-CH] 清单（17 条，全部是**欠账**，不许并入"已排除"）：
+   · 10.1109/itw.2017.8277966 (2017) An upper bound to zero-delay rate distortion via Kalman filtering for vector G — 2017 IEEE Information Theory Works
+   · 10.1109/icip.1995.529053 (None) Data-rate constrained lattice vector quantization: a new quantizing algorithm  — Proceedings., International Confer
+   · 10.1109/icip.1997.638663 (None) Motion vector quantization in a rate-distortion framework — Proceedings of International Confe
+   · 10.1109/ssp.2005.1628751 (2005) Rate distortion of stationary and nonstationary vector gauaaian sources — IEEE/SP 13th Workshop on Statistic
+   · 10.1109/isit.2014.6874973 (2014) Vector Gaussian rate-distortion with variable side information — 2014 IEEE International Symposium 
+   · 10.1109/icip.2001.958522 (None) Rate distortion optimized adaptive multiscale vector quantization — Proceedings 2001 International Con
+   · 10.1109/ciss.2016.7460485 (2016) Vector Gaussian multi-decoder rate-distortion: Trace constraints — 2016 Annual Conference on Informat
+   · 10.1049/el.2011.1734 (2011) Rate-distortion optimised motion vector filtering for video coding — Electronics Letters
+   · 10.1007/978-3-642-55753-8_42 (2003) Video Coding with Adaptive Vector Quantization and Rate Distortion Optimizatio — Mathematics — Key Technology for t
+   · 10.1109/cdc.2018.8619725 (2018) Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Disto — 2018 IEEE Conference on Decision a
+   · 10.1109/isit63088.2025.11195430 (2025) Rate-Distortion-Perception Function of Bernoulli Vector Sources — 2025 IEEE International Symposium 
+   · 10.3390/e20090719 (2018) Rate Distortion Function of Gaussian Asymptotically WSS Vector Processes — Entropy
+   · 10.1109/icassp.2000.859200 (None) Rate-distortion adaptive vector quantization for wavelet image coding — 2000 IEEE International Conference
+   · 10.1109/ijcnn.2001.938831 (None) Rate distortion in image coding from embedded optimization constraints in vect — IJCNN'01. International Joint Conf
+   · 10.1109/icip.1998.727409 (None) Rate-distortion based video coding with adaptive mean-removed vector quantizat — Proceedings 1998 International Con
+   · 10.1109/tit.2026.3714460 (2026) On the Gaussian-Quadratic Rate-Distortion Function for Vector Sources with Ind — IEEE Transactions on Information T
+   · 10.1109/tit.2017.2694015 (2017) Vector Gaussian Rate-Distortion With Variable Side Information — IEEE Transactions on Information T
+
+== 汇总 ==
+  arXiv 去重记录 29；[A-CH] 4；本地已通读且命中两腿 7 篇：['1510.04214', '1604.01227', '2109.12246', '2204.00588', '2604.20369', '2607.04172', '2608.26917']
+  Crossref 标题级候选 17 条（[P2]：未读全文 ⇒ 不构成排除）
+  判据 [P4]：ρ_cov=4 ⇒ 仍须逐条读完才能定档
+EXIT=0

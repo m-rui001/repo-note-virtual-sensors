@@ -1,0 +1,145 @@
+% =========================================================================
+% $VIII$ Rate side: ladder law, its two legs, rank structure, KKT status (lane C).
+% Numbers: .work3/c76,c77,c78,c79,c83,c87,c89b,c90b + board \S\S58(C)/62-72.
+% =========================================================================
+\section{The rate side: a ladder law, two measurable legs, and where the water-filling picture fails}\label{sec:rate}
+
+The published window reads the rate side through one exponent. This section
+characterises it instead, and it separates what is arithmetic from what is ours.
+
+\paragraph{Two excesses, never mixed.} Write
+\begin{equation}
+  \begin{aligned}
+  &x:=D-D_{\min}(V)>0,\qquad \Delta I:=I-R_{\exp},\\
+  &R_{\exp}=\sum_{|\lambda_i(A)|>1}\log_2|\lambda_i(A)|,
+  \end{aligned}
+  \label{eq:excess}
+\end{equation}
+where $D_{\min}(V)$ is the cost floor of \S\ref{sec:infeasible} (a functional of
+the \emph{subspace}, reached as measurement noise vanishes) and $R_{\exp}$ is the
+rate floor (a functional of the \emph{unstable spectrum}, reached as $S\to0$).
+The two origins are independent and are never mixed: $x$ is measured on the cost
+axis, $\Delta I$ on the rate axis, and for the published example
+$R_{\exp}=1.168539$. Because $I_{\rm TRV}(D)$ is non-increasing in $D$ --- a larger
+cost budget can only enlarge the feasible set --- $\Delta I(x)$ is non-increasing,
+so the ladder below is its inverse.
+
+\paragraph{Ladder law.} For the restricted cone with $r$ active dimensions, on the
+wall side,
+\begin{equation}
+  \Delta I=\frac{\mathrm{rank}\,C}{2}\log_2\frac1x+b_{\rm pred}+O(x),
+  \label{eq:ladder}
+\end{equation}
+where the slope counts the active channels, $C\succeq0$ is the sensitivity Gramian
+$C_{ij}=\operatorname{tr}(\Theta\,\partial P/\partial V_{ij})|_{V=0}$ (Fréchet
+derivative plus Stein equation; $\succeq0$ is proved, $\succ0$ is not), and
+$b_{\rm pred}$ is exactly computable: for the two-channel tilted family
+\begin{equation}
+  \mathrm{gap}=c_0\Theta_{33}+2d_0\Theta_{23}+(e_0-p_{22})\Theta_{22},
+  \label{eq:gap}
+\end{equation}
+with $c_0=25/16$ an exact Taylor root and $p_{22}$ the positive root of
+$a_{12}^2p^2+[(1-a_{22}^2)w_1-a_{12}^2w_2]p-w_1w_2=0$. Equation~\eqref{eq:gap} is an
+\emph{identity}, checked on $11$ grid points with maximum relative difference
+$7\times10^{-15}$; the scalar law $p_{33}\Theta_{33}$ that a one-dimensional
+reading suggests holds only when $c_{13}=0$ and otherwise overestimates the gap by
+$19\%$--$156\%$. The invariant form of the same statement is
+$\Delta I\cdot|d\Delta I/d\ln x|=\frac{\mathrm{rank}C}{2}\log_2e$: measured
+$1.145\to1.436$ for $\mathrm{rank}\,C=2$ (limit $1.4427$) and $2.885$ at $r=4$
+(limit $2\sqrt{2}\ln2$).
+
+\paragraph{Two legs, both measurable.} Sweeping the sensor scale $s$ gives two
+independent readings of the asymptotic slope
+$\gamma_\infty:=-\lim d\ln x/d\Delta I$:
+\begin{equation}
+  \begin{aligned}
+  &\sigma:=\frac{d\Delta I}{d\log_2s}\longrightarrow\frac r2,
+   \qquad
+   \alpha:=-\frac{d\ln x}{d\ln s}\longrightarrow1,\\
+  &\text{hence}\qquad \gamma_\infty=\frac{\ln2}{\sigma}=\frac{2\ln2}{r}.
+  \end{aligned}
+  \label{eq:legs}
+\end{equation}
+Measured over five plants and ranks $r=1,\dots,4$: $\sigma=0.5000$, $1.0000$,
+$1.5000$, $2.0000$ and $\alpha=-1.0000\pm0.005$. The two legs are independent ---
+one is a rate measurement, the other a cost measurement --- and they agree with
+\eqref{eq:legs} to four decimals, which is what makes $\gamma_\infty=2\ln2/r$
+\emph{measured} rather than fitted. Fitting the exponent in the currency the
+published window uses, on the window $\Delta I\in[8,16]$, gives
+$\hat\gamma=1.3863$, $0.6934$, $0.4625$ at $r=1,2,3$ against the closed form
+$1.386294$, $0.693147$, $0.462098$ ($0.00\%$, $0.04\%$, $0.09\%$).
+
+\paragraph{What we do \emph{not} claim.} Equation~\eqref{eq:legs} is
+reverse-water-filling \emph{arithmetic}: textbook thresholding
+$\delta_i=\min(\nu,\lambda_i)$ on $r$ active dimensions alone reproduces
+$d\ln(D-D_{\rm floor})/dI=-2\ln2/r$ to $9\times10^{-16}$, so $2\ln2/r$ is not a
+discovery of this note. What we claim is (a) the domain in which the law holds,
+(b) the finite-rate inequality $\gamma_r/\gamma_1>1/r$, verified for
+$\Delta I\le8$ across six plants and approached from above --- so a rank statement
+must \emph{name its window} and $2\ln2/r$ is asymptotic, not finite-rate, (c) the
+intercept \eqref{eq:gap}, and (d) the rank structure below.
+
+\paragraph{The measurement device has a window.} Estimating $\gamma$ by refitting
+an amplitude absorbs a wrong exponent, and the local-exponent estimator itself is
+window-specific: the median pricing error of the same device is $0.10\%$ on the
+window $\Delta I\in[1.00,1.83]$ and $3.85\%$ on $\Delta I\in[0.20,0.60]$ --- a
+factor $40$ --- so any quoted accuracy for it must name both the window and the
+pricing point. Cross-lane, an independently coded local exponent agrees with ours
+to a median of $2.06\%$ at matched $\Delta I$ (worst $8.98\%$ at the steepest grid
+point), which is the level of agreement we expect between two implementations of
+the same window-dependent quantity.
+
+\paragraph{Rank structure.} For the published plant, the rank of the optimal
+information matrix drops with the cost budget:
+\begin{center}\footnotesize
+\begin{tabular}{lcccc}
+\toprule
+$D$ & $32.31$ & $34.41$ & $40.00$ & $80.00$ \\
+$\mathrm{rank}\,S^{\star}(D)$ & $4$ & $3$ & $2$ & $1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+for the relative threshold $10^{-6}$ (the readings are threshold-dependent: at
+$10^{-3}$ the entries at $32.31$ and $34.41$ become $3$ and $2$, so every rank
+claim states its threshold). The drops occur in the intervals
+$4\!\to\!3\subset(32.31,33.50)$, $3\!\to\!2\subset(34.41,40.00)$,
+$2\!\to\!1\subset(50.00,56.66)$; hence at $D=56.66$ the active boundary is
+$r^{\star}=1$, and the cell $D=56.66$ has no strictly smaller rank cell at all.
+A representative rank table is reproduced here by an independent SDP
+(CVXPY/CLARABEL) and by two further code paths, and the value of the threshold
+$D$ at which a lossless design first exists, $r\ge r^{\star}(D)$, matches the
+picture of \S\ref{sec:infeasible}. The active-set structure itself is \emph{not}
+proved; the switch points are measured, and an earlier draft of this table paired
+the $D$ list with the rank list one entry out of step, which is corrected here.
+
+\paragraph{Where the water-filling picture fails.} A natural reading of the above
+is that the optimal support is a leading eigenspace of the task weight $\Theta$.
+It is not, and the two natural diagnostics that appear to disagree agree exactly:
+for a rank-one $S=\sigma uu^{\top}$ with $u$'s components $c_i$ in a $\Theta$-basis,
+the principal angle satisfies $\sin^2\theta_{\max}=1-\max_ic_i^2$ (a
+\emph{subspace} measure: $1.1$--$1.9\%$ outside the leading eigenspace at
+$\theta=6$--$8^\circ$), while the off-diagonal mass of $S$ in that basis is
+$\sqrt{1-\sum_ic_i^4}$ (a \emph{matrix} measure: $14.7$--$19.5\%$ at the same
+angles). Measured against prediction: $\theta=6.0^\circ$ predicts $0.1470$,
+measured $0.1476$; $\theta=8.0^\circ$ predicts $0.1949$, measured $0.1938$. Both
+are right and they measure different things. The consequence is quantitative:
+replacing the optimal support by the leading eigenspace of $\Theta$ changes the
+achievable rate by $+2.1\times10^{-3}$ bit at $r=3$, and by
+$+5.0\times10^{-2}$ resp.\ $+9.5\times10^{-2}$ bit at $r=1$; the deviation of the
+support from the leading direction is therefore \emph{worth} what it costs, and
+the true object is an \emph{argmin over directions}, not a fixed eigenvector.
+
+\paragraph{The one question we reduce rather than answer.} Whether admissibility
+can ever cost rate is decided by the optimal face, and the reduction is one line:
+$\Delta(D;V)=0$ iff some optimizer $S\in\mathrm{Opt}(D)$ has
+$\operatorname{range}(S)\subseteq V$. Hence the strict case $r<r^{\star}(D)$ is
+\emph{equivalent} to ``every optimizer has rank $>r$''; in particular, random
+perturbations of the optimal face cannot decide it, since they sample a
+neighbourhood of $\mathrm{Opt}(D)$ rather than $\mathrm{Opt}(D)$ itself. We
+therefore decide it directly, by minimising $\Delta(D;V)$ over
+$V\in\mathrm{Gr}(n,r)$ from a floor-seeded multi-start, with the criterion fixed
+before the run: $D<\Phi_0^{\star}(r)$ is a rigorous infeasible cell;
+$\min_V\Delta>10^{-3}$ bit with $\ge17$ of $20$ independent starts agreeing is
+reported as numerical support; $\min_V\Delta\le10^{-6}$ bit is a counterexample.
+The outcome is recorded in Appendix~\ref{app:repro}; no counterexample was found,
+and the cells we could not certify are marked as such.

@@ -1,0 +1,140 @@
+== (0) [M1] 这条通道能不能承载"全集"这个词：实测 total-results 量级 ==
+  directed information LQG           total-results = 2,867,190  （语料库 1.6e8 量级）
+  data rate theorem linear systems   total-results = 8,395,535  （语料库 1.6e8 量级）
+  sensor selection control           total-results = 3,785,075  （语料库 1.6e8 量级）
+
+== (1) [M2] 8 组同义扩展：按相关性翻页到饱和深度 ==
+   [X1] offset=0     抓到=1000  相关=59   累计相关=59    死页=0
+   [X1] offset=1000  抓到=1000  相关=42   累计相关=101   死页=0
+   [X1] offset=2000  抓到=1000  相关=17   累计相关=118   死页=0
+   [X1] offset=3000  抓到=1000  相关=19   累计相关=137   死页=0
+   [X1] offset=4000  抓到=1000  相关=19   累计相关=156   死页=0
+   [X2] offset=0     抓到=1000  相关=23   累计相关=23    死页=0
+   [X2] offset=1000  抓到=1000  相关=11   累计相关=34    死页=0
+   [X2] offset=2000  抓到=1000  相关=20   累计相关=54    死页=0
+   [X2] offset=3000  抓到=1000  相关=10   累计相关=64    死页=0
+   [X2] offset=4000  抓到=1000  相关=19   累计相关=83    死页=0
+   [X3] offset=0     抓到=1000  相关=143  累计相关=143   死页=0
+   [X3] offset=1000  抓到=1000  相关=36   累计相关=179   死页=0
+   [X3] offset=2000  抓到=1000  相关=40   累计相关=219   死页=0
+   [X3] offset=3000  抓到=1000  相关=46   累计相关=265   死页=0
+   [X3] offset=4000  抓到=1000  相关=38   累计相关=303   死页=0
+   [X4] offset=0     抓到=1000  相关=5    累计相关=5     死页=0
+   [X4] offset=1000  抓到=1000  相关=1    累计相关=6     死页=0
+   [X4] offset=2000  抓到=1000  相关=4    累计相关=10    死页=0
+   [X4] offset=3000  抓到=1000  相关=2    累计相关=12    死页=0
+   [X4] offset=4000  抓到=1000  相关=4    累计相关=16    死页=0
+   [X5] offset=0     抓到=1000  相关=134  累计相关=134   死页=0
+   [X5] offset=1000  抓到=1000  相关=30   累计相关=164   死页=0
+   [X5] offset=2000  抓到=1000  相关=36   累计相关=200   死页=0
+   [X5] offset=3000  抓到=1000  相关=35   累计相关=235   死页=0
+   [X5] offset=4000  抓到=1000  相关=21   累计相关=256   死页=0
+   [X6] offset=0     抓到=1000  相关=81   累计相关=81    死页=0
+   [X6] offset=1000  抓到=1000  相关=34   累计相关=115   死页=0
+   [X6] offset=2000  抓到=1000  相关=25   累计相关=140   死页=0
+   [X6] offset=3000  抓到=1000  相关=23   累计相关=163   死页=0
+   [X6] offset=4000  抓到=1000  相关=19   累计相关=182   死页=0
+   [X7] offset=0     抓到=1000  相关=7    累计相关=7     死页=0
+   [X7] offset=1000  抓到=1000  相关=5    累计相关=12    死页=0
+   [X7] offset=2000  抓到=1000  相关=18   累计相关=30    死页=0
+   [X7] offset=3000  抓到=1000  相关=8    累计相关=38    死页=0
+   [X7] offset=4000  抓到=1000  相关=16   累计相关=54    死页=0
+   [X8] offset=0     抓到=1000  相关=11   累计相关=11    死页=0
+   [X8] offset=1000  抓到=1000  相关=7    累计相关=18    死页=0
+   [X8] offset=2000  抓到=1000  相关=5    累计相关=23    死页=0
+   [X8] offset=3000  抓到=1000  相关=3    累计相关=26    死页=0
+   [X8] offset=4000  抓到=1000  相关=4    累计相关=30    死页=0
+
+  逐查询串台账（纪律 26：查询串 + 原始命中数一起落盘）
+  tag    total-results      翻到     相关  停止原因 / query
+  X1         5,611,569   5,000    156  max-offset                 directed+information+lqg+control
+  X2         3,476,916   5,000     83  max-offset                 directed+mutual+information+linear+quadratic
+  X3         3,542,347   5,000    303  max-offset                 causal+rate+distortion+control
+  X4         4,211,789   5,000     16  max-offset                 sensor+selection+lqr+control+cost
+  X5        10,456,999   5,000    256  max-offset                 task+based+sensing+rate+distortion+control
+  X6         5,054,497   5,000    182  max-offset                 data+rate+theorem+communication+rate+stabilization
+  X7           812,976   5,000     54  max-offset                 sensor+scheduling+lqg+converse+bound
+  X8         3,888,099   5,000     30  max-offset                 actuator+sensor+placement+control+cost+semidefinite
+
+ [M2] 抓取并集 36,287 条 DOI → 相关性过滤 794 条；覆盖口径写死为"每组查询前 5000 条相关性排序位"，不是全集
+
+== (2) [M3] 有界通道：承重论文的引文邻域（这才是能写"在这个集合里"的地方）==
+
+  [1510.04214] "LQG Control with Minimum Directed Information: Semidefinite Prog" → DOI=10.1109/tac.2017.2709618
+    reference 字段 65 条（DOI 未解析 14）；is-referenced-by-count=89
+
+  [1612.02126] "Rate-cost tradeoffs in control" → DOI=10.1109/tac.2019.2912256
+    reference 字段 61 条（DOI 未解析 9）；is-referenced-by-count=128
+
+  [2109.12246] "Reducing the LQG Cost with Minimal Communication" → DOI=10.1109/tac.2022.3220511
+    reference 字段 34 条（DOI 未解析 6）；is-referenced-by-count=10
+
+  [2003.11951] "On the Complexity and Approximability of Optimal Sensor Selectio" → DOI=10.1109/tac.2020.3007383
+    reference 字段 41 条（DOI 未解析 5）；is-referenced-by-count=23
+
+  [1811.11792] "Algorithms for Joint Sensor and Control Nodes Selection in Dynam" → DOI=10.1016/j.automatica.2019.04.047
+    reference 字段 25 条（DOI 未解析 16）；is-referenced-by-count=14
+
+  [2606.31396] "How Much Sensing Information Is Needed to Control an Unstable Li" → DOI=None
+
+  引文邻域里"信息轴∩控制轴"字样的被引条目（去重后）：14 条
+    <-1510.04214  causality feedback and directed information
+    <-1510.04214  control under communication constraints
+    <-1510.04214  finite horizon lq optimal control and computation with data rate constraints
+    <-1510.04214  fundamental inequalities and identities involving mutual and directed informations in closed loop system
+    <-1510.04214  linear quadratic gaussian control with quantized feedback
+    <-1510.04214  lqg control with minimum directed information semidefinite programming approach
+    <-1510.04214  rate distortion theory for general sources with potential application to image compression
+    <-1612.02126  causality feedback and directed information
+    <-1612.02126  control under communication constraints
+    <-1612.02126  directed information for channels with feedback
+    <-1612.02126  feedback designs for controlling device arrays with communication channel bandwidth constraints
+    <-1811.11792  a framework for optimal actuator sensor selection in a control system
+    <-2109.12246  causality feedback and directed information
+    <-2109.12246  directed information for channels with feedback
+
+== (3) [M4] 精筛 35 条逐条定档 ==
+ [A-CH] 1604.01227  2016-04-05传"双  Rate of Prefix-free Codes in LQG Control Systems                   rank,lower bound,bound,semidefinit
+ [A-CH] 1702.06445  2017-02-21传"双  Interplay Between Transmission Delay, Average Data Rate, and Perfo measurement,limited,lower bound,bo
+ [A-CH] 2204.00588  2022-04-01传"双  Time-invariant Prefix Coding for LQG Control                       measurement,lower bound,bound
+ [A-CH] 2601.12782  2026-01-19传"双  Sensing-Limited Control of Noiseless Linear Systems Under Nonlinea observation,limited,bound
+ [A-CH] 2604.20369  2026-04-22传"双  Rate-Cost Tradeoffs in Nonlinear Control                           limited,bound,optimal,achievable
+ [A-CH] 2607.04172  2026-07-05传"双  Lower Bound of Networked Control with Multiple Sensors and One Con sensor,lower bound,bound,semidefin
+ [A-CH] 2608.26917  2026-08-27传"双  Minimum Rate For Partially Observable Linear System with Side Info observation,partial,lower bound,bo
+ [A-CH] 2609.27580  2026-09-23传"双  Action-Directed Information for Distributed Control and Agentic In sensor,observation,partial,exact
+ [R]    1510.04214  2015-10-14传"双  LQG Control with Minimum Directed Information: Semidefinite Progra sensor,semidefinite,optimal
+ [R]    1612.02126  2016-12-07传"双  Rate-cost tradeoffs in control                                     partial,converse,lower bound,bound
+ [R]    2109.12246  2021-09-25传"双  Reducing the LQG Cost with Minimal Communication                   measurement,observation,semidefini
+ [R]    2606.31396  2026-06-30传"双  How Much Sensing Information Is Needed to Control an Unstable Line measurement,observation,lower boun
+ [A-IR] 1201.2334   2012-01-11 "双  Universal Estimation of Directed Information                       bound,optimal
+ [A-IR] 1210.3889   2012-10-15 "双  Spatio-temporal Granger causality: a new framework                 optimal
+ [A-IR] 1604.01056  2016-04-04 "双  Capacity Achieving Distributions & Information Lossless Randomized dual,optimal
+ [A-IR] 1705.02802  2017-05-08 "双  Directed Information as Privacy Measure in Cloud-based Control     optimal
+ [A-IR] 2001.03813  2020-01-12 "双  Fundamental Limits of Prediction, Generalization, and Recursion: A lower bound,bound
+ [A-IR] 2003.04179  2020-03-09 "双  Capacity of Continuous Channels with Memory via Directed Informati optimal
+ [A-IR] 2004.02356  2020-04-06 "双  Scalable Synthesis of Minimum-Information Linear-Gaussian Control  semidefinite,optimal
+ [A-IR] 2006.04683  2020-06-08传"   Causal Structure Identification from Corrupt Data-Streams          measurement
+ [A-IR] 2101.09329  2021-01-22传"   Rate of Prefix-free Codes in LQG Control Systems with Side Informa sensor,measurement
+ [A-IR] 2109.13146  2021-09-27传"   Dynamic Allocation of Visual Attention for Vision-based Autonomous observation,selection
+ [A-IR] 2111.07401  2021-11-14 "双  Neural Capacity Estimators: How Reliable Are They?                 lower bound,bound
+ [A-IR] 2203.11793  2022-03-22 "双  A Perspective on Neural Capacity Estimation: Viability and Reliabi lower bound,bound
+ [A-IR] 2203.12467  2022-03-23 "双  A Lower-bound for Variable-length Source Coding in Linear-Quadrati lower bound,bound
+ [A-IR] 2301.00621  2023-01-02 "双  Data-Driven Optimization of Directed Information over Discrete Alp bound
+ [A-IR] 2510.02696  2025-10-03传"   Mutual Information-Driven Visualization and Clustering for Core KP measurement,selection
+ [A-IR] 2602.09711  2026-02-10 "双  Directed Information: Estimation, Optimization and Applications in exact,optimal
+ [U]    1203.5572   2012-03-26 "   Causal conditioning and instantaneous coupling in causality graphs 
+ [U]    1704.05370  2017-04-16 "   On Information Transfer in Control Dynamical Systems               
+ [U]    1711.08516  2017-11-22 "   $k$-NN Estimation of Directed Information                          
+ [U]    1803.08558  2018-03-22 "   On Data-Driven Computation of Information Transfer for Causal Infe 
+ [U]    2403.09243  2024-03-14 "   A simple reconstruction method to infer nonreciprocal interactions 
+ [U]    2510.14096  2025-10-15 "   TENDE: Transfer Entropy Neural Diffusion Estimation                
+ [U]    2606.21754  2026-06-19 "   Embedded Polygon Symbolic Transfer Entropy (EPSTE): A Geometric To 
+
+  定档统计：{'[A-IR]': 16, '[U]': 7, '[R]': 4, '[A-CH]': 8}  合计 35
+  [A-CH] 威胁清单：['1604.01227', '1702.06445', '2204.00588', '2601.12782', '2604.20369', '2607.04172', '2608.26917', '2609.27580']
+  本地全文覆盖：4/35；旧说法"3/35"复核：['1510.04214', '1612.02126', '2109.12246', '2606.31396']
+
+  [M4] 结论口径：7+[A-IR] 条只作覆盖统计，任何"无已发表对偶界"式句子必须先读完 8 条 [A-CH]
+
+落盘 p0/e126_out.json
+exit=0

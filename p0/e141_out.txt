@@ -1,0 +1,29 @@
+== [Z6] 取回 3/3 条 ==
+
+  [1603.04172v3] Optimal Estimation via Nonanticipative Rate Distortion Function and Applications to Time-Varying Gauss-Markov Processes
+    作者：Photios A. Stavrou; Themistoklis Charalambous; Charalambos D. Charalambous; Sergey Loyka
+    摘要全文（原样）：In this paper, we develop {finite-time horizon} causal filters using the nonanticipative rate distortion theory. We apply the {developed} theory to {design optimal filters for} time-varying multidimensional Gauss-Markov processes, subject to a mean square error fidelity constraint. We show that such filters are equivalent to the design of an optimal \texttt{\{encoder, channel, decoder\}}, which ensures that the error satisfies {a} fidelity constraint. Moreover, we derive a universal lower bound on the mean square error of any estimator of time-varying multidimensional Gauss-Markov processes in terms of conditional mutual information. Unlike classical Kalman filters, the filter developed is characterized by a reverse-waterfilling algorithm, which ensures {that} the fidelity constraint is satisfied. The theoretical results are demonstrated via illustrative examples.
+    三问候选：a=有  b=有  c=有
+      a 命中词：['reverse-waterfilling']
+      b 命中词：['dimension']
+      c 命中词：['encoder', 'estimator']
+
+  [1912.07640v4] Indirect NRDF for Partially Observable Gauss-Markov Processes with MSE Distortion: Complete Characterizations and Optimal Solutions
+    作者：Photios A. Stavrou; Mikael Skoglund
+    摘要全文（原样）：In this paper we study the problem of characterizing and computing the nonanticipative rate distortion function (NRDF) for partially observable multivariate Gauss-Markov processes with hard mean squared error (MSE) distortion constraints. For the finite time horizon case, we first derive the complete characterization of this problem and its corresponding optimal realization which is shown to be a linear functional of the current time sufficient statistic of the past and current observations signals. We show that when the problem is strictly feasible, it can be computed via semidefinite programming (SDP) algorithm. For time-varying scalar processes with average total MSE distortion we derive an optimal closed form expression by means of a dynamic reverse-waterfilling solution that we also implement via an iterative scheme that convergences linearly in finite time, and a closed-form solution under pointwise MSE distortion constraint. For the infinite time horizon, we give necessary and sufficient conditions to ensure that asymptotically the sufficient statistic process of the observation signals achieves a steady-state solution for the corresponding covariance matrices and impose conditions that allow existence of a time-invariant solution. Then, we show that when a finite solution exists in the asymptotic limit, it can be computed via SDP algorithm. We also give strong structural properties on the characterization of the problem in the asymptotic limit that allow for an optimal solution via a reverse-waterfilling algorithm that we implement via an iterative scheme that converges linearly under a finite number of spatial components. Our results are corroborated with various simulation studies and are also compared with existing results in the literature.
+    三问候选：a=有  b=无  c=无
+      a 命中词：['closed-form', 'closed form', 'characterization', 'reverse-waterfilling']
+      b 命中词：（无）
+      c 命中词：（无）
+
+  [1810.00298v1] Zero-Delay Rate Distortion via Filtering for Vector-Valued Gaussian Sources
+    作者：Photios A. Stavrou; Jan Ostergaard; Charalambos D. Charalambous
+    摘要全文（原样）：We deal with zero-delay source coding of a vector-valued Gauss-Markov source subject to a mean-squared error (MSE) fidelity criterion characterized by the operational zero-delay vector-valued Gaussian rate distortion function (RDF). We address this problem by considering the nonanticipative RDF (NRDF) which is a lower bound to the causal optimal performance theoretically attainable (OPTA) function and operational zero-delay RDF. We recall the realization that corresponds to the optimal "test-channel" of the Gaussian NRDF, when considering a vector Gauss-Markov source subject to a MSE distortion in the finite time horizon. Then, we introduce sufficient conditions to show existence of solution for this problem in the infinite time horizon. For the asymptotic regime, we use the asymptotic characterization of the Gaussian NRDF to provide a new equivalent realization scheme with feedback which is characterized by a resource allocation (reverse-waterfilling) problem across the dimension of the vector source. We leverage the new realization to derive a predictive coding scheme via lattice quantization with subtractive dither and joint memoryless entropy coding. This coding scheme offers an upper bound to the operational zero-delay vector-valued Gaussian RDF. When we use scalar quantization, then for "r" active dimensions of the vector Gauss-Markov source the gap between the obtained lower and theoretical upper bounds is less than or equal to 0.254r + 1 bits/vector. We further show that it is possible when we use vector quantization, and assume infinite dimensional Gauss-Markov sources to make the previous gap to be negligible, i.e., Gaussian NRDF approximates the operational zero-delay Gaussian RDF. We also extend our results to vector-valued Gaussian sources of any finite memory under mild conditions. Our theoretical framework is demonstrated with illustrative numerical experiments.
+    三问候选：a=有  b=有  c=无
+      a 命中词：['characterization', 'reverse-waterfilling']
+      b 命中词：['dimension', 'vector-valued']
+      c 命中词：（无）
+
+== [Z6] 汇总 ==
+  这三条是 e138 那 16 条之外的**新增类内候选**（松查询捞到的），进未读账必须点名；三问里 a$\wedge$b 同时为"有"才构成撞车，逐条人工复核后再定性。
+EXIT=0

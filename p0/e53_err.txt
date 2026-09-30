@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "\p0\exp_c_audit.py", line 265, in <module>
+    Tu, Uu = schur(A, output='real', sort=lambda a: abs(a) < 1.0)
+    ^^^^^^
+ValueError: too many values to unpack (expected 2)

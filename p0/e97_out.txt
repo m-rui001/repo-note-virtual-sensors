@@ -1,0 +1,581 @@
+== (0) 漏检机制的实测分解（先归因，再普查）==
+   页 start=0 抓到 0，累计 0/0
+  只放开信息轴（控制轴仍写死 LQG）
+    query=all:"directed mutual information" AND all:LQG
+    total=0  KH(1612.02126) 命中=False
+   页 start=0 抓到 12，累计 12/12
+  只放开控制轴（信息轴仍写死短语）
+    query=all:"directed information" AND (all:LQR OR all:"linear quadratic")
+    total=12  KH(1612.02126) 命中=False
+   页 start=0 抓到 14，累计 14/14
+  两轴都放开
+    query=(all:"directed information" OR all:"directed mutual information" OR all:"causal rate-distortion") AND (all:LQG OR all:LQR OR all:"linear quadratic" OR all:"quadratic cost" OR all:"control cost")
+    total=14  KH(1612.02126) 命中=True
+
+== [baseline] 旧那条（已知会漏，留作差集与 [N6] 存活检查） ==
+  query: all:"directed information" AND all:LQG
+   页 start=0 抓到 12，累计 12/12
+  totalResults=12  抓取=12  [N2] 完整
+
+== [G1] 信息轴同义扩展 × 控制轴同义扩展（两轴同时放开） ==
+  query: (all:"directed information" OR all:"directed mutual information" OR all:"causal rate-distortion") AND (all:LQG OR all:LQR OR all:"linear quadratic" OR all:"quadratic cost" OR all:"control cost")
+   页 start=0 抓到 14，累计 14/14
+  totalResults=14  抓取=14  [N2] 完整
+
+== [G2] 信息轴 × 传感/观测对象轴（受限传感这一支） ==
+  query: (all:"directed information" OR all:"directed mutual information" OR all:"causal rate-distortion") AND (all:"sensor" OR all:"actuator" OR all:"sensor selection" OR all:"partial observation" OR all:"task-based sensing" OR all:"measurement")
+   页 start=0 抓到 200，累计 200/334
+   页 start=200 抓到 134，累计 334/334
+  totalResults=334  抓取=334  [N2] 完整
+
+== [G3] 信息轴 × 对偶/下界轴（直接问"反证界是否已知"） ==
+  query: (all:"directed information" OR all:"directed mutual information" OR all:"causal rate-distortion") AND (all:"converse" OR all:"lower bound" OR all:"dual" OR all:"Lagrangian" OR all:"semidefinite")
+   页 start=0 抓到 71，累计 71/71
+  totalResults=71  抓取=71  [N2] 完整
+
+== [G4] 信息轴 × 率失真轴（rate-distortion 口径的 DI 控制论文） ==
+  query: (all:"directed information" OR all:"directed mutual information" OR all:"causal rate-distortion") AND (all:"rate-distortion" OR all:"rate distortion" OR all:"data rate" OR all:"communication rate")
+   页 start=0 抓到 32，累计 32/32
+  totalResults=32  抓取=32  [N2] 完整
+
+== (1) [N1/N2] 宽口径并集：401 条（逐条列举，方为"全集"；纪律 26）==
+astro-ph/9509108 1995-09-21 [G2                          ] Dust in High Redshift Radio Galaxies and the Early Evolution of Spheroidal Galaxies
+cond-mat/9511073 1995-11-15 [G2                          ] Transverse Sound Revisited: A Directional Probe of the A-Phase of $UPt_3$
+cond-mat/9606061 1996-06-10 [G2                          ] Neutron Compton Scattering
+gr-qc/9606092 1996-06-29 [G2                          ] A length operator for canonical quantum gravity
+astro-ph/9702094 1997-02-11 [G2                          ] Helioseismology and solar neutrinos
+hep-ph/9707336 1997-07-13 [G2                          ] Effect of SUSY phases on the $B^0_d - \bar{B}^0_d$ mixing in the minimal supergravity 
+astro-ph/9711034 1997-11-04 [G2                          ] Characterizing cluster morphology using vector-valued Minkowski functionals
+hep-ph/9809325 1998-09-10 [G2                          ] Probing Quark-Gluon Correlation Functions
+hep-ph/9902451 1999-02-24 [G2                          ] Skewed and double distributions in pion and nucleon
+hep-ph/9902479 1999-02-26 [G2                          ] Proton Structure in Transverse Space and the Effective Cross Section
+cond-mat/9908293 1999-08-20 [G2                          ] ESR experiments in the Kondo insulator CeNiSn
+astro-ph/0108455 2001-08-28 [G2                          ] Pachmarhi Array of Čerenkov Telescopes and its Sensitivity
+hep-ph/0110417 2001-10-31 [G2                          ] Probing Gluons in Nuclei: the Case of $η'$
+hep-ex/0201036 2002-01-23 [G2                          ] Polarized Structure Functions and Spin Physics
+cond-mat/0204183 2002-04-08 [G2                          ] Finite-size effects in tunneling between parallel quantum wires
+hep-ph/0205199 2002-05-20 [G2                          ] New Potential of Black Holes : Quest for TeV-Scale Physics by Measuring Top Quark Sect
+cond-mat/0207434 2002-07-17 [G2                          ] Carrier relaxation dynamics in high temperature superconductors
+cond-mat/0210012 2002-10-01 [G2                          ] Anomalous Hall effect as a probe of the chiral order in spin glasses
+astro-ph/0303262 2003-03-12 [G2                          ] Observing the Sunyaev-Zel'dovich Effect Closer to Home
+cond-mat/0304213 2003-04-09 [G2                          ] Josephson effect as a measure of quantum fluctuations in the cuprates
+nucl-ex/0307021 2003-07-28 [G2                          ] Elements Discrimination in the Study of Super-Heavy Elements using an Ionization Chamb
+nucl-th/0310030 2003-10-08 [G2                          ] Spin-Isospin Resonances and Neutron Skin of Nuclei
+cond-mat/0401059 2004-01-06 [G2                          ] Ultrafast real-time spectroscopy of low dimensional charge density wave compounds
+hep-ph/0412022 2004-12-02 [G2                          ] The Gluon Sivers Distribution in D production at RHIC
+astro-ph/0412235 2004-12-09 [G2                          ] Cosmic Infrared Background and Early Galaxy Evolution
+quant-ph/0502064 2005-02-11 [G2                          ] An information-theoretic security proof for QKD protocols
+astro-ph/0506565 2005-06-23 [G2                          ] Where does the hard X-ray diffuse emission in clusters of galaxies come from?
+hep-ph/0509136 2005-09-13 [G2                          ] Probing the Earth's interior with a large-volume liquid scintillator detector
+cond-mat/0510394 2005-10-14 [G2                          ] The effects of non-abelian statistics on two-terminal shot noise in a quantum Hall liq
+astro-ph/0511426 2005-11-15 [G2                          ] Mode Identification from Combination Frequency Amplitudes in ZZ Ceti Stars
+hep-ph/0512140 2005-12-12 [G2                          ] Transversity
+q-bio/0601048 2006-01-29 [G2                          ] Taxis Equations for Amoeboid Cells
+nucl-ex/0605016 2006-05-15 [G2                          ] Measurement of high-pT hadrons at RHIC-PHENIX
+nucl-ex/0608049 2006-08-29 [G2                          ] High-energy heavy-ions physics: from RHIC to LHC
+hep-ph/0610048 2006-10-04 [G2                          ] Probing the Earth's interior with the LENA detector
+cs/0701041   2007-01-07 [G3                          ] A Coding Theorem for a Class of Stationary Channels with Feedback
+cs/0701197   2007-01-30 [G2>G4                       ] On Delayed Sequential Coding of Correlated Sources
+cs/0702009   2007-02-01 [G2>G4                       ] On Evaluating the Rate-Distortion Function of Sources with Feed-Forward and the Capaci
+astro-ph/0703651 2007-03-26 [G2                          ] Reconstructing the Velocity Distribution of WIMPs from Direct Dark Matter Detection Da
+0704.3000    2007-04-23 [G2                          ] Exploiting the directional sensitivity of the Double Chooz near detector
+0707.1359    2007-07-10 [G2                          ] NMR Evidence for Spin Canting in a Bilayer nu = 2 Quantum Hall System
+0707.2509    2007-07-17 [G3                          ] Tomography for amplitudes of hard exclusive processes
+0708.0298    2007-08-02 [G2                          ] First polarimetric observations and modeling of the FeH F^4 Delta-X^4 Delta system
+0811.2764    2008-11-17 [G2                          ] Directional detection of Dark Matter
+0901.0726    2009-01-07 [G2                          ] Momentum Kick Model Analysis of PHENIX Near-Side Ridge Data and Photon Jet
+0901.1513    2009-01-12 [G2                          ] Hidden Local Field Theory and Dileptons in Relativistic Heavy Ion Collisions
+0901.4416    2009-01-28 [G2                          ] Position reconstruction of acoustic sources with the AMADEUS Detector
+0903.4705    2009-03-26 [G2                          ] A model independent spin analysis of fundamental particles using azimuthal asymmetries
+0904.4764    2009-04-30 [G2>G3                       ] Photons at PHENIX
+0905.3964    2009-05-25 [G2                          ] A New Solution to the Relative Orientation Problem using only 3 Points and the Vertica
+0905.4311    2009-05-27 [G2                          ] Forecasts for Dark Energy Measurements with Future HI Surveys
+0906.0330    2009-06-01 [G2                          ] Information-Theoretic Inequalities on Unimodular Lie Groups
+0910.4514    2009-10-23 [G2                          ] Granger causality and transfer entropy are equivalent for Gaussian variables
+0911.2873    2009-11-15 [G2                          ] Relating Granger causality to directed information theory for networks of stochastic p
+0911.3909    2009-11-19 [G2                          ] Understanding the Geometry of Astrophysical Magnetic Fields
+0911.3961    2009-11-20 [G2                          ] A wireless lingual feedback device to reduce overpressures in seated posture: a feasib
+0912.3863    2009-12-21 [G2                          ] Two-Dimensional Confinement of 3d1 Electrons in LaTiO3/LaAlO3 Multilayers
+0912.4872    2009-12-24 [G2                          ] Interpretations of Directed Information in Portfolio Theory, Data Compression, and Hyp
+1001.0857    2010-01-06 [G2                          ] Nuclear Emulsion Film Detectors for Proton Radiography: Design and Test of the First P
+1001.4181    2010-01-23 [G2>G3>G4                    ] Improved Upper Bounds to the Causal Quadratic Rate-Distortion Function for Gaussian St
+1002.1446    2010-02-07 [G2                          ] On directed information theory and Granger causality graphs
+1003.3817    2010-03-19 [G2                          ] Phenomenological memory-kernel master equations and time-dependent Markovian processes
+1003.6005    2010-03-31 [G2                          ] First results on proton radiography with nuclear emulsion detectors
+1004.1045    2010-04-07 [G2                          ] Double-Directional Information Azimuth Spectrum and Relay Network Tomography for a Dec
+1004.1379    2010-04-08 [G3                          ] Index coding via linear programming
+1009.5992    2010-09-29 [G2                          ] A Substantial Population of Low Mass Stars in Luminous Elliptical Galaxies
+1010.1306    2010-10-07 [G2                          ] Directional Fast Neutron Detection Using a Time Projection Chamber
+1011.1607    2010-11-07 [G3                          ] To Feed or Not to Feed Back
+1012.0479    2010-12-02 [G2                          ] Effects of a particle-hole asymmetric pseudogap on Bogoliubov quasiparticles
+1012.5071    2010-12-22 [G3                          ] Extension of the Blahut-Arimoto algorithm for maximizing directed information
+1102.3294    2011-02-16 [G4                          ] Causal Rate Distortion Function on Abstract Alphabets and Optimal Reconstruction Kerne
+1103.0641    2011-03-03 [G2                          ] Influence of the spin-dependent quasiparticle distribution on the Josephson current th
+1103.4511    2011-03-23 [G2                          ] Spheroidal nanoparticles as thermal near-field sensors
+1104.0862    2011-04-05 [G4                          ] Causal Rate Distortion Function and Relations to Filtering Theory
+1106.6170    2011-06-30 [G2                          ] Information-disturbance tradeoff in sending Direction information via antiparallel qua
+1109.0990    2011-09-05 [G2                          ] Connecting the Gamma Ray Burst Rate and the Cosmic Star Formation History: Implication
+1110.0718    2011-10-04 [G2                          ] Directed information and Pearl's causal calculus
+1110.2440    2011-10-11 [G2                          ] Electromagnetic emission from hot medium measured by the PHENIX experiment at RHIC
+1111.2125    2011-11-09 [G2                          ] Exploring Maps with Greedy Navigators
+1111.3013    2011-11-13 [G2                          ] Formal approaches to information hiding: An analysis of interactive systems, statistic
+1112.3986    2011-12-16 [G2                          ] The significance of the imaginary part of the weak value
+1201.2334    2012-01-11 [G2                          ] Universal Estimation of Directed Information
+1202.0895    2012-02-04 [G2>G4                       ] Causal Rate Distortion Function on Abstract Alphabets: Optimal Reconstruction and Prop
+1202.0958    2012-02-05 [G2>G4                       ] Directed Information on Abstract spaces: Properties and Extremum Problems
+1202.5035    2012-02-22 [G2                          ] Probing the Local Velocity Distribution of WIMP Dark Matter with Directional Detectors
+1203.5572    2012-03-26 [G2                          ] Causal conditioning and instantaneous coupling in causality graphs
+1203.6502    2012-03-29 [G2                          ] Quantifying causal influences
+1204.1821    2012-04-09 [G2                          ] Permutation Complexity and Coupling Measures in Hidden Markov Models
+1205.3378    2012-05-15 [G4                          ] On Real-Time and Causal Secure Source Coding
+1205.6339    2012-05-29 [G2                          ] Transfer Entropy as a Log-likelihood Ratio
+1206.0630    2012-06-04 [G2                          ] Three-dimensionality of space and the quantum bit: an information-theoretic approach
+1208.0656    2012-08-03 [G2                          ] Measurement by FIB on the ISS: Two Emissions of Solar Neutrons Detected?
+1210.2019    2012-10-07 [G2>G4                       ] On the relation of nonanticipative rate distortion function and filtering theory
+1210.3889    2012-10-15 [G2                          ] Spatio-temporal Granger causality: a new framework
+1210.7117    2012-10-26 [G3                          ] Towards the Kantorovich dual solution for strictly correlated electrons in atoms and m
+1211.3169    2012-11-14 [G2                          ] The relation between Granger causality and directed information theory: a review
+1212.1430    2012-12-06 [G2                          ] Directional oscillations, concentrations, and compensated compactness via microlocal c
+1212.6643    2012-12-29 [G2>G4                       ] Nonanticipative Rate Distortion Function and Filtering Theory: A weak Convergence Appr
+1301.2437    2013-01-11 [G2                          ] Prediction of the diffuse neutrino flux from cosmic ray interactions near Supernova Re
+1301.6520    2013-01-28 [G4                          ] Variational Equalities of Directed Information and Applications
+1302.0468    2013-02-03 [G3                          ] Role of the $N^*(2080)$ in $pp \to pK^+ Λ(1520)$ and $π^- p \to K^0 Λ(1520)$ reactions
+1302.3971    2013-02-16 [G2                          ] Directed Information on Abstract Spaces: Properties and Variational Equalities
+1303.0231    2013-03-01 [G2                          ] Network Transfer Entropy and Metric Space for Causality Inference
+1303.0777    2013-03-04 [G2                          ] Integrating hidden information which is observed and the observer information regulari
+1306.1591    2013-06-07 [G2                          ] Autonomous search for a diffusive source in an unknown environment
+1307.5813    2013-07-22 [G2                          ] Measuring Directionality in Double-Beta Decay and Neutrino Interactions with Kiloton-S
+1308.0894    2013-08-05 [G2                          ] Evidence from Tunneling Spectroscopy for a Quasi-One Dimensional Origin of Superconduc
+1309.6372    2013-09-24 [G2                          ] Robust signals from a quantum-based magnetic compass sensor
+1401.3357    2013-12-09 [G2                          ] Back-pressure traffic signal control with unknown routing rates
+1403.4679    2014-03-19 [G2                          ] Justification of Logarithmic Loss via the Benefit of Side Information
+1404.0404    2014-04-01 [G2                          ] EEG Spatial Decoding and Classification with Logit Shrinkage Regularized Directed Info
+1404.2813    2014-04-10 [G2                          ] Cycle flow based module detection in directed recurrence networks
+1405.4372    2014-05-17 [G2                          ] Performance Limits and Geometric Properties of Array Localization
+1405.5586    2014-05-22 [G3                          ] Role of the $Δ^*(1940)$ in the $π^+ p \to K^+ Σ^+(1385)$ and $pp \to n K^+ Σ^+(1385)$ 
+1406.2513    2014-06-10 [G2                          ] Finding Possibility of Dynamical Dark Energy with Hubble Parameters
+1407.2144    2014-07-08 [G2                          ] On the Observation of the Cosmic Ray Anisotropy below 10$^{15}$ eV
+1407.6788    2014-07-25 [G2                          ] Dielectron production in 200 GeV p+p and Au+Au collisions at STAR
+1407.7984    2014-07-30 [G3                          ] Role of the possible $Σ^*(\frac{1}{2}^-)$ state in the $Λp \to Λp π^0$ reaction
+1407.8039    2014-07-30 [G2                          ] Modularity of Directed Networks: Cycle Decomposition Approach
+1408.4432    2014-08-19 [G2                          ] Quasiparticle Interference, quasiparticle interactions and the origin of the charge de
+1410.7819    2014-10-28 [G2                          ] Time-Variable Linear Polarization as a Probe of the Physical Conditions in the Compact
+1410.8197    2014-10-29 [G2                          ] Interferometric Tests of Planckian Quantum Geometry Models
+1411.5946    2014-11-21 [G2                          ] Comparing readout strategies to directly detect dark matter
+1412.1052    2014-12-02 [G2                          ] The VLTI / PIONIER near-infrared interferometric survey of southern T Tauri stars. I. 
+1412.2859    2014-12-09 [G4                          ] Circumventing the Curse of Dimensionality in Prediction: Causal Rate-Distortion for In
+1412.4302    2014-12-14 [G2                          ] Directional Dark Matter Search and Velocity Distribution
+1503.03937   2015-03-13 [G2                          ] Dark Matter Directionality Revisited with a High Pressure Xenon Gas Detector
+1504.04755   2015-04-18 [G2                          ] Solar extreme events
+1506.06908   2015-06-23 [G3                          ] Resonators coupled to voltage-biased Josephson junctions: From linear response to stro
+1506.08519   2015-06-29 [G2>G3                       ] Information flow and entropy production on Bayesian networks
+1506.09092   2015-06-30 [G3                          ] Nonlinear optics determination of the symmetry group of a crystal using structured lig
+1507.07262   2015-07-11 [G2                          ] Causation entropy from symbolic representations of dynamical systems
+1507.03850   2015-07-14 [G2                          ] An Electron-Tracking Compton Telescope for a Survey of the Deep Universe by MeV gamma-
+1507.05899   2015-07-21 [G2                          ] Sparsity in Multivariate Extremes with Applications to Anomaly Detection
+1507.07158   2015-07-26 [G2                          ] Measurement of interaction between antiprotons
+1509.06188   2015-09-21 [G3                          ] Strong converses for group testing in the finite blocklength regime
+1510.03850   2015-10-13 [G2                          ] Prospects of constraining the Higgs CP nature in the tau decay channel at the LHC
+1510.04214   2015-10-14 [baseline>G1>G2>G3>G4        ] LQG Control with Minimum Directed Information: Semidefinite Programming Approach
+1510.07413   2015-10-26 [G2>G3                       ] Baryon resonances in the strangeness production
+1511.06631   2015-11-20 [G2>G3                       ] Multi-Contrast MRI Reconstruction with Structure-Guided Total Variation
+1601.05557   2016-01-21 [G3                          ] A New Approach for Testing Properties of Discrete Distributions
+1602.05448   2016-02-17 [G2                          ] Optimal measurements for nonlocal correlations
+1604.00958   2016-04-04 [G2                          ] Radioactive Iron Rain: Transporting $^{60}$Fe in Supernova Dust to the Ocean Floor
+1604.01056   2016-04-04 [baseline>G1>G3              ] Capacity Achieving Distributions & Information Lossless Randomized Strategies for Feed
+1604.01227   2016-04-05 [baseline>G1>G3              ] Rate of Prefix-free Codes in LQG Control Systems
+1604.01969   2016-04-07 [G2                          ] Transfer Entropy and Directed Information in Gaussian diffusion processes
+1604.07061   2016-04-24 [G2                          ] Testing the Higgs sector directly in the nonrelativistic domain
+1605.07858   2016-05-25 [G2                          ] Femtosecond dynamics of correlated many-body states in C$_{60}$ fullerenes
+1605.08499   2016-05-27 [G2                          ] Evaluation of Coded Aperture Radiation Detectors using a Bayesian Approach
+1605.08502   2016-05-27 [G2                          ] Gravitational Quasinormal Modes of Regular Phantom Black Hole
+1606.01165   2016-06-03 [G2                          ] Origin of central abundances in the hot intra-cluster medium - I. Individual and avera
+1608.03888   2016-08-12 [G2                          ] Origin of central abundances in the hot intra-cluster medium - II. Chemical enrichment
+1609.04876   2016-09-15 [G2                          ] Directional Searches at DUNE for Sub-GeV Monoenergetic Neutrinos Arising from Dark Mat
+1609.09596   2016-09-30 [G2                          ] Sparse Methods for Direction-of-Arrival Estimation
+1610.03684   2016-10-12 [G4                          ] Light Field Compression with Disparity Guided Sparse Coding based on Structural Key Vi
+1610.03752   2016-10-12 [G2                          ] Influence of the surface symmetry breaking on the magnetism, collapsing and three dime
+1610.09152   2016-10-28 [G4                          ] Steerable Discrete Cosine Transform
+1611.06812   2016-11-21 [G2                          ] Multi-resolution anisotropy studies of ultrahigh-energy cosmic rays detected at the Pi
+1612.02126   2016-12-07 [G1>G2>G3>G4                 ] Rate-cost tradeoffs in control
+1701.02675   2017-01-10 [G3                          ] Directional Total Generalized Variation Regularization
+1701.07588   2017-01-26 [G4                          ] Next Generation Backscatter Communication: Systems, Techniques and Applications
+1702.06445   2017-02-21 [G2>G3>G4                    ] Interplay Between Transmission Delay, Average Data Rate, and Performance in Output Fee
+1703.10713   2017-03-30 [G2                          ] Detecting Resting-state Neural Connectivity Using Dynamic Network Analysis on Multiban
+1704.05370   2017-04-16 [G2                          ] On Information Transfer in Control Dynamical Systems
+1704.08977   2017-04-28 [G2                          ] Internet of Things-aided Smart Grid: Technologies, Architectures, Applications, Protot
+1705.02802   2017-05-08 [baseline>G1>G2              ] Directed Information as Privacy Measure in Cloud-based Control
+1706.08168   2017-06-25 [G2                          ] Theory of $L$-edge spectroscopy of strongly correlated systems
+1710.08925   2017-10-24 [G2                          ] Angle-resolved photoemission spectroscopy with quantum gas microscopes
+1711.09750   2017-11-21 [G2                          ] Raspberry Pi and Arduino Uno Working together as a Basic Meteorological Station
+1711.08516   2017-11-22 [G2                          ] $k$-NN Estimation of Directed Information
+1711.10130   2017-11-28 [G2                          ] Measurement of anisotropy of dark matter velocity distribution using directional detec
+1802.06072   2018-02-15 [G2                          ] 3-D Volumetric Gamma-ray Imaging and Source Localization with a Mobile Robot
+1802.06327   2018-02-18 [G2                          ] Directional and Causal Information Flow in EEG for Assessing Perceived Audio Quality
+1803.08558   2018-03-22 [G2                          ] On Data-Driven Computation of Information Transfer for Causal Inference in Dynamical S
+1804.00823   2018-04-03 [G3                          ] Graph2Seq: Graph to Sequence Learning with Attention-based Neural Networks
+1804.03784   2018-04-11 [G4                          ] Stationarity in the Realizations of the Causal Rate-Distortion Function for One-Sided 
+1805.03333   2018-05-09 [G2                          ] A Sample Path Measure of Causal Influence
+1805.04490   2018-05-11 [G2                          ] The C-Band All-Sky Survey (C-BASS): Design and capabilities
+1805.11109   2018-05-28 [G2                          ] Aspects of Track-Assisted Mass
+1808.07596   2018-08-23 [G2                          ] Galactic PeVatrons and helping to find them: Effects of Galactic absorption on the obs
+1809.02936   2018-09-09 [G2                          ] Measurement of $P_T$-weighted Sivers asymmetries in leptoproduction of hadrons
+1809.07765   2018-09-20 [G3                          ] $Ξ(1690)^-$ production in the $K^-p\to K^+K^-Λ$ reaction process near threshold
+1810.01681   2018-10-03 [G2                          ] Enhanced image approximation using shifted rank-1 reconstruction
+1810.05250   2018-10-11 [G2>G3                       ] Measuring Sample Path Causal Influences with Relative Entropy
+1810.11551   2018-10-26 [G2                          ] Estimators for Multivariate Information Measures in General Probability Spaces
+1811.02627   2018-10-29 [G2                          ] Vehicle Tracking Using Surveillance with Multimodal Data Fusion
+1811.09673   2018-11-21 [G2                          ] Group induced graphical lasso allows for discovery of molecular pathways-pathways inte
+1811.10462   2018-11-26 [G2                          ] Projections for model-independent sensitivity estimates on top-quark anomalous electro
+1811.11331   2018-11-28 [G3                          ] Asynchronous Local Construction of Bounded-Degree Network Topologies Using Only Neighb
+1811.12118   2018-11-29 [G2                          ] Probing the "Sea" of Galactic Cosmic Rays with Fermi-LAT
+1812.00415   2018-12-02 [G2                          ] Feature Selection Based on Unique Relevant Information for Health Data
+1901.03921   2019-01-13 [G2                          ] Pion Valence Quark Distribution from Matrix Element Calculated in Lattice QCD
+1901.07589   2019-01-22 [G2                          ] Can Transfer Entropy Infer Information Flow in Neuronal Circuits for Cognitive Process
+1901.09100   2019-01-25 [G3                          ] Communication Complexity of Estimating Correlations
+1901.11396   2019-01-27 [G4                          ] Fast and Efficient Lenslet Image Compression
+1902.00580   2019-02-01 [G2                          ] On the Bias of Directed Information Estimators
+1902.02292   2019-02-06 [G2                          ] Information Flow in Computational Systems
+1903.04175   2019-03-11 [G2                          ] Neutrino Topology Reconstruction at DUNE and Applications to Searches for Dark Matter 
+1903.11871   2019-03-28 [G2                          ] JULOC: A Local 3-D Refined Crust Model for the Geoneutrino Measurement at JUNO
+1904.04531   2019-04-09 [G2                          ] Early evolution of galaxies and of large-scale structure from CMB experiments
+1905.00588   2019-05-02 [G2>G3                       ] Probing the anomalous $tqγ$ couplings through single top production at the future lept
+1905.00666   2019-05-02 [G3                          ] $Ξ(1690)^-$ resonance production via $K^-p \to K^+K^-Λ$
+1905.12056   2019-05-28 [G2                          ] Information-Theoretic Registration with Explicit Reorientation of Diffusion-Weighted I
+1906.08650   2019-06-20 [G2                          ] 3D Instance Segmentation via Multi-Task Metric Learning
+1907.01346   2019-07-02 [G2                          ] Directional Wideband Channel Measurements at 28 GHz in an Industrial Environment
+1907.04475   2019-07-10 [G3                          ] Hyperon production in $Λ_c^+\to K^-pπ^+$ and $Λ_c^+\to K^0_Spπ^0 $
+1907.07683   2019-07-17 [G2                          ] Optimal transport and colossal ionic mechano-conductance in graphene crown ethers
+1907.10509   2019-07-19 [G2                          ] Direct information transfer rate optimisation for SSVEP-based BCI
+1907.08857   2019-07-20 [G2                          ] Debye mechanism of giant microwave absorption in superconductors
+1907.11904   2019-07-27 [G2                          ] Amplitude Retrieval for Channel Estimation of MIMO Systems with One-Bit ADCs
+1908.02892   2019-08-08 [G2                          ] Measuring the distances to quasars at high redshifts with strong lensing
+1908.09084   2019-08-24 [G2                          ] A Future Percent-Level Measurement of the Hubble Expansion at Redshift 0.8 With Advanc
+1908.10802   2019-08-28 [G2                          ] A multi-PMT Optical Module for the IceCube Upgrade
+1911.05575   2019-11-13 [G2                          ] The dust effects on galaxy scaling relations
+1911.12059   2019-11-27 [G2                          ] Estimating relationship between the Time Over Threshold and energy loss by photons in 
+1912.11197   2019-12-24 [G2                          ] Liquid Xenon detector R&D for $0\nu2β$ search (KamXP)
+2001.01563   2020-01-06 [G2                          ] Understanding galaxy formation and evolution through an all-sky submillimetre spectros
+2001.03423   2020-01-10 [G3                          ] Computable Lower Bounds for Capacities of Input-Driven Finite-State Channels
+2001.03813   2020-01-12 [G3                          ] Fundamental Limits of Prediction, Generalization, and Recursion: An Entropic-Innovatio
+2001.03874   2020-01-12 [G2                          ] Exploiting solar visible-range observations by inversion techniques: from flows in the
+2001.10825   2020-01-24 [G2                          ] Slow Fluors for Effective Separation of Cherenkov Light in Liquid Scintillators
+2002.07364   2020-02-18 [G2                          ] Experimental optimal orienteering via parallel and antiparallel spins
+2002.07499   2020-02-18 [G2                          ] Can we overcome the neutrino floor at high masses?
+2003.04179   2020-03-09 [G4                          ] Capacity of Continuous Channels with Memory via Directed Information Neural Estimator
+2003.07056   2020-03-16 [G2                          ] Probing the singlet-triplet splitting in double quantum dots: Implications of the ac f
+2003.11510   2020-03-25 [G2                          ] Coherent Elastic Neutrino-Nucleus Scattering with directional detectors
+2004.02356   2020-04-06 [G1>G3                       ] Scalable Synthesis of Minimum-Information Linear-Gaussian Control by Distributed Optim
+2004.08409   2020-04-17 [G3>G4                       ] Gauss-Markov Source Tracking with Side Information: Lower Bounds
+2005.13429   2020-05-27 [G2                          ] Structure Identifiability of an NDS with LFT Parametrized Subsystems
+2006.04683   2020-06-08 [G2                          ] Causal Structure Identification from Corrupt Data-Streams
+2006.09066   2020-06-16 [G4                          ] Multi-Agent Reinforcement Learning for Adaptive User Association in Dynamic mmWave Net
+2006.16062   2020-06-29 [G2                          ] On the Impact of Side Information on Smart Meter Privacy-Preserving Methods
+2007.05198   2020-07-10 [G2                          ] An overview of sensing platform-technological aspects for vector magnetic measurement:
+2007.07912   2020-07-15 [G2                          ] Local Probes for Charge-Neutral Edge States in Two-Dimensional Quantum Magnets
+2007.09893   2020-07-20 [G2                          ] A Modular Magneto-Inductive Sensor for Low Vector Magnetic Field Measurements
+2007.15728   2020-07-30 [G2                          ] Revisiting non-linear functional brain co-activations: directed, dynamic and delayed
+2008.06204   2020-08-14 [G2                          ] Structure-Aware Network for Lane Marker Extraction with Dynamic Vision Sensor
+2008.06518   2020-08-14 [G2                          ] Observations of edge-on protoplanetary disks with ALMA I. Results from continuum data
+2009.03272   2020-08-23 [G2                          ] Graph Convolutional Networks Reveal Neural Connections Encoding Prosthetic Sensation
+2009.14201   2020-09-29 [G2                          ] Dark Matter Interferometry
+2010.03581   2020-10-07 [G2                          ] Constraining three-nucleon forces with multimessenger data
+2010.11142   2020-10-15 [G2                          ] Non-dipole effects in time delay of photoelectrons from atoms, negative ions, and endo
+2010.13833   2020-10-26 [G2                          ] Local Granger Causality
+2011.02785   2020-11-05 [G2                          ] Deep Metric Learning with Spherical Embedding
+2011.11421   2020-11-20 [G2                          ] Deep Directed Information-Based Learning for Privacy-Preserving Smart Meter Data Relea
+2011.11323   2020-11-23 [G2                          ] Causality Graph of Vehicular Traffic Flow
+2012.00736   2020-12-01 [G3                          ] Infinite-Dimensional Programmable Quantum Processors
+2012.01821   2020-12-03 [G3                          ] D-Unet: A Dual-encoder U-Net for Image Splicing Forgery Detection and Localization
+2012.04396   2020-12-08 [G2                          ] Accurate Determination of the Charge Transfer Efficiency of Photoanodes for Solar Wate
+2101.09329   2021-01-22 [baseline>G1>G2              ] Rate of Prefix-free Codes in LQG Control Systems with Side Information
+2101.09981   2021-01-25 [G2                          ] Effects of heterostrain and lattice relaxation on optical conductivity of twisted bila
+2102.03231   2021-02-05 [G2                          ] Kerr effect in tilted nodal loop semimetals
+2103.08388   2021-03-15 [G2                          ] Scanning X-ray Diffraction Microscopy for Diamond Quantum Sensing
+2103.16872   2021-03-31 [G2                          ] Room temperature antiferromagnetic resonance and inverse spin-Hall voltage in canted a
+2104.12518   2021-04-26 [G2                          ] Unified Spatio-Temporal Modeling for Traffic Forecasting using Graph Neural Network
+2107.11383   2021-07-23 [G2                          ] Design and performance of the multi-PMT optical module for IceCube Upgrade
+2108.01113   2021-08-02 [G2                          ] A search for candidate strongly-lensed dusty galaxies in the Planck satellite catalogu
+2108.02475   2021-08-05 [G2                          ] Cycle Analysis of Directed Acyclic Graphs
+2108.11074   2021-08-25 [G2                          ] Testing for directed information graphs
+2109.04770   2021-09-10 [G2                          ] Correlated and Integrated Directionality for sub-MeV solar neutrinos in Borexino
+2110.04074   2021-09-21 [G3                          ] Active inference, Bayesian optimal design, and expected utility
+2109.12246   2021-09-25 [baseline>G1>G2>G3           ] Reducing the LQG Cost with Minimal Communication
+2109.13146   2021-09-27 [baseline>G1>G4              ] Dynamic Allocation of Visual Attention for Vision-based Autonomous Navigation under Da
+2110.07842   2021-10-15 [G2                          ] Atomic and electronic structure of defects in hBN: enhancing single-defect functionali
+2110.08778   2021-10-17 [G2                          ] Probing the galactic cosmic-ray density with current and future $γ$-ray instruments
+2111.07401   2021-11-14 [G3                          ] Neural Capacity Estimators: How Reliable Are They?
+2112.00546   2021-12-01 [G2                          ] Methods for measuring noise, purity changes, and entanglement entropy in quantum devic
+2202.02632   2022-02-05 [G2                          ] Unitary Design of Quantum Spin Networks for Robust Routing, Entanglement Generation, a
+2203.01833   2022-03-03 [G2                          ] Photothermally induced, reversible phase transition in methylammonium lead triiodide
+2203.03221   2022-03-07 [G2                          ] Generalized Dirichlet Energy and Graph Laplacians for Clustering Directed and Undirect
+2203.04244   2022-03-08 [G2                          ] Heteroepitaxial control of Fermi liquid, Hund metal, and Mott insulator phases in the 
+2203.11407   2022-03-22 [G2                          ] Causal inference in time series in terms of Rényi transfer entropy
+2203.11793   2022-03-22 [G3                          ] A Perspective on Neural Capacity Estimation: Viability and Reliability
+2203.12467   2022-03-23 [baseline>G1>G3>G4           ] A Lower-bound for Variable-length Source Coding in Linear-Quadratic-Gaussian Control w
+2204.00588   2022-04-01 [baseline>G1>G2>G3           ] Time-invariant Prefix Coding for LQG Control
+2204.14112   2022-04-29 [G2                          ] Multiscale Partial Information Decomposition of Dynamic Processes with Short and Long-
+2207.10149   2022-07-20 [G3                          ] Digraphwave: Scalable Extraction of Structural Node Embeddings via Diffusion on Direct
+2208.08335   2022-08-17 [G2                          ] XPS core-level chemical shift by ab initio many-body theory
+2210.12395   2022-10-22 [G2                          ] Joint Detections of Frequency and Direction of Arrival in Wideband Based on Programmab
+2211.15435   2022-11-21 [G2                          ] Hyperspectral Demosaicing of Snapshot Camera Images Using Deep Learning
+2212.01220   2022-12-02 [G2                          ] Experimental overview of electromagnetic probes in ultra-relativistic nucleus-nucleus 
+2212.04587   2022-12-08 [G2                          ] Parameter Estimation with Maximal Updated Densities
+2212.12886   2022-12-25 [G3                          ] Finite-State Channels with Feedback and State Known at the Encoder
+2301.00621   2023-01-02 [G2                          ] Data-Driven Optimization of Directed Information over Discrete Alphabets
+2301.09371   2023-01-23 [G2                          ] Understanding the Frequency Dependence of Capacitance Measurements of Irradiated Silic
+2302.01036   2023-02-02 [G2                          ] CREPES: Cooperative RElative Pose Estimation System
+2302.02101   2023-02-04 [G3                          ] GRANDE: a neural model over directed multigraphs with application to anti-money launde
+2302.13137   2023-02-25 [G3                          ] A Human-Centered Safe Robot Reinforcement Learning Framework with Interactive Behavior
+2303.13116   2023-03-23 [G2                          ] Thermodynamic Bound on the Asymmetry of Cross-Correlations
+2303.14070   2023-03-24 [G3                          ] ChatDoctor: A Medical Chat Model Fine-Tuned on a Large Language Model Meta-AI (LLaMA) 
+2306.05525   2023-06-06 [G2                          ] Exploration of hadronization through heavy flavor production at the future Electron-Io
+2306.06796   2023-06-11 [G2>G3                       ] On The Reliability Function of Discrete Memoryless Multiple-Access Channel with Feedba
+2307.05634   2023-07-11 [G2                          ] Hyperspherical Embedding for Point Cloud Completion
+2307.14636   2023-07-27 [G2>G3                       ] Final results of Borexino on CNO solar neutrinos
+2308.06086   2023-08-11 [G2                          ] Probing nuclear structure using elliptic flow of strange and multi-strange hadrons in 
+2308.06537   2023-08-12 [G2                          ] Determining the Fundamental Failure Modes in Ni-rich Lithium Ion Battery Cathodes
+2308.07265   2023-08-14 [G2                          ] Localization of DOA trajectories -- Beyond the grid
+2308.08233   2023-08-16 [G2                          ] Galactic and Extragalactic Analysis of the Astrophysical Muon Neutrino Flux with 12.3 
+2308.10108   2023-08-19 [G2                          ] Developments of a centimeter-level precise muometric wireless navigation system (MuWNS
+2309.06504   2023-09-12 [G3>G4                       ] Minimum Bitrate Neuromorphic Encoding for Continuous-Time Gauss-Markov Processes
+2309.16435   2023-09-28 [G2                          ] Radar Instance Transformer: Reliable Moving Instance Segmentation in Sparse Radar Poin
+2310.06109   2023-10-09 [G2                          ] QR-Tag: Angular Measurement and Tracking with a QR-Design Marker
+2310.06130   2023-10-09 [G2                          ] Statistical inference for radial generalized Pareto distributions and return sets in g
+2311.18527   2023-11-30 [G2                          ] InfoFlowNet: A Multi-head Attention-based Self-supervised Learning Model with Surrogat
+2312.16707   2023-12-27 [G2                          ] Modeling Systemic Risk: A Time-Varying Nonparametric Causal Inference Framework
+2401.01721   2024-01-03 [G2                          ] Limited Feedback on Measurements: Sharing a Codebook or a Generative Model?
+2401.16802   2024-01-30 [G2                          ] Kinesthetic-based In-Hand Object Recognition with an Underactuated Robotic Hand
+2403.09243   2024-03-14 [G2                          ] A simple reconstruction method to infer nonreciprocal interactions and local driving i
+2403.17545   2024-03-26 [G3                          ] A Gaze-grounded Visual Question Answering Dataset for Clarifying Ambiguous Japanese Qu
+2403.19210   2024-03-28 [G2                          ] Challenges in extracting nonlinear current-induced phenomena in Ca2RuO4
+2403.19899   2024-03-29 [G3                          ] Inclusive Design Insights from a Preliminary Image-Based Conversational Search Systems
+2404.02210   2024-04-02 [G2                          ] No need to know: astrophysics-free gravitational-wave cosmology
+2404.03198   2024-04-04 [G2                          ] Delaunay Weighted Two-sample Test for High-dimensional Data by Incorporating Geometric
+2404.06147   2024-04-09 [G2                          ] Probing the Berezinskii-Kosterlitz-Thouless vortex unbinding transition in two-dimensi
+2404.19561   2024-04-30 [G2                          ] Short term vs. long term: optimization of microswimmer navigation on different time ho
+2405.01722   2024-05-02 [G2                          ] Quantifying spectral signatures of non-Markovianity beyond the Born-Redfield master eq
+2405.09342   2024-05-15 [G2                          ] Progressive Depth Decoupling and Modulating for Flexible Depth Completion
+2406.19158   2024-06-27 [G2                          ] A Method Using Photon Collapse and Entanglement to Transmit Information
+2408.01150   2024-08-02 [G2                          ] Information transfer by entangled photons without auxiliary non-quantum channel
+2408.06109   2024-08-12 [G2                          ] Inferring directed spectral information flow between mixed-frequency time series
+2408.07330   2024-08-14 [G2                          ] Narrowing your FOV with SOLiD: Spatially Organized and Lightweight Global Descriptor f
+2408.11056   2024-08-20 [G2                          ] Detection of the large-scale tidal field with galaxy multiplet alignment in the DESI Y
+2412.02881   2024-12-03 [G2                          ] A Minimalistic 3D Self-Organized UAV Flocking Approach for Desert Exploration
+2412.04313   2024-12-05 [G2                          ] Time-Frequency Correlation of Repeating Fast Radio Bursts: Correlated Aftershocks Tend
+2501.16967   2025-01-28 [G2                          ] Uncertainties in astrophysical gamma-ray and neutrino fluxes from proton-proton cross-
+2503.19274   2025-03-25 [G3                          ] CoMAC: Conversational Agent for Multi-Source Auxiliary Context with Sparse and Symmetr
+2503.23386   2025-03-30 [G3                          ] Self-Similar Bridge between Regular and Critical Regions
+2504.01274   2025-04-02 [G2                          ] BOLDSimNet: Examining Brain Network Similarity between Task and Resting-State fMRI
+2504.10124   2025-04-14 [G2                          ] Unravelling the Flow of Information in a Nonequilibrium Process in the Presence of Hyd
+2504.11079   2025-04-15 [G3                          ] Scalability and Maintainability Challenges and Solutions in Machine Learning: Systemat
+2505.10361   2025-05-15 [G2                          ] Plasticity as the Mirror of Empowerment
+2505.13617   2025-05-19 [G2                          ] Direction-Aware Neural Acoustic Fields for Few-Shot Interpolation of Ambisonic Impulse
+2506.16215   2025-06-19 [G2                          ] Transfer entropy for finite data
+2507.09554   2025-07-13 [G2                          ] Mapping Crisis-Driven Market Dynamics: A Transfer Entropy and Kramers-Moyal Approach t
+2507.22846   2025-07-30 [G2                          ] Digital Quantum Simulation of Spin Transport
+2508.10460   2025-08-14 [G3                          ] Efficient Methods for Accurate Sparse Trajectory Recovery and Map Matching
+2508.11157   2025-08-15 [G2                          ] Thermal acoustic particle velocity sensor with structured microwires
+2508.21163   2025-08-28 [G2                          ] Observer Design for Optical Flow-Based Visual-Inertial Odometry with Almost-Global Con
+2510.00079   2025-09-30 [G2                          ] Directed Information $γ$-covering: An Information-Theoretic Framework for Context Engi
+2510.02696   2025-10-03 [G2                          ] Mutual Information-Driven Visualization and Clustering for Core KPI Selection in O-RAN
+2510.08331   2025-10-09 [G2                          ] The superclustering of hot gas: cosmological sensitivity in the Websky simulations
+2510.12873   2025-10-14 [G2                          ] New Spallation Background Rejection Techniques to Greatly Improve the Solar Neutrino S
+2510.14096   2025-10-15 [G2                          ] TENDE: Transfer Entropy Neural Diffusion Estimation
+2511.05505   2025-10-17 [G2                          ] Rewiring Human Brain Networks via Lightweight Dynamic Connectivity Framework: An EEG-B
+2510.16311   2025-10-18 [G3                          ] Toward General Digraph Contrastive Learning: A Dual Spatial Perspective
+2510.24395   2025-10-28 [G2                          ] Optimising Underwater Neutrino Telescopes for All-Flavour Point Source Sensitivity
+2511.00156   2025-10-31 [G2                          ] Visualizing interaction-driven restructuring of quantum Hall edge states
+2511.01202   2025-11-03 [G2>G4                       ] Forget BIT, It is All about TOKEN: Towards Semantic Information Theory for LLMs
+2511.15017   2025-11-19 [G2                          ] On Entropic Characterization of Symmetry Breaking in Dynamical Systems I: Spontaneous 
+2512.15720   2025-12-02 [G2                          ] Hidden Order in Trades Predicts the Size of Price Moves
+2512.06238   2025-12-06 [G2                          ] Non-Asymptotic Error Bounds for Causally Conditioned Directed Information Rates of Gau
+2512.21951   2025-12-26 [G2                          ] Tuning diffusioosmosis of electrolyte solutions by hydrostatic pressure
+2601.01497   2026-01-04 [G2                          ] On the Practical Estimation and Interpretation of Rényi Transfer Entropy
+2601.04559   2026-01-08 [G2                          ] Asymmetrically Weighted Dowker Persistence and Applications in Dynamical Systems
+2601.10268   2026-01-15 [G2                          ] The impact of tactile sensor configurations on grasp learning efficiency -- a comparat
+2601.12782   2026-01-19 [G4                          ] Sensing-Limited Control of Noiseless Linear Systems Under Nonlinear Observations
+2601.13813   2026-01-20 [G2                          ] GuideTouch: An Obstacle Avoidance Device with Tactile Feedback for Visually Impaired
+2601.20421   2026-01-28 [G2                          ] Steer'n Roll: A Stereoscopic Flow-Sensing Strategy for Planktonic Prey Detection and C
+2602.03240   2026-02-03 [G2                          ] Estimating measures of information processing during cognitive tasks using functional 
+2602.09711   2026-02-10 [G2                          ] Directed Information: Estimation, Optimization and Applications in Communications and 
+2602.15736   2026-02-17 [G2                          ] SVD Incidence Centrality: A Unified Spectral Framework for Node and Edge Analysis in D
+2602.18106   2026-02-20 [G2                          ] Directional Dynamics of the Non-Hermitian Skin Effect
+2602.19750   2026-02-23 [G2>G3                       ] Krylov Distribution and Spectral Convergence of Quantum Fisher Information
+2602.20882   2026-02-24 [G2                          ] Revisiting the Geminga halo at GeV energies with Fermi-LAT data
+2603.07885   2026-03-09 [G2>G3                       ] Identifying Influential Actions in Human-Robot Interactions
+2604.01880   2026-04-02 [G3                          ] DDCL-INCRT: A Self-Organising Transformer with Hierarchical Prototype Structure (Theor
+2604.11900   2026-04-13 [G2                          ] Observation of feedback-directed quantum dynamics in large-scale quantum processors
+2604.20303   2026-04-22 [G2                          ] Operational criterion for Wigner function negativity
+2604.20369   2026-04-22 [baseline>G1>G4              ] Rate-Cost Tradeoffs in Nonlinear Control
+2604.24115   2026-04-27 [G2                          ] Photon Surfaces in Higher-Curvature Gravity: Implications for Quasinormal Modes and Gr
+2605.11734   2026-05-12 [G2                          ] A New Timing Signature of Black Hole Spin: Time-Delay Asymmetry in Kerr Accretion Flow
+2605.18856   2026-05-13 [G4                          ] SPHERICAL KV: Angle-Domain Attention and Rate-Distortion Retention for Efficient Long-
+2605.16673   2026-05-15 [G2                          ] Bayesian Networks for Path-Based Sensors: Gathering Information and Path Planning in C
+2605.26149   2026-05-23 [G3                          ] AnySurf: Any Surface Generation with Directed Edge
+2605.29473   2026-05-28 [G3                          ] Inform, Coach, Relate, Listen: Auditing LLM Caregiving Support Roles
+2606.01544   2026-06-01 [G2                          ] CRePE: Convolution-aware Relative Importance in Post-training Pruning with Efficient S
+2606.02879   2026-06-01 [G3                          ] Direct Informed Sampling on Riemannian Manifolds via Loewner Order Lower Bounds
+2606.08407   2026-06-07 [G2                          ] Topological Effective Connectivity Modeling in Brain Networks
+2606.09153   2026-06-08 [G2                          ] The Asymptotic Distribution of Sample Canonical Directions in Gaussian Spiked High-dim
+2606.17743   2026-06-16 [G2                          ] Information-Theoretic Meta Dynamic Programming for Signalling and Control of POMDPs
+2606.19681   2026-06-18 [G2                          ] A Moment-Based Eulerian Method for Variance-Based Finite-Time Lyapunov Exponent Comput
+2606.21754   2026-06-19 [G2                          ] Embedded Polygon Symbolic Transfer Entropy (EPSTE): A Geometric Token and Deep Learnin
+2606.23621   2026-06-22 [G2                          ] Multi-scale reconstruction of single-ion damage tracks in diamond via nitrogen-vacancy
+2606.31396   2026-06-30 [G2>G3                       ] How Much Sensing Information Is Needed to Control an Unstable Linear System?
+2607.02943   2026-07-03 [G2                          ] Geometric Information Decomposition for Weighted Empirical Measures on the Sphere
+2607.04172   2026-07-05 [baseline>G1>G2>G3>G4        ] Lower Bound of Networked Control with Multiple Sensors and One Controller And The Appl
+2607.05179   2026-07-06 [G2                          ] Relational Multi-Agent Reinforcement Learning for Dynamic Pricing in High-Speed Railwa
+2607.16000   2026-07-17 [G2                          ] Inertial Human Motion Capture: From Biomechanics to Recent Sensor Fusion Methods and B
+2607.29040   2026-07-31 [G2                          ] Rethinking Detection Calibration: A Coordinate and Direction Perspective
+2609.01624   2026-08-03 [G2                          ] Higher-order rich clubs and configuration models on general directed hypergraphs
+2608.03107   2026-08-04 [G2                          ] A Unified Resolution-Conditioned Framework for Orthogonal Line-Scanning Image Fusion
+2608.05708   2026-08-06 [G2                          ] Three-baryon femtoscopy as an effective 3$\rightarrow$3 scattering experiment
+2608.26917   2026-08-27 [baseline>G1>G2>G3           ] Minimum Rate For Partially Observable Linear System with Side Information: LQG Plant a
+2609.01400   2026-09-01 [G2                          ] Semiresolved Stellar Populations as Distance Indicators
+2609.05557   2026-09-03 [G2                          ] Estimating subsurface water mass changes with ground-based gravimetry
+2609.10659   2026-09-09 [G2>G3                       ] Lateral Weak Stieltjes Derivatives: A Global Characterization of Stieltjes--Sobolev Sp
+2609.10870   2026-09-09 [G2                          ] Cortical information transfer reveals conserved hemispherical network dynamics across 
+2609.20117   2026-09-17 [G2                          ] Commissioning and Performance of the Time-of-Flight Detector for the T2K Neutrino Osci
+2609.25798   2026-09-22 [G3                          ] Secure ISAC with Sensing Privacy under Eavesdropper Uncertainty
+2609.27580   2026-09-23 [G2>G4                       ] Action-Directed Information for Distributed Control and Agentic Interaction
+2609.28965   2026-09-24 [G3                          ] The Conversation Turns First: Crowd Discussion and Price Reversals in Prediction Marke
+
+ 1612.02126 在并集？在  来自 ['G1', 'G2', 'G3', 'G4']   旧 baseline 含它？不含
+ 相对旧单条查询净新增 389 条；旧 12 条全在并集内？是
+
+== (2) [N6] 精筛：宽口径并集 → 对撞线 ==
+ 宽口径 401 → 精筛 35
+ [N6] baseline 12 条全部存活？是
+ [N6] 1612.02126 精筛存活？是
+
+== (3) [N3/N4] 精筛清单：本地覆盖 + 摘要关键词证据 ==
+  1201.2334   未入库      kw=exact                               Universal Estimation of Directed Information
+  1203.5572   未入库      kw=-                                   Causal conditioning and instantaneous coupling in causality graphs
+  1210.3889   未入库      kw=exact                               Spatio-temporal Granger causality: a new framework
+  1510.04214  PDF+note kw=sdp,exact                           LQG Control with Minimum Directed Information: Semidefinite Programming 
+  1604.01056  未入库      kw=dual,exact                          Capacity Achieving Distributions & Information Lossless Randomized Strat
+ ★1604.01227  未入库      kw=lowerbound,sdp,exact,rank           Rate of Prefix-free Codes in LQG Control Systems
+  1612.02126  PDF+note kw=converse,lowerbound                 Rate-cost tradeoffs in control
+  1702.06445  未入库      kw=lowerbound,exact                    Interplay Between Transmission Delay, Average Data Rate, and Performance
+  1704.05370  未入库      kw=-                                   On Information Transfer in Control Dynamical Systems
+  1705.02802  未入库      kw=exact                               Directed Information as Privacy Measure in Cloud-based Control
+  1711.08516  未入库      kw=-                                   $k$-NN Estimation of Directed Information
+  1803.08558  未入库      kw=-                                   On Data-Driven Computation of Information Transfer for Causal Inference 
+  2001.03813  未入库      kw=lowerbound                          Fundamental Limits of Prediction, Generalization, and Recursion: An Entr
+  2003.04179  未入库      kw=exact                               Capacity of Continuous Channels with Memory via Directed Information Neu
+  2004.02356  未入库      kw=sdp,exact                           Scalable Synthesis of Minimum-Information Linear-Gaussian Control by Dis
+  2006.04683  未入库      kw=-                                   Causal Structure Identification from Corrupt Data-Streams
+  2101.09329  未入库      kw=sdp,rank                            Rate of Prefix-free Codes in LQG Control Systems with Side Information
+  2109.12246  PDF+note kw=sdp,exact,rank                      Reducing the LQG Cost with Minimal Communication
+  2109.13146  未入库      kw=sdp,rank                            Dynamic Allocation of Visual Attention for Vision-based Autonomous Navig
+  2111.07401  未入库      kw=-                                   Neural Capacity Estimators: How Reliable Are They?
+  2203.11793  未入库      kw=-                                   A Perspective on Neural Capacity Estimation: Viability and Reliability
+  2203.12467  未入库      kw=lowerbound                          A Lower-bound for Variable-length Source Coding in Linear-Quadratic-Gaus
+  2204.00588  未入库      kw=lowerbound                          Time-invariant Prefix Coding for LQG Control
+  2301.00621  未入库      kw=-                                   Data-Driven Optimization of Directed Information over Discrete Alphabets
+  2403.09243  未入库      kw=-                                   A simple reconstruction method to infer nonreciprocal interactions and l
+  2510.02696  未入库      kw=rank                                Mutual Information-Driven Visualization and Clustering for Core KPI Sele
+  2510.14096  未入库      kw=rank                                TENDE: Transfer Entropy Neural Diffusion Estimation
+  2601.12782  未入库      kw=-                                   Sensing-Limited Control of Noiseless Linear Systems Under Nonlinear Obse
+  2602.09711  未入库      kw=exact                               Directed Information: Estimation, Optimization and Applications in Commu
+  2604.20369  未入库      kw=exact                               Rate-Cost Tradeoffs in Nonlinear Control
+  2606.21754  未入库      kw=rank                                Embedded Polygon Symbolic Transfer Entropy (EPSTE): A Geometric Token an
+  2606.31396  未入库      kw=lowerbound                          How Much Sensing Information Is Needed to Control an Unstable Linear Sys
+ ★2607.04172  未入库      kw=lowerbound,sdp,exact,rank           Lower Bound of Networked Control with Multiple Sensors and One Controlle
+ ★2608.26917  未入库      kw=lowerbound,sdp                      Minimum Rate For Partially Observable Linear System with Side Informatio
+  2609.27580  未入库      kw=exact,rank                          Action-Directed Information for Distributed Control and Agentic Interact
+
+== (4) [N5] 精筛且"★"（对偶/下界 ∩ 秩/凸）但本地无 PDF —— 逐条读摘要 ==
+ 共 5 条
+
+--- 1604.01227 kw=['lowerbound', 'sdp', 'exact', 'rank']  Rate of Prefix-free Codes in LQG Control Systems  (2016-04-05)
+    In this paper, we consider a discrete time linear quadratic Gaussian (LQG) control problem in which state information of the plant is encoded in a variable-length binary codeword at every time step, and a control input is determined based on the codewords generated in the past. We derive a lower bound of the rate achievable by the class of prefix-free codes attaining the required LQG control performance. This lower bound coincides with the infimum of a certain directed information expression, and is computable by semidefinite programming (SDP). Based on a technique by Silva et al., we also provide an upper bound of the best achievable rate by constructing a controller equipped with a uniform quantizer with subtractive dither and Shannon-Fano coding. The gap between the obtained lower and upper bounds is less than $0.754r+1$ bits per time step regardless of the required LQG control performance, where $r$ is the rank of a signal-to-noise ratio matrix obtained by SDP, which is no greater than the dimension of the state.
+
+--- 2607.04172 kw=['lowerbound', 'sdp', 'exact', 'rank']  Lower Bound of Networked Control with Multiple Sensors and One Controller And The Application to Tracking Gaussian-Markov Source  (2026-07-05)
+    This paper investigates the causal rate-distortion function for networked control systems with multiple encoders and a single decoder, a longstanding open problem in information and control theory. While previous work has explored the causal rate-distortion function for single-encoder and feedback-enabled networked settings, the case of networks without feedback remains unaddressed. We establish a novel directed information lower bound, the first derived for the networked control setting. We further demonstrate the optimality of linear, independent encoders and linear decoders for optimizing this lower bound for Linear Quadratic Gaussian (LQG) plant and quadratic cost, with the condition that the full plant state is observed when sensors are sitting together. By reducing the original infinite-dimensional optimization problem to a finite-dimensional one, our approach simplifies the analysis. Additionally, our directed information lower bound provides an alternate proof for the sufficiency of linear encoders in the single encoder and single decoder setting with side information, extending prior results in the literature. We present Semidefinite Programming formulations for the causal rate distortion function of Gaussian-Markov sources with linear side information and the singular noise matrix.
+
+--- 1604.01056 kw=['dual', 'exact']  Capacity Achieving Distributions & Information Lossless Randomized Strategies for Feedback Channels with Memory: The LQG Theory of Directed Information-Part II  (2016-04-04)
+    A methodology is developed to realized optimal channel input conditional distributions, which maximize the finite-time horizon directed information, for channels with memory and feedback, by information lossless randomized strategies. The methodology is applied to general Time-Varying Multiple Input Multiple Output (MIMO) Gaussian Linear Channel Models (G-LCMs) with memory, subject to average transmission cost constraints of quadratic form. The realizations of optimal distributions by randomized strategies are shown to exhibit a decomposion into a deterministic part and a random part. The decomposition reveals the dual role of randomized strategies, to control the channel output process and to transmit new information over the channels. Moreover, a separation principle is shown between the computation of the optimal deterministic part and the random part of the randomized strategies. The dual role of randomized strategies generalizes the Linear-Quadratic-Gaussian (LQG) stochastic optimal control theory to directed information pay-offs. The characterizations of feedback capacity are obtained from the per unit time limits of finite-time horizon directed information, without imposing á priori assumptions, such as, stability of channel models or ergodicity of channel input and output processes. For time-invariant MIMO G-LCMs with memory, it is shown that whether feedback increases 
+
+--- 1702.06445 kw=['lowerbound', 'exact']  Interplay Between Transmission Delay, Average Data Rate, and Performance in Output Feedback Control over Digital Communication Channels  (2017-02-21)
+    The performance of a noisy linear time-invariant (LTI) plant, controlled over a noiseless digital channel with transmission delay, is investigated in this paper. The rate-limited channel connects the single measurement output of the plant to its single control input through a causal, but otherwise arbitrary, coder-controller pair. An infomation-theoretic approach is utilized to analyze the minimal average data rate required to attain the quadratic performance when the channel imposes a known constant delay on the transmitted data. This infimum average data rate is shown to be lower bounded by minimizing the directed information rate across a set of LTI filters and an additive white Gaussian noise (AWGN) channel. It is demonstrated that the presence of time delay in the channel increases the data rate needed to achieve a certain level of performance. The applicability of the results is verified through a numerical example. In particular, we show by simulations that when the optimal filters are used but the AWGN channel (used in the lower bound) is replaced by a simple scalar uniform quantizer, the resulting operational data rates are at most around 0.3 bits above the lower bounds.
+
+--- 2608.26917 kw=['lowerbound', 'sdp']  Minimum Rate For Partially Observable Linear System with Side Information: LQG Plant and Gaussian-Markov Source  (2026-08-27)
+    This paper studies the minimum rate required for a partially observable linear system with side information. The Linear Quadratic Gaussian(LQG) plant and the Gaussian-Markov source are considered. We show that a class of linear policies is sufficient for optimizing the conditional directed information lower bound. We also show that the resulting optimization problem is convex for the scalar case in both time-varying and time-invariant systems. Our results generalize the past works that consider the case with full or partial observation only, and the case with full observation and side information. Numerical simulations are presented to illustrate the effect of side information for partially observable systems.
+
+== (5) 旧 baseline 的入库状态（§53 失误复现检查）==
+   1510.04214  已入库     LQG Control with Minimum Directed Information: Semidefinite Programming Ap
+   1604.01056  **未入库** Capacity Achieving Distributions & Information Lossless Randomized Strateg
+   1604.01227  **未入库** Rate of Prefix-free Codes in LQG Control Systems
+   1705.02802  **未入库** Directed Information as Privacy Measure in Cloud-based Control
+   2101.09329  **未入库** Rate of Prefix-free Codes in LQG Control Systems with Side Information
+   2109.12246  已入库     Reducing the LQG Cost with Minimal Communication
+   2109.13146  **未入库** Dynamic Allocation of Visual Attention for Vision-based Autonomous Navigat
+   2203.12467  **未入库** A Lower-bound for Variable-length Source Coding in Linear-Quadratic-Gaussi
+   2204.00588  **未入库** Time-invariant Prefix Coding for LQG Control
+   2604.20369  **未入库** Rate-Cost Tradeoffs in Nonlinear Control
+   2607.04172  **未入库** Lower Bound of Networked Control with Multiple Sensors and One Controller 
+   2608.26917  **未入库** Minimum Rate For Partially Observable Linear System with Side Information:
+
+== (6) [N7] 第二通道 Crossref（不依赖 arXiv 元数据）==
+
+ [CR1] directed information LQG
+   query=https://api.crossref.org/works?query.bibliographic=directed+information+LQG&rows=100&select=DOI,title,containe...
+   命中 items=100 (items-per-page=100 上限)
+     10.1109/cdc.2016.7799406          2016 IEEE 55th Conference onlqg control with minimum directed information
+     10.1109/cdc42340.2020.9304490     2020 59th IEEE Conference onthe minimal directed information needed to improve the lqg cost
+     10.1109/lcsys.2026.3710208        IEEE Control Systems Lettersminimum directed information in lqg control under task-restricted sensing
+     10.1109/tac.2017.2709618          IEEE Transactions on Automatlqg control with minimum directed information: semidefinite programming ap
+     10.1109/tit.2018.2834516          IEEE Transactions on Informacapacity achieving distributions and separation principle for feedback gau
+     10.2139/ssrn.3175663                                          signaling equilibria for dynamic lqg games with asymmetric information
+     10.5772/9740                      Stochastic Control          reduced-order lqg controller design by minimizing information loss
+     10.2139/ssrn.7427918                                          public information, multiple priors, and strategic interaction in lqg netw
+     10.1007/bfb0042079                Lecture Notes in Control andlqg-based controllers
+     10.1007/bfb0034394                Lecture Notes in Control andbalanced lqg controllers
+     10.1007/bfb0008867                Lecture Notes in Control andrelations to risk-sensitive lqg control
+     10.1109/eict.2017.8275216         2017 3rd International Confea comparative study of lqr, lqg, and integral lqg controller for frequency
+     10.1007/bfb0008870                Lecture Notes in Control andlqg and $$\mathcal{h}_\infty$$ monotonicity
+     10.1016/s0019-9958(78)90018-9     Information and Control     two-criteria lqg decision problems with one-step delay observation sharing
+   标题相关 98 条
+
+ [CR2] directed mutual information linear quadratic
+   query=https://api.crossref.org/works?query.bibliographic=directed+mutual+information+linear+quadratic&rows=100&selec...
+   命中 items=100 (items-per-page=100 上限)
+     10.1109/wcica.2006.1712437        2006 6th World Congress on Idirected information and mutual information in linear feedback tracking sy
+     10.23919/eusipco47968.2020.92875922020 28th European Signal Prestimation of directed dependencies in time series using conditional mutua
+     10.1109/isit.2005.1523313         Proceedings. International Sconservation of mutual and directed information
+     10.1109/nrsc.1996.551152          Thirteenth National Radio Sclinear and quadratic objective function effects on force directed method b
+     10.3390/a17080358                 Algorithms                  directed clustering of multivariate data based on linear or quadratic late
+     10.1109/ita.2007.4357592          2007 Information Theory and on the detection of gene network interconnections using directed mutual in
+     10.1016/j.ifacol.2020.12.069      IFAC-PapersOnLine           linear quadratic control computation for systems with a directed tree stru
+     10.1016/j.ifacol.2023.12.044      IFAC-PapersOnLine           multi-player linear-quadratic exponential stochastic differential games on
+     10.1101/2020.12.03.409342                                     quadratic mutual information estimation of mouse dlgn receptive fields rev
+     10.3390/e20110826                 Entropy                     probability mass exclusions and the directed components of mutual informat
+     10.23919/ccc63176.2024.10661594   2024 43rd Chinese Control Colinear quadratic regulator for containment control in multi-agent systems 
+     10.1093/imaiai/iaaf024            Information and Inference: Aasymptotic mutual information in quadratic estimation problems over compac
+     10.1039/c6sc05355f                Chemical Science            template-directed synthesis of linear porphyrin oligomers: classical, vern
+     10.1259/0007-1285-64-759-242      The British Journal of Radioapplication of the linear-quadratic model with incomplete repair to radion
+   标题相关 16 条
+
+ [CR3] task-based sensing rate distortion control cost
+   query=https://api.crossref.org/works?query.bibliographic=task-based+sensing+rate+distortion+control+cost&rows=100&se...
+   命中 items=100 (items-per-page=100 上限)
+     10.32657/10356/2628                                           rate-distortion analysis and control in dct-based scalable video coding
+     10.1109/itnec48623.2020.9084952   2020 IEEE 4th Information Terate-distortion cost estimation model based on cauchy distributions for he
+     10.1016/s1077-2014(02)00149-3     Real-Time Imaging           low computational cost improvements of the rate-distortion performance in 
+     10.3724/sp.j.1087.2013.00295      Journal of Computer Applicatrate-distortion analysis for quantizing compressive sensing
+     10.1109/tcsvt.2023.3296515/mm1                                learned rate-distortion cost prediction for ultrafast screen content intra
+     10.23919/acc.1987.4789629         1987 American Control Conferanalysis of regulation problems based on real-time rate-distortion theory
+     10.1109/icip.1997.638672          Proceedings of Internationalperceptually based video rate control using pre-filtering and predicted ra
+     10.1109/lgrs.2009.2026915         IEEE Geoscience and Remote Ssalient remote sensing image segmentation based on rate-distortion measure
+     10.1109/tce.2021.3065636          IEEE Transactions on Consumehybrid distortion-based rate-distortion optimization and rate control for 
+     10.1109/icassp.2004.1326503       2004 IEEE International Confρ-domain rate-distortion optimal rate control for dct-based video coders
+     10.1109/apccas.2006.342300        APCCAS 2006 - 2006 IEEE Asiacauchy based rate-distortion optimization model for h.264 rate control
+     10.1109/lsp.2008.2010813          IEEE Signal Processing Letteadaptive distortion-based intra-rate estimation for h.264/avc rate control
+     10.1109/icip.1997.638661          Proceedings of Internationala simple rate-distortion model, parameter estimation, and application to r
+     10.3390/e19070336                 Entropy                     rate-distortion bounds for kernel-based distortion measures
+   标题相关 58 条
+
+原始数据落盘 p0/e97_census_raw.json
+EXIT=0

@@ -1,0 +1,110 @@
+== (0) 逐查询命中（[V1] 落盘查询串与抓取完整性） ==
+   页 start=0 抓 144，累计 144/144
+
+ A1  地板词形直查（最便宜的反占探针）
+   query = all:"critical data rate" OR all:"minimum data rate" OR all:"rate asymptote"
+   totalResults = 144   实抓 = 144   抓全=是
+   唯一 id 数 = 144
+   页 start=0 抓 28，累计 28/28
+
+ A2  地板 × 代价/控制（近地板发散若发表应在此）
+   query = (all:"critical data rate" OR all:"minimum data rate" OR all:"horizontal asymptote") AND (all:cost OR all:LQG OR all:"linear quadratic" OR all:"control")
+   totalResults = 28   实抓 = 28   抓全=是
+   唯一 id 数 = 28
+   页 start=0 抓 14，累计 14/14
+
+ A3  有向信息 × 控制轴（我车道的主对撞线，换发散口径）
+   query = (all:"directed information" OR all:"directed mutual information" OR all:"causal rate distortion" OR all:"causal rate-distortion") AND (all:LQG OR all:LQR OR all:"linear quadratic" OR all:"quadratic cost" OR all:"mean-square stability")
+   totalResults = 14   实抓 = 14   抓全=是
+   唯一 id 数 = 14
+   页 start=0 抓 62，累计 62/62
+
+ A4  有向信息 × 渐近/发散词形
+   query = (all:"directed information" OR all:"directed mutual information" OR all:"causal rate distortion" OR all:"causal rate-distortion") AND (all:"rate-distortion" OR all:"rate distortion" OR all:"data rate" OR all:"communication rate" OR all:"asymptote")
+   totalResults = 62   实抓 = 62   抓全=是
+   唯一 id 数 = 62
+   页 start=0 抓 1，累计 1/1
+
+ A5  受限传感/观测 × 率失真 × 不稳植物（组合支的另一种写法）
+   query = (all:"sensor selection" OR all:"partial observation" OR all:"task-based sensing" OR all:"measurement vector") AND (all:"rate-distortion" OR all:"rate distortion" OR all:"directed information") AND (all:unstable OR all:"mean-square")
+   totalResults = 1   实抓 = 1   抓全=是
+   唯一 id 数 = 1
+
+== (1) 并集与本地语料的重叠 ==
+ 并集唯一条数 = 213
+ 本地已有全文的 = 4：['1510.04214', '1612.02126', '2109.12246', '2601.12782']
+ 只到摘要级（本地无全文，[V4] 不许外推） = 209
+
+== (2) [V2] 判定：谁同时含地板词形与发散词形 ==
+ [V2] 同时命中（=已发表近地板发散律）：0 条
+ [V3] 只命中地板词形（邻居，不等于发散率已发表）：57 条
+   0907.5441 2009-07-30  floor=['minimum data rate']  《A Hop-by-Hop Congestion-Aware Routing Protocol for Heterogeneous Mobile Ad-hoc Networks》 来源['A1', 'A2']
+   1009.4954 2010-09-24  floor=['minimum data rate']  《Delay-Guaranteed Cross-Layer Scheduling in Multi-Hop Wireless Networks》 来源['A1', 'A2']
+   1202.1174 2012-02-06  floor=['minimum data rate']  《Base station selection for energy efficient network operation with the majorization-minimi》 来源['A1']
+   1303.4006 2013-03-16  floor=['minimum data rate']  《Wireless Information and Power Transfer: Energy Efficiency Optimization in OFDMA Systems》 来源['A1']
+   1309.1753 2013-09-06  floor=['rate asymptote']  《Gyro-induced acceleration of magnetic reconnection》 来源['A1']
+   1405.5932 2014-05-22  floor=['minimum data rate']  《Minimum data rate for stabilization of linear systems with parametric uncertainties》 来源['A1', 'A2']
+   1506.07362 2015-06-24  floor=['minimum data rate']  《Energy-Efficient 5G Outdoor-to-Indoor Communication: SUDAS Over Licensed and Unlicensed Sp》 来源['A1']
+   1607.03227 2016-07-12  floor=['minimum data rate']  《Spectrum-Power Trading for Energy-Efficient Small Cell》 来源['A1']
+   1608.03178 2016-08-10  floor=['minimum data rate']  《Energy-Efficient Small Cell with Spectrum-Power Trading》 来源['A1', 'A2']
+   1707.03203 2017-07-11  floor=['minimum data rate']  《Multi-antenna Enabled Cluster-based Cooperation in Wireless Powered Communication Networks》 来源['A1']
+   1805.02207 2018-05-06  floor=['minimum data rate']  《Beamforming Design for Max-Min Fair SWIPT in Green Cloud-RAN with Wireless Fronthaul》 来源['A1']
+   1812.02379 2018-12-06  floor=['rate asymptote']  《Finite Dissipation in Anisotropic Magnetohydrodynamic Turbulence》 来源['A1']
+   1901.09308 2019-01-27  floor=['minimum data rate']  《Energy-Efficient Resource Allocation for Secure UAV Communication Systems》 来源['A1']
+   1902.02090 2019-02-06  floor=['minimum data rate']  《Blind Signal Classification Analysis and Impact on User Scheduling and Power Allocation in》 来源['A1']
+   1903.10027 2019-03-24  floor=['minimum data rate']  《Core Access Hybridization in 5G》 来源['A1']
+   1904.09863 2019-04-19  floor=['minimum data rate']  《Optimizing Throughput Fairness of Cluster-based Cooperation in Underlay Cognitive WPCNs》 来源['A1']
+   1909.11554 2019-09-25  floor=['minimum data rate']  《Data-Driven 3D Placement of UAV Base Stations for Arbitrarily Distributed Crowds》 来源['A1', 'A2']
+   2007.01117 2020-07-01  floor=['minimum data rate']  《Multi-Objective Energy Efficient Resource Allocation and User Association for In-band Full》 来源['A1', 'A2']
+   2008.09519 2020-08-20  floor=['minimum data rate']  《The Coverage Overlapping Problem of Serving Arbitrary Crowds in 3D Drone Cellular Networks》 来源['A1', 'A2']
+   2011.04352 2020-11-09  floor=['minimum data rate']  《Multi-objective Resource Allocation for D2D and Enabled MC-NOMA Networks by Tchebycheff Me》 来源['A1', 'A2']
+   2011.09822 2020-11-19  floor=['minimum data rate']  《Outage Constrained Robust Transmission Design for IRS-aided Secure Communications with Dir》 来源['A1']
+   2104.04900 2021-04-11  floor=['minimum data rate']  《RAN Slicing in Multi-MVNO Environment under Dynamic Channel Conditions》 来源['A1']
+   2108.02361 2021-08-05  floor=['minimum data rate']  《CoMP-Assisted NOMA and Cooperative NOMA in Indoor VLC Cellular Systems》 来源['A1']
+   2109.09015 2021-09-18  floor=['minimum data rate']  《Distributed Joint Power and Rate Control for NOMA/OFDMA in 5G and Beyond》 来源['A1', 'A2']
+   2109.09503 2021-09-17  floor=['minimum data rate']  《Deep Reinforcement Learning Based Multidimensional Resource Management for Energy Harvesti》 来源['A1']
+   2110.07704 2021-10-14  floor=['minimum data rate']  《Uplink Power Control in Integrated Access and Backhaul Networks》 来源['A1', 'A2']
+   2201.03209 2022-01-10  floor=['minimum data rate']  《Energy Efficiency for Proactive Eavesdropping in Cooperative Cognitive Radio Networks》 来源['A1']
+   2204.13766 2022-04-28  floor=['minimum data rate']  《Distributed Auto-Learning GNN for Multi-Cell Cluster-Free NOMA Communications》 来源['A1']
+   2205.03709 2022-05-07  floor=['minimum data rate']  《Max-min Rate Deployment Optimization for Backhaul-limited Robotic Aerial 6G Small Cells》 来源['A1']
+   2205.05029 2022-05-10  floor=['minimum data rate']  《Hybrid Reinforcement Learning for STAR-RISs: A Coupled Phase-Shift Model Based Beamformer》 来源['A1', 'A2']
+   2206.05872 2022-06-13  floor=['minimum data rate']  《Resource Allocation and 3D Trajectory Design for Power-Efficient IRS-Assisted UAV-NOMA Com》 来源['A1', 'A2']
+   2212.13798 2022-12-28  floor=['minimum data rate']  《Efficient Battery Usage in Wireless-Powered Cell-Free Systems with Self-Energy Recycling》 来源['A1']
+   2303.03453 2023-03-06  floor=['rate asymptote']  《Entangling Quantum Memories via Heralded Photonic Bell Measurement》 来源['A1']
+   2304.03168 2023-04-06  floor=['minimum data rate']  《Interference-Aware Deployment for Maximizing User Satisfaction in Multi-UAV Wireless Netwo》 来源['A1', 'A2']
+   2306.01787 2023-05-31  floor=['minimum data rate']  《Power Control with QoS Guarantees: A Differentiable Projection-based Unsupervised Learning》 来源['A1', 'A2']
+   2306.07518 2023-06-13  floor=['minimum data rate']  《Energy Efficient RAN Slicing and Beams Selection for Multiplexing of Heterogeneous Service》 来源['A1']
+   2309.06504 2023-09-12  floor=['minimum data rate']  《Minimum Bitrate Neuromorphic Encoding for Continuous-Time Gauss-Markov Processes》 来源['A1', 'A2', 'A4']
+   2311.07425 2023-11-13  floor=['minimum data rate']  《Recurrence of Nonlinear Control Systems: Entropy and Bit Rates》 来源['A1', 'A2']
+   2311.08989 2023-11-15  floor=['minimum data rate']  《EMF-Aware Power Control for Massive MIMO: Cell-Free versus Cellular Networks》 来源['A1', 'A2']
+   2402.00771 2024-02-01  floor=['minimum data rate']  《Mixed Static and Reconfigurable Metasurface Deployment in Indoor Dense Spaces: How Much Re》 来源['A1', 'A2']
+   2403.15145 2024-03-22  floor=['minimum data rate']  《Robust Resource Allocation for STAR-RIS Assisted SWIPT Systems》 来源['A1']
+   2406.07298 2024-06-11  floor=['minimum data rate']  《Enhanced In-Flight Connectivity for Urban Air Mobility via LEO Satellite Networks》 来源['A1', 'A2']
+   2406.11220 2024-06-17  floor=['minimum data rate']  《No Analog Combiner TTD-based Hybrid Precoding for Multi-User Sub-THz Communications》 来源['A1']
+   2407.15729 2024-07-22  floor=['minimum data rate']  《Self-Sustainable Metasurface-Assisted mmWave Indoor Communication System》 来源['A1', 'A2']
+   2411.07052 2024-11-11  floor=['minimum data rate']  《Ultra-Wideband Communications: Interference Challenges and Solutions》 来源['A1']
+   2412.13892 2024-12-18  floor=['minimum data rate']  《Minimum Data Rate Maximization for Uplink Pinching-Antenna Systems》 来源['A1']
+   2412.14349 2024-12-18  floor=['minimum data rate']  《Cell-Free Beamforming Design for Physical Layer Multigroup Multicasting》 来源['A1']
+   2501.00859 2025-01-01  floor=['minimum data rate']  《Harnessing the Potential of Omnidirectional UAVs in RIS-Enabled Wireless Networks》 来源['A1', 'A2']
+   2502.06211 2025-02-10  floor=['minimum data rate']  《Weighted-Sum Energy Efficiency Maximization in User-Centric Uplink Cell-Free Massive MIMO》 来源['A1']
+   2504.03982 2025-04-04  floor=['minimum data rate']  《Meta-Learning Driven Movable-Antenna-assisted Full-Duplex RSMA for Multi-User Communicatio》 来源['A1', 'A2']
+   2508.17769 2025-08-25  floor=['minimum data rate']  《Multiple STAR-RISs-Empowered Multi-User Communications with Diversified QoS Provisioning》 来源['A1', 'A2']
+   2509.05467 2025-09-05  floor=['minimum data rate']  《Joint Routing, Resource Allocation, and Energy Optimization for Integrated Access and Back》 来源['A1', 'A2']
+   2509.06395 2025-09-08  floor=['minimum data rate']  《Graph Neural Networks for Resource Allocation in Interference-limited Multi-Channel Wirele》 来源['A1']
+   2510.27069 2025-10-31  floor=['minimum data rate']  《Distributed Precoding for Cell-free Massive MIMO in O-RAN: A Multi-agent Deep Reinforcemen》 来源['A1']
+   2511.22224 2025-11-27  floor=['minimum data rate']  《Pinching-Antenna Systems-Assisted SWIPT: A Rate-Energy Trade-off Perspective》 来源['A1']
+   2511.23357 2025-11-28  floor=['minimum data rate']  《EMF-Compliant Power Control in Cell-Free Massive MIMO: Model-Based and Data-Driven Approac》 来源['A1', 'A2']
+   2603.29717 2026-03-31  floor=['minimum data rate']  《α-Fair Multistatic ISAC Beamforming for Multi-User MIMO-OFDM Systems via Riemannian Optimi》 来源['A1', 'A2']
+
+ ⇒ [V2] 空：在本次并集的**摘要级**覆盖内，没有任何一条同时陈述"地板"与"代价发散"。
+   按 [V4]：这只说明"该查询集未给出前占证据"，不说明没人做过。
+   已发表的只有地板本身：1510.04214 Cor.1（1.169 bit/sample）与 2606.31396 Th.1（R_exp，任意观测律）。
+
+== (3) 本地语料的定点复核（摘要级检索打不中正文，必须回全文找） ==
+ 在 papers/txt/1510.04214.txt / 1612.02126.txt / 2109.12246.txt / 2606.31396.txt 里找 "as rate approaches / diverges as / 1/(R−Rmin)" 型陈述：
+   1510.04214: 相关句 0 处
+   1612.02126: 相关句 0 处
+   2109.12246: 相关句 0 处
+   2606.31396: 相关句 0 处
+   2601.12782: 相关句 0 处
+   1606.01946: 相关句 0 处

@@ -1,0 +1,184 @@
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+== E43 ==  机制二的构造性见证（全程闭式，无优化器）
+
+[1] 设计点：$a_u=0.6$ 稳定、$A_{13}=0$、$B_3=0$ —— 引理的全部假设成立
+  $K=(R+B^\top P_cB)^{-1}B^\top P_cA$ 的第 3 列 $=0.00e+00$（闭式预测 0，因为 $A_{13}=B_3=0$）
+  $F=\{e_1,e_3\}\to\{e_1\}$  rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.5625  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.562500
+     $\|U_k^\top\Delta P\,U_k\|=$1.562e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=1.562500$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=0.00e+00$
+
+[2] 对照：冗余模态改成不稳定，并且只有待删通道看得住它（$a_u=1.4$、同时 $B_3=1$ 保植物可稳）
+        此时 $(A,F_{-d})$ 失去可检测性 $\Rightarrow$ 门槛 $=+\infty$。植物本身仍可稳，所以这不是"$\Phi_0$ 不存在"，而是"删完之后整个族不可行"——与机制二完全不同的一支。
+  $a_u=1.4,B_3=1$            rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-2.19e-14, 2.19e-14, 290
+     可检测：删前 是（$|\lambda|=—$）  删后 否（$|\lambda|=1.400$）
+     落在 $+\infty$ 支：删完没有有限 $\Phi_0$（DARE 无稳定解），这跟"门槛合并"是两回事——整个族在任何预算下都不可行。
+
+[3] 对照：耦合 $A_{13}=c$ —— $U$ 不再含在 $\ker\Theta$，代价随 $c$ 起来
+  $A_{13}=0.00$              rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.5625  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.562500
+     $\|U_k^\top\Delta P\,U_k\|=$1.562e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=1.562500$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=0.00e+00$
+     $\mathrm{gap}/c^2=nan$（若近似常数，说明门槛按 $c^2$ 打开）
+  $A_{13}=0.05$              rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-1.76e-17, 2.02e-17, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.545361  DARE 残差 0.0e+00/2.7e-17
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=7.646959e-03$   独立检验 $\operatorname{tr}(\Theta\Delta P)=7.646959e-03$   两者差 $=4.3e-17$
+     $\lambda(\Delta P)$=0.0000, 0.0027, 1.5610  $\operatorname{rank}\Delta P$=2  $\operatorname{tr}\Delta P$=1.563715
+     $\|U_k^\top\Delta P\,U_k\|=$1.558e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$9.334e-02（锥外）
+     $e_3$ 分量 $=1.560275$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=2.22e-03$
+     $\mathrm{gap}/c^2=3.0588$（若近似常数，说明门槛按 $c^2$ 打开）
+  $A_{13}=0.20$              rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-1.15e-16, 1.83e-17, 2.54
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.658892  DARE 残差 0.0e+00/1.9e-17
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=1.211778e-01$   独立检验 $\operatorname{tr}(\Theta\Delta P)=1.211778e-01$   两者差 $=1.1e-16$
+     $\lambda(\Delta P)$=0.0000, 0.0406, 1.5396  $\operatorname{rank}\Delta P$=2  $\operatorname{tr}\Delta P$=1.580193
+     $\|U_k^\top\Delta P\,U_k\|=$1.498e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$3.595e-01（锥外）
+     $e_3$ 分量 $=1.529180$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=3.33e-02$
+     $\mathrm{gap}/c^2=3.0294$（若近似常数，说明门槛按 $c^2$ 打开）
+  $A_{13}=0.50$              rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-4.45e-16, 1.22e-18, 3.05
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=1.265166  DARE 残差 0.0e+00/8.3e-17
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=7.274517e-01$   独立检验 $\operatorname{tr}(\Theta\Delta P)=7.274517e-01$   两者差 $=1.1e-16$
+     $\lambda(\Delta P)$=0.0000, 0.1845, 1.4504  $\operatorname{rank}\Delta P$=2  $\operatorname{tr}\Delta P$=1.634900
+     $\|U_k^\top\Delta P\,U_k\|=$1.254e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$7.518e-01（锥外）
+     $e_3$ 分量 $=1.407901$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=1.55e-01$
+     $\mathrm{gap}/c^2=2.9098$（若近似常数，说明门槛按 $c^2$ 打开）
+  $A_{13}=1.00$              rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-2.73e-16, 7.18e-16, 4.87
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=3.256563  DARE 残差 0.0e+00/1.5e-17
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=2.718849e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=2.718849e+00$   两者差 $=4.4e-16$
+     $\lambda(\Delta P)$=-0.0000, 0.3849, 1.2986  $\operatorname{rank}\Delta P$=2  $\operatorname{tr}\Delta P$=1.683458
+     $\|U_k^\top\Delta P\,U_k\|=$9.075e-01（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$1.005e+00（锥外）
+     $e_3$ 分量 $=1.232249$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=3.30e-01$
+     $\mathrm{gap}/c^2=2.7188$（若近似常数，说明门槛按 $c^2$ 打开）
+
+[4] 对照：冗余块可驱动（$B_3\neq0$，$A$ 仍块对角）——即使不耦合也要付代价
+  $B_3=0.0$                  rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.5625  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.562500
+     $\|U_k^\top\Delta P\,U_k\|=$1.562e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=1.562500$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=0.00e+00$
+  $B_3=0.3$                  rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-8.66e-20, 1.11e-16, 2.6
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.622460  $\Phi_0(F_{-d})$=0.626676  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=4.216045e-03$   独立检验 $\operatorname{tr}(\Theta\Delta P)=4.216045e-03$   两者差 $=3.8e-17$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.5625  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.562500
+     $\|U_k^\top\Delta P\,U_k\|=$1.561e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$7.110e-02（锥外）
+     $e_3$ 分量 $=1.562500$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=0.00e+00$
+  $B_3=1.0$                  rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-6.66e-16, 2.02e-19, 4.23
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=1.566987  $\Phi_0(F_{-d})$=1.597628  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=3.064036e-02$   独立检验 $\operatorname{tr}(\Theta\Delta P)=3.064036e-02$   两者差 $=3.5e-18$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.5625  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.562500
+     $\|U_k^\top\Delta P\,U_k\|=$1.555e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$1.502e-01（锥外）
+     $e_3$ 分量 $=1.562500$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=0.00e+00$
+
+[5] 对照：$W_u$ 缩放 —— $\Delta P$ 位似于 $W_u$，但门槛恒 0（机制二的指纹）
+  $W_u=0.1$                  rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 0.1562  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=0.156250
+     $\|U_k^\top\Delta P\,U_k\|=$1.562e-01（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=0.156250$，闭式 $W_u/(1-a_u^2)$ 预测 $=0.156250$，差 $=0.00e+00$
+     $\operatorname{tr}\Delta P/\|W_u$ 比例 $=1.5625$  gap $=0.00e+00$（应 $\equiv0$）
+  $W_u=1.0$                  rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.5625  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.562500
+     $\|U_k^\top\Delta P\,U_k\|=$1.562e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=1.562500$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=0.00e+00$
+     $\operatorname{tr}\Delta P/\|W_u$ 比例 $=1.5625$  gap $=0.00e+00$（应 $\equiv0$）
+  $W_u=10.0$                 rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 15.6250  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=15.625000
+     $\|U_k^\top\Delta P\,U_k\|=$1.562e+01（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=15.625000$，闭式 $W_u/(1-a_u^2)$ 预测 $=15.625000$，差 $=0.00e+00$
+     $\operatorname{tr}\Delta P/\|W_u$ 比例 $=1.5625$  gap $=0.00e+00$（应 $\equiv0$）
+
+[6] 结构检验：免费的删为什么免费（$\ker\Theta$ 从哪来）
+  闭式链条：$\Theta=K^\top(R+B^\top P_cB)K$，中间阵 $\succ0$ $\Rightarrow$ $\ker\Theta=\ker K$；
+  而 $K$ 的第 $j$ 列 $\propto B^\top P_cA e_j$。所以只要 $P_c$ 在第 3 个状态上解耦，$e_3\in\ker\Theta$。
+  设计点（$A_{13}=0,B_3=0$）    $P_c$ 的第 3 列非对角 $=0.00e+00$  $(B^\top P_c)_{1,3}=0.00e+00$  $|K_{\cdot,3}|=0.00e+00$  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+  耦合（$A_{13}=0.2$）         $P_c$ 的第 3 列非对角 $=2.55e-01$  $(B^\top P_c)_{1,3}=2.23e-01$  $|K_{\cdot,3}|=1.78e-01$  $\lambda(\Theta)$=-2.66e-16, 1.59e-17, 2.54
+  可驱动（$B_3=0.3$）           $P_c$ 的第 3 列非对角 $=3.59e-01$  $(B^\top P_c)_{1,3}=1.55e-01$  $|K_{\cdot,3}|=2.90e-02$  $\lambda(\Theta)$=-5.78e-20, 1.67e-16, 2.6
+  解耦 $\Rightarrow$ 三个量同时为 0，$e_3$ 整条落在 $\ker\Theta$ 里；耦合或可驱动只要破一个，$\ker\Theta$ 就瘦下去。
+
+[7] 代价全在 $\operatorname{ran}\Delta P$ 的取向，不在它的大小
+       $B_3$ $\operatorname{tr}\Delta P$ $\lambda_{\max}(\Delta P)$         锥外残差          gap
+  $B_3=0.0$（只取数）             rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.5625  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.562500
+     $\|U_k^\top\Delta P\,U_k\|=$1.562e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=1.562500$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=0.00e+00$
+         0.0     1.562500     1.562500    0.000e+00    0.000e+00
+  $B_3=0.3$（只取数）             rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-8.66e-20, 1.11e-16, 2.6
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.622460  $\Phi_0(F_{-d})$=0.626676  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=4.216045e-03$   独立检验 $\operatorname{tr}(\Theta\Delta P)=4.216045e-03$   两者差 $=3.8e-17$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.5625  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.562500
+     $\|U_k^\top\Delta P\,U_k\|=$1.561e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$7.110e-02（锥外）
+     $e_3$ 分量 $=1.562500$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=0.00e+00$
+         0.3     1.562500     1.562500    7.110e-02    4.216e-03
+  $B_3=1.0$（只取数）             rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-6.66e-16, 2.02e-19, 4.23
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=1.566987  $\Phi_0(F_{-d})$=1.597628  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=3.064036e-02$   独立检验 $\operatorname{tr}(\Theta\Delta P)=3.064036e-02$   两者差 $=3.5e-18$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.5625  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.562500
+     $\|U_k^\top\Delta P\,U_k\|=$1.555e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$1.502e-01（锥外）
+     $e_3$ 分量 $=1.562500$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=0.00e+00$
+         1.0     1.562500     1.562500    1.502e-01    3.064e-02
+  三行 $\operatorname{tr}\Delta P$ 与 $\lambda_{\max}(\Delta P)$ 都是 $1.562500$（同一个 $W_u/(1-a_u^2)$，与 $B_3$ 无关），
+  但 gap 从 $0$ 走到 $3.1e^{-2}$：后验误差的"大小"没变，变的只有它相对 $\ker\Theta$ 的取向。
+  直接推论：任何拿 $\operatorname{tr}(\Delta P_d)$ 或 $\|\Delta P_d\|$ 当门槛代理的做法，在这类植物上会给出"三个删法一样贵"的错误结论，而真门槛差一个数量级以上。
+
+[8] $a_u$ 扫描：免费删是一族，不是一个点
+     $a_u$ $\operatorname{tr}\Delta P$         闭式预测          gap
+  $a_u=0.20$                 rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.0417  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.041667
+     $\|U_k^\top\Delta P\,U_k\|=$1.042e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=1.041667$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.041667$，差 $=0.00e+00$
+      0.20       1.041667     1.041667    0.000e+00
+  $a_u=0.60$                 rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 1.5625  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=1.562500
+     $\|U_k^\top\Delta P\,U_k\|=$1.562e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=1.562500$，闭式 $W_u/(1-a_u^2)$ 预测 $=1.562500$，差 $=0.00e+00$
+      0.60       1.562500     1.562500    0.000e+00
+  $a_u=0.90$                 rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 5.2632  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=5.263158
+     $\|U_k^\top\Delta P\,U_k\|=$5.263e+00（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=5.263158$，闭式 $W_u/(1-a_u^2)$ 预测 $=5.263158$，差 $=0.00e+00$
+      0.90       5.263158     5.263158    0.000e+00
+  $a_u=0.99$                 rank $\Theta$=1  $\dim\ker\Theta$=2  $\lambda(\Theta)$=-5.55e-17, 0, 2.45
+     可检测(删后)：是（$|\lambda|=—$）  $\Phi_0(F)$=0.537714  $\Phi_0(F_{-d})$=0.537714  DARE 残差 0.0e+00/0.0e+00
+     $\mathrm{gap}=\Phi_0(F_{-d})-\Phi_0(F)=0.000000e+00$   独立检验 $\operatorname{tr}(\Theta\Delta P)=0.000000e+00$   两者差 $=0.0e+00$
+     $\lambda(\Delta P)$=0.0000, 0.0000, 50.2513  $\operatorname{rank}\Delta P$=1  $\operatorname{tr}\Delta P$=50.251256
+     $\|U_k^\top\Delta P\,U_k\|=$5.025e+01（$\ker\Theta$ 内）  残差 $\|\Delta P-U_k(\cdot)U_k^\top\|=$0.000e+00（锥外）
+     $e_3$ 分量 $=50.251256$，闭式 $W_u/(1-a_u^2)$ 预测 $=50.251256$，差 $=0.00e+00$
+      0.99      50.251256    50.251256    0.000e+00
+  $\operatorname{tr}\Delta P$ 严格按 $W_u/(1-a_u^2)$ 走（$a_u\to1$ 发散），gap 恒 $0$。
+  也就是说"免费"与"后验误差有多大"完全无关：哪怕删掉的那条通道承载了无穷大的零噪声后验，只要方向在 $\ker\Theta$ 里，门票就是 $0$。
+
+[9] 结论
+  (i) 机制二不是空想：$\Delta P\neq0$、$\operatorname{rank}F$ 掉 1、门槛精确 0，三者同时成立。
+  (ii) 随机方向扫描找不到它，是因为它要求 $\operatorname{ran}\Delta P$ 与 $\ker\Theta$ 对齐，
+        而 $\ker\Theta=\ker K$ 由 $(A,B,Q,R)$ 决定，与被删的传感方向无关——随机方向撞上的概率是 0。
+  (iii) 门票定理的正确表述：$\mathrm{gap}_d>0$ 需要额外假设。
+        充分条件是 $\Theta\succ0$（等价于 $B^\top P_cA$ 满秩，即每个状态方向都被驱动链影响）；
+        缺它时只能说 $\mathrm{gap}_d\ge0$，且等号可以是"真省"而不是"退化"。
+  (iv) 对图 1 的意义：作者若用"$\operatorname{rank}$ 掉就抬门槛"来解释台阶不出现，
+        这个解释在没有 $\Theta\succ0$ 的植物类上不成立——本文给的三类对照可复现。

@@ -1,0 +1,26 @@
+== [N1] Crossref：Tatikonda–Sahai–Mitter 2004 的权威记录 ==
+  title   = Stochastic Linear Control Over a Communication Channel
+  container=IEEE Transactions on Automatic Control  year=2004  cited-by=301  pages=1549-1561
+  authors = Tatikonda, Sahai, Mitter
+  abstract= （Crossref 无摘要）
+  命中律腿词 [] / 传感腿词 []
+    !! 取不到 https://api.crossref.org/works/10.1109/TAC.2004.834430/references: HTTPError HTTP Error 404: Not Found
+
+== [N2][N3] arXiv 8 组查询 + 三档分类（本地笔记 29 篇标 [R]）==
+  abs:"rate distortion" AND abs:"linear quadratic"           取回   4  [A-CH]=  0 [R]= 3 [A-IR]=  4 [U]= 0
+  abs:"directed information" AND abs:"LQG"                   取回  12  [A-CH]=  1 [R]= 7 [A-IR]=  8 [U]= 3
+  abs:"sensor selection" AND abs:"Kalman" AND abs:"rate"     取回   1  [A-CH]=  0 [R]= 0 [A-IR]=  1 [U]= 0
+  abs:"data rate" AND abs:"estimation error" AND abs:"Riccat 取回   0  [A-CH]=  0 [R]= 0 [A-IR]=  0 [U]= 0
+  abs:"cost of communication" AND abs:"control"              取回  19  [A-CH]=  0 [R]= 0 [A-IR]=  3 [U]=16
+  abs:"remote estimation" AND abs:"sensing" AND abs:"rank"   取回   0  [A-CH]=  0 [R]= 0 [A-IR]=  0 [U]= 0
+  abs:"information-based cost" AND abs:"communication"       取回   1  [A-CH]=  0 [R]= 0 [A-IR]=  0 [U]= 1
+  abs:"exponent" AND abs:"data rate" AND abs:"Kalman"        取回   0  [A-CH]=  0 [R]= 0 [A-IR]=  0 [U]= 0
+
+== [N4] 合并去重后 [A-CH] 共 1 条（按年份倒序，全部列出摘要前 320 字）==
+ 1. 2101.09329 (2021)  S=['vector'] L=['tradeoff']
+    Rate of Prefix-free Codes in LQG Control Systems with Side Information
+    In this work, we study an LQG control system where one of two feedback channels is discrete and incurs a communication cost. We assume that a decoder (co-located with the controller) can make noiseless measurements of a subset of the state vector (referred to as side information) meanwhile a remote encoder (co-located 
+
+  本地已通读且命中两腿的： ['1510.04214', '1604.01227', '2109.12246', '2204.00588', '2604.20369', '2607.04172', '2608.26917']
+  判据 [N4]：k=1 ⇒ 有候选威胁项，必须逐条读完再定档
+EXIT=0

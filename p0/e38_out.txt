@@ -1,0 +1,42 @@
+== E38：门槛对 W 的依赖 ==
+|λ| = [1.7124 0.7543 0.7543 1.3127]
+sdim(不稳定块数) = 2  rank F = 2
+max|T[iT,iR]|（A_TR，封闭性）= 0.000e+00
+max|T[iR,iT]|（A_RT）        = 1.081e+00
+
+可观测性矩阵奇异值 = [6.1907 3.2734 0.     0.    ]  (s3/s0=6.63e-17)
+  tol=1e-08 → 观测秩=2, dim V*=2
+  tol=1e-10 → 观测秩=2, dim V*=2
+  tol=1e-12 → 观测秩=2, dim V*=2
+  ker F 的一组正交基维数 = 2 ；A-不变性残差 max|Zkᵀ A Z_perp|=1.115e+00
+算例：T-F2 尾部2（锚点），$n=4$，$r=2$；$C$ 用固定网格 $t=3e-03 1e-03 3e-04 1e-04 3e-05$
+
+[1] 规模 $W	oarepsilon W$。预言 $\Phi_0,\mathrm{gap}\proptoarepsilon$，$\lambda(C)$ 不变，故 $\mathrm{gap}/\lambda\proptoarepsilon$
+  $\varepsilon$      $\Phi_0$ $\Phi_0/\varepsilon$  $\lambda(C)$   $\mathrm{gap}_A$     $\mathrm{gap}_A/\lambda_i$
+  1e-03        0.014640     14.6398  24.17 1.5046   1.069e-03 7.475e-02  0:0.000 1:0.050
+  1e-02        0.146398     14.6398 25.863 1.4524   1.084e-02 7.429e-01  0:0.000 1:0.512
+  1e+00       14.639795     14.6398 25.917 1.4536   1.084e+00 7.428e+01  0:0.042 1:51.104
+  1e+02     1463.979498     14.6398 25.974 1.2681   1.089e+02 7.422e+03  0:4.192 1:5853.106
+
+  一次齐次的逐点核对（$\tilde P_0$、$\Phi$ 恒等式、$C$ 零次齐次）：
+    $\varepsilon=1e-03 $ $\|\tilde P_0(\varepsilon W)/\varepsilon-\tilde P_0(W)\|/\|\tilde P_0\|=2.95e-16$
+    $\varepsilon=1e-03 $ 预算恒等式 $x(\varepsilon W,V)$ vs $\varepsilon x(W,V/\varepsilon)$：相对偏差 6.38e-16 6.98e-16
+    $\varepsilon=1e+02 $ $\|\tilde P_0(\varepsilon W)/\varepsilon-\tilde P_0(W)\|/\|\tilde P_0\|=2.24e-16$
+    $\varepsilon=1e+02 $ 预算恒等式 $x(\varepsilon W,V)$ vs $\varepsilon x(W,V/\varepsilon)$：相对偏差 7.77e-16 1.71e-15
+    $\varepsilon=1e-02 $ $C$ 零次齐次：$\|C(\varepsilon W)-C(W)\|/\|C(W)\|=2.25e-03$
+    $\varepsilon=1e+02 $ $C$ 零次齐次：$\|C(\varepsilon W)-C(W)\|/\|C(W)\|=8.70e-03$
+
+[2] 方向 $W=R(\theta)\operatorname{diag}(1,10^{-3},10^{-6},10^{-9})R(\theta)^\top$（谱固定，只在 $(e_0,e_1)$ 平面转）
+  齐次性管不了方向：看 $\mathrm{gap}_A/\lambda_i$ 能否被转到合并
+  $\theta$     $\Phi_0$ $\kappa(C)$ $\lambda(C)$           $\mathrm{gap}_A/\lambda_i$
+  0°         0.000001   4.70e+00 20.64 4.388            0:0.000 1:2.667
+  15°        0.000001   4.93e+00 21.03 4.266            0:0.000 1:2.331
+  30°        0.000001   5.23e+00 21.17 4.046            0:0.004 1:1.662
+  45°        0.000001   5.56e+00 21.02 3.784            0:0.018 1:0.741
+  60°        0.000001   5.86e+00 20.63 3.521            0:0.031 1:0.015
+  75°        0.000001   5.97e+00 20.03 3.354            0:0.038 1:0.005
+  90°        0.000001   5.80e+00 19.45 3.355            0:0.032 1:0.005
+
+[3] 反向：把 $\varepsilon$ 拉到极大，看门槛是否超过可测区间（梯子被推走 $=$ 观测不到垂直段）
+  $\varepsilon=1e+03 $ $\Phi_0/\varepsilon=14.6398$  $\lambda(C)$=22.148 -12.288   0:62.876
+  $\varepsilon=1e+04 $ $\Phi_0/\varepsilon=14.6398$  $\lambda(C)$=-865.21 -2460.2   

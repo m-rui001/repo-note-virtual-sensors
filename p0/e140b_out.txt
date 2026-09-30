@@ -1,0 +1,39 @@
+== [Z5] 三条松查询（每条都印 totalResults，不只印前几条）==
+
+  query: au:Stavrou AND au:Loyka   [五人组合里两个独特姓氏]
+    totalResults=1  （返回 1 条）
+      arxivid=1603.04172v3  Optimal Estimation via Nonanticipative Rate Distortion Function and Applications to Time-Varying Gau
+        作者=Photios A. Stavrou; Themistoklis Charalambous; Charalambos D. Charalambous; Sergey Loyka  提交日=2016-03-14
+
+  query: au:Stavrou AND all:"nonanticipative rate distortion"   [同作者 + 主题词]
+    totalResults=13  （返回 8 条）
+      arxivid=1210.1266v3  Nonanticipative Rate Distortion Function and Relations to Filtering Theory
+        作者=Charalambos D. Charalambous; Photios A. Stavrou; Nasir U. Ahmed  提交日=2012-10-03
+      arxivid=1401.5828v4  Applications of Information Nonanticipative Rate Distortion Function
+        作者=Photios A. Stavrou; Christos K. Kourtellaris; Charalambos D. Charalambous  提交日=2014-01-22
+      arxivid=1210.2019v2  On the relation of nonanticipative rate distortion function and filtering theory
+        作者=Charalambos D. Charalambous; Photios A. Stavrou  提交日=2012-10-07
+      arxivid=1212.6643v2  Nonanticipative Rate Distortion Function and Filtering Theory: A weak Convergence Approach
+        作者=Photios A. Stavrou; Charalambos D. Charalambous  提交日=2012-12-29
+      arxivid=1405.1593v2  Information Nonanticipative Rate Distortion Function and Its Applications
+        作者=Photios A. Stavrou; Christos K. Kourtellaris; C. D. Charalambous  提交日=2014-05-07
+      arxivid=1603.04172v3  Optimal Estimation via Nonanticipative Rate Distortion Function and Applications to Time-Varying Gau
+        作者=Photios A. Stavrou; Themistoklis Charalambous; Charalambos D. Charalambous; Sergey Loyka  提交日=2016-03-14
+      arxivid=2411.11698v1  A New Finite-Horizon Dynamic Programming Analysis of Nonanticipative Rate-Distortion Function for Ma
+        作者=Zixuan He; Charalambos D. Charalambous; Photios A. Stavrou  提交日=2024-11-18
+      arxivid=1304.6528v2  Nonanticipative Rate Distortion Function for General Source-Channel Matching
+        作者=Christos Kourtellaris; Charalambos D. Charalambous; Photios A. Stavrou  提交日=2013-04-24
+
+  query: all:"reverse waterfilling" AND all:"Gauss-Markov" AND all:"nonanticipative"   [纯主题词，不含作者]
+    totalResults=3  （返回 3 条）
+      arxivid=1603.04172v3  Optimal Estimation via Nonanticipative Rate Distortion Function and Applications to Time-Varying Gau
+        作者=Photios A. Stavrou; Themistoklis Charalambous; Charalambos D. Charalambous; Sergey Loyka  提交日=2016-03-14
+      arxivid=1912.07640v4  Indirect NRDF for Partially Observable Gauss-Markov Processes with MSE Distortion: Complete Characte
+        作者=Photios A. Stavrou; Mikael Skoglund  提交日=2019-12-16
+      arxivid=1810.00298v1  Zero-Delay Rate Distortion via Filtering for Vector-Valued Gaussian Sources
+        作者=Photios A. Stavrou; Jan Ostergaard; Charalambos D. Charalambous  提交日=2018-09-30
+
+== [Z5] 判决 ==
+  若上面出现 Stavrou/Loyka/Charalambous/Skoglund 的组合 ⇒ arXiv 侧**有**预印本，把它的作者顺序与 Crossref 五人逐位对表。
+  若三条都 totalResults=0 ⇒ 只能写"arXiv 侧未检索到（三条查询，见 e140b stdout）"，署名口径维持 Crossref 单通道＋明写未结。
+EXIT=0

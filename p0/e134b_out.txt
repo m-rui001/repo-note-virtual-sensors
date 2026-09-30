@@ -1,0 +1,52 @@
+== e134：定价器拿去选设计。窗 [0.30,0.60]，定价点 dI in [1.1, 2.2] ==
+  [anchor  ] 有效 24/24（地板 0 / 点数 0 / 拟合 0 / 真值 0 累计剔除）  Rexp=1.1685
+  [rand-1  ] 有效 24/24（地板 0 / 点数 0 / 拟合 0 / 真值 0 累计剔除）  Rexp=0.7985
+  [rand-2  ] 有效 24/24（地板 0 / 点数 0 / 拟合 0 / 真值 0 累计剔除）  Rexp=1.7614
+  [rand-4  ] 有效 24/24（地板 0 / 点数 0 / 拟合 0 / 真值 0 累计剔除）  Rexp=2.6088
+  [rand-3  ] 有效 23/24（地板 1 / 点数 0 / 拟合 0 / 真值 0 累计剔除）  Rexp=3.0875
+  [big-6   ] 有效 24/24（地板 1 / 点数 0 / 拟合 0 / 真值 0 累计剔除）  Rexp=1.7260
+
+  合计有效设计 143
+
+== [U2][U3] 逐株逐档：三种选择器的 regret（%，相对本株本档 ORACLE）==
+  anchor   dI=1.1 tau=0.059 候选12/24  ORACLE rk=1 g=0.98 | PRICE regret=+0.00% hit=True  | FILTER regret= +35.66% | rho(pred,true)=0.9983 错序率= 0.72% | pred/true med=0.9863 跨距=0.0603
+  anchor   dI=2.2 tau=0.059 候选12/24  ORACLE rk=2 g=0.95 | PRICE regret=+0.00% hit=True  | FILTER regret=  +0.00% | rho(pred,true)=0.9957 错序率= 1.45% | pred/true med=0.9688 跨距=0.2145
+  rand-1   dI=1.1 tau=0.045 候选 2/24  ORACLE rk=1 g=1.15 | PRICE regret=+0.00% hit=True  | FILTER regret=     n/a | rho(pred,true)=0.9965 错序率= 1.09% | pred/true med=0.8843 跨距=0.2257 [过滤过度：剩 2 候选<8 ⇒ FILTER 不计数，PRICE 照算]
+  rand-1   dI=2.2 tau=0.045 候选 2/24  ORACLE rk=2 g=1.52 | PRICE regret=+0.00% hit=True  | FILTER regret=     n/a | rho(pred,true)=0.9739 错序率= 4.35% | pred/true med=0.8173 跨距=0.4509 [过滤过度：剩 2 候选<8 ⇒ FILTER 不计数，PRICE 照算]
+  rand-2   dI=1.1 tau=0.063 候选16/24  ORACLE rk=2 g=0.86 | PRICE regret=+0.00% hit=True  | FILTER regret=  +0.00% | rho(pred,true)=1.0000 错序率= 0.00% | pred/true med=0.9903 跨距=0.1116
+  rand-2   dI=2.2 tau=0.063 候选16/24  ORACLE rk=2 g=0.86 | PRICE regret=+0.00% hit=True  | FILTER regret=  +0.00% | rho(pred,true)=0.9948 错序率= 2.17% | pred/true med=0.9835 跨距=0.3890
+  rand-4   dI=1.1 tau=0.063 候选15/24  ORACLE rk=2 g=0.97 | PRICE regret=+0.00% hit=True  | FILTER regret=  +0.00% | rho(pred,true)=1.0000 错序率= 0.00% | pred/true med=1.0032 跨距=0.1073
+  rand-4   dI=2.2 tau=0.063 候选15/24  ORACLE rk=2 g=0.97 | PRICE regret=+0.00% hit=True  | FILTER regret=  +0.00% | rho(pred,true)=1.0000 错序率= 0.00% | pred/true med=1.0301 跨距=0.2505
+  rand-3   dI=1.1 tau=0.061 候选13/23  ORACLE rk=2 g=0.79 | PRICE regret=+0.00% hit=True  | FILTER regret=  +0.00% | rho(pred,true)=0.9960 错序率= 1.19% | pred/true med=1.0086 跨距=0.0616
+  rand-3   dI=2.2 tau=0.061 候选13/23  ORACLE rk=2 g=0.79 | PRICE regret=+0.00% hit=True  | FILTER regret=  +0.00% | rho(pred,true)=0.9921 错序率= 2.37% | pred/true med=1.0291 跨距=0.2400
+  big-6    dI=1.1 tau=0.065 候选18/24  ORACLE rk=2 g=0.92 | PRICE regret=+0.00% hit=True  | FILTER regret=  +0.00% | rho(pred,true)=0.9974 错序率= 1.09% | pred/true med=0.9856 跨距=0.0544
+  big-6    dI=2.2 tau=0.065 候选18/24  ORACLE rk=2 g=0.92 | PRICE regret=+0.00% hit=True  | FILTER regret=  +0.00% | rho(pred,true)=1.0000 错序率= 0.00% | pred/true med=0.9690 跨距=0.1552
+
+== [U4-①] PRICE 的 regret（全 12 格，含 rand-1）：med|regret|=0.000%  最差=+0.000%  命中 ORACLE=1.00 (12/12)
+   ⇒ regret 中位 <1% ⇒ **选择层不存在需要 flag 来解决的问题**（预注册的 ① 否证分支）
+   [anchor] PRICE regret=['+0.00', '+0.00']  FILTER regret=['+35.66', '+0.00'] ⇒ FILTER 有劣化
+   [rand-1] PRICE regret=['+0.00', '+0.00']  FILTER=无可评价格（过滤过度）
+   [rand-2] PRICE regret=['+0.00', '+0.00']  FILTER regret=['+0.00', '+0.00'] ⇒ FILTER 不劣
+   [rand-4] PRICE regret=['+0.00', '+0.00']  FILTER regret=['+0.00', '+0.00'] ⇒ FILTER 不劣
+   [rand-3] PRICE regret=['+0.00', '+0.00']  FILTER regret=['+0.00', '+0.00'] ⇒ FILTER 不劣
+   [big-6] PRICE regret=['+0.00', '+0.00']  FILTER regret=['+0.00', '+0.00'] ⇒ FILTER 不劣
+== [U4-②] FILTER 各档 regret 都不高于 PRICE 的株数 = 4 / 可评 5（全 6 株）
+   ORACLE 自身被 flag 挡掉的格数 = 1 / 10（被挡 ⇒ FILTER 必然付出代价）
+
+== [U4] 判决：① 不成立 ⇒ flag 停在诊断量，不许写成选择器
+
+== [U5] 预测排序 vs 真排序（跨本株 24 设计）==
+  anchor   dI=1.1  rho=0.9983  错序率= 0.72%  pred/true med=0.9863  p90-p10=0.0394  跨距=0.0603
+  anchor   dI=2.2  rho=0.9957  错序率= 1.45%  pred/true med=0.9688  p90-p10=0.1305  跨距=0.2145
+  rand-1   dI=1.1  rho=0.9965  错序率= 1.09%  pred/true med=0.8843  p90-p10=0.1797  跨距=0.2257
+  rand-1   dI=2.2  rho=0.9739  错序率= 4.35%  pred/true med=0.8173  p90-p10=0.2828  跨距=0.4509
+  rand-2   dI=1.1  rho=1.0000  错序率= 0.00%  pred/true med=0.9903  p90-p10=0.0381  跨距=0.1116
+  rand-2   dI=2.2  rho=0.9948  错序率= 2.17%  pred/true med=0.9835  p90-p10=0.1088  跨距=0.3890
+  rand-4   dI=1.1  rho=1.0000  错序率= 0.00%  pred/true med=1.0032  p90-p10=0.0558  跨距=0.1073
+  rand-4   dI=2.2  rho=1.0000  错序率= 0.00%  pred/true med=1.0301  p90-p10=0.2070  跨距=0.2505
+  rand-3   dI=1.1  rho=0.9960  错序率= 1.19%  pred/true med=1.0086  p90-p10=0.0424  跨距=0.0616
+  rand-3   dI=2.2  rho=0.9921  错序率= 2.37%  pred/true med=1.0291  p90-p10=0.2154  跨距=0.2400
+  big-6    dI=1.1  rho=0.9974  错序率= 1.09%  pred/true med=0.9856  p90-p10=0.0338  跨距=0.0544
+  big-6    dI=2.2  rho=1.0000  错序率= 0.00%  pred/true med=0.9690  p90-p10=0.1231  跨距=0.1552
+  rho 中位=0.9970 最差=0.9739 | 错序率 中位=1.09% 最差=4.35% | pred/true 跨距 中位=0.1848 最差=0.4509
+EXIT=0

@@ -1,0 +1,2006 @@
+1
+On Task-Restricted Virtual Sensors: Reproduction, Infeasibility Interval, Non-Factorisation, and the Rate-Side Ladder
+Xiangrui Meng, Qwen3.8-Flash, and DeepSeek-V4.1-Flash
+
+Abstract‚ÄîTask-restricted remote sensing asks for the cheapest
+
+virtual sensor whose information matrix lies in a given admissible
+
+cone. On the published four-state example, the plotted rate‚Äì
+
+cost frontiers are optima over the whole cone, including its
+
+rank-deficient boundary, to within 0.07 cost units inside the
+
+digitisation band, whereas no isotropic-noise family reaches them
+
+(1.11‚Äì16.4 units above). The admissibility wall is a horizontal
+
+asymptote of every frontier rather than a point on it, so the
+
+interval ( Ì†µÌ±óÌ†µÌ±ê, Ì†µÌ∞∑min (Ì†µÌ±â)], of length exactly Œ¶0 (Ì†µÌ±â), is a complete
+infeasible region; the published theorem therefore must carry supp(Ì†µÌ±Ñ) ‚äÜ range(Ì†µÌ∞π‚ä§), and the repaired statement costs nothing.
+
+The wall does not order the frontiers (111/120 random rank-one
+
+designs invert the ordering at fixed rate), so it is not a design
+
+criterion. At a frozen prior the trade-off reduces to one convex
+
+program on the information form, solved by reverse water-filling
+
+on the spectrum of a task-weighted Gramian, yielding a closed-
+
+form value at the wall prior and a sensor within 1.4% of the
+
+best known designs at ten of eleven anchors. The frontier-wide
+
+bound that would have fixed the constant of the wall-approach
+
+law needs a monotonicity that is false, and we withdraw it. On
+
+the
+
+rate
+
+side,
+
+the
+
+ladder
+
+law
+
+ŒîÌ†µÌ∞º
+
+=
+
+1 2
+
+rankÌ†µÌ∞∂
+
+log2 (1/Ì†µÌ±•) + Ì†µÌ±èpred + Ì†µÌ±Ç (Ì†µÌ±•)
+
+carries a computable intercept and slope 2 ln 2/Ì†µÌ±ü, verified on
+
+two measurable legs across five plants and ranks 1‚Äì4; the
+
+slope is water-filling arithmetic, while its domain, the finite-
+
+rate inequality, the intercept and the rank structure are ours.
+
+Limitations and withdrawn claims are listed at the end of the
+
+note.
+
+Index Terms‚ÄîRemote state estimation, sensor scheduling, information form Kalman filter, non-convex optimisation, directed information, reverse water-filling.
+
+I. Introduction
+The object. The reference paper [1] studies a remote loop in which the sensor is virtual: it is described by an information
+X. Meng is the human prompter and lead author, with the College of Mathematics and Sciences, Shanghai Normal University, Shanghai, China (ORCID iD 0009-0006-8902-0519). He framed the questions, ran the submissions to the solvers, and decided what survives.
+Qwen3.8-Flash and DeepSeek-V4.1-Flash are large language models listed as co-authors. Each drove one independent verification lane and wrote its own scripts and solver logs‚Äîlane D in p0/, lane C in .work3/‚Äîand each audited the other lane‚Äôs numbers claim by claim; the disagreements, the withdrawn claims, and the account of who was wrong about what are recorded in Section X and in the collaboration protocol released with this submission. Every number quoted here is produced by a script that writes its own log, mapped in Appendix A. Attribution of individual sections by lane is given in the source headers.
+Solver, benchmark and licence details, and the code and logs behind Appendix A, are released under the MIT licence with this submission; the repository address is carried on the submission form.
+This note is a comment on, and reproduction study of, the published paper [1]; it reuses only that paper‚Äôs public example and its published figure data, and it is not a version of it.
+
+matrix Ì†µÌ±Ü injected per step, and the designer is restricted to what the task actually reads, i.e. Ì†µÌ±Ü must lie in the cone KÌ†µÌ∞π = {Ì†µÌ±Ü ‚™∞ 0 : range(Ì†µÌ±Ü) ‚äÜ range(Ì†µÌ∞π‚ä§)}. The paper plots rate‚Äìcost frontiers for a published four-state example, parameterises the cone (its Corollary 1), and its Theorem 3 closes the loop: at every cost level Ì†µÌ∞∑ the restricted design attains the unrestricted optimum, so the task restriction costs nothing.
+What we find. We reproduce the published frontier over the whole cone ‚Äî including the rank-deficient boundary where channels are switched off ‚Äî and then report what the published window can and cannot show.
+1) The frontier is not reproduced by any isotropic-noise family: the best member of each family lies 1.11‚Äì16.4 cost units above it, while optima over the full cone agree with it to within 0.07 units, inside the digitisation band (¬ßIII).
+2) The admissibility wall is a horizontal asymptote of each frontier, not a point on it: the cost approaches Ì†µÌ∞∑min (Ì†µÌ±â) from above and never reaches it, so the published figure cannot display the wall it names. The wall is a functional of the subspace alone, Ì†µÌ∞∑min (Ì†µÌ±â) = Ì†µÌ±óÌ†µÌ±ê + Œ¶0 (Ì†µÌ±â), and the interval ( Ì†µÌ±óÌ†µÌ±ê, Ì†µÌ∞∑min (Ì†µÌ±â)] is a complete infeasible region: inside it no admissible design meets the task (¬ßIV).
+3) Consequently the phrase ‚Äúfor every cost level Ì†µÌ∞∑‚Äù in Theorem 3 needs the hypothesis its own proof already uses, that the stage cost sees the state only through the task variable, supp(Ì†µÌ±Ñ) ‚äÜ range(Ì†µÌ∞π‚ä§). Without it the theorem fails not at a point but on an interval of length exactly Œ¶0 (Ì†µÌ±â); the repaired statement (Theorem 3‚Ä≤) is free and gives both Œî ‚â° 0 and Œ¶0 (Ì†µÌ±â) = 0 (¬ßIV).
+4) The wall does not order the frontiers: among 120 random rank-one designs, 111 pairs invert the wall ordering at a fixed rate, so the wall is not a design criterion (¬ßV).
+5) On the constructive side, a frozen prior reduces the trade-off to one convex program on the information form, whose solution is reverse water-filling on the spectrum of a task-weighted Gramian Œì. This supplies a closed-form value at the wall prior, not the previously unspecified constant of the wall-approach law ‚Äî the frontier-wide form that would have delivered that constant needs a monotonicity that is false (a closed-form rank-one counterexample and 115 reachable in-cone counterexamples), and we withdraw it ‚Äî together with a closed-form sensor that matches the best previously known designs at ten of eleven anchors to within 1.4%
+
+2
+
+and reproduces the rank-deficiency of the numerically optimal designs through channel switch-on rates (¬ßVII).
+
+6) On the floor side, choosing the sensing subspace itself
+is a lower-dimensional problem with a usable rule and
+a certification status we state precisely: the rule attains Œ¶0 = 12.222448/0.791828/0.190335 at rank 1/2/3 against best known 10.169224/0.735143/0.158701, i.e. 1.20/1.08/1.20√ó the best known floor (¬ßVIII).
+
+7) On the rate side we characterise the restricted sensor
+
+beyond the published window. With the two excesses Ì†µÌ±• := Ì†µÌ∞∑ ‚àí Ì†µÌ∞∑min (Ì†µÌ±â) > 0 (cost axis) and ŒîÌ†µÌ∞º := Ì†µÌ∞º ‚àí
+
+Ì†µÌ±Öexp (rate axis) ‚Äî different origins, never mixed ‚Äî
+
+the
+
+ladder law
+
+ŒîÌ†µÌ∞º
+
+=
+
+rankÌ†µÌ∞∂ 2
+
+log2
+
+1 Ì†µÌ±•
+
++
+
+Ì†µÌ±èpred
+
++ Ì†µÌ±Ç (Ì†µÌ±•)
+
+has
+
+an exactly computable intercept and asymptotic slope
+
+Ì†µÌªæ‚àû = 2 ln 2/Ì†µÌ±ü, which we verify on two independently
+
+measurable legs across five plants and ranks 1‚Äì4: the
+
+rate leg Ì†µÌºé := Ì†µÌ±ëŒîÌ†µÌ∞º/Ì†µÌ±ë log2 Ì†µÌ±† ‚Üí Ì†µÌ±ü/2 and the cost leg Ì†µÌªº := ‚àíÌ†µÌ±ë ln Ì†µÌ±•/Ì†µÌ±ë ln Ì†µÌ±† ‚Üí 1 (¬ßIX). The slope itself is
+
+reverse-water-filling arithmetic and is not claimed as
+
+a discovery; what we claim is its domain, the finiterate inequality Ì†µÌªæÌ†µÌ±ü /Ì†µÌªæ1 > 1/Ì†µÌ±ü, the intercept, and the
+
+rank structure. The same section records where the water-filling picture fails: the optimal support is not
+
+diagonal in the task-weight basis, and forcing it there costs 5.0 √ó 10‚àí2/9.5 √ó 10‚àí2 bit at rank one.
+
+8) Finally we reduce the one question the published line leaves open ‚Äî whether admissibility can ever cost rate ‚Äî to a statement about the uniqueness of the optimal support, which random probes of the optimal face cannot decide by construction, and we report its direct numerical decision with a pre-registered criterion (¬ßIX, Appendix A).
+
+Positioning. This is a comment-and-extension note, not a competing design. We keep the reference paper‚Äôs model, symbols and cone; we reproduce its Figure 1 over a larger admissible set than it displays; we correct one hypothesis in its Theorem 3; and we extend the picture in two directions it does not take (the subspace-selection floor side, and the ladder law with its rank structure on the rate side). Where its own moving parts are ours we say so: its Step 3 realizability test is the same equality-type reachability condition we use, and its determinant monotonicity is a statement about one PSD variable under a Loewner bound, not the det Œì monotonicity: that one is false (closed-form rank-one counterexample; 115 reachable in-cone counterexamples), which is why the frontierwide bound resting on it is withdrawn in ¬ßVII (¬ßXI). Relative to the closest prior on restricting sensing [7] we add the cone language and the length of the infeasible interval, not the act of restricting sensing; relative to the nonanticipative ratedistortion line, we price a chosen sensing subspace against a control cost, and we claim no converse of our own.
+Honesty. Everything quantitative is for the published fourstate example. All rate-side numbers are constructive upper bounds obtained by local descent, with a lower-bound certificate only where explicitly said to be proved. The floorside rule is ‚Äúbest known, certified global on the floor side‚Äù. Every statement we had to withdraw, and every limitation we
+
+know of, is collected in ¬ßX; the claim-to-script-to-log map is Appendix A.
+
+II. Setup and notation
+
+We keep the reference paper‚Äôs model, recursions and symbol set, and add only what Sections III‚ÄìV need. The plant is Ì†µÌ±•Ì†µÌ±ò+1 = Ì†µÌ∞¥Ì†µÌ±•Ì†µÌ±ò + Ì†µÌ∞µÌ†µÌ±¢Ì†µÌ±ò + Ì†µÌ±§Ì†µÌ±ò with virtual-sensor reading Ì†µÌ±ßÌ†µÌ±ò = Ì†µÌ∞πÌ†µÌ±•Ì†µÌ±ò + Ì†µÌ±£Ì†µÌ±ò (Ì†µÌ±§Ì†µÌ±ò, Ì†µÌ±£Ì†µÌ±ò i.i.d. Gaussian, Ì†µÌ±ä ‚âª 0), and the reference cost is
+the average stage cost of the LQG pair. Under the certaintyequivalence structure the control law is Ì†µÌ±¢Ì†µÌ±ò = ‚àíÌ†µÌ∞æÌ†µÀÜÌ±•Ì†µÌ±ò and the
+cost separates as
+
+Ì†µÌ∞∑ (Ì†µÌ±Ü) = Ì†µÌ±óÌ†µÌ±ê + tr(ŒòÌ†µÌ±ÉÌ†µÌ±ö), Ì†µÌ±óÌ†µÌ±ê = tr(Ì†µÌ±ä Ì†µÌ±ÉÌ†µÌ±ê),
+
+(1)
+
+with Ì†µÌ±ÉÌ†µÌ±ê the control ARE solution, Œò = Ì†µÌ∞æ‚ä§ (Ì†µÌ±Ö + Ì†µÌ∞µ‚ä§Ì†µÌ±ÉÌ†µÌ±ê Ì†µÌ∞µ)Ì†µÌ∞æ the
+closed-loop weighting, and Ì†µÌ±ÉÌ†µÌ±ö the posterior error covariance. The posterior is propagated in information form,
+
+Ì†µÌ±É + =
+
+Ì†µÀúÌ±É ‚àí1 + Ì†µÌ±Ü
+
+‚àí1
+,
+
+Ì†µÌ±ö
+
+Ì†µÀúÌ±É
+
++
+
+=
+
+Ì†µÌ∞¥Ì†µÌ±ÉÌ†µÌ±ö
+
+‚ä§
+Ì†µÌ∞¥
+
++
+
+Ì†µÌ±ä ,
+
+(2)
+
+where Ì†µÌ±Ü ‚™∞ 0 is the information matrix the virtual sensor injects
+
+per step, and the rate is
+
+Ì†µÌ∞º (Ì†µÌ±Ü)
+
+=
+
+1 2
+
+log2
+
+det( Ì†µÌ∞¥Ì†µÌ±ÉÌ†µÌ±ö Ì†µÌ∞¥‚ä§ det Ì†µÌ±ÉÌ†µÌ±ö
+
++ Ì†µÌ±ä)
+
+(3)
+
+evaluated at a stationary point of (2). A stationary point exists
+
+exactly when the pair seen by the recursion is detectable, which
+
+is why (2) doubles as the feasibility certificate in Proposition 1.
+
+Admissibility. A sensor is task-restricted to Ì†µÌ∞π when KÌ†µÌ∞π =
+
+{Ì†µÌ±Ü ‚™∞ 0 : range(Ì†µÌ±Ü) ‚äÜ range(Ì†µÌ∞π‚ä§)}, and the paper‚Äôs Corollary 1
+
+parameterises
+
+the
+
+cone
+
+as
+
+Ì†µÌ±Ü
+
+=
+
+Ì†µÌ±àÌ†µÌ∞π
+
+Ì†µÌ±Ä
+
+Ì†µÌ±à‚ä§
+Ì†µÌ∞π
+
+with
+
+Ì†µÌ±Ä
+
+‚™∞
+
+0
+
+and
+
+Ì†µÌ±àÌ†µÌ∞π an orthonormal basis of range(Ì†µÌ∞π‚ä§). Two consequences are
+
+used here: the cone is closed, so rank-deficient Ì†µÌ±Ü ‚Äî a channel
+
+switched off entirely ‚Äî are admissible, and the constraint is
+
+an equality-type reachability condition on a subspace, not an
+
+inequality on a spectrum. Notation. Ì†µÌ±â := range(Ì†µÌ±Ü), Ì†µÌ±ÉÌ†µÌ±â the orthogonal projector onto
+Ì†µÌ±â, Ì†µÌ±ü := dim Ì†µÌ±â. We write Ì†µÌ∞∑min (Ì†µÌ±â), not a function of Ì†µÌ∞π, because
+
+every quantity in Sections IV‚ÄìV depends on Ì†µÌ∞π only through
+
+the subspaces Ì†µÌ∞π admits; this also avoids the symbol clash noted in. Finally, writing Ì†µÌ±Ü = Ì†µÌ±£Ì†µÌ±ÉÌ†µÌ±â for the isotropic family,
+
+the two evaluation calibres of Remark 1 are
+
+Ì†µÌ∞∑cone (Ì†µÌ∞º)
+Ì†µÌ±â
+
+=
+
+inf
+range Ì†µÌ±Ü ‚äÜÌ†µÌ±â
+
+Ì†µÌ∞∑ (Ì†µÌ±Ü),
+
+Ì†µÌ∞º (Ì†µÌ±Ü) ‚â§Ì†µÌ∞º
+
+Ì†µÌ∞∑ray (Ì†µÌ∞º)
+Ì†µÌ±â
+
+=
+
+inf
+Ì†µÌ±Ü=Ì†µÌ±£ Ì†µÌ±ÉÌ†µÌ±â
+
+Ì†µÌ∞∑ (Ì†µÌ±Ü),
+
+Ì†µÌ∞º (Ì†µÌ±Ü) ‚â§Ì†µÌ∞º
+
+so Ì†µÌ∞∑ray ‚â• Ì†µÌ∞∑cone on the same axis. Both are rate-budget
+
+calibres: Ì†µÌ∞∑ is non-increasing and Ì†µÌ∞º non-decreasing in the
+
+L√∂wner order on Ì†µÌ±Ü, so the infimum sits on the boundary Ì†µÌ∞º (Ì†µÌ±Ü) = Ì†µÌ∞º; reading the constraint as Ì†µÌ∞º (Ì†µÌ±Ü) ‚â• Ì†µÌ∞º would return the wall Ì†µÌ∞∑min (Ì†µÌ±â) at every Ì†µÌ∞º, which no number in this note is.
+
+Every frontier number in this note is constructive ‚Äî a feasible
+
+design,
+
+hence
+
+an
+
+upper
+
+bound
+
+on
+
+Ì†µÌ∞∑ cone
+Ì†µÌ±â
+
+‚Äî
+
+unless
+
+a
+
+lower-
+
+bound certificate is quoted explicitly, and every number is for
+
+the published four-state example of Section III. Notation check.
+
+We reserve Ì†µÌ∞∑min (Ì†µÌ±â) for the floor and Œ¶0 (Ì†µÌ±â) = Ì†µÌ∞∑min (Ì†µÌ±â) ‚àí Ì†µÌ±óÌ†µÌ±ê
+
+for
+
+its
+
+excess;
+
+Œ¶‚òÖ (Ì†µÌ±ü )
+0
+
+denotes
+
+the
+
+rank-Ì†µÌ±ü
+
+minimum
+
+of
+
+the
+
+excess
+
+(¬ßVIII). No other meaning of Œ¶ is used in this note except the
+
+frozen-prior posterior of ¬ßVII, which always appears with its
+
+argument.
+
+3
+
+III. Reproducing the published rate‚Äìcost frontiers
+
+The reference example of [1] is a four-state plant with | eig( Ì†µÌ∞¥)| = {1.7124, 1.3127, 0.2848 ¬± 0.6984Ì†µÌ±ñ}, process noise covariance Ì†µÌ±ä ‚âª 0, and the weighting Œò and offset Ì†µÌ±óÌ†µÌ±ê of (1), which evaluate to Ì†µÌ±óÌ†µÌ±ê = 31.4833.
+
+Two scalar anchors are reproduced before any of our own
+
+claims are made:
+
+1) the minimum stabilizing rate |Ì†µÌºÜÌ†µÌ±¢ |>1 log2 |Ì†µÌºÜÌ†µÌ±¢ | = 1.168575 bits/sample, against the value 1.169 printed
+
+in the published figure;
+
+2) the four curves of the published figure ([1, Fig. 1])
+
+‚Äî three task-restricted frontiers and the unrestricted
+
+reference ‚Äî, digitised from the vector artwork (frame pixels Ì†µÌ±• ‚àà [121, 1924], Ì†µÌ±¶ ‚àà [52, 1238], Ì†µÌ∞∑ ‚àà [40, 90], Ì†µÌ∞º ‚àà [1, 5]; 1 px = 0.0278 in Ì†µÌ∞∑; calibration ambiguity between frame edge and grid line ¬±0.09, plus the read-
+
+off-convention spread of Table I).
+
+The digitised curves span Ì†µÌ∞∑ ‚àà [46.99, 89.83], Ì†µÌ∞º ‚àà [1.543, 4.921] (red, Ì†µÌ±ü = 2), Ì†µÌ∞∑ ‚àà [40.08, 89.78], Ì†µÌ∞º ‚àà [1.535, 3.498] (blue, Ì†µÌ±ü = 3), Ì†µÌ∞∑ ‚àà [40.08, 89.89], Ì†µÌ∞º ‚àà [1.516, 3.263] (magenta, Ì†µÌ±ü = 4) and Ì†µÌ∞∑ ‚àà [40.83, 89.14], Ì†µÌ∞º ‚àà [1.170, 3.125] (the unrestricted curve); the raw per-pixel-
+column lists are in data/fig1_digitized.csv (5760
+
+rows).
+
+Remark 1 (calibre). There are two natural ways to evaluate
+
+the frontier of a task-restricted sensor with admissible range
+
+Ì†µÌ±â: the ray calibre, in which the information matrix injected
+
+on Ì†µÌ±â is held isotropic, Ì†µÌ±Ü = Ì†µÌ±£Ì†µÌ±ÉÌ†µÌ±â , and the scalar Ì†µÌ±£ is swept;
+
+and the cone calibre, in which Ì†µÌ±Ü ‚àà KÌ†µÌ∞π ranges over the whole
+
+admissible
+
+cone,
+
+Ì†µÌ±Ü
+
+=
+
+Ì†µÌ±àÌ†µÌ∞π
+
+Ì†µÌ±ÄÌ†µÌ±à‚ä§
+Ì†µÌ∞π
+
+with
+
+Ì†µÌ±Ä
+
+‚™∞
+
+0
+
+arbitrary,
+
+i.e.
+
+the
+
+closure of KÌ†µÌ∞π is used and rank-deficient Ì†µÌ±Ü (a channel switched
+
+off entirely) is admissible.
+
+TABLE I Frontier of the published Ì†µÌ±ü = 2 sensor, both calibres, against the
+digitised red curve. Œî is in units of Ì†µÌ∞∑.
+
+same plant, the same axis and the same sensor, the published
+curve is better than anything the isotropic family achieves. We therefore read the published figure as the cone optimum of
+the paper‚Äôs own Theorem 1 set, with the maximiser sitting on
+or near the rank-deficient boundary (optimal second-channel weight Ì†µÌºå‚òÖ = 0 for Ì†µÌ∞º ‚â§ 3 and Ì†µÌºå‚òÖ ‚â§ 0.1 at the two highest anchors, optimal in-plane angle Ì†µÌºÉ‚òÖ ‚àà [128‚ó¶, 138‚ó¶]), and not
+as any isotropic-noise subfamily.
+For the unrestricted curve the two calibres coincide to within the read-off spread: the free-cone optimum is 58.1931 at Ì†µÌ∞º = 2 against 58.040 ¬±0.159 digitised, and 47.756 at Ì†µÌ∞º = 2.5 against 47.758 ¬± 0.077. The Ì†µÌ∞º = 2 residual is larger than the red-curve
+ones only because the unrestricted curve is steeper there; no
+sign is readable at that point, and none is claimed.
+Remark 2 (one curve we cannot place). The blue (Ì†µÌ±ü = 3)
+curve is not reproduced. Over the Schur-tail 3-plane the cone optimum is 59.5611 at Ì†µÌ∞º = 2, and the digitised curve sits 0.78 above it (60.344 ¬± 0.265) ‚Äî the admissible direction. At Ì†µÌ∞º = 3 the same cone optimum is 45.4537 while the digitised curve is at 43.711 ¬± 0.007, i.e. 1.74 below the best design
+of that plane: 250 times the read-off spread and 19 times the ¬±0.09 calibration band, so this is not a measurement artefact.
+The plane‚Äôs minimum is obtained by multistart local search,
+so 45.4537 is an upper bound on what that plane can deliver
+and the exclusion is stated relative to that bound. A certified
+lower bound would make it absolute; the best one available, (9)
+evaluated on that plane (Section VII, where the frontier-wide step needs a monotonicity that is false (falsified in the cone:
+a closed-form rank-one counterexample and 115 reachable
+counterexamples), so (9) is quoted only as its value at the wall prior), is 41.485 at Ì†µÌ∞º = 3, i.e. 2.23 below the digitised
+value, so this note does not make the exclusion absolute. The point itself is feasible globally, since the free optimum at Ì†µÌ∞º = 3 is 42.040 < 43.711; so the published Ì†µÌ±ü = 3 curve must use a
+different 3-dimensional admissible subspace than the one we
+assumed. We do not attempt to fit it in this note.
+
+target Ì†µÌ∞º
+
+digitised Ì†µÌ∞∑
+
+cone Œîcone ray Ì†µÌ±Ü = Ì†µÌ±£ Ì†µÌ±ÉÌ†µÌ±â
+
+2.00
+
+62.902 ¬± 0.021 62.8975 (‚àí0.005) 79.3018
+
+2.50
+
+54.311 ¬± 0.014 54.2924 (‚àí0.019) 63.3839
+
+3.00
+
+50.651 ¬± 0.003 50.6023 (‚àí0.049) 56.2321
+
+4.00
+
+47.978 ¬± 0.007 47.9396 (‚àí0.038) 50.2372
+
+4.90
+
+47.040 ¬± 0.006 47.1006 (+0.061) 48.1475
+
+The ¬± is the spread over four read-off conventions (nearest pixel column, two rate
+
+windows, polyline crossing), which is needed because the curve is steep at the low-rate end: between Ì†µÌ∞º = 1.95 and 2.05 the red curve moves by 2.6 units of Ì†µÌ∞∑, 94 pixels. All
+
+four conventions are printed by repro/readoff.py.
+
+Two things must be kept apart, and only the second one carries the argument. The cone residuals are small and of both signs: ‚àí0.005, ‚àí0.019, ‚àí0.049, ‚àí0.038, +0.061, i.e. at most 2.2 pixels and inside the ¬±0.09 calibration band quoted above. The cone calibre is therefore consistent with the published curve at all five anchors and nothing more ‚Äî no sign is resolvable, and we do not ask more of the artwork than that. What the artwork does resolve is the other comparison: every ray value lies above the published curve by 1.11‚Äì16.40, i.e. by 40 to 590 pixels, at least 18 times the largest cone residual. Being above is not itself a contradiction ‚Äî a suboptimal family may well cost more ‚Äî but it does exclude identity: on the
+
+IV. The infeasible region, and what the published figure can show
+For an admissible subspace Ì†µÌ±â = range(Ì†µÌ±Ü), with Ì†µÌ±ÉÌ†µÌ±â the orthogonal projector onto Ì†µÌ±â, define
+
+Ì†µÌ∞∑min (Ì†µÌ±â ) = Ì†µÌ±óÌ†µÌ±ê + Œ¶0 (Ì†µÌ±â ),
+
+Œ¶0 (Ì†µÌ±â) = inf tr ŒòÌ†µÌ±ÉÌ†µÌ±ö (Ì†µÌºèÌ†µÌ±ÉÌ†µÌ±â ) ,
+Ì†µÌºè >0
+(4)
+
+the zero-measurement-noise limiting cost, reached as the in-
+
+formation matrix scales to infinity along Ì†µÌ±â. Three independent
+
+evaluations (information-form fixed point, singular DARE,
+
+filter DARE sdare( Ì†µÌ∞¥‚ä§, Ì†µÌ∞π‚ä§, Ì†µÌ±ä, Ì†µÌ±â)) agree to 1.3 √ó 10‚àí3 on
+
+the anchors Ì†µÌ±â
+
+=
+
+range(
+
+Ì†µÌ∞π ‚ä§ )
+2
+
+,
+
+Ì†µÌ∞∑ min
+
+=
+
+46.1231, and Ì†µÌ±â
+
+=
+
+span{Ì†µÌºÉ1, Ì†µÌºÉ2}, Ì†µÌ∞∑min = 32.2751.
+
+Proposition 1 (shape of the infeasible region). Fix Ì†µÌ±â with dim Ì†µÌ±â ‚â• 1 and let the plant pair ( Ì†µÌ∞¥, Ì†µÌ±â) be detectable. Then along the ray {Ì†µÌºèÌ†µÌ±ÉÌ†µÌ±â } the rate is unbounded, limÌ†µÌºè‚Üí‚àû Ì†µÌ∞º (Ì†µÌºèÌ†µÌ±ÉÌ†µÌ±â ) = ‚àû, while the cost decreases to the finite limit Ì†µÌ∞∑min (Ì†µÌ±â). Hence
+(i) {Ì†µÌ∞∑ < Ì†µÌ∞∑min (Ì†µÌ±â)} is infeasible at every rate: the wall is a horizontal asymptote of the frontier, not a point on it;
+
+4
+
+(ii) if the pair is not detectable, no Ì†µÌºè yields a stationary error covariance, and the whole ray is infeasible (Ì†µÌ∞∑min (Ì†µÌ±â) = +‚àû);
+(iii) the frontier of a subspace with a lower wall does not lie below the frontier of a subspace with a higher wall (Section V).
+
+Proof sketch. (i) det Ì†µÌ±ÉÌ†µÌ±ö (Ì†µÌºèÌ†µÌ±ÉÌ†µÌ±â ) shrinks as 1/Ì†µÌºè on Ì†µÌ±â and stays
+
+bounded away from zero on a complement only if Ì†µÌ±â is not
+
+detectable; the ratio det( Ì†µÌ∞¥Ì†µÌ±ÉÌ†µÌ±ö Ì†µÌ∞¥‚ä§ + Ì†µÌ±ä)/det Ì†µÌ±ÉÌ†µÌ±ö therefore di-
+
+verges logarithmically while tr(ŒòÌ†µÌ±ÉÌ†µÌ±ö) converges monotonically
+
+to the zero-noise limit, which is exactly Œ¶0 (Ì†µÌ±â). Concretely, Ì†µÌ±ü = dim Ì†µÌ±â directions carry the Ì†µÌºè‚àí1 factor, so Ì†µÌ∞º (Ì†µÌºèÌ†µÌ±ÉÌ†µÌ±â ) =
+
+Ì†µÌ±ü 2
+
+log2
+
+Ì†µÌºè
+
++ Ì†µÌ±Ç (1)
+
+and
+
+the
+
+wall
+
+is
+
+approached
+
+geometrically,
+
+Ì†µÌ∞∑ (Ì†µÌ∞º) ‚àí Ì†µÌ∞∑min (Ì†µÌ±â ) ‚âà Ì†µÌ∞∂ (Ì†µÌ±â ) 2‚àí2Ì†µÌ∞º/Ì†µÌ±ü .
+
+(5)
+
+(ii) is the standard equivalence between convergence of the
+
+information-form recursion and detectability; the Schur-tail-
+
+1 row of Table II is that case observed: one scalar mea-
+
+surement cannot cover both unstable modes (| eig( Ì†µÌ∞¥)| =
+
+{1.7124, 1.3127, . . . }).
+
+‚ñ°
+
+Remark 3 (the predicted slope, measured). On the semi-
+logarithmic axes of Fig. 1, Eq. (5) says the asymptotic slope is ‚àí2 log10 2/Ì†µÌ±ü, i.e. ‚àí0.6021, ‚àí0.3010, ‚àí0.2007 per bit for dim Ì†µÌ±â = 1, 2, 3. Least-squares slopes over the decade of rate Ì†µÌ∞º ‚àà [12, 20] (for dim Ì†µÌ±â = 1, over Ì†µÌ∞º ‚àà [6, 12], where the gap has not yet left the axis) give ‚àí0.6022, ‚àí0.3010 and ‚àí0.3010, ‚àí0.2017 and ‚àí0.2018: the two 2-dimensional families and the
+two 3-dimensional families agree with each other to four digits,
+and with (5) to within 0.5%, with no fitted constant and no
+family-dependent exponent.
+Remark 4 (the other end of the same curve is published).
+Proposition 1(i) is the cost-side asymptote. The rate-side one, Ì†µÌ∞º ‚Üí |Ì†µÌºÜÌ†µÌ±ñ ( Ì†µÌ∞¥) |>1 log2 |Ì†µÌºÜÌ†µÌ±ñ ( Ì†µÌ∞¥)| as the cost budget grows, is already printed for a restricted observation matrix whose
+unobservable subspace contains unstable modes [8, Sec. IV-
+A, Fig. 3], on this very plant and with this very constant.
+Nothing in Proposition 1 or Eq. (5) is claimed for that end of
+the frontier: what we add is the cost-side wall as a function of range(Ì†µÌ±Ü) alone, the measured slope ‚àí2 log10 2/Ì†µÌ±ü of its approach, and the fact that it does not order the frontiers
+(Section V).
+
+Table II and Fig. 1 measure the approach to the wall for five
+admissible subspaces of the published plant, sweeping the ray Ì†µÌ±Ü = Ì†µÌ±£Ì†µÌ±ÉÌ†µÌ±â , Ì†µÌ±£ ‚àà [10‚àí3, 1012].
+
+Corollary 1 (the published figure does not show a wall).
+
+The published figure is drawn on Ì†µÌ∞∑ ‚àà [40, 90], Ì†µÌ∞º ‚àà [1, 5].
+
+By Proposition 1(i) a wall becomes visible only where the
+
+frontier is within digitisation of Ì†µÌ∞∑min: measured on the ray,
+
+Ì†µÌ±â
+
+=
+
+range
+
+(
+
+Ì†µÌ∞π‚ä§)
+2
+
+first
+
+enters
+
+¬±0.09
+
+of
+
+its
+
+wall
+
+at
+
+Ì†µÌ∞º
+
+=
+
+9.3,
+
+and
+
+the fastest of the five families of Table II does so at Ì†µÌ∞º = 5.6
+
+‚Äî both outside the published abscissa range, so no family
+
+in that table can display its wall there. The left end of the
+
+red curve is (Ì†µÌ∞∑, Ì†µÌ∞º) = (46.99, 4.921), and 4.921 is the top
+
+frame edge minus one line width: the red curve is truncated by
+
+the top edge, and its terminal abscissa carries no information
+
+about Ì†µÌ∞∑min (Ì†µÌ±â); numerically 46.99‚àí Ì†µÌ∞∑min = +0.87, far outside
+
+(D Dmin)/Dmin [\%]
+
+TABLE II Horizontal asymptotes: five admissible subspaces Ì†µÌ±â of the published
+plant, each swept along its own ray, and how large a rate the published window would need.
+
+family
+
+Ì†µÌ∞∑min (Ì†µÌ±â ) gap at Ì†µÌ∞º ‚âà 5 Ì†µÌ∞º at 1% Ì†µÌ∞º at 0.1%
+
+Schur tail 2
+
+46.1231
+
+4.33%
+
+7.1
+
+10.3
+
+Schur tail 3
+
+36.6032
+
+36.1%
+
+11.9
+
+16.8
+
+optimal support, 41.6526
+
+0.50%
+
+4.5
+
+6.1
+
+Ì†µÌ±ü = 1
+
+optimal support, 32.2185
+
+10.4%
+
+8.4
+
+11.7
+
+Ì†µÌ±ü = 2
+
+optimal support, Ì†µÌ±ü = 3
+Schur tail 1
+
+31.6420 +‚àû
+
+22.9%
+
+10.7
+
+15.6
+
+no fixed point
+
+Schur tail 2 is the support we identify with the published red curve; Schur tail 3 is the
+
+plane tested against the blue curve and rejected in Remark 2, listed here only as a wall. The optimal supports minimise Œ¶0 at each rank. Ray Ì†µÌ±Ü = Ì†µÌ±£ Ì†µÌ±ÉÌ†µÌ±â , Ì†µÌ±£ over 151
+logarithmic points, information-form fixed point to tolerance 10‚àí11; point lists in
+
+data/wall_approach.csv (652 rows). The last row is Proposition 1(ii) observed:
+
+the recursion does not converge for any Ì†µÌ±£, so the wall leaves the axis.
+
+102
+
+optimal support, r=r1
+
+optimal support, r=r2
+
+101
+
+optimal support, r=r3 Schur tail 2
+
+Schur tail 3
+
+100
+
+digitisation band (¬±0.09 in D)
+
+10 1
+
+10 2
+
+10 3 2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0
+rate I [bit/sample]
+
+Fig. 1. The wall as a horizontal asymptote, for the five families of Table II. The shaded band is the published abscissa range Ì†µÌ∞º ‚àà [1, 5]; the dashed line is the digitisation floor ¬±0.09 expressed relative to the lowest wall in the table
+(0.28%). No family has entered that floor inside the published window ‚Äî the closest, the Ì†µÌ±ü = 1 optimal support, is still 0.21 units above its wall at Ì†µÌ∞º = 5.
+
+the calibration band. The blue and magenta curves end at Ì†µÌ∞∑ = 40.08, i.e. they are truncated by the left edge, at rates Ì†µÌ∞º = 3.498 and 3.263, while their walls lie below the axis: for the unrestricted magenta curve the wall is exactly Ì†µÌ±óÌ†µÌ±ê = 31.4833 (full rank, so the zero-noise limit is the exactobservation limit), and for the blue curve even the lowest wall it could be assigned, the Ì†µÌ±ü = 3 optimal support at 31.6420, sits 8.4 units under the frame edge.
+Fig. 1 is therefore drawn on axes that reach Ì†µÌ∞º = 20 rather than by annotating the published window: on the published window the phenomenon of Corollary 1 is not visible, only its absence is.
+V. The floor does not order the frontier Because Ì†µÌ∞∑min (Ì†µÌ±â) depends on Ì†µÌ±Ü only through range(Ì†µÌ±Ü) ‚Äî the shape of the spectrum does not enter it, confirmed by scanning anisotropic spectra within a fixed subspace ‚Äî it is tempting to summarise the design problem as ‚Äúpick the subspace by the wall, pick the spectrum by the rate‚Äù. The following counterexample says the second half is not free.
+
+5
+
+Proposition 2 (non-factorisation). There exist unit directions Ì†µÌ±ß1, Ì†µÌ±ß2 ‚àà R4 with
+
+Œ¶0
+
+(
+
+Ì†µÌ±ß1
+
+‚ä§
+Ì†µÌ±ß
+1
+
+)
+
+‚àí
+
+Œ¶0
+
+(Ì†µÌ±ß2
+
+Ì†µÌ±ß‚ä§)
+2
+
+max
+
+Œ¶0
+
+(
+
+Ì†µÌ±ßÌ†µÌ±ñ
+
+‚ä§
+Ì†µÌ±ß
+Ì†µÌ±ñ
+
+)
+
+=
+
+1.46
+
+√ó
+
+10‚àí3
+
+Ì†µÌ±ñ
+
+but frontier values differing by 45% at a fixed rate: Ì†µÌ∞∑Ì†µÌ∞º=2 = 1108.36 versus 1610.70, and by 13.7% at Ì†µÌ∞º = 3 (727.39 versus 826.95). Hence no function of the wall alone determines the frontier.
+
+TABLE III Rank-one directions: wall pairing versus frontier ordering.
+
+wall ratio < 5 √ó 10‚àí3
+
+1 pair; rate spread at Ì†µÌ∞º = 2: 45.3%
+
+wall ratio < 10‚àí3
+
+no pair
+
+inverted pairs
+
+111 at Ì†µÌ∞º = 2, 31 at Ì†µÌ∞º = 3
+
+spread of Ì†µÌ∞∑Ì†µÌ∞º=2 within deciles
+
+53%‚Äì1.8 √ó 104%, none < 50%
+
+120 draws (rng(5)), 76 admissible; walls from the zero-noise fixed point, frontiers
+
+from a 20-step ray bisection using the information-form recursion only (no DARE
+
+solve, no spectral-radius test). ‚ÄúInverted pairs‚Äù: higher wall but lower cost at equal rate.
+
+The robust statement is the count of inverted pairs, not the single 45% pair: a tolerance-based pairing can vanish when the tolerance is tightened, but 111 inversions of the wall ordering do not. What survives, and what we assert, is the exact factorisation statement plus its restriction:
+‚Ä¢ Œ¶0 is a function of range(Ì†µÌ±Ü) alone ; ‚Ä¢ the frontier is not monotone in Œ¶0, even within the rank-
+one family; ‚Ä¢ consequently the two design coordinates (wall, rate) de-
+couple only within a fixed subspace, not across subspaces.
+
+VI. Limitations: what this note does not claim
+‚Ä¢ All rate-side numbers are constructive upper bounds obtained by local descent over the cone. Section VII adds a closed-form lower bound, proved only at a frozen prior; its frontier-wide form needs a monotonicity that fails (a closed-form rank-one counterexample and 115 reachable in-cone counterexamples), so the frontier-wide bound is not claimed at all; it leaves 2.7‚Äì4.5 units of Ì†µÌ∞∑ uncertified at Ì†µÌ∞º = 3 and 11‚Äì15 at Ì†µÌ∞º = 2, and it does not certify the published blue point infeasible (Section VII,).
+‚Ä¢ Every quantitative statement is for the published fourstate example; the subspace-selection phenomena are not claimed to hold for a general plant, and the general statement is left to the follow-up on the dynamic minimal stage.
+‚Ä¢ The blue curve of the published figure is not reproduced (Remark 2).
+‚Ä¢ The rank-one global optimality of the wall-side rule is supported by repeated descent runs and by a two-valued landscape (10.169224 / 86.665888), not by a proof; the descent reports the best of several starts and is not certified to hit the global minimum on every run.
+
+VII. A closed-form bound at a frozen prior, and the channel switch-off law
+Section IV measures the approach to the wall and reads its exponent off the semi-log axes, (5); the constant Ì†µÌ∞∂ (Ì†µÌ±â) was
+
+left unspecified because no lower bound for it was available.
+
+This section gives one, together with the sensor that attains it,
+
+and it separates cleanly into what is proved and what is only
+
+verified.
+Fix Ì†µÌ±â with orthonormal basis Ì†µÌ±ç, let Ì†µÌ±ã ‚âª 0 be the stationary prior of an admissible design, Ì†µÌ∞∫ := Ì†µÌ±ç‚ä§ Ì†µÌ±ã Ì†µÌ±ç, and write the injected information as Ì†µÌ±Ü = Ì†µÌ±ç Ì†µÌ±Ä Ì†µÌ±ç‚ä§. Two Ì†µÌ±ü √ó Ì†µÌ±ü quantities carry
+
+everything:
+
+Ì†µÌ±á
+
+:= Ì†µÌ∞∫1/2
+
+Ì†µÌ±Ä ‚àí1 + Ì†µÌ∞∫
+
+‚àí1
+Ì†µÌ∞∫
+
+1/2
+
+‚àà
+
+[0, Ì†µÌ∞º),
+
+Œì := Ì†µÌ∞∫ ‚àí1/2 Ì†µÌ±ç‚ä§ Ì†µÌ±ãŒòÌ†µÌ±ã Ì†µÌ±ç Ì†µÌ∞∫ ‚àí1/2 ‚™∞ 0,
+
+(6)
+
+with the convention that Ì†µÌ±á = 0 when Ì†µÌ±Ä is singular. Put Œ¶(Ì†µÌ±ã) := (Ì†µÌ±ã ‚àí1 + Ì†µÌ±ç Ì†µÌ±ç‚ä§)‚àí1 (the posterior of perfect sensing on
+Ì†µÌ±â given prior Ì†µÌ±ã) and Ì†µÌ±äÌ†µÌ±ã := Ì†µÌ±óÌ†µÌ±ê + tr(ŒòŒ¶(Ì†µÌ±ã)).
+
+Proposition 3 (reduction at frozen prior; proved). For every admissible design with stationary prior Ì†µÌ±ã, rate Ì†µÌ∞º and cost Ì†µÌ∞∑, with Ì†µÌªæ1 ‚â• ¬∑ ¬∑ ¬∑ ‚â• Ì†µÌªæÌ†µÌ±ü the eigenvalues of Œì and Ì†µÌ±Ö := Ì†µÌ∞º ‚àí Ì†µÌ±á,
+
+Ì†µÌ∞∑ = Ì†µÌ±äÌ†µÌ±ã + tr(ŒìÌ†µÌ±Ö),
+
+Ì†µÌ∞º
+
+=
+
+‚àí1
+2
+
+log2
+
+det
+
+Ì†µÌ±Ö,
+
+(7)
+
+and Ì†µÌ±Ä ‚Ü¶‚Üí Ì†µÌ±á is a bijection of the admissible cone onto 0 ‚™Ø Ì†µÌ±á ‚â∫ Ì†µÌ∞º. Hence, at fixed Ì†µÌ±ã,
+
+‚àëÔ∏Å ‚àëÔ∏Å
+
+Ì†µÌ∞∑ ‚â• Ì†µÌ±äÌ†µÌ±ã + min tr(ŒìÌ†µÌ±Ö) = Ì†µÌ±äÌ†µÌ±ã + Ì†µÌºà + Ì†µÌªæÌ†µÌ±ñ, (8)
+
+0 ‚™Ø Ì†µÌ±Ö ‚™Ø Ì†µÌ∞º det Ì†µÌ±Ö ‚â• 2‚àí2Ì†µÌ∞º
+
+Ì†µÌªæÌ†µÌ±ñ >Ì†µÌºà
+
+Ì†µÌªæÌ†µÌ±ñ ‚â§ Ì†µÌºà
+
+where Ì†µÌºà is the unique solution of Ì†µÌªæÌ†µÌ±ñ>Ì†µÌºà (Ì†µÌºà/Ì†µÌªæÌ†µÌ±ñ) = 2‚àí2Ì†µÌ∞º : the frozen-prior trade-off is a convex program whose solution is
+
+reverse water-filling on the spectrum of Œì.
+
+Proof sketch. The inversion lemma gives Ì†µÌ±ÉÌ†µÌ±ö = Ì†µÌ±ã ‚àíÌ†µÌ±ã Ì†µÌ±ç (Ì†µÌ±Ä ‚àí1+ Ì†µÌ∞∫)‚àí1Ì†µÌ±ç Ì†µÌ±ã‚ä§, the determinant lemma gives det Ì†µÌ±ÉÌ†µÌ±ö = det Ì†µÌ±ã det Ì†µÌ±Ö, and the inverse map is Ì†µÌ±Ä = Ì†µÌ∞∫ ‚àí1/2Ì†µÌ±á (Ì†µÌ∞º ‚àíÌ†µÌ±á )‚àí1Ì†µÌ∞∫ ‚àí1/2, so Ì†µÌ∞º in (7) is the rate. For the cost, cyclicity gives tr Œì = tr(ŒòÌ†µÌ±ã ‚àíŒòŒ¶(Ì†µÌ±ã)), hence Ì†µÌ±óÌ†µÌ±ê + tr(ŒòÌ†µÌ±ã) = Ì†µÌ±äÌ†µÌ±ã + tr Œì, and (1) with tr(ŒòÌ†µÌ±ÉÌ†µÌ±ö) = tr(ŒòÌ†µÌ±ã) ‚àí tr(ŒìÌ†µÌ±á) becomes Ì†µÌ∞∑ = Ì†µÌ±äÌ†µÌ±ã + tr(ŒìÌ†µÌ±Ö). Minimising a linear function over the convex set {log det Ì†µÌ±Ö ‚â• const, 0 ‚™Ø Ì†µÌ±Ö ‚™Ø Ì†µÌ∞º} gives stationarity Ì†µÌªæÌ†µÌ±ñ ‚àí Ì†µÌºà/Ì†µÌ±üÌ†µÌ±ñ + Ì†µÌºáÌ†µÌ±ñ = 0 with Ì†µÌºáÌ†µÌ±ñ (Ì†µÌ±üÌ†µÌ±ñ ‚àí 1) = 0, i.e. Ì†µÌ±üÌ†µÌ±ñ = min(1, Ì†µÌºà/Ì†µÌªæÌ†µÌ±ñ), and the complementary slackness condition
+is the stated equation for Ì†µÌºà.
+‚ñ°
+
+The name in (8) needs one disambiguation, and the nearest
+
+neighbour deserves to be named exactly. Reverse water-filling
+
+is the shape of the nonanticipative rate-distortion function
+
+of a vector Gauss‚ÄìMarkov source, and its existence there as
+
+an optimal algorithm was proved by Stavrou and Skoglund
+
+[23] (conference version [24]), closing a question left open
+
+by [12]; the same shape appears in the zero-delay upper
+
+bound realised through a Kalman filter with feedback [25].
+
+The two programs are not the same one. There the objective is
+
+1 2
+
+Ì†µÌ±ñ log(Ì†µÌºáŒõ,Ì†µÌ±ñ/Ì†µÌºáŒî,Ì†µÌ±ñ) under a trace constraint on the distortion,
+
+and the levels Ì†µÌºáŒõ,Ì†µÌ±ñ = Ì†µÌºáÌ†µÌ∞¥2,Ì†µÌ±ñ Ì†µÌºáŒî,Ì†µÌ±ñ + Ì†µÌºáŒ£Ì†µÌ±ä ,Ì†µÌ±ñ move with the design
+
+variable Œî; here the objective tr(ŒìÌ†µÌ±Ö) is linear under a log-
+
+det constraint on the rate, and the levels Ì†µÌªæÌ†µÌ±ñ are frozen once
+
+Ì†µÌ±ã is. Their reduction rests on pairwise commutativity of ( Ì†µÌ∞¥, Œî, Œ£Ì†µÌ±ä ), which holds in the three structural cases they isolate (Ì†µÌ∞¥ = Ì†µÌªºÌ†µÌ∞º, Ì†µÌ∞¥ symmetric with isotropic noise, Ì†µÌ∞¥ = Œ£Ì†µÌ±ä )
+
+and is what makes Hadamard‚Äôs inequality tight; our plant
+
+satisfies none of the three, so their theorem does not price
+
+6
+
+the object of this section, while (8) needs no commutativity at all because Œì is symmetric by construction. There the levels
+
+are eigenvalues of a covariance the design moves; here they
+
+are those of the task-weighted Gramian at a frozen prior, the
+
+object being partitioned is the LQG cost, and the sensor map
+
+enters one level up through Ì†µÌ±Ä: (8) is a bound at fixed Ì†µÌ±ã,
+
+not a source-coding theorem. That line also designs the filter
+
+as an encoder‚Äìchannel‚Äìdecoder triple and bounds any estima-
+
+tor‚Äôs mean-square error by a conditional mutual information [26], and the gap it publishes is carried by the quantizer:
+
+dithered scalar quantization of the Ì†µÌ±ü active dimensions costs
+
+Ì†µÌ±ü 2
+
+log2
+
+(Ì†µÌºãÌ†µÌ±í/6)
+
++1
+
+=
+
+0.254Ì†µÌ±ü
+
++1
+
+bits
+
+per
+
+vector,
+
+which
+
+is
+
+a
+
+space-filling and entropy-coding loss additive in the rate and
+
+averaging to zero per dimension under lattice quantization as
+
+the dimension grows [27] ‚Äî a gap, not a slope of the rate-
+
+distortion curve.
+
+Two readings of Proposition 3 matter more than the bound
+
+itself. First, the non-convexity of the sensor problem is not in
+
+(8): at a frozen prior the admissible set is a box intersected with
+
+a log-det super-level set and the objective is linear. It is entirely in the requirement that Ì†µÌ±ã be the prior of its own sensor. That is why the convex relaxations over (Ì†µÌ±ã, Ì†µÌ∞æ) lose so much and why
+
+the loss grows with the Lagrangian multiplier: the cheapest summary of that failed leg is supÌ†µÌºá Ì†µÌ∞ø (Ì†µÌºá) = 33.014 on the Ì†µÌ±ü = 3 plane against the 41.485 of Table IV, and supÌ†µÌºá Ì†µÌ∞ø = 35.380 unrestricted against a reachable 42.0427. Second, Ì†µÌ±üÌ†µÌ±ñ = 1 means Ì†µÌ±áÌ†µÌ±ñ = 0: that direction is not sensed at all. Switching a channel
+
+off is therefore not a numerical curiosity of the search but
+
+the water-filling solution when Ì†µÌºà exceeds Ì†µÌªæÌ†µÌ±ñ, which is what
+
+happens at small rate budgets; in the source-coding line the
+
+same active count forces the quantizer dimension to follow it
+
+once water-filling kicks in [27], which is a second reason to
+
+report Ì†µÌ±ü rather than only the cost.
+
+Dropping the design-dependent Ì†µÌ±äÌ†µÌ±ã and Ì†µÌªæ to their values
+
+at the wall prior Ì†µÌ±ãÌ†µÌ±§ (the fixed point of perfect sensing on Ì†µÌ±â; Ì†µÌ±ã ‚™∞ Ì†µÌ±ãÌ†µÌ±§ for every reachable Ì†µÌ±ã by monotonicity of Œ¶) turns (8) into a candidate frontier bound. One step there is not merely unproved, it is false, and we say so plainly:
+
+Ì†µÌ∞∑cone (Ì†µÌ∞º)
+Ì†µÌ±â
+
+‚â•
+
+Ì†µÌ∞∑min (Ì†µÌ±â ) + Ì†µÌ∞∂ (Ì†µÌ±â ) 2‚àí2Ì†µÌ∞º/Ì†µÌ±ü ,
+
+Ì†µÌ∞∂ (Ì†µÌ±â) := Ì†µÌ±ü
+
+det Œì( Ì†µÌ±ãÌ†µÌ±§)
+
+1/Ì†µÌ±ü
+,
+
+(9)
+
+valid wherever Ì†µÌ±ã ‚Üí ‚Ü¶ det Œì(Ì†µÌ±ã) is non-decreasing on the
+reachable priors. This is the constant of (5), now evaluated in closed form. The monotonicity it needs does not hold, and
+the way we first satisfied ourselves that it did is a cautionary
+tale worth one paragraph. A first stress test ‚Äî 540 random
+positive-semidefinite perturbations of Ì†µÌ±ãÌ†µÌ±§ at spectral scales 10‚àí3, 1, 103 on all three planes ‚Äî produced no violation; but a
+full-rank Gaussian perturbation of Ì†µÌ±ã is dominated by the Ì†µÌºÉ1 Ì†µÌ±ëÌ†µÌ±é term, so the test is blind to the terms that matter. A rank-one perturbation breaks it in closed form already at Ì†µÌ±ü = 1, Ì†µÌ±õ = 2, where det Œì = Ì†µÌºÉ1Ì†µÌ±é + Ì†µÌºÉ2Ì†µÌ±è2/Ì†µÌ±é: with Ì†µÌ±ã2 = Ì†µÌ±ã1 + Ì†µÌ±£Ì†µÌ±£‚ä§, Ì†µÌ±£ = (Ì†µÌºÄ, ‚àí1), we have Ì†µÌ±ã2 ‚™∞ Ì†µÌ±ã1 while det Œì decreases (4/4 violations as Ì†µÌºÄ runs 10‚àí1 ‚Üí 10‚àí4, with the control Ì†µÌ±è = 0 producing 4/4 non-violations, so the mechanism is the cross term ‚àí2Ì†µÌºÉ2Ì†µÌ±èÌ†µÌºÄ/Ì†µÌ±é).
+Restricting to designs that are actually reachable in the cone does not rescue it: with Ì†µÌ±É = Ì†µÌ∞¥‚àí1 (Ì†µÌ±ã ‚àí Ì†µÌ±ä) Ì†µÌ∞¥‚àí‚ä§ and the reacha-
+
+bility test Ì†µÌ±Ü = Ì†µÌ±É‚àí1 ‚àí Ì†µÌ±ã ‚àí1 ‚™∞ 0, there are 115 counterexamples whose Ì†µÌ±Ü lies in the admissible cone to 2 √ó 10‚àí16, and along
+the true reachable curve (a rank-one design swept on the red plane) det Œì decreases strictly with rate at 11/11 steps (4.99 √ó 106 ‚Üí 1.47 √ó 104). What survives is stated exactly: at a frozen prior (7) is an identity and (8) is exact; frontier-wide,
+(9) is an empirical law whose five-point slope fit we report, not a bound. We therefore withdraw the frontier-wide use of
+(9) and keep it only at Ì†µÌ±ãÌ†µÌ±§, where it stays below the measured
+frontier at all eleven anchors (margins 0.5‚Äì16 units) but is no
+longer claimed to hold for every Ì†µÌ±ã. Its arithmetic-geometric-
+mean step is what makes (9) weaker than (8): at a frozen prior
+the exact water-filling minimum exceeds the AM‚ÄìGM value by +2.79 (Ì†µÌ±ü = 2, Ì†µÌ∞º = 2), +3.55 (Ì†µÌ±ü = 3, Ì†µÌ∞º = 2) and +6.71 (Ì†µÌ±ü = 4, Ì†µÌ∞º = 2), and the excess vanishes as the rate grows,
+which is also the equality condition of the mean inequality (Ì†µÌ±Ö isotropic in the eigenbasis of Œì, no channel switched off).
+
+TABLE IV The three planes of the published example: wall, closed-form constant, the value of (9) at the wall prior at Ì†µÌ∞º = 3 (a value at that prior, not a frontier bound), best known achievable cost, and the
+difference. Costs in units of Ì†µÌ∞∑.
+
+Ì†µÌ±â
+
+Ì†µÌ±ü Ì†µÌ∞∂ (Ì†µÌ±â ) bound (9) best known gap
+
+Schur tail 2
+
+2 11.802
+
+47.865
+
+50.6023 2.74
+
+Schur tail 3
+
+3 15.085
+
+41.485
+
+45.4537 3.97
+
+unrestricted
+
+4 9.521
+
+37.514
+
+42.0427 4.53
+
+The bound column is (9) with the AM‚ÄìGM step replaced by the exact water-filling
+
+minimum at Ì†µÌ±ãÌ†µÌ±§ , so it inherits the same conditional status: it is a value at the wall prior, not a frontier bound, because the det Œì monotonicity that (9) needs is false (Remark 5). The plain (9) value is 40.375 on the Ì†µÌ±ü = 3 plane and 34.850 unrestricted.
+
+Best known costs are constructive optima (Table I).
+
+The practical consequence for the published point of Re-
+mark 2 is negative and should be stated plainly: the digitised blue value 43.711 at Ì†µÌ∞º = 3 is not certified infeasible. The
+certified bound there is 41.485, which is 2.2 units below it, so the exclusion in Remark 2 remains an exclusion relative to the best achievable cost of that plane (45.4537), not an absolute one. Closing that 2.2 needs control of Ì†µÌ±äÌ†µÌ±ã ‚àí tr Œì jointly in Ì†µÌ±ã,
+not a better solver.
+
+Proposition 4 (switch-off rates; proved at frozen Œì). Direction Ì†µÌ±ñ is sensed if and only if Ì†µÌªæÌ†µÌ±ñ > Ì†µÌºà, and the (Ì†µÌ±ò+1)-st channel switches on at
+
+Ì†µÌ∞º‚àó (Ì†µÌ±ò)
+
+=
+
+1 2
+
+log2
+
+Ì†µÌ±ñ‚â§Ì†µÌ±ò Ì†µÌªæÌ†µÌ±ñ ,
+Ì†µÌªæÌ†µÌ†µÌ±òÌ±ò+1
+
+Ì†µÌªæ1 ‚â• ¬∑ ¬∑ ¬∑ ‚â• Ì†µÌªæÌ†µÌ±ü .
+
+(10)
+
+Status. The thresholding structure is prior art and we do not
+
+claim it: [5] obtain the spectral threshold and the order phase
+
+transition on the controller side (their Theorem 1, the active-
+
+mode count of their Definition 5), and the closed form of the
+
+multidimensional trade-off cannot be exact at the frontier in
+
+general ‚Äî [16] exhibit the two-dimensional counterexample
+
+and identify the equal-distortion assignment as the defect,
+
+which is why the first half of this section is stated at a frozen prior. What is ours here is (10) written in the sensing coordinate Œì of (6) together with its test against the measured
+
+ranks in Table V ‚Äî i.e. a reproduction of a known phase-
+
+transition phenomenon on the sensing side, not a new phase
+
+transition.
+
+7
+
+TABLE V Test of (10) against the ranks of the designs found by exhaustive and
+multistart search.
+
+Ì†µÌ±â
+
+Ì†µÌªæ (Ì†µÌ±ãÌ†µÌ±§ )
+
+tail 2 85.39, 0.41
+
+switch-on rates Ì†µÌ∞º‚àó (Ì†µÌ±ò ) measured rank
+
+3.855
+
+1, 1, 1 at Ì†µÌ∞º = 2, 2.5, 3;
+
+2 at 4, 4.9
+
+tail 3 86.97, 3.70, 0.40
+
+2.277, 5.508
+
+not recorded
+
+free 85.69, 5.53, 0.43, 0.16 1.976, 5.665, 7.830 1 at Ì†µÌ∞º = 2; 2 at 3, 4
+
+‚ÄúMeasured rank‚Äù is the rank of the maximiser of the published-plane searches, at the effective-1% threshold: the unrestricted winners at Ì†µÌ∞º = 3, 4 carry a third
+
+eigen-direction of weight < 0.1%, so the strict count is 3 and the 1% count is 2; both are reported in p0/e77_out.txt. The Ì†µÌ±ü = 2 row is the quantitative form of the
+empirical finding in Section III that Ì†µÌºå‚òÖ = 0 for Ì†µÌ∞º ‚â§ 3 and Ì†µÌºå‚òÖ ‚â§ 0.1 beyond: (10) puts
+
+the transition at 3.855, between the two measured anchors. The unrestricted row misses at Ì†µÌ∞º = 2 by 0.02 bits ‚Äî (10) says the second channel has just become worth opening,
+
+the search keeps it shut.
+
+TABLE VI Self-consistent water-filling sensor versus the best cost previously known for each plane and rate. Every entry is an achievable design,
+so a positive difference means the closed-form sensor is worse.
+
+anchor
+
+closed-form best known difference
+
+Ì†µÌ±ü = 2, Ì†µÌ∞º = 2.00
+
+63.2891
+
+62.8975 +0.62%
+
+Ì†µÌ±ü = 2, Ì†µÌ∞º = 2.50
+
+54.7600
+
+54.2924 +0.86%
+
+Ì†µÌ±ü = 2, Ì†µÌ∞º = 3.00
+
+51.0900
+
+50.6023 +0.96%
+
+Ì†µÌ±ü = 2, Ì†µÌ∞º = 4.00
+
+48.3503
+
+47.9396 +0.86%
+
+Ì†µÌ±ü = 2, Ì†µÌ∞º = 4.90
+
+47.2529
+
+47.1006 +0.32%
+
+Ì†µÌ±ü = 3, Ì†µÌ∞º = 2.00
+
+60.3714
+
+59.5611 +1.36%
+
+Ì†µÌ±ü = 3, Ì†µÌ∞º = 3.00
+
+45.6048
+
+45.4537 +0.33%
+
+Ì†µÌ±ü = 3, Ì†µÌ∞º = 4.00
+
+40.8722
+
+40.8072 +0.16%
+
+free, Ì†µÌ∞º = 2.00
+
+60.4626
+
+58.1931 +3.90%
+
+free, Ì†µÌ∞º = 3.00
+
+42.5092
+
+42.0427 +1.11%
+
+free, Ì†µÌ∞º = 4.00
+
+36.7104
+
+36.5386 +0.47%
+
+The sensor is Ì†µÌ±Ä = Ì†µÌ∞∫‚àí1/2Ì†µÌ±á (Ì†µÌ∞º ‚àí Ì†µÌ±á ) ‚àí1Ì†µÌ∞∫‚àí1/2 with Ì†µÌ±á water-filled on Œì (Ì†µÌ±ã), Ì†µÌ±ã obtained
+
+by iterating prior and sensor to a common fixed point, and the water level bisected to
+
+land on the target rate; no cost or rate gradient is ever evaluated. The one anchor at
+
+which Proposition 4 mis-ranks the design is the one anchor that is more than 1.4% off,
+
+which is the only internal consistency check this table offers.
+
+Remark 5 (what is not claimed). Nothing here is a global optimality proof. The bound (9) is conditional on the det Œì monotonicity, and that condition is false in this project‚Äôs own cone (a closed-form rank-one counterexample and 115 reachable counterexamples): (9) is therefore reported as an empirical law at the wall prior, not as a frontier bound. The water-filling solution (8) is exact only at a frozen prior, and self-consistency costs 0.16‚Äì1.36%; and the 2.2-unit shortfall against the published blue point is reported rather than argued away. Two further failures belong in this category: a branchand-bound certificate built by boxing the eigenvalues of Ì†µÌ∞∫ in logarithmic cells was implemented and violated its own validity gate (it returned 58.57 where 42.04 is reachable) because a one-dimensional eigen-value ladder does not cover designs whose spectral spread exceeds the cell width, so that number certifies nothing; and the multistart search for the penalised infimum over physical designs reaches 45.409 on the Ì†µÌ±ü = 3 plane, which is an upper bound on that infimum and therefore also certifies nothing, however close it comes to the reachable 45.4537.
+VIII. The floor-side design rule, and what is certified ¬ßIV fixes the wall Ì†µÌ∞∑min (Ì†µÌ±â) = Ì†µÌ±óÌ†µÌ±ê + Œ¶0 (Ì†µÌ±â) and shows it does not order the frontiers. Designing a sensor nevertheless means choosing the subspace, and on the floor side that choice is a lower-dimensional problem:
+
+Œ¶‚òÖ (Ì†µÌ±ü )
+0
+
+:=
+
+min
+Ì†µÌ±â ‚ààGr(Ì†µÌ±õ,Ì†µÌ±ü )
+
+Œ¶0 (Ì†µÌ±â),
+
+(11)
+
+Œ¶0 (Ì†µÌ±â) = inf tr ŒòÌ†µÌ±ÉÌ†µÌ±ö (Ì†µÌºèÌ†µÌ±ÉÌ†µÌ±â ) ,
+
+Ì†µÌºè >0
+
+with Ì†µÌ±óÌ†µÌ±ê = tr(Ì†µÌ±ä Ì†µÌ±ÉÌ†µÌ±ê) and Œò = Ì†µÌ∞æ‚ä§ (Ì†µÌ±Ö + Ì†µÌ∞µ‚ä§Ì†µÌ±ÉÌ†µÌ±ê Ì†µÌ∞µ)Ì†µÌ∞æ as in (1). Its solution is a staircase, and the rule we report is the one that
+
+attains it on the published example. a) Rule.: At rank Ì†µÌ±ü, take the Ì†µÌ±ü leading eigenvectors of
+the closed-loop task weight Œò ‚Äî i.e. the Ì†µÌ±ü directions the cost
+
+penalises most ‚Äî and put the sensor there. The resulting floors
+
+are
+
+Œ¶rule
+0
+
+=
+
+12.222448,
+
+0.791828,
+
+0.190335
+
+(Ì†µÌ±ü = 1, 2, 3), (12)
+
+i.e. +38.8%, +2.51%, +0.60% over Ì†µÌ±óÌ†µÌ±ê, against the best known
+
+floors
+
+Œ¶‚òÖ
+0
+
+=
+
+10.169224,
+
+0.735143,
+
+0.158701,
+
+Ì†µÌ∞∑min = 41.652566, 32.218485, 31.642043,
+
+(13)
+
+found by direct descent on Gr(4, Ì†µÌ±ü). The rule is therefore 1.20/1.08/1.20√ó the best known floor at Ì†µÌ±ü = 1/2/3: it is a
+
+usable rule and it is not optimal, and the gap is largest exactly
+
+where the task is most constrained. b) Certification status (read this before quoting (13)).:
+
+The numbers in (13) come from multi-start Nelder‚ÄìMead on Gr(4, Ì†µÌ±ü), not from a proof. Three facts bound what they certify. (a) The landscape is two-valued at rank one, with the two
+
+values 10.169224 and 86.665888 ‚Äî the good basin is real, but the descent is a search. (b) Re-running the same descent with
+
+an independent implementation (this lane, DARE-based, 24 starts) reproduces the values in (13) to all printed digits, while
+
+the number of starts reaching the best basin differs between runs (24/24 in the first run reported on the board versus 14/24, 7/24, 3/24 at Ì†µÌ±ü = 1, 2, 3 in our rerun). The value is stable; the basin count is not a certificate, and neither is any single run‚Äôs. (c) The three independent implementations of Œ¶0 available
+to us (an information-form noiseless fixed point, a projection iteration, and a DARE-based evaluation) agree to 1.3 √ó 10‚àí3 absolute over the tested designs, which certifies the evaluation,
+
+not the minimisation. We therefore write ‚Äúbest known, certified global on the floor side‚Äù and never ‚Äúthe optimal Ì†µÌ∞π‚Äù.
+c) It is not a new design.: Choosing Ì†µÌ∞π by (11) is
+
+equivalent to the linear-class optimum of the SDP in [3] read
+
+on the floor side: the floor-side rule selects the same subspace
+
+the SDP would select, and it does so with a scalar functional
+
+of Ì†µÌ±â instead of a matrix program. Our contribution here is the
+
+floor-side reading and the rule, not the design. d) Two axes, not one.: That a design is lossless on the
+rate side says nothing about its floor, and conversely. The four
+
+corners measured on the published example are:
+
+subspace Ì†µÌ±â
+full state span(Ì†µÌ±Ü‚òÖ (80) ) Schur tail, Ì†µÌ±ò = 2 Schur tail, Ì†µÌ±ò = 3
+
+rate loss Œî (bit)
+‚âà0 ‚àí6.7 √ó 10‚àí9
++0.03 +1.04
+
+floor excess Œ¶0
+‚âà0 +38% +46.5% +16.3%
+
+so Œî and Œ¶0 are independent axes: a lossless representation can be 38% more expensive than the best floor, and a badly lossy one can be close to it. The precise floor-side statement
+
+8
+
+is Proposition 2: Œ¶0 = 0 iff the stage cost sees only the task variable, supp(Ì†µÌ±Ñ) ‚äÜ range(Ì†µÌ∞π‚ä§); and Œ¶0 < ‚àû iff the pair ( Ì†µÌ∞¥, Ì†µÌ∞π) is detectable (Proposition 1), which is the reference
+paper‚Äôs own Theorem 2.1 and is quoted, not claimed. The dual
+reading is worth stating: detectability is what keeps the rate
+side finite, and the same condition keeps the cost side finite,
+so neither floor can be bought with the other. e) Sensitivity.: Both of the above are deterministic func-
+tionals of the plant, so finite-sample effects enter only through estimation error. Under a relative perturbation Ì†µÌºÄ ‚â§ 1% the
+rule keeps the staircase ordering and magnitude; beyond about Ì†µÌºÄ ‚â≥ 3% a frozen rule degrades sharply (median +28%)
+and must be re-derived. The absolute floor is dominated by Ì†µÌ±óÌ†µÌ±ê (sensitivity ‚àº Ì†µÌºÄ), whereas staircase statements inherit the ‚àº 10Ì†µÌºÄ sensitivity of the floor functional; we therefore attach
+the error level to every staircase number.
+
+IX. The rate side: a ladder law, two measurable legs, and where the water-filling picture fails
+
+The published window reads the rate side through one exponent. This section characterises it instead, and it separates what is arithmetic from what is ours.
+a) Two excesses, never mixed.: Write
+
+Ì†µÌ±• := Ì†µÌ∞∑ ‚àí Ì†µÌ∞∑min (Ì†µÌ±â) > 0, ŒîÌ†µÌ∞º := Ì†µÌ∞º ‚àí Ì†µÌ±Öexp,
+
+‚àëÔ∏Å
+
+Ì†µÌ±Öexp =
+
+log2 |Ì†µÌºÜÌ†µÌ±ñ ( Ì†µÌ∞¥)|,
+
+(14)
+
+|Ì†µÌºÜÌ†µÌ±ñ ( Ì†µÌ∞¥) |>1
+
+where Ì†µÌ∞∑min (Ì†µÌ±â) is the cost floor of ¬ßIV (a functional of the subspace, reached as measurement noise vanishes) and Ì†µÌ±Öexp is the rate floor (a functional of the unstable spectrum, reached as Ì†µÌ±Ü ‚Üí 0). The two origins are independent and are never mixed: Ì†µÌ±• is measured on the cost axis, ŒîÌ†µÌ∞º on the rate axis, and for the published example Ì†µÌ±Öexp = 1.168539. Because Ì†µÌ∞ºTRV (Ì†µÌ∞∑) is non-
+increasing in Ì†µÌ∞∑ ‚Äî a larger cost budget can only enlarge the feasible set ‚Äî ŒîÌ†µÌ∞º (Ì†µÌ±•) is non-increasing, so the ladder below is
+its inverse. b) Ladder law.: For the restricted cone with Ì†µÌ±ü active
+dimensions, on the wall side,
+
+ŒîÌ†µÌ∞º
+
+=
+
+rank Ì†µÌ∞∂ 2
+
+log2
+
+1 Ì†µÌ±•
+
++
+
+Ì†µÌ±èpred
+
++
+
+Ì†µÌ±Ç (Ì†µÌ±•),
+
+(15)
+
+where the slope counts the active channels, Ì†µÌ∞∂ ‚™∞ 0 is the sensitivity Gramian Ì†µÌ∞∂Ì†µÌ±ñ Ì†µÌ±ó = tr(Œò Ì†µÌºïÌ†µÌ±É/Ì†µÌºïÌ†µÌ±âÌ†µÌ±ñ Ì†µÌ±ó )|Ì†µÌ±â=0 (Fr√©chet derivative plus Stein equation; ‚™∞ 0 is proved, ‚âª 0 is not), and Ì†µÌ±èpred is
+exactly computable: for the two-channel tilted family
+
+gap = Ì†µÌ±ê0Œò33 + 2Ì†µÌ±ë0Œò23 + (Ì†µÌ±í0 ‚àí Ì†µÌ±ù22)Œò22,
+
+(16)
+
+with Ì†µÌ±ê0 = 25/16 an exact Taylor root and Ì†µÌ±ù22 the positive root
+
+of
+
+Ì†µÌ±é2 Ì†µÌ±ù2
+12
+
++
+
+[(1
+
+‚àí
+
+Ì†µÌ±é2 )
+22
+
+Ì†µÌ±§1
+
+‚àí
+
+Ì†µÌ±é2
+12
+
+Ì†µÌ±§
+
+2]
+
+Ì†µÌ±ù
+
+‚àí
+
+Ì†µÌ±§1Ì†µÌ±§2
+
+=
+
+0.
+
+Equation
+
+(16)
+
+is an identity, checked on 11 grid points with maximum
+
+relative difference 7 √ó 10‚àí15; the scalar law Ì†µÌ±ù33Œò33 that a one-
+
+dimensional reading suggests holds only when Ì†µÌ±ê13 = 0 and
+
+otherwise overestimates the gap by 19%‚Äì156%. The invariant
+
+form
+
+of
+
+the
+
+same
+
+statement
+
+is
+
+ŒîÌ†µÌ∞º
+
+¬∑
+
+| Ì†µÌ±ë Œî Ì†µÌ∞º /Ì†µÌ±ë
+
+ln Ì†µÌ±•|
+
+=
+
+rankÌ†µÌ∞∂ 2
+
+log2
+
+Ì†µÌ±í:
+
+measured 1.145 ‚Üí 1.4‚àö36 for rank Ì†µÌ∞∂ = 2 (limit 1.4427) and
+
+2.885 at Ì†µÌ±ü = 4 (limit 2 2 ln 2).
+
+c) Two legs, both measurable.: Sweeping the sensor
+scale Ì†µÌ±† gives two independent readings of the asymptotic slope Ì†µÌªæ‚àû := ‚àí lim Ì†µÌ±ë ln Ì†µÌ±•/Ì†µÌ±ëŒîÌ†µÌ∞º:
+
+Ì†µÌ±ëŒîÌ†µÌ∞º
+
+Ì†µÌ±ü
+
+Ì†µÌºé :=
+
+‚àí‚Üí ,
+
+Ì†µÌªº := ‚àí Ì†µÌ±ë ln Ì†µÌ±• ‚àí‚Üí 1,
+
+Ì†µÌ±ë log2 Ì†µÌ±† 2
+
+Ì†µÌ±ë ln Ì†µÌ±†
+
+(17)
+
+hence
+
+Ì†µÌªæ‚àû
+
+=
+
+ln 2
+
+=
+
+2 ln 2 .
+
+Ì†µÌºé Ì†µÌ±ü
+
+Measured over five plants and ranks Ì†µÌ±ü = 1, . . . , 4: Ì†µÌºé = 0.5000, 1.0000, 1.5000, 2.0000 and Ì†µÌªº = ‚àí1.0000 ¬± 0.005. The two
+legs are independent ‚Äî one is a rate measurement, the other
+a cost measurement ‚Äî and they agree with (17) to four decimals, which is what makes Ì†µÌªæ‚àû = 2 ln 2/Ì†µÌ±ü measured rather than fitted. Fitting the exponent in the currency the published window uses, on the window ŒîÌ†µÌ∞º ‚àà [8, 16], gives Ì†µÀÜÌªæ = 1.3863, 0.6934, 0.4625 at Ì†µÌ±ü = 1, 2, 3 against the closed form 1.386294,
+0.693147, 0.462098 (0.00%, 0.04%, 0.09%). d) What we do not claim.: Equation (17) is reverse-water-
+filling arithmetic: textbook thresholding Ì†µÌªøÌ†µÌ±ñ = min(Ì†µÌºà, Ì†µÌºÜÌ†µÌ±ñ) on Ì†µÌ±ü active dimensions alone reproduces Ì†µÌ±ë ln(Ì†µÌ∞∑ ‚àí Ì†µÌ∞∑floor)/Ì†µÌ±ëÌ†µÌ∞º = ‚àí2 ln 2/Ì†µÌ±ü to 9 √ó 10‚àí16, so 2 ln 2/Ì†µÌ±ü is not a discovery of this
+note. What we claim is (a) the domain in which the law holds, (b) the finite-rate inequality Ì†µÌªæÌ†µÌ±ü /Ì†µÌªæ1 > 1/Ì†µÌ±ü, verified for ŒîÌ†µÌ∞º ‚â§ 8 across six plants and approached from above ‚Äî so a rank statement must name its window and 2 ln 2/Ì†µÌ±ü is asymptotic,
+not finite-rate, (c) the intercept (16), and (d) the rank structure
+below. e) The measurement device has a window.: Estimating Ì†µÌªæ
+by refitting an amplitude absorbs a wrong exponent, and the
+local-exponent estimator itself is window-specific: the median pricing error of the same device is 0.10% on the window ŒîÌ†µÌ∞º ‚àà [1.00, 1.83] and 3.85% on ŒîÌ†µÌ∞º ‚àà [0.20, 0.60] ‚Äî a factor 40 ‚Äî
+so any quoted accuracy for it must name both the window and
+the pricing point. Cross-lane, an independently coded local
+exponent agrees with ours to a median of 2.06% at matched ŒîÌ†µÌ∞º (worst 8.98% at the steepest grid point), which is the level
+of agreement we expect between two implementations of the
+same window-dependent quantity. f) Rank structure.: For the published plant, the rank of
+the optimal information matrix drops with the cost budget:
+
+Ì†µÌ∞∑
+
+32.31 34.41 40.00 80.00
+
+rank Ì†µÌ±Ü‚òÖ (Ì†µÌ∞∑) 4
+
+3
+
+2
+
+1
+
+for the relative threshold 10‚àí6 (the readings are thresholddependent: at 10‚àí3 the entries at 32.31 and 34.41 become
+3 and 2, so every rank claim states its threshold). The drops occur in the intervals 4 ‚Üí 3 ‚äÇ (32.31, 33.50), 3 ‚Üí 2 ‚äÇ (34.41, 40.00), 2 ‚Üí 1 ‚äÇ (50.00, 56.66); hence at Ì†µÌ∞∑ = 56.66 the active boundary is Ì†µÌ±ü‚òÖ = 1, and the cell Ì†µÌ∞∑ = 56.66 has no strictly smaller rank cell at all. A
+representative rank table is reproduced here by an independent
+SDP (CVXPY/CLARABEL) and by two further code paths,
+and the value of the threshold Ì†µÌ∞∑ at which a lossless design first exists, Ì†µÌ±ü ‚â• Ì†µÌ±ü‚òÖ(Ì†µÌ∞∑), matches the picture of ¬ßIV. The active-set structure itself is not proved; the switch points are measured,
+and an earlier draft of this table paired the Ì†µÌ∞∑ list with the rank
+list one entry out of step, which is corrected here.
+
+9
+
+g) Where the water-filling picture fails.: A natural read-
+
+ing of the above is that the optimal support is a leading eigenspace of the task weight Œò. It is not, and the two natural
+
+diagnostics that appear to disagree agree exactly: for a rank-one
+
+Ì†µÌ±Ü = Ì†µÌºéÌ†µÌ±¢Ì†µÌ±¢‚ä§ with Ì†µÌ±¢‚Äôs components Ì†µÌ±êÌ†µÌ±ñ in a Œò-basis, the principal
+
+angle
+
+satisfies
+
+sin2 Ì†µÌºÉmax
+
+=
+
+1
+
+‚àí
+
+maxÌ†µÌ±ñ
+
+Ì†µÌ±ê2
+Ì†µÌ±ñ
+
+(a
+
+subspace
+
+measure:
+
+1.1‚Äì1.9% outside the leading eigenspace at Ì†µÌºÉ = 6‚Äì8‚ó¶), while
+
+‚àöÔ∏É
+
+the off-diagonal mass of Ì†µÌ±Ü in that basis is
+
+1‚àí
+
+Ì†µÌ±ñ
+
+Ì†µÌ±ê4
+Ì†µÌ±ñ
+
+(a
+
+matrix measure: 14.7‚Äì19.5% at the same angles). Measured
+
+against prediction: Ì†µÌºÉ = 6.0‚ó¶ predicts 0.1470, measured 0.1476;
+
+Ì†µÌºÉ = 8.0‚ó¶ predicts 0.1949, measured 0.1938. Both are right and
+
+they measure different things. The consequence is quantitative:
+replacing the optimal support by the leading eigenspace of Œò changes the achievable rate by +2.1 √ó 10‚àí3 bit at Ì†µÌ±ü = 3, and by +5.0 √ó 10‚àí2 resp. +9.5 √ó 10‚àí2 bit at Ì†µÌ±ü = 1; the deviation of
+the support from the leading direction is therefore worth what
+it costs, and the true object is an argmin over directions, not
+
+a fixed eigenvector. h) The one question we reduce rather than answer.:
+
+Whether admissibility can ever cost rate is decided by the optimal face, and the reduction is one line: Œî(Ì†µÌ∞∑; Ì†µÌ±â) = 0 iff some optimizer Ì†µÌ±Ü ‚àà Opt(Ì†µÌ∞∑) has range(Ì†µÌ±Ü) ‚äÜ Ì†µÌ±â. Hence the strict case Ì†µÌ±ü < Ì†µÌ±ü‚òÖ(Ì†µÌ∞∑) is equivalent to ‚Äúevery optimizer has rank
+
+> Ì†µÌ±ü‚Äù; in particular, random perturbations of the optimal face
+
+cannot decide it, since they sample a neighbourhood of Opt(Ì†µÌ∞∑)
+
+rather than Opt(Ì†µÌ∞∑) itself. We therefore decide it directly, by
+
+minimising Œî(Ì†µÌ∞∑; Ì†µÌ±â) over Ì†µÌ±â ‚àà Gr(Ì†µÌ±õ, Ì†µÌ±ü) from a floor-seeded
+
+multi-start, with the criterion is a rigorous infeasible cell;
+
+fixed before the run: minÌ†µÌ±â Œî > 10‚àí3 bit
+
+Ì†µÌ∞∑ < Œ¶‚òÖ(Ì†µÌ±ü)
+0
+with ‚â• 17
+
+of 20 independent starts agreeing is reported as numerical support; minÌ†µÌ±â Œî ‚â§ 10‚àí6 bit is a counterexample. The outcome
+
+is recorded in Appendix A; no counterexample was found, and
+
+the cells we could not certify are marked as such.
+
+X. Additional qualifiers, and the statements we had to withdraw
+The reproduction-side limitations are listed at the end of ¬ßV (rate-side numbers are constructive upper bounds; the blue curve is not reproduced; the rank-one optimality of the wallside rule rests on repeated descent, not a proof). This section adds the qualifiers the rate side needs, plus the list of our own statements that did not survive.
+a) Non-negotiable wording.: (1) Rate-side numbers are upper bounds from local descent; the only lower bound we prove is at a frozen prior, and its frontier-wide extension is withdrawn because the monotonicity it needs is false (a closed-form rank-one counterexample and 115 reachable incone counterexamples). (2) The design rule is ‚Äúbest known, certified global on the floor side‚Äù; we never write ‚Äúthe optimal Ì†µÌ∞π‚Äù. (3) Rank and threshold statements are spatial (which task dimensions are worth sensing); no temporal threshold statement is made here. (4) Every exponent statement names its window; Ì†µÌªæ‚àû = 2 ln 2/Ì†µÌ±ü is asymptotic and its finite-rate form is the inequality Ì†µÌªæÌ†µÌ±ü /Ì†µÌªæ1 > 1/Ì†µÌ±ü for ŒîÌ†µÌ∞º ‚â§ 8 only. (5) The two excesses Ì†µÌ±• (cost axis) and ŒîÌ†µÌ∞º (rate axis) have different origins and are never mixed in a single fit. (6) Everything quantitative is for the published four-state example. (7) The slope 2 ln 2/Ì†µÌ±ü
+
+is reverse-water-filling arithmetic, not our finding; what is ours is the domain, the finite-rate inequality, the intercept (16), and the rank structure.
+b) Statuses are re-read, not remembered.: The withdrawn frontier-wide bound above is the one place in this note where a claim‚Äôs status (not its value) changed after the numbers were frozen: an earlier draft carried it as ‚Äúverified but not proved‚Äù on the strength of 540 full-rank perturbations, and a later rank-one perturbation refuted it. Every status word in this note is therefore read off the current evidence logs, not off the draft.
+c) Calibre independence.: The floor-side numbers do not depend on how perfect measurement is emulated: a sensor scale Ì†µÌ±† = 108 and the limiting projection model agree to 0.0136% worst case over 144 designs, so the wall and the ladder intercept are calibre-independent quantities.
+d) A negative result worth keeping.: The estimator of the local exponent is not a selector: refitting its amplitude absorbs a wrong exponent, and gating a design on the estimator‚Äôs own rank-deficiency flag costs +35.66% in one cell while leaving 2/24 candidates in another. It is a diagnostic, not a decision rule.
+e) What we got wrong (our own record).: We report these because each of them changed a number or a claim in this note.
+‚Ä¢ ‚ÄúThe optimal support is the leading eigenspace of Œò, i.e. the real object is water-filling on Œò‚Äôs spectrum.‚Äù Our own measurement refuted it: forcing the support there costs +5.0 √ó 10‚àí2 and +9.5 √ó 10‚àí2 bit at rank one (¬ßIX). What survives is the rank structure and the statement that the support is not diagonal in the task-weight basis.
+‚Ä¢ A closed-form prefactor for the ladder. Our first derivation identified a block of Ì†µÌ±†(Ì†µÌ±Ö ‚àí Ì†µÌ±Ö‚àû) with the whole object; the two differ by a factor ranging over 0.002‚Äì0.97, so the closed form was withdrawn; the identity that survives is (16).
+‚Ä¢ A KKT argument for Œî > 0 at every Ì†µÌ∞∑. Refuted by our own SDP: the multiplier on the cone constraint is non-zero, Ì†µÌ∞º (Ì†µÌ±Ü) is not convex (a midpoint test violates convexity by 1.8 √ó 10‚àí2 bit), and the family Ì†µÌ±Ü = Ì†µÌ±êŒò is stationary but suboptimal by 0.13‚Äì0.24 bit. This is what forced the reduction in ¬ßIX to a uniqueness statement.
+‚Ä¢ A vacuous diagnostic. Our first ‚Äúdiagonality‚Äù test used principal angles at full rank, where it is empty by definition; the replacement is the pair of measures related by the identity in ¬ßIX.
+‚Ä¢ Two bookkeeping errors that changed numbers: a sweep table indexed by ragged arrays, i.e. misaligned rows; and a sensor family whose rate column had been paired to a different design than its cost column, worth 0.0350 bit once the pairing is fixed. Both are corrected here; the second one flipped the sign of a sub-claim.
+‚Ä¢ A solver artefact. In the large-Ì†µÌ±† regime our informationform fixed point loses accuracy because its tolerance is relative to a covariance that grows with Ì†µÌ±†; the DARE route is the reliable one. All large-Ì†µÌ±† numbers quoted here come from the DARE route.
+
+10
+
+f) What would change the conclusions.: One counterexample to the strict case of the KKT statement (a rankÌ†µÌ±ü < Ì†µÌ±ü‚òÖ(Ì†µÌ∞∑) subspace carrying a lossless optimal design) would turn the ‚Äúinfeasibility interval‚Äù picture from a theorem into a counterexample family; we look for that counterexample directly and report the search in Appendix A. One plant for which the two legs (17) disagree would break the measured status of Ì†µÌªæ‚àû = 2 ln 2/Ì†µÌ±ü.
+
+XI. Related work
+
+The computational line. The paper we comment on [1]
+
+inherits its three-block separation and its max-det SDP from [2]. SDPs in this literature compute a value on a fixed source
+
+‚Äî the nonanticipative rate-distortion function of a partially
+
+observable Gauss‚ÄìMarkov process is SDP computable when
+
+strictly feasible [28] ‚Äî and we claim no counterpart: the
+
+one certificate we built by boxing eigenvalues is retracted in
+
+Section VII because it violated its own validity gate, so every
+
+frontier number below is constructive unless a lower bound is
+
+quoted. The joint design paper [3] removes the fixed Ì†µÌ∞π instead:
+
+it prices information in the objective rather than bounding the
+
+cost, and it closes by asking whether the linearity of the sensor
+
+policy is restrictive. Sections III‚ÄìV answer part of that question
+
+for one plant and one cone, which is not the same as resolving
+
+it. Two of its moving parts are ours and we say so plainly: its
+
+Step
+
+3
+
+realizability
+
+test
+
+Ì†µÌ∞∂Ì†µÌ±°
+
+Ì†µÌ±â ‚àí1Ì†µÌ∞∂‚ä§
+Ì†µÌ±° Ì†µÌ±°
+
+=
+
+Ì†µÌ±ÉÌ†µ‚àíÌ±° |1Ì†µÌ±°
+
+‚àí
+
+Ì†µÌ±ÉÌ†µ‚àíÌ±° |1Ì†µÌ±° ‚àí1
+
+is
+
+the
+
+same
+
+equality-type reachability condition we use, so we claim no
+
+new construction there; and where it uses monotonicity of the
+
+determinant, the object is one free PSD variable held under a
+
+Loewner upper bound, which is a different statement from the det Œì monotonicity of Section VII: that one is false (a closed-
+
+form rank-one counterexample plus 115 reachable in-cone
+
+counterexamples), and the frontier-wide bound that needed it
+
+is withdrawn, not ‚Äúunproved‚Äù. Distinguishing the two is what
+
+keeps a referee from reading this note as a contradiction of
+
+[2]. Where the restriction sits. [7] lets the decoder hold a state
+
+subset for free, which is a task-restricted virtual sensor with
+
+a degenerate Ì†µÌ∞π, and is the closest prior for the framing itself;
+
+what this note adds over it is the cone language and the length
+
+of the infeasible interval, not the act of restricting sensing.
+
+[8] already plots a frontier for a restricted observation matrix
+
+and reads its large-cost constant off the unstable modes left
+
+unobservable (Remark 4). A second selection line chooses which sensor to trust rather than how much to say: [19], [20]
+
+pick one of Ì†µÌ±Å sensors at each step or trial, where every
+
+sensor observes the full state with isotropic noise of unknown
+
+level, and they budget trials rather than bits. Their reduction
+
+to ‚Äúuse the smallest covariance all the time‚Äù is stated in
+
+the introduction, not proved as a numbered result, and it is monotonicity of the expected loss in the noise level with the
+
+sensing map already fixed ‚Äî their loss carries the covariance through Ì†µÌ±ò tr[Ì†µÌ±Ü(Ì†µÌ±ò)] linearly, and covariances comparable in
+
+the cone are in their model just ordered scalars. That is a
+
+different statement from the design-dependent monotonicity
+
+this note withdrew, and neither paper prices a rank choice:
+
+their guarantees are a closed-form expected loss and almostsure value convergence at rate Ì†µÌ±°‚àí1/2, with no frontier and
+
+no converse. [5], [6] constrain the controller rather than the
+
+sensor and obtain spectral thresholding and an order phase
+
+transition there; our rank loss is on the sensing side, and
+
+the switch-on rates of Section VII are stated as measured
+
+behaviour of an upper-bounding family, so none of their phase-
+
+transition language transfers to this note. [10] pays for sensors
+
+rather than for bits and its hard half is combinatorial‚ÄîNP-
+
+hard already for one step and unit costs‚Äîso it characterises
+
+approximation ratios for a selection problem whose trade-off
+
+shape is deliberately left uncharacterised; that shape is what
+
+Sections IV‚ÄìV measure. Rate side. The stabilizing constant |Ì†µÌºÜÌ†µÌ±ñ ( Ì†µÌ∞¥) |>1 log2 |Ì†µÌºÜÌ†µÌ±ñ ( Ì†µÌ∞¥)|
+that appears in Section III and in Remark 4 is a classical
+
+quantity: the finite-data-rate stabilizability bound of [13], read
+
+through the anytime-capacity lens of [14] and printed against
+
+an LQG frontier in [8]. It is cited here, not claimed. The
+
+rate-side converse closest to our formulation is the rate-cost
+
+function of [9], which minimises directed information subject
+
+to a cost cap rather than the other way round; in the indirect NRDF of [28] the observation matrix Ì†µÌ∞∂Ì†µÌ±° in Ì†µÌ±ßÌ†µÌ±° = Ì†µÌ∞∂Ì†µÌ±° Ì†µÌ±•Ì†µÌ±° + Ì†µÌ±õÌ†µÌ±° is non-random with Ì†µÌ±ö ‚â§ Ì†µÌ±ù, and the distortion priced is an
+
+unweighted trace above its own floor, so no converse there
+
+is a function of a chosen sensing subspace. Synthesising an observation process is claimed for the test channel ‚Äî [26]
+
+designs the encoder‚Äìchannel‚Äìdecoder triple and states that
+
+the sensor must be designed, but its application is a fully
+
+observed Gauss‚ÄìMarkov process with estimation MSE, pricing
+
+no control action; the threshold it derives is a per-component
+
+on/off rule indexed by time and by the eigendirections of the
+
+estimator‚Äôs own error covariance, so the sensor remains an
+
+implementation of a chosen test channel rather than a design
+
+variable priced against a control cost. That floor is not the
+
+asymptote studied here, but a published converse returns it:
+
+[18] bound, for arbitrary observation laws including rank-
+
+deficient and nonlinear ones, the directed information rate from
+
+the unstable sub-block below by the sum above (their statement sums over |Ì†µÌºÜÌ†µÌ±ñ ( Ì†µÌ∞¥)| ‚â• 1), which is the level our designs
+
+approach. Their premise is mean-square observability, so they
+
+price nothing on the cost side and are silent where the filter of
+
+Section IV diverges. We offer no closed-form frontier, and the
+
+reason is on the record: the closed-form dynamic reverse water-
+
+filling of [12] for multidimensional Gauss‚ÄìMarkov sources is
+
+false in general: [16] give a two-dimensional counterexample
+
+and identify the equal-distortion assignment as the defect, valid
+
+only when the source is i.i.d.; the corrected object is an SDP
+
+value [11]. Two further bounds are orthogonal to the cost-side
+
+floor: [17] on multi-encoder networks without feedback, [21]
+
+on nonlinear plants with a constant gap. The closest paper that
+
+plots cost against a communication rate and proves an ordering
+
+is
+
+[15],
+
+but
+
+its
+
+rate
+
+is
+
+the
+
+duty
+
+cycle
+
+lim supÌ†µÌ±Å
+
+1 Ì†µÌ±Å
+
+Ì†µÌ±ò Ì†µÌ∞ºÌ†µÌ±ò of
+
+one sensor that sees the whole state, its ‚Äúoptimal‚Äù schedule is
+
+optimal among open-loop periodic ones, and its statements run
+
+through traces and L√∂wner orderings only ‚Äî no determinant
+
+appears, and no converse at fixed rate. The ordering we invert in Section V is a statement about different designs at a fixed
+
+rate, so that paper neither corroborates nor contradicts it. The
+
+rate axis plots directed information, which lower-bounds the
+
+bits per step any prefix-free code needs [4]; every rate here
+
+11
+
+is read that way. Finally, the Œ¶ of [22] is that paper‚Äôs own fixed-point operator; Œ¶0 in Section IV and Œ¶ in Section VII are local to this note.
+Appendix
+Every quantitative statement in this note is produced
+by a script that writes its own log; the map below is claim ‚Üí script ‚Üí log. Lane-C scripts live in .work3/ and are run as python -u -X utf8 script.py > script_out.txt; they use fixed seeds and each re-checks
+its own constants against two independent solvers before doing anything else ( Ì†µÌ±óÌ†µÌ±ê = 31.483342, agreement of the informationform fixed point with a DARE route to 1.6 √ó 10‚àí9). Lane-D scripts live in p0/ with the same convention.
+a) Pre-registration.: The two experiments whose out-
+come could have been chosen after the fact carry their criterion
+inside the script file, written before the run: the KKT strictcase search (c90b) and the cone-restriction test (c89b). The first version of the KKT search (c90) is kept, with its defect recorded: it sampled Gr(Ì†µÌ±õ, Ì†µÌ±ü) uniformly and therefore misread
+infeasible-dense regions as ‚Äúinfeasible‚Äù, which is a search
+defect and not a criterion change; the fix seeds the descent
+with floor-optimal subspaces. Where a run‚Äôs exit status was non-zero we say so rather than hiding it: c86 and c88 needed
+a singular-matrix guard near the floor after their first execution,
+and their numbers quoted here are from the guarded run.
+References
+[1] S. S. Moirangthem, B. Natarajan, and M. S. Branicky, ‚ÄúMinimum directed information in LQG control under task-restricted sensing,‚Äù IEEE Control Syst. Lett., vol. 10, pp. 1621‚Äì1626, 2026, doi: 10.1109/LCSYS.2026.3710208.
+[2] T. Tanaka, P. Mohajerin Esfahani, and S. K. Mitter, ‚ÄúLQG control with minimum directed information: Semidefinite programming approach,‚Äù IEEE Trans. Autom. Control, vol. 63, no. 1, pp. 37‚Äì52, Jan. 2018, doi: 10.1109/TAC.2017.2709618 (arXiv:1510.04214).
+[3] T. Tanaka and H. Sandberg, ‚ÄúSDP-based joint sensor and controller design for information-regularized optimal LQG control,‚Äù in Proc. 54th IEEE Conf. Decis. Control (CDC), 2015, pp. 4486‚Äì4491, doi: 10.1109/CDC.2015.7402920.
+[4] T. Tanaka, K. H. Johansson, T. Oechtering, H. Sandberg, and M. Skoglund, ‚ÄúRate of prefix-free codes in LQG control systems,‚Äù in Proc. IEEE Int. Symp. Inf. Theory (ISIT), 2016, pp. 2399‚Äì2403, doi: 10.1109/ISIT.2016.7541729 (arXiv:1604.01227).
+[5] R. Fox and N. Tishby, ‚ÄúMinimum-information LQG control ‚Äî Part I: Memoryless controllers,‚Äù in Proc. 55th IEEE Conf. Decis. Control (CDC), 2016, pp. 5610‚Äì5616, doi: 10.1109/CDC.2016.7799131 (arXiv:1606.01946).
+[6] R. Fox and N. Tishby, ‚ÄúMinimum-information LQG control ‚Äî Part II: Retentive controllers,‚Äù in Proc. 55th IEEE Conf. Decis. Control (CDC), 2016, pp. 5603‚Äì5609, doi: 10.1109/CDC.2016.7799130 (arXiv:1606.01947).
+[7] T. C. Cuvelier and T. Tanaka, ‚ÄúRate of prefix-free codes in LQG control systems with side information,‚Äù in Proc. 55th Annu. Conf. Inf. Sci. Syst. (CISS), 2021, pp. 1‚Äì6, doi: 10.1109/CISS50987.2021.9400217 (arXiv:2101.09329).
+[8] O. Sabag, P. Tian, V. Kostina, and B. Hassibi, ‚ÄúReducing the LQG cost with minimal communication,‚Äù IEEE Trans. Autom. Control, vol. 68, no. 9, pp. 5258‚Äì5270, 2023, doi: 10.1109/TAC.2022.3220511 (arXiv:2109.12246).
+[9] V. Kostina and B. Hassibi, ‚ÄúRate-cost tradeoffs in control,‚Äù IEEE Trans. Autom. Control, vol. 64, no. 11, pp. 4525‚Äì4540, 2019, doi: 10.1109/TAC.2019.2912256.
+[10] V. Tzoumas, L. Carlone, G. J. Pappas, and A. Jadbabaie, ‚ÄúLQG control and sensing co-design,‚Äù IEEE Trans. Autom. Control, vol. 66, no. 4, pp. 1468‚Äì1483, 2021, doi: 10.1109/TAC.2020.2997661 (arXiv:1802.08376).
+
+[11] T. Tanaka, K.-K. K. Kim, P. A. Parrilo, and S. K. Mitter, ‚ÄúSemidefinite programming approach to Gaussian sequential rate-distortion trade-offs,‚Äù IEEE Trans. Autom. Control, vol. 62, no. 4, pp. 1896‚Äì1910, 2017, doi: 10.1109/TAC.2016.2601148 (arXiv:1411.7632).
+[12] S. S. Tatikonda, A. Sahai, and S. K. Mitter, ‚ÄúStochastic linear control over a communication channel,‚Äù IEEE Trans. Autom. Control, vol. 49, no. 9, pp. 1549‚Äì1561, Sep. 2004, doi: 10.1109/TAC.2004.834430.
+[13] G. N. Nair and R. J. Evans, ‚ÄúStabilizability of stochastic linear systems with finite feedback data rates,‚Äù SIAM J. Control Optim., vol. 43, no. 2, pp. 413‚Äì436, 2004, doi: 10.1137/S0363012902402116.
+[14] A. Sahai and S. K. Mitter, ‚ÄúThe necessity and sufficiency of anytime capacity for stabilization of a linear system over a noisy communication link ‚Äî Part I: Scalar systems,‚Äù IEEE Trans. Inf. Theory, vol. 52, no. 8, pp. 3369‚Äì3395, Aug. 2006, doi: 10.1109/TIT.2006.878169.
+[15] L. Shi, Y. Yuan, and H. Zhang, ‚ÄúSensor data scheduling for linear quadratic Gaussian control with full state feedback,‚Äù in Proc. Amer. Control Conf. (ACC), Montreal, QC, Canada, 2012, pp. 2030‚Äì2035, doi: 10.1109/ACC.2012.6314650.
+[16] P. A. Stavrou, T. Tanaka, and S. Tatikonda, ‚ÄúThe time-invariant multidimensional Gaussian sequential rate-distortion problem revisited,‚Äù IEEE Trans. Autom. Control, vol. 65, no. 5, pp. 2245‚Äì2249, May 2020, doi: 10.1109/TAC.2019.2941444 (arXiv:1711.09853).
+[17] S. Li, T. Tanaka, and H. Kim, ‚ÄúLower bound of networked control with multiple sensors and one controller and the application to tracking Gaussian-Markov source,‚Äù arXiv:2607.04172, 2026.
+[18] M. Li, F. Liu, Y. Xiong, et al., ‚ÄúHow much sensing information is needed to control an unstable linear system?‚Äù arXiv:2606.31396, 2026.
+[19] J. Li, X. Wang, and X. Meng, ‚ÄúLearning based optimal sensor selection for linear quadratic control with unknown sensor noise covariance,‚Äù in Proc. Amer. Control Conf. (ACC), San Diego, CA, USA, 2023, pp. 4173‚Äì 4178, doi: 10.23919/ACC55779.2023.10156247.
+[20] J. Li, X. Wang, X. Meng, and F. L. Lewis, ‚ÄúOptimal sensor selection of linear quadratic regulation with unknown sensor noise covariances,‚Äù IEEE/CAA J. Autom. Sin., vol. 13, no. 7, pp. 1747‚Äì1754, Jul. 2026, doi: 10.1109/JAS.2025.125915.
+[21] E. U. Atay, V. Chandrasekaran, and V. Kostina, ‚ÄúRate-cost tradeoffs in nonlinear control,‚Äù arXiv:2604.20369, 2026.
+[22] V. Pacelli and E. A. Theodorou, ‚ÄúFundamental limits for sensor-based control via the Gibbs variational principle,‚Äù arXiv:2603.18454, 2026.
+[23] P. A. Stavrou and M. Skoglund, ‚ÄúAsymptotic reverse waterfilling algorithm of NRDF for certain classes of vector Gauss‚ÄìMarkov processes,‚Äù IEEE Trans. Autom. Control, vol. 67, no. 6, pp. 3196‚Äì3203, Jun. 2022, doi: 10.1109/TAC.2021.3099444.
+[24] P. A. Stavrou, T. Charalambous, C. D. Charalambous, S. Loyka, and M. Skoglund, ‚ÄúAsymptotic reverse-waterfilling characterization of nonanticipative rate distortion function of vector-valued Gauss-Markov processes with MSE distortion,‚Äù in Proc. IEEE Conf. Decis. Control (CDC), 2018, pp. 14‚Äì20, doi: 10.1109/CDC.2018.8619725.
+[25] P. A. Stavrou, J. Ostergaard, C. D. Charalambous, and M. Derpich, ‚ÄúAn upper bound to zero-delay rate distortion via Kalman filtering for vector Gaussian sources,‚Äù in Proc. IEEE Inf. Theory Workshop (ITW), 2017, pp. 534‚Äì538, doi: 10.1109/ITW.2017.8277966.
+[26] P. A. Stavrou, T. Charalambous, C. D. Charalambous, and S. Loyka, ‚ÄúOptimal estimation via nonanticipative rate distortion function and applications to time-varying Gauss-Markov processes,‚Äù SIAM J. Control Optim., vol. 56, no. 5, pp. 3731‚Äì3765, 2018, doi: 10.1137/17M1116349.
+[27] P. A. Stavrou, J. Ostergaard, and C. D. Charalambous, ‚ÄúZero-delay rate distortion via filtering for vector-valued Gaussian sources,‚Äù IEEE J. Sel. Topics Signal Process., vol. 12, no. 5, pp. 841‚Äì856, Oct. 2018, doi: 10.1109/JSTSP.2018.2855046 (arXiv:1810.00298 [cs.IT]).
+[28] P. A. Stavrou and M. Skoglund, ‚ÄúIndirect NRDF for partially observable Gauss-Markov processes with MSE distortion: complete characterizations and optimal solutions,‚Äù arXiv:1912.07640 [cs.IT], 2019.
+
+12
+
+claim frontier reproduction over the full cone (¬ßIII)
+
+isotropic family fails by 1.11‚Äì16.4 units (¬ßIII)
+
+wall is a horizontal asymptote (¬ßIV)
+
+interval length 1.3 √ó 10‚àí3
+
+Œ¶0
+
+(Ì†µÌ±â
+
+);
+
+implementations
+
+agree
+
+to
+
+Theorem 3‚Ä≤ hypothesis on supp(Ì†µÌ±Ñ)
+
+wall does not order the frontier (111/120)
+
+frozen-prior reduction, reverse water-filling (¬ßVII)
+
+channel switch-on rates reproduce rank deficiency
+
+best-known floors (13), rule (12) (¬ßVIII)
+
+four quadrants (Œî, Œ¶0 ) (¬ßVIII) ladder identity (16) (11 points, 7 √ó 10‚àí15)
+two legs Ì†µÌºé, Ì†µÌªº and Ì†µÀÜÌªæ (¬ßIX)
+cross-lane exponent agreement (median 2.06%) window specificity of the device (40√ó) rank thresholds 4/3/2/1 at Ì†µÌ∞∑ = 32.31/34.41/56.66/80 support is not Œò-diagonal; cone-restriction cost
+
+KKT reduction and its numerical decision (¬ßIX) Ì†µÌ±Ç ( Ì†µÌ±• ) status of the subleading term 2 ln 2/Ì†µÌ±ü is water-filling arithmetic
+number-by-number QA of this note‚Äôs own tables
+
+script
+D: exp_authoritative.py
+D: exp_phi_delta.py D: e76, e71, e98 C: c12_phicheck.py, c13_joint.py
+D: exp_thm3_qhypothesis.py D: exp_delta_clean.py D: exp_trv_penalty.py, e95 D: e96, e96c C: c19_phifinal.py, c24_gdescent.py, c90b_kkt_strict2.py C: c86_conv_check.py, c87_support.py C: c16_plaw.py, c71_funcform.py C: c76, c77, c78 C: c83_table_fix.py; D: e137b C: c79_window_robust.py C: c87_support.py, c46_sdp.py
+C: c89_diag_proper.py, c89b_cone_fast.py C: c90b (criterion pre-registered in the file header) D: e159c D: e150 C: c67_qa.py
+
+log / artefact
+p0/results/exp_authoritative.log, tab:red p0/results/exp_phi_delta.log p0/e76_out.txt, eq:decay .work3/c12,c13_out.txt; D: exp_phi_exact.log p0/results/exp_thm3_qhypothesis.log tab:nofactor, exp_delta_clean.log pr:freeze, eq:wf tab:switch, tab:wfdesign .work3/c19,c24,c90b_out.txt
+.work3/c86,c87_out.txt .work3/c16,c71_out.txt .work3/c76-c78_out.txt .work3/c83_out.txt, p0/e137b_out.txt .work3/c79_out.txt .work3/c87_out.txt
+.work3/c89,c89b_out.txt
+.work3/c90b_out.txt, .json p0/e159c_out.txt p0/e150_out.txt .work3/c67_qa.log (34/34 checks pass)
+
+

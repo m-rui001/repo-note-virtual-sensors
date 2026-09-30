@@ -1,0 +1,25 @@
+== [F1] Atom 元数据（作者顺序 / comment / journal_ref / primary_category）==
+  1603.04172   tries=1  primary=['cs.IT']  updated=['2017-02-10T17:27:01Z']
+      标题：Optimal Estimation via Nonanticipative Rate Distortion Function and Applications to Time-Varying Gauss-Markov Processes
+      作者：Photios A. Stavrou; Themistoklis Charalambous; Charalambos D. Charalambous; Sergey Loyka
+      comment：35 pages, 6 figures, submitted for publication in SIAM Journal on Control and Optimization (SICON)
+  1810.00298   tries=1  primary=['cs.IT']  updated=['2018-09-30T02:36:41Z']
+      标题：Zero-Delay Rate Distortion via Filtering for Vector-Valued Gaussian Sources
+      作者：Photios A. Stavrou; Jan Ostergaard; Charalambos D. Charalambous
+      comment：32 pages, 9 figures, published in IEEE Journal of Selected Topics in Signal Processing
+      arxiv:doi：10.1109/JSTSP.2018.2855046
+  1912.07640   tries=1  primary=['cs.IT']  updated=['2021-10-20T14:11:00Z']
+      标题：Indirect NRDF for Partially Observable Gauss-Markov Processes with MSE Distortion: Complete Characterizations and Optimal Solutions
+      作者：Photios A. Stavrou; Mikael Skoglund
+      comment：17 double column pages, 4 figures, 1 Table
+
+== [F2]+[F3] PDF 全文下载验收 ==
+  pypdf 可用：True
+  1603.04172   tries=1 bytes=1232678 head=b'%PDF-' content-type='application/pdf' ⇒ OK 已落 papers/1603.04172.pdf  页数=35
+  1810.00298   tries=1 bytes=1142484 head=b'%PDF-' content-type='application/pdf' ⇒ OK 已落 papers/1810.00298.pdf  页数=32
+  1912.07640   tries=1 bytes=901674 head=b'%PDF-' content-type='application/pdf' ⇒ OK 已落 papers/1912.07640.pdf  页数=17
+
+== [F4] CDC-2018 第二通道判定 ==
+  ⇒ 未在任何条目元数据里找到 CDC 字样 ⇒ CDC-2018 维持 Crossref 单通道，正文照 §92 的限定句不动
+元数据落盘 p0/e146_meta.json（3 条）
+EXIT=0

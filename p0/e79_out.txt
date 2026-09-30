@@ -1,0 +1,54 @@
+== E79：匹配功率下的率最大化传感器 = Gaussianizer（审 C 的 tier (iv)）==
+   论断：max_{phi: Var(phi)=P} I(x;phi(x)+v) = 1/2 log2(1+P/V)，
+         最大值点 = Gaussianizer phi=sqrt(P) * Phi^-1(F_x(x))（严格单调=>可逆=>不损信息）；
+         identity 达到最大 <=> x 高斯。
+
+--- 源 gauss   ：归一后数值 Var=1.000000（断言 <5e-3），kurtosis=3.000，截断质量=1.000000
+    V=0.5 | 容量=0.7925 | Gaussianizer(Var=1.0000)=0.7925 | 三次族最优(q*=+0.00)=0.7925 | identity=0.7925 | 质量检查 1.000000/1.000000
+        [自查] 网格加倍：identity +1.7e-14 | Gaussianizer +1.8e-14 bit
+        [2]   高斯化−identity = -0.0000 | 高斯化−三次族最优 = -0.0000 | 容量−identity = -0.0000 bit
+    V=2.0 | 容量=0.2925 | Gaussianizer(Var=1.0000)=0.2925 | 三次族最优(q*=+0.00)=0.2925 | identity=0.2925 | 质量检查 1.000000/1.000000
+        [自查] 网格加倍：identity +2.6e-14 | Gaussianizer +2.7e-14 bit
+        [2]   高斯化−identity = -0.0000 | 高斯化−三次族最优 = -0.0000 | 容量−identity = -0.0000 bit
+
+--- 源 laplace ：归一后数值 Var=1.000000（断言 <5e-3），kurtosis=5.999，截断质量=1.000000
+    V=0.5 | 容量=0.7925 | Gaussianizer(Var=1.0000)=0.7925 | 三次族最优(q*=-0.05)=0.7775 | identity=0.7690 | 质量检查 1.000011/1.000011
+        [自查] 网格加倍：identity -4.1e-06 | Gaussianizer -5.0e-06 bit
+        [2]   高斯化−identity = +0.0234 | 高斯化−三次族最优 = +0.0150 | 容量−identity = +0.0234 bit
+    V=2.0 | 容量=0.2925 | Gaussianizer(Var=1.0000)=0.2925 | 三次族最优(q*=+0.00)=0.2901 | identity=0.2901 | 质量检查 1.000011/1.000011
+        [自查] 网格加倍：identity -1.4e-05 | Gaussianizer -1.4e-05 bit
+        [2]   高斯化−identity = +0.0024 | 高斯化−三次族最优 = +0.0024 | 容量−identity = +0.0024 bit
+
+--- 源 mix18   ：归一后数值 Var=1.000000（断言 <5e-3），kurtosis=3.601，截断质量=1.000000
+    V=0.5 | 容量=0.7925 | Gaussianizer(Var=1.0000)=0.7925 | 三次族最优(q*=+0.00)=0.7908 | identity=0.7908 | 质量检查 1.000000/1.000000
+        [自查] 网格加倍：identity +1.5e-13 | Gaussianizer +1.5e-13 bit
+        [2]   高斯化−identity = +0.0017 | 高斯化−三次族最优 = +0.0017 | 容量−identity = +0.0017 bit
+    V=2.0 | 容量=0.2925 | Gaussianizer(Var=1.0000)=0.2925 | 三次族最优(q*=+0.00)=0.2923 | identity=0.2923 | 质量检查 1.000000/1.000000
+        [自查] 网格加倍：identity +2.3e-13 | Gaussianizer +2.3e-13 bit
+        [2]   高斯化−identity = +0.0001 | 高斯化−三次族最优 = +0.0001 | 容量−identity = +0.0001 bit
+
+--- 源 mix33   ：归一后数值 Var=1.000000（断言 <5e-3），kurtosis=8.333，截断质量=1.000000
+    V=0.5 | 容量=0.7925 | Gaussianizer(Var=1.0000)=0.7925 | 三次族最优(q*=+0.00)=0.7482 | identity=0.7482 | 质量检查 1.000000/1.000000
+        [自查] 网格加倍：identity +1.4e-13 | Gaussianizer +1.5e-13 bit
+        [2]   高斯化−identity = +0.0443 | 高斯化−三次族最优 = +0.0443 | 容量−identity = +0.0443 bit
+    V=2.0 | 容量=0.2925 | Gaussianizer(Var=1.0000)=0.2925 | 三次族最优(q*=+0.00)=0.2864 | identity=0.2864 | 质量检查 1.000000/1.000000
+        [自查] 网格加倍：identity +2.3e-13 | Gaussianizer +2.3e-13 bit
+        [2]   高斯化−identity = +0.0061 | 高斯化−三次族最优 = +0.0061 | 容量−identity = +0.0061 bit
+
+================ 判定 ================
+[0] 高斯源自检：容量 0.7925 vs Gaussianizer 0.7925 vs identity 0.7925（差 1.9e-11 / 3.4e-14）
+    => 若三者相等（<1e-3）则数值实现正确，且与"identity 最优 <=> 源高斯"一致。
+[1] laplace  V=0.5：Gaussianizer−容量 = +3.77e-06（应 ~0，上界可达）；Gaussianizer−三次族最优 = +0.0150 bit => (iv) **被否**
+[1] laplace  V=2.0：Gaussianizer−容量 = +1.20e-05（应 ~0，上界可达）；Gaussianizer−三次族最优 = +0.0024 bit => (iv) 未被否
+[1] mix18    V=0.5：Gaussianizer−容量 = -1.90e-11（应 ~0，上界可达）；Gaussianizer−三次族最优 = +0.0017 bit => (iv) 未被否
+[1] mix18    V=2.0：Gaussianizer−容量 = -9.58e-12（应 ~0，上界可达）；Gaussianizer−三次族最优 = +0.0001 bit => (iv) 未被否
+[1] mix33    V=0.5：Gaussianizer−容量 = -1.90e-11（应 ~0，上界可达）；Gaussianizer−三次族最优 = +0.0443 bit => (iv) **被否**
+[1] mix33    V=2.0：Gaussianizer−容量 = -9.58e-12（应 ~0，上界可达）；Gaussianizer−三次族最优 = +0.0061 bit => (iv) **被否**
+
+[2] 与 C 的 tier (ii)（0.144~0.173 bit）对表：
+    laplace ：高斯化基线 = +0.0024 bit（V=2）小于 (ii)，(ii) 不能全部由此解释
+    mix18   ：高斯化基线 = +0.0001 bit（V=2）小于 (ii)，(ii) 不能全部由此解释
+    mix33   ：高斯化基线 = +0.0061 bit（V=2）小于 (ii)，(ii) 不能全部由此解释
+
+判据回顾：Gaussianizer == 容量 > 三次族最优 => (iv) 只在高斯源成立，作为一般陈述为假；
+          且单调三次族**够不到**最优，所以 C 的"族内扫描"不构成对 (iv) 的证明。

@@ -1,0 +1,55 @@
+== [X1] 1603.04172 抽取文本，总 3689 行 ==
+-- 贡献 (R2) 第 (1) 条：参数式由 time-space reverse-waterfilling 刻画（第 176-184 行）--
+  176| following:
+  177| (1) The parametric expression ofRna
+  178| 0,n(D) is characterized by a time-space reverse-
+  179| waterﬁlling;
+  180| (2) At each time n the value Rna
+  181| 0,n(D) is achieved by an optimal {encoder,
+  182| channel, decoder}, where the channel is a Multiple Input Multiple Out-
+  183| put (MIMO) Additive Gaussian Noise (AGN) channel, the encoder operates
+  184| at the capacity of the AGN channel, and (1.2) holds with equality.
+-- §I 贡献段：算法与"阈值策略"句（第 194-214 行）--
+  194| tion (R2) demonstrates that for time-varying multidimensional fully-observed Gauss-
+  195| Markov processes, the parametric expression of the NRDF, Rna
+  196| 0,n(D), is characterized
+  197| by a time-space reverse-waterﬁlling. To solve the time-space reverse-waterﬁlling, we
+  198| propose an iterative algorithm which computes numerically the value ofRna
+  199| 0,n(D), and
+  200| we present examples to illustrate the eﬀectiveness of the algorithm. The Markovian
+  201| 3In the sequel, when we refer to FTH NRDF we just say NRDF.
+  202| OPTIMAL ESTIMATION VIA NRDF 5
+  203| property of the optimal reproduction distribution, implies that the optimal distri-
+  204| bution is {P∗
+  205| Yt|Y t−1,Xt
+  206| : t = 0,...,n }. This is realized by an {encoder, channel,
+  207| decoder}, with probability of estimation error decaying exponentially, under certain
+  208| conditions. The universal lower bound on the MSE of any estimator generalizes the
+  209| well-known bound of a Gaussian RV given in [22]. The new recursive estimator is
+  210| ﬁnite-dimensional, and ensures the ﬁdelity constraint is met. The time-space reverse-
+  211| waterﬁlling implies that given a distortion level, the optimal state estimation is chosen
+  212| based on an optimal threshold policy, in time and space (dimension). This is the fun-
+  213| damental diﬀerence from the well-known Kalman ﬁlter equations.
+  214| The rest of the paper is structured as follows. In Section 2, we provide the notation
+-- [X1b] 关键词全扫（threshold policy / time-space reverse-waterfilling）命中 6 处 --
+  178| 0,n(D) is characterized by a time-space reverse-
+  197| by a time-space reverse-waterﬁlling. To solve the time-space reverse-waterﬁlling, we
+  210| ﬁnite-dimensional, and ensures the ﬁdelity constraint is met. The time-space reverse-
+  212| based on an optimal threshold policy, in time and space (dimension). This is the fun-
+ 1199| Second, the time-space reverse-waterﬁlling property (5.8)-(5.11), states that if
+ 1207| based on Yt. In addition, the time-space reverse-waterﬁlling is part of the
+
+== [X2] Crossref 单查（判据：命中且 container-title 非空且 type=journal-article => 可升级；否则保持预印本）==
+[X2] 命中 5 条
+  DOI=10.1137/17m1116349 | type=journal-article | journal=SIAM Journal on Control and Optimization | vol=56 | pp=3731-3765 | year=2018
+    title=Optimal Estimation via Nonanticipative Rate Distortion Function and Applications to Time-Varying Gauss--Markov Processes
+    => 标题逐字一致；container-title='SIAM Journal on Control and Optimization' type='journal-article'
+  DOI=10.1109/lcsys.2017.2778186 | type=journal-article | journal=IEEE Control Systems Letters | vol=2 | pp=175-180 | year=2018
+    title=Finite-Time Nonanticipative Rate Distortion Function for Time-Varying Scalar-Valued Gauss-Markov Sources
+  DOI=10.1109/cdc.2018.8619725 | type=proceedings-article | journal=2018 IEEE Conference on Decision and Control (CDC) | vol=None | pp=14-20 | year=2018
+    title=Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Distortion Function of Vector-Valued Gauss-Mark
+  DOI=10.1109/cca.2015.7320778 | type=proceedings-article | journal=2015 IEEE Conference on Control Applications (CCA) | vol=None | pp=1217-1222 | year=2015
+    title=Semidefinite representation of sequential rate-distortion function for stationary Gauss-Markov processes
+  DOI=10.36227/techrxiv.12816155 | type=posted-content | journal= | vol=None | pp=None | year=2021
+    title=Indirect NRDF for Partially Observable Gauss-Markov Processes with MSE Distortion: Complete Characterizations and Optima
+[X2 判决] 可升级成期刊著录？ True

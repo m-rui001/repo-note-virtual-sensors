@@ -1,0 +1,40 @@
+== [P1] 扁平化（JAIGP 可选 LaTeX 源：单文件最稳） ==
+   源件 11 个（主文件 + \input 目标），扁平文件 jaigp_flat.tex = 89497 B / 1570 行
+   pdflatex 两次退出码 0 / 0；日志中 "^!" 错误行数 = 0
+   扁平版 12 页 / 351560 B；多文件版 12 页 / 351560 B ⇒ 页数 一致
+
+== [P2] 交叉引用逐条对账（扁平版 = 将要上传的那一份） ==
+   label：定义 44 个，正文引用 36 个，引用但未定义 0 个
+   bibitem：定义 28 条，正文引用 28 条，引用但无条目 0 个
+   未被引用的条目 0 条：无
+
+== [P3] 投稿不该留下的痕迹（扁平版正文计数，含注释行，全部须为 0） ==
+   preprint（不分大小写）        全文  2 处 / 去注释后  0 处  OK
+   draft（不分大小写）           全文  3 处 / 去注释后  3 处  逐条见下
+   to be settled          全文  0 处 / 去注释后  0 处  OK
+   \TODO 使用               全文  0 处 / 去注释后  0 处  OK
+   \TODO 宏定义              全文  0 处 / 去注释后  0 处  OK
+   \Pv 使用                 全文  0 处 / 去注释后  0 处  OK
+   \today                 全文  0 处 / 去注释后  0 处  OK
+   XXX/TBD/FIXME          全文  0 处 / 去注释后  0 处  OK
+   匿名/占位作者                全文  0 处 / 去注释后  0 处  OK
+   正文 "draft" 3 处，逐条如下（均为对自家早期版本的自述，属撤回账，不删）：
+      | proved; the switch points are measured, and an earlier draft of this table paired
+      | value) changed after the numbers were frozen: an earlier draft carried it as
+      | therefore read off the current evidence logs, not off the draft.
+
+== [P4] JAIGP 表单字段对账 ==
+   Title（单行，可直接粘表单）：On Task-Restricted Virtual Sensors: Reproduction, Infeasibility Interval, Non-Factorisation, and the Rate-Side Ladder
+   Abstract：1 段（表单要求单段）⇒ 合；散文 250 词（不计行内数学式；含式记 277 词）
+   Keywords：Remote state estimation, sensor scheduling, information form Kalman filter, non-convex optimisation, directed information, reverse water-filling.
+   Byline：Xiangrui Meng, Qwen3.8-Flash, and DeepSeek-V4.1-Flash
+   摘要散文词数：改前 git 无旧版 → 改后 250（同一口径：摘掉行内数学式后计）
+   已写出可直接粘贴的纯文本：p0/jaigp_title.txt、p0/jaigp_abstract.txt（摘要纯文本 253 词）
+
+== [P5] 上传包（JAIGP：PDF ≤20 MB，LaTeX 源 ≤30 MB） ==
+   PDF  preprint.pdf = 0.34 MB（上限 20 MB）
+   源包 jaigp_submission.zip = 0.04 MB（上限 30 MB），条目 ['fig_wall.pdf', 'preprint.tex']，完整性 testzip 通过
+
+   [P6] 本清单只审 artefact，不产新科学结论；页数/字节/计数均可由 preprint/jaigp_flat.log 复核。
+
+退出码 0 = 扁平化成功且两版页数一致；引用 0 缺失；摘要单段且在词数区间内；正文无 preprint/to be settled/\TODO/\Pv/\today（"draft" 仅允许出现在逐条列出的自家早期版本自述句里）；PDF 与源包均在表单限额内。

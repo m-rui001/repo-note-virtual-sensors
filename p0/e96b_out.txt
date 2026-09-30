@@ -1,0 +1,31 @@
+\p0\e96b_diag.py:30: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=solver)
+
+=== D=33.0 ===
+ SDP: status=optimal  目标(补上 ½logdet W 后)=6.1727 bit
+ Π 特征值 [0.02341 0.10695 0.44872 5.80819]   Schur 上界特征值 [0.02341 0.10695 0.44872 5.80819]
+ Π 与上界的最大差 9.701e-09  ⇒ LMI 紧
+ 独立通道: 率=6.1727 bit  代价=33.0000  |P_sdp - P_ARE|=2.679e-08  定点=conv  rank=3
+ SNR 奇异值 [35.31858  4.91593  0.73587  0.     ]   (0.1% 截断秩 = 3)
+ 误差动态谱半径 rho((I-LC)A) = 0.315047
+
+=== D=40.0 ===
+ SDP: status=optimal  目标(补上 ½logdet W 后)=3.2719 bit
+ Π 特征值 [0.07278 0.33912 1.47964 9.9661 ]   Schur 上界特征值 [0.07278 0.33912 1.47964 9.9661 ]
+ Π 与上界的最大差 7.040e-09  ⇒ LMI 紧
+ 独立通道: 率=3.2719 bit  代价=40.0000  |P_sdp - P_ARE|=1.474e-08  定点=conv  rank=2
+ SNR 奇异值 [4.83294 0.41688 0.      0.     ]   (0.1% 截断秩 = 2)
+ 误差动态谱半径 rho((I-LC)A) = 0.459234
+
+=== D=80.0 ===
+ SDP: status=optimal_inaccurate  目标(补上 ½logdet W 后)=1.6031 bit
+ Π 特征值 [ 0.09889  0.71587  2.66381 19.51028]   Schur 上界特征值 [ 0.09889  0.71587  2.66381 19.51028]
+ Π 与上界的最大差 2.880e-07  ⇒ LMI 紧
+ 独立通道: 率=1.6031 bit  代价=80.0000  |P_sdp - P_ARE|=1.124e-07  定点=conv  rank=3
+ SNR 奇异值 [0.56397 0.      0.      0.     ]   (0.1% 截断秩 = 1)
+ 误差动态谱半径 rho((I-LC)A) = 0.719565
+
+== 对照：原文三条发表机制各自走独立通道（K2 口径） ==
+ D=33.0: 我算的率=6.1280 bit (原文 6.133)  我算的代价=33.0327  rho((I-LC)A)=0.3198  sv=[34.51756  4.80643  0.68815  0.     ]  |C^tV^-1C-SNR|=6.42e-14  定点=conv
+ D=40.0: 我算的率=3.2671 bit (原文 3.266)  我算的代价=40.0319  rho((I-LC)A)=0.4587  sv=[4.81182 0.41459 0.      0.     ]  |C^tV^-1C-SNR|=2.28e-15  定点=conv
+ D=80.0: 我算的率=1.6029 bit (原文 1.602)  我算的代价=80.0213  rho((I-LC)A)=0.7196  sv=[0.56362 0.      0.      0.     ]  |C^tV^-1C-SNR|=2.36e-16  定点=conv

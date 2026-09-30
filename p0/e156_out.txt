@@ -1,0 +1,171 @@
+== 定位 ==
+Theorem 5\.2       命中行：[1029, 1189, 1191, 1209, 1213, 1389, 1439, 1466, 1667, 1691, 2280]
+\(5\.8\)           命中行：[1049, 1199, 1651, 1691, 2284, 2285, 2677]
+\(5\.9\)           命中行：[1065]
+\(5\.10\)          命中行：[1080, 3564]
+\(5\.11\)          命中行：[1085, 1199, 1204, 1519, 1588]
+reverse-water      命中行：[13, 16, 197, 837, 1199, 1207, 1388, 1467, 1469, 1474, 1633, 1650, 1819, 1834]
+
+== [T0] Theorem 5.2 起（第 1029 行）往后 75 行 ==
+ 1029| Theorem 5.2. (Rna
+ 1030| 0,n(D) of time-varying multidimensional Gauss-Markov pro-
+ 1031| cess)
+ 1032| 14 P. A. STAVROU, T. CHARALAMBOUS, C. D. CHARALAMBOUS AND S. LOYKA
+ 1033| (1) The NRDF, Rna
+ 1034| 0,n(D), of the Gauss-Markov process (5.1), is given by
+ 1035| Rna
+ 1036| 0,n(D) = 1
+ 1037| 2
+ 1038| 1
+ 1039| n + 1
+ 1040| n∑
+ 1041| t=0
+ 1042| p∑
+ 1043| i=1
+ 1044| log
+ 1045| (λt,i
+ 1046| δt,i
+ 1047| )
+ 1048| , δt,i≤λt,i, t∈ Nn
+ 1049| 0, i = 1,...,p,(5.8)
+ 1050| ≡ 1
+ 1051| 2
+ 1052| 1
+ 1053| n + 1
+ 1054| n∑
+ 1055| t=0
+ 1056| p∑
+ 1057| i=1
+ 1058| log
+ 1059| {
+ 1060| max
+ 1061| (
+ 1062| 1,λt,i
+ 1063| δt,i
+ 1064| )}
+ 1065| ,(5.9)
+ 1066| where Λt =EtΠt|t−1E
+ 1067| T
+ 1068| t ,
+ 1069| Πt|t−1 ≜ E
+ 1070| {(
+ 1071| Xt− E
+ 1072| {
+ 1073| Xt|σ{Yt−1}
+ 1074| })(
+ 1075| Xt− E
+ 1076| {
+ 1077| Xt|σ{Yt−1}
+ 1078| })T
+ 1079| }
+ 1080| (5.10)
+ 1081| δt,i ≜
+ 1082| {
+ 1083| ξ, if ξ≤λt,i
+ 1084| λt,i, if ξ >λt,i
+ 1085| , ∀t,i(5.11)
+ 1086| and ξ is chosen such that
+ 1087| 1
+ 1088| n + 1
+ 1089| n∑
+ 1090| t=0
+ 1091| p∑
+ 1092| i=1
+ 1093| δt,i =D.(5.12)
+ 1094| (2) The errorXt−E{Xt|σ{Yt−1}} is GaussianN(0; Πt|t−1), ˆXt|t−1 ≜ E{Xt|σ{Yt−1}},
+ 1095| and Πt|t−1 are given by the Kalman ﬁlter equations
+ 1096| ˆXt+1|t =AtˆXt|t−1 +AtΠt|t−1(E
+ 1097| T
+ 1098| tHtEt)
+ 1099| T
+ 1100| M−1
+ 1101| t
+ 1102| (
+ 1103| Yt− ˆXt|t−1
+
+== [T1] 出现 "xi"（水位）的行，看是否带时间下标 ==
+ 1083| ξ, if ξ≤λt,i
+ 1084| λt,i, if ξ >λt,i
+ 1086| and ξ is chosen such that
+ 1204| waterﬁlling expression (5.11), and the level ξ depends on D, i.e., the overall
+ 1382| ξ
+ 1385| where{λi : i = 1,...,p } are the eigenvalues of ΓX and ξ >0 is a constant
+ 1387| i=1 min{λi,ξ} =D. Note that the solution of clas-
+ 1514| Set ξ =D; ﬂag = 0.
+ 1530| Re-adjust ξ as follows:
+ 1531| ξ←ξ +β(D− 1
+ 1589| δt,i = min{λt,1,ξ}, t = 0, 1, 2, i = 1, 2.(5.34)
+ 1591| ξ =ξ0 to start our iterations. A good starting point is ξ0 =D. For ¯Π0|−1 we perform
+ 1605| For ξ = ξ0 = D = 3 and (λ0,1,λ 0,2) = (0 .72, 0.28) we compute ∆0 using (5.34).
+ 1620| At the end, for the given ξ we check if | 1
+ 1626| we stop the iterations and the last ξ is the level we want. If not, we update ξ as
+ 1627| ξ←ξ +β(D− 1
+ 1706| { ξ if ξ≤λt
+ 1707| λt if ξ >λt
+ 1709| with ξ ﬁxed such that 1
+ 1712| t=0δt =D,δt = mint{λt,ξ} and Πt|t−1 = Λt =λt, (i.e.,
+ 1775| initial ξ =ξ0 to start our iterations. A good starting point is ξ0 =D. Using (5.37),
+ 1779| Similarly, the procedure is repeated for all t = 0, 1,...,n . At the end, for the given ξ
+ 1788| Set ξ =D; ﬂag = 0.
+ 1802| Re-adjust ξ as follows:
+ 1803| ξ← ξ +β(D− 1
+ 1813| t=0δt−D|≤ ϵ. If it does, we stop the iterations and the last ξ is
+ 1814| the level we want. If not, we update ξ as ξ←ξ +β(D− 1
+ 2599| or δt,i = ˆξ, ˆξ≥ 0.(B.10)
+ 2602| Markov process. This is feasible if the constant ˆξ in (B.10) is less than λt,i∀t,i . As
+ 2603| the total distortion level increases, the constant ˆξ also increases until it exceeds λt,i
+ 2622| { ξ if ξ≤λt,i
+ 2623| λt,i if ξ >λt,i
+ 2625| where ξ is chosen such that 1
+ 2630| i=1δt,i =D and δt,i = min{ξ,λt,i}.
+ 2665| where δt,i = min{ξ,λt,i}, t∈ Nn
+ 3505| where δt,i ={ξ,λt,i}. Now, if δt,i = ξ then δt,i =− 1
+
+== [T2]/[T3] 目标泛函与地板：搜 trace/MSE/水位相关句 ==
+   13| characterized by a reverse-waterﬁlling algorithm, which ensures that the ﬁdelity constraint is satisﬁed.
+   16| tion, reverse-water ﬁlling, universal lower bound.
+  197| by a time-space reverse-waterﬁlling. To solve the time-space reverse-waterﬁlling, we
+  837| rithm, which is a generalization of the standard reverse-waterﬁlling algorithm derived
+ 1086| and ξ is chosen such that
+ 1199| Second, the time-space reverse-waterﬁlling property (5.8)-(5.11), states that if
+ 1207| based on Yt. In addition, the time-space reverse-waterﬁlling is part of the
+ 1388| sical RDF in (5.29) is based on reverse-waterﬁlling method (see [26, Lemma
+ 1467| of the reverse-waterﬁlling algorithm is necessary even when the process elements are
+ 1469| complexity of the problem increases, since the reverse-waterﬁlling algorithm must
+ 1474| The examples presented here deal with the time-space aspects of the reverse-waterﬁlling
+ 1633| this example, the ﬁnal reverse-waterﬁlling is found in 9 iterations and it is shown in
+ 1650| Fig. 5.2: Reverse-waterﬁlling in time-space for n=2 time units and p=2 space units.
+ 1819| For this example, the ﬁnal reverse-waterﬁlling is found after 15 iterations and it
+ 1834| Fig. 5.3: Reverse-waterﬁlling in time for n=2 time units.
+ 1901| the realization in (5.40), the smallest achievable distortion is obtained by setting
+ 2037| information-based causal ﬁlter is characterized by a reverse-waterﬁlling algorithm.
+ 2625| where ξ is chosen such that 1
+1887 | 2
+1888 | 1
+1889 | n + 1
+1890 | n∑
+1891 | t=0
+1892 | log
+1893 | (
+1894 | 1 +Pt
+1895 | qt
+1896 | )
+1897 | ,(5.42)
+1898 | wherePt is the power level allocated at each time.
+1899 | Suppose that this channel is used once per source symbol, that is, the coding rate
+1900 | between the source symbols and the channel symbols is 1 [28, Deﬁnition 2.1]. For
+1901 | the realization in (5.40), the smallest achievable distortion is obtained by setting
+1902 | (5.36)=(5.42) that yields
+1903 | δmin
+1904 | t = λtqt
+1905 | qt +Pt
+1906 | =
+1907 | (
+1908 | α2
+1909 | t−1δmin
+1910 | t−1 +σ2
+1911 | Wt−1
+1912 | )
+1913 | qt
+1914 | qt +Pt
+1915 | , t∈ Nn

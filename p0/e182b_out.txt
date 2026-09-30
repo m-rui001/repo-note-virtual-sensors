@@ -1,0 +1,86 @@
+== [U0] 待补条数 ==
+  待核 12 条；其中原文无 DOI 的 11 条
+
+== [U1] Crossref 标题等值 + 作者重叠双门槛 ==
+  --- tanaka2018di             LQG control with minimum directed information: Semidefinite progra
+      作者段=T.~Tanaka, P.~Mohajerin Esfahani, and S.~K.~Mitter, 
+      标题等值：10.1109/tac.2017.2709618 [type=journal-article] IEEE Transactions on Automatic Control 2018 vol=63 iss=1 pp=37-52
+        首作者=tanaka 姓氏交集=3/3 ⇒ 双门槛过（可补）
+  --- tanaka2017srd            Semidefinite programming approach to Gaussian sequential rate-dist
+      作者段=T.~Tanaka, K.-K.~K.~Kim, P.~A.~Parrilo, and S.~K.~Mitter, 
+      标题等值：10.1109/tac.2016.2601148 [type=journal-article] IEEE Transactions on Automatic Control 2017 vol=62 iss=4 pp=1896-1910
+        首作者=tanaka 姓氏交集=4/4 ⇒ 双门槛过（可补）
+  --- tanaka2016prefix         Rate of prefix-free codes in LQG control systems
+      作者段=T.~Tanaka, K.~H.~Johansson, T.~Oechtering, H.~Sandberg, and M.~Skoglund, 
+      标题等值：10.1109/isit.2016.7541729 [type=proceedings-article] 2016 IEEE International Symposium on Information Theory (ISIT) 2016 vol=- iss=- pp=2399-2403
+        首作者=tanaka 姓氏交集=5/5 ⇒ 双门槛过（可补）
+  --- tzoumas2020co            LQG control and sensing co-design
+      作者段=V.~Tzoumas, L.~Carlone, G.~J.~Pappas, and A.~Jadbabaie, 
+      标题等值：10.1109/tac.2020.2997661 [type=journal-article] IEEE Transactions on Automatic Control 2021 vol=66 iss=4 pp=1468-1483
+        首作者=tzoumas 姓氏交集=4/4 ⇒ 双门槛过（可补）
+  --- nair2004stabilizability  Stabilizability of stochastic linear systems with finite feedback 
+      作者段=G.~N.~Nair and R.~J.~Evans, 
+      标题等值：10.1137/s0363012902402116 [type=journal-article] SIAM Journal on Control and Optimization 2004 vol=43 iss=2 pp=413-436
+        首作者=nair 姓氏交集=2/2 ⇒ 双门槛过（可补）
+  --- fox2016a                 Minimum-information LQG control --- Part I: Memoryless controllers
+      作者段=R.~Fox and N.~Tishby, 
+      标题等值：10.1109/cdc.2016.7799131 [type=proceedings-article] 2016 IEEE 55th Conference on Decision and Control (CDC) 2016 vol=- iss=- pp=5610-5616
+        首作者=fox 姓氏交集=2/2 ⇒ 双门槛过（可补）
+  --- fox2016b                 Minimum-information LQG control --- Part II: Retentive controllers
+      作者段=R.~Fox and N.~Tishby, 
+      标题等值：10.1109/cdc.2016.7799130 [type=proceedings-article] 2016 IEEE 55th Conference on Decision and Control (CDC) 2016 vol=- iss=- pp=5603-5609
+        首作者=fox 姓氏交集=2/2 ⇒ 双门槛过（可补）
+  --- cuvelier2021side         Rate of prefix-free codes in LQG control systems with side informa
+      作者段=T.~C.~Cuvelier and T.~Tanaka, 
+      标题等值：10.1109/ciss50987.2021.9400217 [type=proceedings-article] 2021 55th Annual Conference on Information Sciences and Systems (CISS) 2021 vol=- iss=- pp=1-6
+        首作者=cuvelier 姓氏交集=2/2 ⇒ 双门槛过（可补）
+  --- sabag2021reducing        Reducing the LQG cost with minimal communication
+      作者段=O.~Sabag, P.~Tian, V.~Kostina, and B.~Hassibi, 
+      标题等值：10.1109/tac.2022.3220511 [type=journal-article] IEEE Transactions on Automatic Control 2023 vol=68 iss=9 pp=5258-5270
+        首作者=sabag 姓氏交集=4/4 ⇒ 双门槛过（可补）
+  --- stavrou2017revisited     The time-invariant multidimensional Gaussian sequential rate-disto
+      作者段=P.~A.~Stavrou, T.~Tanaka, and S.~Tatikonda, 
+      标题等值：10.1109/tac.2019.2941444 [type=journal-article] IEEE Transactions on Automatic Control 2020 vol=65 iss=5 pp=2245-2249
+        首作者=stavrou 姓氏交集=3/3 ⇒ 双门槛过（可补）
+  --- stavrou2019indirect      Indirect NRDF for partially observable Gauss-Markov processes with
+      作者段=P.~A.~Stavrou and M.~Skoglund, 
+      标题等值：10.36227/techrxiv.12816155 [type=posted-content]  2021 vol=- iss=- pp=-
+        首作者=stavrou 姓氏交集=2/2 ⇒ 双门槛过（可补）
+      标题等值：10.36227/techrxiv.12816155.v2 [type=posted-content]  2021 vol=- iss=- pp=-
+        首作者=stavrou 姓氏交集=2/2 ⇒ 双门槛过（可补）
+  --- kostina2019rate          Rate-cost tradeoffs in control
+      作者段=V.~Kostina and B.~Hassibi, 
+      标题等值：10.1109/allerton.2016.7852366 [type=proceedings-article] 2016 54th Annual Allerton Conference on Communication, Control, and Computing (Allerton) 2016 vol=- iss=- pp=1157-1164
+        首作者=kostina 姓氏交集=2/2 ⇒ 双门槛过（可补）
+      标题等值：10.1109/tac.2019.2912256 [type=journal-article] IEEE Transactions on Automatic Control 2019 vol=64 iss=11 pp=4525-4540
+        首作者=kostina 姓氏交集=2/2 ⇒ 双门槛过（可补）
+  可补条目 14；未命中／失败 0（未命中清单：[]）
+
+== [U2] 按 key 汇总（同一 DOI 只留第一次命中）==
+  tanaka2018di             可补 doi: 10.1109/tac.2017.2709618  （IEEE Transactions on Automatic Control, 2018, vol=63 iss=1 pp=37-52）
+  tanaka2017srd            可补 doi: 10.1109/tac.2016.2601148  （IEEE Transactions on Automatic Control, 2017, vol=62 iss=4 pp=1896-1910）
+  tanaka2016prefix         可补 doi: 10.1109/isit.2016.7541729  （2016 IEEE International Symposium on Information Theory (ISIT), 2016, vol=- iss=- pp=2399-2403）
+  tzoumas2020co            可补 doi: 10.1109/tac.2020.2997661  （IEEE Transactions on Automatic Control, 2021, vol=66 iss=4 pp=1468-1483）
+  nair2004stabilizability  可补 doi: 10.1137/s0363012902402116  （SIAM Journal on Control and Optimization, 2004, vol=43 iss=2 pp=413-436）
+  fox2016a                 可补 doi: 10.1109/cdc.2016.7799131  （2016 IEEE 55th Conference on Decision and Control (CDC), 2016, vol=- iss=- pp=5610-5616）
+  fox2016b                 可补 doi: 10.1109/cdc.2016.7799130  （2016 IEEE 55th Conference on Decision and Control (CDC), 2016, vol=- iss=- pp=5603-5609）
+  cuvelier2021side         可补 doi: 10.1109/ciss50987.2021.9400217  （2021 55th Annual Conference on Information Sciences and Systems (CISS), 2021, vol=- iss=- pp=1-6）
+  sabag2021reducing        可补 doi: 10.1109/tac.2022.3220511  （IEEE Transactions on Automatic Control, 2023, vol=68 iss=9 pp=5258-5270）
+  stavrou2017revisited     可补 doi: 10.1109/tac.2019.2941444  （IEEE Transactions on Automatic Control, 2020, vol=65 iss=5 pp=2245-2249）
+  stavrou2019indirect      可补 doi: 10.36227/techrxiv.12816155  （, 2021, vol=- iss=- pp=-）
+  stavrou2019indirect      可补 doi: 10.36227/techrxiv.12816155.v2  （, 2021, vol=- iss=- pp=-）
+  kostina2019rate          可补 doi: 10.1109/allerton.2016.7852366  （2016 54th Annual Allerton Conference on Communication, Control, and Computing (Allerton), 2016, vol=- iss=- pp=1157-1164）
+  kostina2019rate          可补 doi: 10.1109/tac.2019.2912256  （IEEE Transactions on Automatic Control, 2019, vol=64 iss=11 pp=4525-4540）
+  去重后可补 DOI 14 个
+
+== [U3] 手工升级项（e181 双通道核过的改标题期刊版）==
+  stavrou2018asymptotic 的 CDC-2018 版已被期刊版覆盖：
+      期刊标题：Asymptotic Reverse Waterfilling Algorithm of NRDF for Certain Classes of Vector Gauss–Markov Processes
+      出处：IEEE Transactions on Automatic Control vol=67 iss=6 pp=3196-3203 year=2022 doi=10.1109/tac.2021.3099444
+      我的标题=Asymptotic reverse-waterfilling characterization of nonantic
+      两标题等值=False ⇒ 本条是 #48 说的**改标题升版**，标题检索必然假阴性
+      作者交集：CDC 版 Stavrou/Charalambous/Charalambous/Loyka/Skoglund；期刊版 Stavrou/Skoglund ⇒ 同一组的收紧结果（按两通道著录＋作者列表核过）
+
+== [U4] 条数与退出（#46）==
+  待核 12；可补 DOI 14（去重后 14）；未命中 0；手工升级项 1
+  本节只出**著录补全**建议，不改任何数字或科学判决。

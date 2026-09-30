@@ -1,0 +1,83 @@
+== [Q1] 重跑 3 组被限流的查询（sleep 3.5s）==
+      (429，退避 20s 后重试)
+      !! HTTP 503 https://export.arxiv.org/api/query?search_query=all%3A%22communication+rate%22+A
+  [RETRY ] all:"communication rate" AND all:"estimation error"        取回   0  新增 0
+  [RETRY ] all:"sensor selection" AND all:"information rate"          取回   0  新增 0
+  [RETRY ] all:"Gaussian source" AND all:"remote estimation" AND all: 取回   0  新增 0
+  [rescan] all:"rate distortion" AND all:"control cost"               取回   1  新增 1
+  [rescan] all:"data rate" AND all:"LQG"                              取回   3  新增 3
+  [rescan] all:"measurement rank" AND all:"control cost"              取回   0  新增 0
+  [rescan] all:"Kalman filtering" AND all:"bandwidth constraint"      取回   0  新增 0
+  [rescan] all:"remote state estimation" AND all:"rate distortion"    取回   0  新增 0
+  [rescan] all:"minimal data rate" AND all:"stabilization"            取回   1  新增 1
+  [rescan] all:"directed information" AND all:"linear quadratic"      取回  12  新增 9
+  [rescan] all:"cost of communication" AND all:"linear systems"       取回   2  新增 2
+  [rescan] all:"dimension" AND all:"rate-distortion" AND all:"control 取回   7  新增 7
+  [rescan] all:"sensor scheduling" AND all:"estimation" AND all:"rate 取回   6  新增 6
+
+  合并去重池 29 条；[A-CH]（两腿同时命中）= 4 条
+   · 1810.00298 (2018) S=['vector'] L=['rate distortion', 'characterization']  Zero-Delay Rate Distortion via Filtering for Vector-Valued Gaussian Sources
+   · 2108.05240 (2021) S=['vector'] L=['rate distortion']  Signaling Games in Multiple Dimensions: Geometric Properties of Equilibrium Solutions
+   · 2406.04047 (2024) S=['subspace'] L=['rate distortion', 'exact']  Slicing Mutual Information Generalization Bounds for Neural Networks
+   · 2607.04172 (2026) S=['multiple sensor'] L=['rate distortion']  Lower Bound of Networked Control with Multiple Sensors and One Controller And The Applic
+
+== [Q2] 从 e135b_out.txt 现场解析 [T-CH] DOI，逐条向 Crossref 要摘要 ==
+  解析到 17 条 DOI
+  [无摘要→留U] 10.1109/itw.2017.8277966 (2017) An upper bound to zero-delay rate distortion via Kalman filtering for vect
+  [无摘要→留U] 10.1109/icip.1995.529053 (None) Data-rate constrained lattice vector quantization: a new quantizing algori
+  [无摘要→留U] 10.1109/icip.1997.638663 (None) Motion vector quantization in a rate-distortion framework
+  [无摘要→留U] 10.1109/ssp.2005.1628751 (2005) Rate distortion of stationary and nonstationary vector gauaaian sources
+  [无摘要→留U] 10.1109/isit.2014.6874973 (2014) Vector Gaussian rate-distortion with variable side information
+  [无摘要→留U] 10.1109/icip.2001.958522 (None) Rate distortion optimized adaptive multiscale vector quantization
+  [无摘要→留U] 10.1109/ciss.2016.7460485 (2016) Vector Gaussian multi-decoder rate-distortion: Trace constraints
+  [无摘要→留U] 10.1049/el.2011.1734 (2011) Rate-distortion optimised motion vector filtering for video coding
+  [无摘要→留U] 10.1007/978-3-642-55753-8_42 (2003) Video Coding with Adaptive Vector Quantization and Rate Distortion Optimiz
+  [无摘要→留U] 10.1109/cdc.2018.8619725 (2018) Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate D
+  [无摘要→留U] 10.1109/isit63088.2025.11195430 (2025) Rate-Distortion-Perception Function of Bernoulli Vector Sources
+  [A-CH] 10.3390/e20090719 (2018) Rate Distortion Function of Gaussian Asymptotically WSS Vector Processes
+  [无摘要→留U] 10.1109/icassp.2000.859200 (None) Rate-distortion adaptive vector quantization for wavelet image coding
+  [无摘要→留U] 10.1109/ijcnn.2001.938831 (None) Rate distortion in image coding from embedded optimization constraints in 
+  [无摘要→留U] 10.1109/icip.1998.727409 (None) Rate-distortion based video coding with adaptive mean-removed vector quant
+  [无摘要→留U] 10.1109/tit.2026.3714460 (2026) On the Gaussian-Quadratic Rate-Distortion Function for Vector Sources with
+  [无摘要→留U] 10.1109/tit.2017.2694015 (2017) Vector Gaussian Rate-Distortion With Variable Side Information
+  小结：拿到摘要 1 条（其中 [A-CH] 1）；仍无摘要 ⇒ 留 [U] 16 条
+    [U] 10.1109/itw.2017.8277966 (2017) An upper bound to zero-delay rate distortion via Kalman filtering for vector
+    [U] 10.1109/icip.1995.529053 (None) Data-rate constrained lattice vector quantization: a new quantizing algorith
+    [U] 10.1109/icip.1997.638663 (None) Motion vector quantization in a rate-distortion framework
+    [U] 10.1109/ssp.2005.1628751 (2005) Rate distortion of stationary and nonstationary vector gauaaian sources
+    [U] 10.1109/isit.2014.6874973 (2014) Vector Gaussian rate-distortion with variable side information
+    [U] 10.1109/icip.2001.958522 (None) Rate distortion optimized adaptive multiscale vector quantization
+    [U] 10.1109/ciss.2016.7460485 (2016) Vector Gaussian multi-decoder rate-distortion: Trace constraints
+    [U] 10.1049/el.2011.1734 (2011) Rate-distortion optimised motion vector filtering for video coding
+    [U] 10.1007/978-3-642-55753-8_42 (2003) Video Coding with Adaptive Vector Quantization and Rate Distortion Optimizat
+    [U] 10.1109/cdc.2018.8619725 (2018) Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Dis
+    [U] 10.1109/isit63088.2025.11195430 (2025) Rate-Distortion-Perception Function of Bernoulli Vector Sources
+    [U] 10.1109/icassp.2000.859200 (None) Rate-distortion adaptive vector quantization for wavelet image coding
+    [U] 10.1109/ijcnn.2001.938831 (None) Rate distortion in image coding from embedded optimization constraints in ve
+    [U] 10.1109/icip.1998.727409 (None) Rate-distortion based video coding with adaptive mean-removed vector quantiz
+    [U] 10.1109/tit.2026.3714460 (2026) On the Gaussian-Quadratic Rate-Distortion Function for Vector Sources with I
+    [U] 10.1109/tit.2017.2694015 (2017) Vector Gaussian Rate-Distortion With Variable Side Information
+
+== [Q3] 5 条邻居：开放获取查找 + 三问卡（a 闭式？b 指数随维数/秩？c 传感矩阵自由？）==
+
+  ── 10.1109/cdc.2018.8619725
+     arXiv 无命中 ⇒ 只有 IEEE 付费版本，本轮读不到全文（记 [U]，摘要级判据都不给）
+
+  ── 10.1109/tit.2017.2694015
+     1612.03455 (2016) Vector Gaussian Rate-Distortion with Variable Side Information
+       摘要：We consider rate-distortion with two decoders, each with distinct side information. This problem is well understood when the side information at the decoders satisfies a certain degradedness condition. We consider cases in which this degradedness condition is violated but the source and the side information consist of jointly Gaussian vectors. We provide a hierarchy of four lower bounds on the optimal rate. These bounds are then used to determine the optimal rate for several classes of instances.
+       两腿命中：S=['vector'] L=['rate distortion']
+
+  ── 10.1109/ciss.2016.7460485
+     arXiv 无命中 ⇒ 只有 IEEE 付费版本，本轮读不到全文（记 [U]，摘要级判据都不给）
+
+  ── 10.1109/itw.2017.8277966
+     1701.06368 (2017) An Upper Bound to Zero-Delay Rate Distortion via Kalman Filtering for Vector Gaussian 
+       摘要：We deal with zero-delay source coding of a vector Gaussian autoregressive (AR) source subject to an average mean squared error (MSE) fidelity criterion. Toward this end, we consider the nonanticipative rate distortion function (NRDF) which is a lower bound to the causal and zero-delay rate distortion function (RDF). We use the realization scheme with feedback proposed in [1] to model the corresponding optimal "test-channel" of the NRDF, when considering vector Gaussian AR(1) sources subject to an average MSE distor
+       两腿命中：S=['vector'] L=['rate distortion']
+
+  ── 10.1109/tit.2026.3714460
+     2607.09545 (2026) On the Gaussian-Quadratic Rate-Distortion Function for Vector Sources with Individual 
+       摘要：This paper investigates the Gaussian-quadratic lossy compression with arbitrary source length under individual distortion constraints. The rate-distortion function (RDF) is lower-bounded by a Hadamard inequality-based rate, which is tight if and only if the semidefinite condition (SDC) holds. Otherwise, this bound becomes loose, and analytical results are lacking. Moreover, the fundamental quantitative relationship between source correlations and the RDF remains incomplete. In this paper, we provide new theoretical
+       两腿命中：S=['vector'] L=['rate distortion']
+EXIT=0

@@ -1,0 +1,17 @@
+== E68: 射线沿子空间逼近各自的墙（注记 Fig.2 数据）==
+  family           r   wall D_min   I@v=1e-3    I@v=1e12    gap@I=5    
+  schur_tail_1     1   墙不可用（cap），跳过
+  schur_tail_2     2   46.1231      1.17        40.88        I=4.92 处仍差 4.333%
+  schur_tail_3     3   36.6032      1.20        62.67        I=4.96 处仍差 36.086%
+  best_support_r1  1   41.6526      1.17        21.41        I=4.97 处仍差 0.496%
+  best_support_r2  2   32.2185      1.18        41.96        I=4.96 处仍差 10.389%
+  best_support_r3  3   31.6420      1.18        61.42        I=4.87 处仍差 22.883%
+  652 行 -> p0/note/data/wall_approach.csv（38 s）
+
+[A] 墙要可见，I 必须多大（各族相对间隙降到 1% / 0.1% 所需的率）
+  schur_tail_2     1%: I>=7.1 | 0.1%: I>=10.3
+  schur_tail_3     1%: I>=11.9 | 0.1%: I>=16.8
+  best_support_r1  1%: I>=4.5 | 0.1%: I>=6.1
+  best_support_r2  1%: I>=8.4 | 0.1%: I>=11.7
+  best_support_r3  1%: I>=10.7 | 0.1%: I>=15.6
+== E68 done ==

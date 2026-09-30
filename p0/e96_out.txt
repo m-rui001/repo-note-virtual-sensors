@@ -1,0 +1,24 @@
+[口径] JC=tr(W Pc)=31.483342  lambda(TH)=[ 0.031    0.81958  2.28591 16.27842]
+
+== K1 自由 SDP vs 原文 §V 发表锚点 ==
+ D= 33.0  SDP=  3.5616 bit (原文 6.133)  差 -2.5714  rank 4 (原文 3)  status=optimal  tr(TH P)=1.51666
+ D= 40.0  SDP=  0.2451 bit (原文 3.266)  差 -3.0209  rank 4 (原文 2)  status=optimal  tr(TH P)=8.51666
+ D= 80.0  SDP= -1.5186 bit (原文 1.602)  差 -3.1206  rank 4 (原文 1)  status=optimal  tr(TH P)=48.51666
+
+== K2 用原文 D=33 的最优机制 (C,V) 走我自己的 ARE 定点通道 ==
+ status=conv  我算的率=6.1280 bit (原文 6.133)  我算的 D=33.0327 (原文 33.0)
+ rank(SNR)=3  C^t V^-1 C 与 SNR 的 Frobenius 差=6.417e-14
+ [K2 判定] 率差 0.0050 bit, 代价差 0.0327 ⇒ 口径一致，(18b) 的 D 就是我车道的 D
+
+== K3 自由前沿的反演 D*_free(3 bit) ==
+ [K3 异常] ValueError: The function value at x=31.4843415351229 is NaN; solver cannot continue.
+
+== K4 平面可行集凸不凸：逆坐标里线性 ≠ 协方差坐标里凸 ==
+ 端点 1（近完美测 tail-3）: 相对残差 6.330e-16  |Sigma|=1.7321e+08  状态 conv
+ 端点 2（tail-3 有限噪声）: 相对残差 2.196e-16  |Sigma|=2.0054e+01  状态 conv
+  λ=0.10 中点相对残差 5.023e-05  |Sigma_mid|=2.2350e+01  P<=Ptilde 满足   端点凸组合预测 2.609e-16
+  λ=0.25 中点相对残差 1.110e-04  |Sigma_mid|=2.6950e+01  P<=Ptilde 满足   端点凸组合预测 3.229e-16
+  λ=0.50 中点相对残差 1.683e-04  |Sigma_mid|=4.0786e+01  P<=Ptilde 满足   端点凸组合预测 4.263e-16
+  λ=0.75 中点相对残差 1.519e-04  |Sigma_mid|=8.2433e+01  P<=Ptilde 满足   端点凸组合预测 5.297e-16
+  λ=0.90 中点相对残差 8.451e-05  |Sigma_mid|=2.0762e+02  P<=Ptilde 满足   端点凸组合预测 5.917e-16
+ [K4 判定] 残差 ≫ 1e-8 ⇒ 平面可行集非凸，"搬进 SDP 保持凸性"不成立。

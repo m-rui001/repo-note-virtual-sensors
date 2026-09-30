@@ -1,0 +1,115 @@
+== [S1] Crossref 六组筛查（select 含 abstract；摘要缺失则只按标题标）==
+-- reverse waterfilling sensor
+   [--c] Asymptotic Reverse Waterfilling Algorithm of NRDF for Certain Classes of Vector Gauss-Ma |  2020 | 10.36227/techrxiv.12363572.v1
+        摘要片段：In this paper, we revisit the asymptotic reverse-waterfilling characterization of the nonanticipative rate distortion function (NRDF) derived for a time-invariant multidimensional Gauss-Markov processes with mean-squared
+   [--c] Asymptotic Reverse Waterfilling Algorithm of NRDF for Certain Classes of Vector Gauss-Ma |  2020 | 10.36227/techrxiv.12363572
+        摘要片段：&lt;div&gt;In this paper, we revisit the asymptotic reverse-waterfilling characterization of the nonanticipative rate distortion&lt;/div&gt;&lt;div&gt;function (NRDF) derived for a time-invariant multidimensional Gauss-M
+   [---] Asymptotic Reverse Waterfilling Algorithm of NRDF for Certain Classes of Vector Gauss–Ma | IEEE Transactions on Automatic Con 2022 | 10.1109/tac.2021.3099444
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] K-player Bayesian waterfilling game for fading multiple access channels | 2009 3rd IEEE International Worksh 2009 | 10.1109/camsap.2009.5413309
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] Waterfilling at The Edge: Optimal Percentile Resource Allocation Via Risk-Averse Reducti | 2025 IEEE 10th International Works 2025 | 10.1109/camsap66162.2025.11423994
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Distortion Func | 2018 IEEE Conference on Decision a 2018 | 10.1109/cdc.2018.8619725
+        摘要：无（Crossref 未收录，标记只按标题）
+   [a--] Video for Design of a Reverse-Electrowetting Transducer Based Wireless Self-Powered Moti |  None | 10.1109/iscas45731.2020.9180973/video
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] Innovations approach to MMSE waterfilling based equalizers | 2006 IEEE International Symposium  None | 10.1109/iscas.2006.1692773
+        摘要：无（Crossref 未收录，标记只按标题）
+-- rate-distortion sensor design
+   [a--] Power-Rate-Distortion Analysis Of Wireless Visual Sensor Network |  2021 | 10.32920/ryerson.14643933
+        摘要片段：The emergence of low-cost and mature technologies in wireless communication, visual sensor devices, and digtial signal processing, facilitates the potential of wirelss sensor networks (WSN). Like sensor networks which re
+   [a--] Power-Rate-Distortion Analysis Of Wireless Visual Sensor Network |  2021 | 10.32920/ryerson.14643933.v1
+        摘要片段：The emergence of low-cost and mature technologies in wireless communication, visual sensor devices, and digtial signal processing, facilitates the potential of wirelss sensor networks (WSN). Like sensor networks which re
+   [ab-] DMRC: Distortion-minimizing rate control for Wireless Multimedia Sensor Networks | 2009 IEEE 6th International Confer 2009 | 10.1109/mobhoc.2009.5336954
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] Embedded system design and power-rate-distortion optimization for video encoding under e |  None | 10.32469/10355/5050
+        摘要：无（Crossref 未收录，标记只按标题）
+   [a--] Distortion sum-rate performance of successive coding strategy in gaussian wireless senso | IEEE International Conference on M None | 10.1109/mahss.2005.1542826
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] Rate Distortion Bounds on Passive Sonar Performance | Fourth IEEE Workshop on Sensor Arr None | 10.1109/sam.2006.1706211
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] A Rate Distortion Method for Waveform Design in RF Target Detection | 2006 IEEE Aerospace Conference None | 10.1109/aero.2006.1655936
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] Rate, Distortion and Complexity | Video Codec Design 2002 | 10.1002/0470847832.ch10
+        摘要：无（Crossref 未收录，标记只按标题）
+-- task-oriented sensing rate distortion
+   [---] Model-Aware Rate-Distortion Limits for Task-Oriented Source Coding | 2026 IEEE International Conference 2026 | 10.1109/icip61757.2026.11630445
+        摘要：无（Crossref 未收录，标记只按标题）
+   [a--] Rate–Distortion Limits for Task-Oriented Compression with Side Information | Entropy 2026 | 10.3390/e28060593
+        摘要片段：This paper analyzes the semantic rate–distortion problem motivated by task-oriented data compression with side information. The semantic information related to a task is not directly accessible to the encoder but implici
+   [---] Goal-oriented Semantic Communication : A Rate Distortion Perception Approach |  None | 10.70675/ea6b46c0z0931z42ffz8c11z3884a34ac58a
+        摘要片段：Communication sémantique orientée sur les objectifs : une approche basée sur théorie débit-distorsion Dans son modèle de communication fondateur, C. Shannon a délibérément exclu les aspects sémantiques et l'efficacité de
+   [---] Rate–Distortion Theory for Task-Oriented Distributed Cross-Modal Source Coding | IEEE Transactions on Communication 2026 | 10.1109/tcomm.2026.3666617
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] A Rate Distortion Approach to Goal-Oriented Communication |  2022 | 10.36227/techrxiv.19128026.v1
+        摘要片段：A variant of a robust description source coding framework motivated by goal-oriented semantic information transmission is studied here. Considering two individual distortion constraints and input and output data that tak
+   [---] A Rate Distortion Approach to Goal-Oriented Communication |  2022 | 10.36227/techrxiv.19128026
+        摘要片段：&lt;pre&gt;A variant of a robust description source coding framework motivated by goal-oriented semantic information transmission is studied here. Considering two individual distortion constraints and input and output da
+   [a--] Rate-distortion analysis for quantizing compressive sensing | Journal of Computer Applications 2013 | 10.3724/sp.j.1087.2013.00295
+        摘要：无（Crossref 未收录，标记只按标题）
+   [--c] The Role of Fidelity in Goal-Oriented Semantic Communication: A Rate Distortion Approach |  2022 | 10.36227/techrxiv.20098970
+        摘要片段：&lt;p&gt; We study a variant of a robust description source coding framework via its corresponding characterization, which is a relevant model for goal-oriented semantic information transmission. Considering two individu
+-- limited sensing linear quadratic gaussian rate distortion
+   [---] The Quadratic Gaussian Rate-Distortion Function for Source Uncorrelated Distortions | Data Compression Conference (dcc 2 2008 | 10.1109/dcc.2008.102
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] The rate-distortion function for the quadratic Gaussian CEO problem | IEEE Transactions on Information T 1998 | 10.1109/18.669162
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] Improved upper bounds to the causal quadratic rate-distortion function for Gaussian stat | 2010 IEEE International Symposium  2010 | 10.1109/isit.2010.5513282
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] A Generalization of the Rate-Distortion Function for Wyner-Ziv Coding of Noisy Sources i | Data Compression Conference None | 10.1109/dcc.2005.6
+        摘要：无（Crossref 未收录，标记只按标题）
+   [-b-] Linear-Quadratic Gaussian Optimal Control via Limited Capacity Communication Channels | Estimation and Control over Commun 2009 | 10.1007/978-0-8176-4607-3_13
+        摘要：无（Crossref 未收录，标记只按标题）
+   [-b-] Linear-quadratic-Gaussian mean field games under high rate quantization | 52nd IEEE Conference on Decision a 2013 | 10.1109/cdc.2013.6760159
+        摘要：无（Crossref 未收录，标记只按标题）
+   [---] Distortion sum-rate performance of successive coding strategy in quadratic gaussian CEO  | IEEE Transactions on Wireless Comm 2007 | 10.1109/twc.2007.05824
+        摘要：无（Crossref 未收录，标记只按标题）
+   [ab-] Linear Quadratic Gaussian Synthesis for a Heated/Cooled Rod Using Point Actuation and Po | 2022 American Control Conference ( 2022 | 10.23919/acc53348.2022.9867489
+        摘要：无（Crossref 未收录，标记只按标题）
+-- rank constrained sensing control cost information
+   [-b-] Plenary Talk: The Role of Information Theory in Communication Constrained Control System | Lecture Notes in Control and Infor None | 10.1007/11533382_19
+        摘要：无（Crossref 未收录，标记只按标题）
+   [-bc] A Rank Constrained LMI Algorithm for Decentralized State Feedback Guaranteed Cost Contro | 2007 American Control Conference 2007 | 10.1109/acc.2007.4282183
+        摘要：无（Crossref 未收录，标记只按标题）
+   [--c] Sparse Constrained Low Tensor Rank Representation Framework for Hyperspectral Unmixing | Remote Sensing 2021 | 10.3390/rs13081473
+        摘要片段：Recently, non-negative tensor factorization (NTF) as a very powerful tool has attracted the attention of researchers. It is used in the unmixing of hyperspectral images (HSI) due to its excellent expression ability witho
+   [a--] Cost constrained spectrum sensing in cognitive radio networks | 2010 44th Annual Conference on Inf 2010 | 10.1109/ciss.2010.5464978
+        摘要：无（Crossref 未收录，标记只按标题）
+   [--c] Constrained rank modulation schemes | 2013 IEEE Information Theory Works 2013 | 10.1109/itw.2013.6691309
+        摘要：无（Crossref 未收录，标记只按标题）
+   [--c] Locality Constrained Low Rank Representation and Automatic Dictionary Learning for Hyper | Remote Sensing 2022 | 10.3390/rs14061327
+        摘要片段：Hyperspectral anomaly detection (HAD) as a special target detection can automatically locate anomaly objects whose spectral information are quite different from their surroundings, without any prior information about bac
+   [--c] Rank constrained stabilization of complex networks | 2008 American Control Conference 2008 | 10.1109/acc.2008.4586887
+        摘要：无（Crossref 未收录，标记只按标题）
+   [--c] An Eigenvalue Decomposition Method for Low-rank and Non-convex Quadratically Constrained | 2022 IEEE 6th Advanced Information 2022 | 10.1109/iaeac54830.2022.9929567
+        摘要：无（Crossref 未收录，标记只按标题）
+-- sensor selection linear quadratic gaussian distortion
+   [ab-] Sensor data scheduling for linear quadratic Gaussian control with full state feedback | 2012 American Control Conference ( 2012 | 10.1109/acc.2012.6314650
+        摘要：无（Crossref 未收录，标记只按标题）
+   [ab-] Learning Based Optimal Sensor Selection for Linear Quadratic Control with Unknown Sensor | 2023 American Control Conference ( 2023 | 10.23919/acc55779.2023.10156247
+        摘要：无（Crossref 未收录，标记只按标题）
+   [-b-] Linear Quadratic Gaussian Control | Digital Control 2007 | 10.1002/9780470517109.ch13
+        摘要：无（Crossref 未收录，标记只按标题）
+   [-b-] Jump linear quadratic Gaussian problem for a class of nonhomogeneous Markov jump linear  | Optimal Control Applications and M 2016 | 10.1002/oca.2271
+        摘要：无（Crossref 未收录，标记只按标题）
+   [-b-] Solution of Linear-Quadratic-Gaussian Dynamic Games Using Variational Methods |  1985 | 10.21034/wp.291
+        摘要：无（Crossref 未收录，标记只按标题）
+   [ab-] Posture-Predictive Power Control in Body Sensor Networks Using Linear-Quadratic Gaussian | 2009 First International Conferenc 2009 | 10.1109/netcom.2009.33
+        摘要：无（Crossref 未收录，标记只按标题）
+   [-b-] Solution of Linear-Quadratic-Gaussian Dynamic Games Using Variational Methods |  1986 | 10.21034/sr.105
+        摘要：无（Crossref 未收录，标记只按标题）
+   [-b-] Ergodic problems for linear exponential quadratic Gaussian control and linear quadratic  | 52nd IEEE Conference on Decision a 2013 | 10.1109/cdc.2013.6760254
+        摘要：无（Crossref 未收录，标记只按标题）
+
+== [S2] 单取那条一直 429 的 ITW-2017（按 DOI）==
+   DOI=10.1109/itw.2017.8277966 | An upper bound to zero-delay rate distortion via Kalman filtering for vector Gaussian sources | 2017 IEEE Information Theory Workshop (ITW) 2017
+        作者：Photios A. Stavrou, Jan Ostergaard, Charalambos D. Charalambous, Milan Derpich
+        摘要：Crossref 未收录
+   DOI=10.1109/cdc.2018.8619725 | Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Distortion Function of Vect | 2018 IEEE Conference on Decision and Control 2018
+        作者：Photios A. Stavrou, Themistoklis Charalambous, Charalambos D. Charalambous, Sergey Loyka, Mikael Skoglund
+        摘要：Crossref 未收录
+
+== [判决行]（先于结果写死：成功查询数 >=5 才允许下"未见同现"的结论）==
+[G] 成功查询 6/6；去重后条目 48 条；三项同现候选 0 条
+[结论] 48 条命中里**无一项同时含 (a)(b)(c) 三个关键词族** => 仍只允许写"关键词筛查未见同现"，不许写"无人处理"（标题级标记的条目没摘要，见上表"摘要：无"）。

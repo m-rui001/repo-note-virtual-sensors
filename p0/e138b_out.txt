@@ -1,0 +1,50 @@
+== [S1][S2] Semantic Scholar 逐条（只用返回字段，不拼 URL）==
+  [U]    10.1109/ciss.2016.7460485                2016  cit=5  Vector Gaussian multi-decoder rate-distortion: Trace const
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/itw.2017.8277966                 RETRY-EXHAUSTED
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+  [OA][AX 1612.0 10.1109/tit.2017.2694015                 2016  cit=10  Vector Gaussian Rate-Distortion With Variable Side Informa
+        OA url（原样）: https://doi.org/10.1109/tit.2017.2694015
+        摘要：We consider rate-distortion with two decoders, each with distinct side information. This problem is well understood when the side information at the decoders satisfies a certain degradedness condition. We consider cases in which this degradedness condition is violated but the source and the side information consist of jointly Gaussian vectors. We provide a hierarchy of four lower bounds on the opt
+  [U]    10.1109/tit.2026.3714460                 2026  cit=0  On the Gaussian-Quadratic Rate-Distortion Function for Vec
+  [U]    10.1109/ssp.2005.1628751                 2005  cit=12  Rate distortion of stationary and nonstationary vector gau
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+  [AX 2501.12348 10.1109/isit63088.2025.11195430          2025  cit=0  Rate-Distortion-Perception Function of Bernoulli Vector So
+        摘要：In this paper, we consider the rate-distortion-perception (RDP) trade-off for the lossy compression of a Bernoulli vector source, which is a finite collection of independent binary random variables. The RDP function quantifies in a way the efficient compression of a source when we impose a distortion constraint that limits the dissimilarity between the source and the reconstruction and a perceptio
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/icip.1995.529053                 RETRY-EXHAUSTED
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1109/icip.2001.958522                 RETRY-EXHAUSTED
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+  [U]    10.1049/el.2011.1734                     2011  cit=0  Rate-distortion optimised motion vector filtering for vide
+    !! HTTPError 429 ⇒ 退避 10s
+    !! HTTPError 429 ⇒ 退避 16s
+    !! HTTPError 429 ⇒ 退避 26s
+  !! 10.1007/978-3-642-55753-8_42             RETRY-EXHAUSTED
+
+== [S2 续] 有 ArXiv id 但 S2 没给摘要的，去 arXiv abs 补摘要 ==
+
+== [S3] 三问卡（a 控制代价闭式？ b 指数随秩/维数？ c 传感矩阵为决策变量？）==
+  10.1049/el.2011.1734                     无摘要 ⇒ 维持 [U]，三问不判（**不许当已排除**）
+  10.1109/ciss.2016.7460485                无摘要 ⇒ 维持 [U]，三问不判（**不许当已排除**）
+  10.1109/isit63088.2025.11195430          a=否  b=否  c=否    
+      Rate-Distortion-Perception Function of Bernoulli Vector Sources
+  10.1109/ssp.2005.1628751                 无摘要 ⇒ 维持 [U]，三问不判（**不许当已排除**）
+  10.1109/tit.2017.2694015                 a=否  b=否  c=否    
+      Vector Gaussian Rate-Distortion With Variable Side Information
+  10.1109/tit.2026.3714460                 无摘要 ⇒ 维持 [U]，三问不判（**不许当已排除**）
+
+== [S2][S4] 汇总 ==
+  查询 10 条：S2 命中 6；有 OA url 1；有 ArXiv id 2；拿到摘要 2；仍 [U] 4
+  [COLLIDE]（a$\wedge$b 同时为是）= 0 ⇒ 0 ⇒ §86-E/§89-C 的覆盖面陈述可维持（未读者仍点名）
+  未读的必须点名：10.1049/el.2011.1734, 10.1109/ciss.2016.7460485, 10.1109/ssp.2005.1628751, 10.1109/tit.2026.3714460
+EXIT=0

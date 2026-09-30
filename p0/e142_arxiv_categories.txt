@@ -1,0 +1,3 @@
+1603.04172v3 | primary= cs.IT | cats= ['cs.IT', 'math.DS', 'math.OC']
+1912.07640v4 | primary= cs.IT | cats= ['cs.IT', 'eess.SY', 'math.OC']
+1810.00298v1 | primary= cs.IT | cats= ['cs.IT', 'eess.SY', 'math.OC']

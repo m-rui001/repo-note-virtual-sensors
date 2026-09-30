@@ -1,0 +1,16 @@
+== [Z4a] id_list 直查 ==
+  id 1701.06368 :
+    arxivid=1701.06368v3  An Upper Bound to Zero-Delay Rate Distortion via Kalman Filtering for Vector Gaussian Sources
+    作者(arXiv 顺序)=Photios A. Stavrou; Jan Ostergaard; Charalambos D. Charalambous; Milan Derpich
+    提交日=2017-01-23
+
+== [Z4b] 标题检索（CDC 2018 Stavrou 等五人）==
+  命中 0 条
+
+== [Z4c] 对账口径 ==
+  Crossref 侧（e139/e139b 已落盘）：
+    ITW 2017 = P. A. Stavrou; J. Ostergaard; C. D. Charalambous; M. Derpich（4 人）
+    CDC 2018 = P. A. Stavrou; T. Charalambous; C. D. Charalambous; S. Loyka; M. Skoglund（5 人）
+  ⇒ 只有 arXiv 侧署名与上面**逐位一致**才算双通道确认；顺序不同也要明写，不许静默取其一。
+EXIT=0
+EXIT=0

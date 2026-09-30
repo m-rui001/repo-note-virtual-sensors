@@ -1,0 +1,4 @@
+lines=1272  bytes=220806
+ctrl(no LF) = [(9, 3), (11, 1)]
+  byte 9 at offsets [93645, 93655, 93693] -> lines [303, 303, 303]
+  byte 11 at offsets [93701] -> lines [303]
