@@ -1,5 +1,5 @@
 # On Task-Restricted Virtual Sensors
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23064065.svg)](https://doi.org/10.5281/zenodo.23064066)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23064065.svg)](https://doi.org/10.5281/zenodo.23064065)
 
 Reproduction package for the JAIGP submission note:
 **"On Task-Restricted Virtual Sensors: Reproduction, Infeasibility Interval, Non-Factorisation, and the Rate-Side Ladder"**
